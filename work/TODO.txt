@@ -1,5 +1,5 @@
-WordArena
-¯¯¯¯¯¯¯¯¯
+Client
+¯¯¯¯¯¯
 [ ] FIX : Partie : Certaines arènes ne sont pas correctement centrées en hauteur
 [ ] ADD : Partie - RUNNING : Ajouter des carrés qui se remplissent pour indiquer le nombre de zones possédées
 [ ] ADD : Partie - RUNNING : Afficher les nouvelles dominations de zone au fur et à mesure de la saisie
@@ -16,3 +16,48 @@ WordArena
 	- Données des joueurs (nombre de coups/rounds, score, nom...)
 	- Mot en cours de sélection
 	- Dernier message d'information
+
+Serveur
+-------
+[ ] ADD : DB - Créer le schéma
+	- titles : Titre gagné par le joueur (thrace, provocator...)
+		- id
+		- title
+		- nb_required_stars : Nombre d'étoiles requises pour obtenir ce titre
+	- plessings : Bénédictions gagnées par le joueur
+		- id
+		- blessing
+	- player
+		- id
+		- pseudo
+		- title_id
+		- score : Nombre de points du joueur pour les ligues et le match-making
+	- player_blessings
+		- player_id
+		- blessing_id
+	- game : Une partie multi-joueurs
+		- id
+		- creation_time : Date / heure de création
+		- type_id : Type de partie (D, L, T => Duel, League, Tournament)
+		- cur_round
+		- cur_turn
+		- cur_player : Joueur dont c'est le tour
+		- first_player : Joueur ayant débuté ce round
+		- game_over : Indique si la partie est terminée		
+		- arena : JSON de l'arène au moment où la partie a été sauvegardée
+--->>>	- last_play : Dernières cellules sélectionnées, dans l'ordre, au format x1,y1,x2,y2...
+	- GamePlayers : Les joueurs participant à une partie
+		- game_id
+		- player_id
+		- order_index : Ordre de jeu du joueur (premier à jouer, le second...)
+	- GameWordsPlayed : Les mots précédemment joués, dans l'ordre
+		- game_id
+		- time
+		- word_id
+	- GameChats : Les messages échangés
+		- time
+		- message
+	- Words : Dictionnaire contenant les mots existants
+		- id
+		- word : Le mot (en majuscules)
+		- state : Indique si le mot est valide (utilisable), à valider par l'admin ou supprimé (reste dans la base jusqu'à ce qu'aucun jeu ne s'en serve)
