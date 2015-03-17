@@ -18,7 +18,7 @@ Client
 	- Dernier message d'information
 
 Serveur
--------
+¯¯¯¯¯¯¯
 [ ] ADD : DB - Créer le schéma
 	- titles : Titre gagné par le joueur (thrace, provocator...)
 		- id
@@ -45,19 +45,26 @@ Serveur
 		- first_player : Joueur ayant débuté ce round
 		- game_over : Indique si la partie est terminée		
 		- arena : JSON de l'arène au moment où la partie a été sauvegardée
---->>>	- last_play : Dernières cellules sélectionnées, dans l'ordre, au format x1,y1,x2,y2...
-	- GamePlayers : Les joueurs participant à une partie
+	- game_players : Les joueurs participant à une partie
 		- game_id
 		- player_id
-		- order_index : Ordre de jeu du joueur (premier à jouer, le second...)
-	- GameWordsPlayed : Les mots précédemment joués, dans l'ordre
+		- place : Ordre de jeu du joueur (premier à jouer, le second...)
+	- game_words_played : Les mots précédemment joués, dans l'ordre
 		- game_id
 		- time
+		- player_id
 		- word_id
-	- GameChats : Les messages échangés
+	- game_last_play : Dernières cellules sélectionnées, dans l'ordre. Si nécessaire, on peut déduire le joueur en fonction de l'owner des cellules
+		- game_id
+		- place : Ordre de sélection de la lettre
+		- cell_x : Abscisse de la cellule jouée
+		- cell_y : Ordonnée de la cellule jouée
+	- game_chats : Les messages échangés
+		- game_id
 		- time
 		- message
-	- Words : Dictionnaire contenant les mots existants
+	- words : Dictionnaire contenant les mots existants
 		- id
 		- word : Le mot (en majuscules)
-		- state : Indique si le mot est valide (utilisable), à valider par l'admin ou supprimé (reste dans la base jusqu'à ce qu'aucun jeu ne s'en serve)
+		- status : Indique si le mot est valide (et donc utilisable), en attente de validation par l'admin ou supprimé (reste dans la base jusqu'à ce qu'aucun jeu ne s'en serve) (V, P, R => valid, pending, removed)
+		- version : Indique la version dans laquelle a eut lieu la dernière modification de status. On peut ainsi facilement stocker la dernière version de la base et regarder, à chaque démarrage, si de nouveaux mots ont été validés
