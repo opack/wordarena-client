@@ -78,7 +78,7 @@ public class MatchManager implements GameCinematicListener{
 			ui.setInfo(Assets.i18nBundle.format("ui.arena.wordPlayed", player.name, word));
 			
 			// Déclenche les effets sur les cellules
-			CellEffectsManager.getInstance().triggerCellEffects(selectedCells, arena.getData());
+			CellEffectsManager.getInstance().triggerCellEffects(player, selectedCells, arena.getData());
 			
 			// Toutes les cellules passent sous la domination du joueur
 			arena.setOwner(selectedCells, player);

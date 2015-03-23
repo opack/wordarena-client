@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.slamdunk.wordarena.actors.ArenaCell;
 import com.slamdunk.wordarena.data.ArenaData;
+import com.slamdunk.wordarena.data.Player;
 import com.slamdunk.wordarena.enums.CellTypes;
 
 /**
@@ -23,7 +24,7 @@ public class BreakNeighborGlassEffect implements CellEffect {
 	}
 	
 	@Override
-	public void applyEffect(ArenaCell cell, ArenaData arena) {
+	public void applyEffect(Player player, ArenaCell cell, ArenaData arena) {
 		// Vide la liste des voisins
 		tmpNeighbors.clear();
 		arena.getNeighbors4(cell, tmpNeighbors);
@@ -33,7 +34,7 @@ public class BreakNeighborGlassEffect implements CellEffect {
 			if (neighbor.getData().type != CellTypes.G) {
 				continue;
 			}
-			// TODO Petite explosion de verre
+			// TODO Animation et son d'explosion de verre (ou de glace ?)
 			
 			// La cellule touchée change de type et devient une cellule normale
 			neighbor.getData().type = CellTypes.L;

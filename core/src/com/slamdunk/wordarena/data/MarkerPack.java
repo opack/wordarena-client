@@ -1,7 +1,7 @@
 package com.slamdunk.wordarena.data;
 
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.slamdunk.toolkit.lang.DoubleEntryArray;
 import com.slamdunk.wordarena.enums.CellStates;
 
@@ -18,7 +18,7 @@ public class MarkerPack {
 	/**
 	 * Images des cellules en fonction d'un état de cellule et de sélection
 	 */
-	public DoubleEntryArray<CellStates, Boolean/*selected ?*/, TextureRegionDrawable> cell;
+	public DoubleEntryArray<CellStates, Boolean/*selected ?*/, TextureRegion> cell;
 	
 	/**
 	 * Style du libellé à appliquer pour les écritures liées au joueur qui
@@ -27,6 +27,6 @@ public class MarkerPack {
 	public LabelStyle labelStyle;
 	
 	public MarkerPack() {
-		cell = new DoubleEntryArray<CellStates, Boolean, TextureRegionDrawable>();
+		cell = new DoubleEntryArray<CellStates, Boolean, TextureRegion>();
 	}
 }

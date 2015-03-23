@@ -168,7 +168,7 @@ public class Assets {
 		final String regionName = formatMarkerPackCellRegionName(pack.name, state, selected);
 		final TextureRegion region = atlas.findRegion(regionName);
 		fixBleeding(region);
-		pack.cell.put(state, selected, new TextureRegionDrawable(region));
+		pack.cell.put(state, selected, region);
 	}
 	
 	private static void loadCellTypes() {
@@ -241,7 +241,7 @@ public class Assets {
 	 * @param data
 	 * @return
 	 */
-	public static TextureRegionDrawable getCellOwnerImage(CellData data) {
+	public static TextureRegion getCellOwnerImage(CellData data) {
 		return markerPacks.get(data.owner.markerPack).cell.get(data.state, data.selected);
 	}
 	

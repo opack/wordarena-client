@@ -26,7 +26,7 @@ public class BombExplosionEffect implements CellEffect {
 	}
 
 	@Override
-	public void applyEffect(ArenaCell cell, ArenaData arena) {
+	public void applyEffect(Player player, ArenaCell cell, ArenaData arena) {
 		// Vide la liste des voisins
 		tmpNeighbors.clear();
 		arena.getNeighbors4(cell, tmpNeighbors);
@@ -44,7 +44,7 @@ public class BombExplosionEffect implements CellEffect {
 			|| neighborData.state != CellStates.OWNED) {
 				continue;
 			}
-			// TODO Petite explosion
+			// TODO Animation et son d'explosion
 			
 			// La cellule perd son owner
 			neighborData.owner = Player.NEUTRAL;

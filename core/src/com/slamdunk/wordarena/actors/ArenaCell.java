@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.slamdunk.toolkit.ui.GroupEx;
+import com.slamdunk.toolkit.world.SlamActor;
 import com.slamdunk.wordarena.Assets;
 import com.slamdunk.wordarena.data.CellData;
 import com.slamdunk.wordarena.data.Player;
@@ -16,12 +17,15 @@ import com.slamdunk.wordarena.data.Player;
  * mais aussi 4 bords qui indique à quelle zone appartient la cellule.
  */
 public class ArenaCell extends GroupEx {
+	private final static int WIDTH = 48;
+	private final static int HEIGHT = 48;
+	
 	/**
 	 * Le modèle de cette cellule
 	 */
 	private final CellData data;
 	
-	private Image ownerImage;
+	private SlamActor ownerActor;
 	
 	private Label letter;
 	
@@ -32,20 +36,23 @@ public class ArenaCell extends GroupEx {
 		data = new CellData();
 		
 		// Crée les acteurs dans l'ordre de superposition
-		ownerImage = new Image(Assets.getCellOwnerImage(data));
-		ownerImage.setTouchable(Touchable.disabled);
-		addActor(ownerImage);
+		ownerActor = new SlamActor(WIDTH, HEIGHT, false);
+		ownerActor.createDrawers(true, true, true);
+		ownerActor.setTouchable(Touchable.disabled);
+		ownerActor.getTextureDrawer().setTextureRegion(Assets.getCellOwnerImage(data));
+		ownerActor.getTextureDrawer().setActive(true);
+		addActor(ownerActor);
 		
 		cellTypeImage = new Image(Assets.getCellTypeImage(data));
 		cellTypeImage.setTouchable(Touchable.disabled);
-		cellTypeImage.setBounds(0, 0, ownerImage.getWidth(), ownerImage.getHeight());
+		cellTypeImage.setBounds(0, 0, ownerActor.getWidth(), ownerActor.getHeight());
 		addActor(cellTypeImage);
 		
 		letter = new Label("", skin);
 		letter.setAlignment(Align.center, Align.center);
 		letter.setTouchable(Touchable.disabled);
-		letter.setWidth(ownerImage.getWidth());
-		letter.setPosition(ownerImage.getWidth() / 2, ownerImage.getHeight() / 2, Align.center);
+		letter.setWidth(ownerActor.getWidth());
+		letter.setPosition(ownerActor.getWidth() / 2, ownerActor.getHeight() / 2, Align.center);
 		addActor(letter);
 	}
 	
@@ -78,7 +85,7 @@ public class ArenaCell extends GroupEx {
 	}
 	
 	public void updateDisplay() {
-		ownerImage.setDrawable(Assets.getCellOwnerImage(data));
+		ownerActor.getTextureDrawer().setTextureRegion(Assets.getCellOwnerImage(data));
 		letter.setText(data.letter.label);
 		letter.setStyle(Assets.skin.get("power-" + data.power, LabelStyle.class));
 		cellTypeImage.setDrawable(Assets.getCellTypeImage(data));

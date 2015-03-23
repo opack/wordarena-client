@@ -4567,16 +4567,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.959798"
-     inkscape:cx="1243.6581"
-     inkscape:cy="953.04106"
+     inkscape:zoom="0.9899495"
+     inkscape:cx="750.81541"
+     inkscape:cy="1183.2868"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="961"
-     inkscape:window-x="1432"
-     inkscape:window-y="-8"
+     inkscape:window-width="1440"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="116"
      inkscape:window-maximized="1"
      showguides="false"
      inkscape:guide-bbox="true" />
@@ -4599,7 +4599,7 @@
      transform="translate(0,-252.36218)">
     <g
        id="g3773"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\edge_neutral.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\edge_neutral.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -4620,7 +4620,7 @@
     <g
        transform="translate(0.03049971,5.4295673)"
        id="g3773-7"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\edge_player1.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\edge_player1.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -4641,7 +4641,7 @@
     <g
        transform="translate(0.00868731,10.931633)"
        id="g3773-9"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\edge_player2.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\edge_player2.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -4662,7 +4662,7 @@
     <g
        transform="translate(0.14261588,16.378062)"
        id="g3773-2"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\edge_player3.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\edge_player3.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -4683,7 +4683,7 @@
     <g
        transform="translate(0.05333017,21.735205)"
        id="g3773-1"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\edge_player4.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\edge_player4.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -4704,7 +4704,7 @@
     <g
        id="g3120"
        transform="translate(-45.332682,349.11202)"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -4746,7 +4746,7 @@
     <g
        id="g3113"
        transform="translate(-45.344775,414.72826)"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -4788,7 +4788,7 @@
     <g
        id="g3106-1"
        transform="translate(-45.16321,307.8579)"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -4834,7 +4834,7 @@
        height="29.285713"
        x="75.083855"
        y="361.18356"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -4844,7 +4844,7 @@
        height="29.285713"
        x="123.08385"
        y="361.18356"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -4854,7 +4854,7 @@
        height="29.285713"
        x="171.08385"
        y="361.18356"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -4864,7 +4864,7 @@
        height="29.285713"
        x="219.08386"
        y="361.18356"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -4874,18 +4874,18 @@
        height="29.285713"
        x="267.08386"
        y="361.18356"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <g
        id="g3479"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells1.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells1.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <g
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
          transform="translate(-1.4119327,-22.549976)"
          id="g3106">
         <rect
@@ -4927,13 +4927,13 @@
       <g
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
          transform="translate(-2.3520166,83.533891)"
          id="g3249">
         <g
            id="g3106-1-1"
            transform="translate(0.94008384,-58.083771)"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90"
            style="fill:#ffe680;fill-opacity:1">
@@ -4980,7 +4980,7 @@
            height="29.285713"
            x="121.18715"
            y="-4.7580929"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
         <rect
@@ -4990,7 +4990,7 @@
            height="29.285713"
            x="169.18715"
            y="-4.7580929"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
         <rect
@@ -5000,7 +5000,7 @@
            height="29.285713"
            x="217.18715"
            y="-4.7580929"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
         <rect
@@ -5010,7 +5010,7 @@
            height="29.285713"
            x="265.18716"
            y="-4.7580929"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
         <rect
@@ -5020,26 +5020,26 @@
            height="29.285713"
            x="313.18716"
            y="-4.7580929"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
       </g>
     </g>
     <g
        id="g3513"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells2.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells2.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <g
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
          transform="translate(251.14973,35.356544)"
          id="g3249-9">
         <g
            id="g3106-1-1-5"
            transform="translate(0.94008384,-58.083771)"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90"
            style="fill:#ffe680;fill-opacity:1">
@@ -5086,7 +5086,7 @@
            height="29.285713"
            x="121.18715"
            y="-4.7580929"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
         <rect
@@ -5096,7 +5096,7 @@
            height="29.285713"
            x="169.18715"
            y="-4.7580929"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
         <rect
@@ -5106,7 +5106,7 @@
            height="29.285713"
            x="217.18715"
            y="-4.7580929"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
         <rect
@@ -5116,7 +5116,7 @@
            height="29.285713"
            x="265.18716"
            y="-4.7580929"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
         <rect
@@ -5126,20 +5126,20 @@
            height="29.285713"
            x="313.18716"
            y="-4.7580929"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
       </g>
       <g
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
          transform="translate(251.14973,83.356644)"
          id="g3249-8">
         <g
            id="g3106-1-1-7"
            transform="translate(0.94008384,-58.083771)"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90"
            style="fill:#ffe680;fill-opacity:1">
@@ -5186,7 +5186,7 @@
            height="29.285713"
            x="121.18715"
            y="-4.7580929"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
         <rect
@@ -5196,7 +5196,7 @@
            height="29.285713"
            x="169.18715"
            y="-4.7580929"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
         <rect
@@ -5206,7 +5206,7 @@
            height="29.285713"
            x="217.18715"
            y="-4.7580929"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
         <rect
@@ -5216,7 +5216,7 @@
            height="29.285713"
            x="265.18716"
            y="-4.7580929"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
         <rect
@@ -5226,7 +5226,7 @@
            height="29.285713"
            x="313.18716"
            y="-4.7580929"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
       </g>
@@ -5234,13 +5234,13 @@
     <g
        id="g3499"
        transform="translate(16.162441,-4.0406101)"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells3.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells3.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <g
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
          transform="translate(-16.737535,112.37054)"
          id="g3106-6">
         <rect
@@ -5283,7 +5283,7 @@
          style="fill:#ffe680;fill-opacity:1"
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\cells.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\cells.png"
          transform="translate(-16.737535,160.37064)"
          id="g3106-8">
         <rect
@@ -5326,7 +5326,7 @@
     <g
        id="g3097"
        transform="matrix(1,0,0,0.33333333,4.310838,35.631727)"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\edge_neutral.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\edge_neutral.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
        style="fill:#ac9d93;fill-opacity:1;stroke:#ac9d93;stroke-width:1.73205078;stroke-opacity:1">
@@ -5341,7 +5341,7 @@
     <g
        transform="matrix(1,0,0,0.33333333,4.184569,41.424875)"
        id="g3097-7"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\edge_player1.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\edge_player1.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
        style="fill:#2a7fff;fill-opacity:1;stroke:#2a7fff;stroke-width:1.73205078;stroke-opacity:1">
@@ -5356,7 +5356,7 @@
     <g
        transform="matrix(1,0,0,0.33333333,4.184569,47.106983)"
        id="g3097-9"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\edge_player2.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\edge_player2.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
        style="fill:#ff6600;fill-opacity:1;stroke:#ff6600;stroke-width:1.73205078;stroke-opacity:1">
@@ -5371,7 +5371,7 @@
     <g
        transform="matrix(1,0,0,0.33333333,4.184569,52.284014)"
        id="g3097-2"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\edge_player3.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\edge_player3.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
        style="fill:#5aa02c;fill-opacity:1;stroke:#5aa02c;stroke-width:1.73205078;stroke-opacity:1">
@@ -5386,7 +5386,7 @@
     <g
        transform="matrix(1,0,0,0.33333333,4.184569,57.587315)"
        id="g3097-1"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\edge_player4.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\edge_player4.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
        style="fill:#ab37c8;fill-opacity:1;stroke:#ab37c8;stroke-width:1.73205078;stroke-opacity:1">
@@ -5441,7 +5441,7 @@
            height="44"
            x="375.84744"
            y="156.33908"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_letter_neutral.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_letter_neutral.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
         <rect
@@ -5451,7 +5451,7 @@
            height="48"
            x="421.84744"
            y="154.33908"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_letter_player1.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_letter_player1.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
         <rect
@@ -5461,7 +5461,7 @@
            height="48"
            x="469.84741"
            y="154.33908"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_letter_player2.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_letter_player2.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
         <rect
@@ -5471,7 +5471,7 @@
            height="48"
            x="517.84735"
            y="154.33908"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_letter_player3.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_letter_player3.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
         <rect
@@ -5481,7 +5481,7 @@
            height="48"
            x="565.84735"
            y="154.33908"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_letter_player4.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_letter_player4.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
       </g>
@@ -5494,7 +5494,7 @@
            height="48"
            x="372.42911"
            y="202.33917"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_letter_selected.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_letter_selected.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90" />
         <rect
@@ -5564,7 +5564,7 @@
          style="font-size:32px">MOT_EN_COURS</tspan></text>
     <g
        id="g3989"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_cancelword_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_cancelword_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -5592,7 +5592,7 @@
     </g>
     <g
        id="g3994"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_validateword_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_validateword_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -5622,7 +5622,7 @@
     </g>
     <g
        id="g5462"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_validateword_pressed.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_validateword_pressed.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -5652,7 +5652,7 @@
     </g>
     <g
        id="g5457"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_cancelword_pressed.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_cancelword_pressed.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -5687,7 +5687,7 @@
       <g
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_validateword_pressed.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_validateword_pressed.png"
          id="g5462-0"
          transform="translate(77.781745,-5.5558328)">
         <path
@@ -5733,7 +5733,7 @@
        y="505.24005"
        ry="7.729167"
        rx="7.729167"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_lambda_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_lambda_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <g
@@ -5776,7 +5776,7 @@
        height="44"
        x="439.63971"
        y="279.81885"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_letter_border.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_letter_border.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -5786,14 +5786,14 @@
        height="475"
        x="163.07648"
        y="-1595"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\bkgnd_home.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\bkgnd_home.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
        transform="matrix(0,1,-1,0,0,0)" />
     <g
        id="g3996"
        transform="translate(4.2702121,-211.71429)"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\bkgnd_home.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\bkgnd_home.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <flowRoot
@@ -5829,7 +5829,7 @@
        width="298.71429"
        transform="matrix(1,0,-0.26728731,0.96361688,0,0)"
        style="opacity:0.25"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\bkgnd_home.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\bkgnd_home.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -5841,12 +5841,12 @@
        y="505.63361"
        ry="7.729167"
        rx="7.729167"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_lambda_pressed.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_lambda_pressed.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <g
        id="g4099"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_pause_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_pause_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
        transform="translate(0,-2.8571429)">
@@ -5859,7 +5859,7 @@
         <g
            transform="translate(77.781745,-5.5558328)"
            id="g5462-0-5"
-           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_validateword_pressed.png"
+           inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_validateword_pressed.png"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90">
           <path
@@ -5909,7 +5909,7 @@
     </g>
     <g
        id="g4092"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_pause_pressed.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_pause_pressed.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <g
@@ -5958,7 +5958,7 @@
     </g>
     <g
        id="g4426"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_centercamera_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_centercamera_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
        transform="translate(-0.71428572,-10)">
@@ -6002,7 +6002,7 @@
     </g>
     <g
        id="g4420"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_centercamera_pressed.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_centercamera_pressed.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -6047,7 +6047,7 @@
        style="fill:#ffffff;fill-opacity:1;stroke:#ff6600;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        d="M 2.5312452,827.58093 2.5312452,918.58093 C 160.86458,918.58093 319.19791,918.58093 477.53124,918.58093 L 477.53124,827.58093 C 319.19791,827.58093 160.86458,827.58093 2.5312452,827.58093 z"
        id="rect3214-1"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\image_topmask.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\image_topmask.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
        inkscape:connector-curvature="0"
@@ -6059,7 +6059,7 @@
        height="48"
        x="711.80249"
        y="43.184139"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\markers\marker_blue_owned_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_blue_owned_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6069,7 +6069,7 @@
        height="48"
        x="711.80249"
        y="139.18434"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\markers\marker_blue_controled_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_blue_controled_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6079,7 +6079,7 @@
        height="48"
        x="711.80249"
        y="91.184235"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_letter_player1.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_letter_player1.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6096,7 +6096,7 @@
        height="48"
        x="764.80243"
        y="43.184139"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\markers\marker_orange_owned_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_orange_owned_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6106,7 +6106,7 @@
        height="48"
        x="764.80243"
        y="139.18434"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\markers\marker_orange_controled_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_orange_controled_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6116,7 +6116,7 @@
        height="48"
        x="764.80243"
        y="91.184235"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_letter_player2.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_letter_player2.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6133,7 +6133,7 @@
        height="48"
        x="817.80243"
        y="43.184139"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\markers\marker_green_owned_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_green_owned_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6143,7 +6143,7 @@
        height="48"
        x="817.80243"
        y="139.18434"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\markers\marker_green_controled_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_green_controled_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6153,7 +6153,7 @@
        height="48"
        x="817.80243"
        y="91.184235"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_letter_player3.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_letter_player3.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6170,7 +6170,7 @@
        height="48"
        x="870.80243"
        y="43.184139"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\markers\marker_purple_owned_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_purple_owned_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6180,7 +6180,7 @@
        height="48"
        x="870.80243"
        y="139.18434"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\markers\marker_purple_controled_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_purple_controled_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6190,7 +6190,7 @@
        height="48"
        x="870.80243"
        y="91.184235"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\button_letter_player4.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\button_letter_player4.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6205,9 +6205,9 @@
        id="rect2985-60-15-6-5-1"
        width="48"
        height="48"
-       x="658.80255"
-       y="91.504372"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\markers\marker_neutral_owned_selected.png"
+       x="556.83771"
+       y="-186.85132"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_neutral_owned_selected.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6215,15 +6215,15 @@
        id="rect2985-60-15-6-5-1-7"
        width="48"
        height="48"
-       x="658.80255"
-       y="187.50458"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\markers\marker_neutral_zone_selected.png"
+       x="613.40625"
+       y="-186.85132"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_neutral_controled_selected.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <g
        id="g3097-3"
        transform="matrix(6.8571429,0,0,1.3333333,330.6393,159.52401)"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\wall_h.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\wall_h.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
        style="fill:#aa0000;fill-opacity:1;stroke:none;stroke-width:0.35787138;stroke-opacity:1">
@@ -6238,13 +6238,13 @@
     <g
        id="g4598"
        transform="translate(0,0.71428572)"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge_h.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge_h.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="712.26404"
          height="2"
@@ -6254,7 +6254,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="720.26404"
          height="2"
@@ -6264,7 +6264,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="728.26404"
          height="2"
@@ -6274,7 +6274,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="736.26404"
          height="2"
@@ -6284,7 +6284,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="744.26404"
          height="2"
@@ -6294,7 +6294,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="752.26404"
          height="2"
@@ -6305,13 +6305,13 @@
     <g
        transform="translate(-0.01403671,4.7415951)"
        id="g4598-5"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge_h_highlighted.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge_h_highlighted.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="712.26404"
          height="2"
@@ -6321,7 +6321,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="720.26404"
          height="2"
@@ -6331,7 +6331,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="728.26404"
          height="2"
@@ -6341,7 +6341,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="736.26404"
          height="2"
@@ -6351,7 +6351,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="744.26404"
          height="2"
@@ -6361,7 +6361,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="752.26404"
          height="2"
@@ -6372,13 +6372,13 @@
     <g
        id="g5007"
        transform="translate(0.35714286,0.62500001)"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge2_h.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge2_h.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="711.69647"
          height="2"
@@ -6388,7 +6388,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="713.69647"
          height="2"
@@ -6398,7 +6398,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="715.69647"
          height="2"
@@ -6408,7 +6408,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="717.69647"
          height="2"
@@ -6418,7 +6418,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="719.69647"
          height="2"
@@ -6428,7 +6428,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="721.69647"
          height="2"
@@ -6438,7 +6438,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="723.69647"
          height="2"
@@ -6448,7 +6448,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="725.69647"
          height="2"
@@ -6458,7 +6458,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="727.69647"
          height="2"
@@ -6468,7 +6468,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="729.69647"
          height="2"
@@ -6478,7 +6478,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="731.69647"
          height="2"
@@ -6488,7 +6488,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="733.69647"
          height="2"
@@ -6498,7 +6498,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="735.69647"
          height="2"
@@ -6508,7 +6508,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="737.69647"
          height="2"
@@ -6518,7 +6518,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="739.69647"
          height="2"
@@ -6528,7 +6528,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="741.69647"
          height="2"
@@ -6538,7 +6538,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="743.69647"
          height="2"
@@ -6548,7 +6548,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="745.69647"
          height="2"
@@ -6558,7 +6558,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="747.69647"
          height="2"
@@ -6568,7 +6568,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="749.69647"
          height="2"
@@ -6578,7 +6578,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="751.69647"
          height="2"
@@ -6588,7 +6588,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="753.69647"
          height="2"
@@ -6598,7 +6598,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="755.69647"
          height="2"
@@ -6608,7 +6608,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="757.69647"
          height="2"
@@ -6619,13 +6619,13 @@
     <g
        id="g5007-8"
        transform="translate(0.37495756,4.0427033)"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge2_h_highlighted.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge2_h_highlighted.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="711.69647"
          height="2"
@@ -6635,7 +6635,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="713.69647"
          height="2"
@@ -6645,7 +6645,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="715.69647"
          height="2"
@@ -6655,7 +6655,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="717.69647"
          height="2"
@@ -6665,7 +6665,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="719.69647"
          height="2"
@@ -6675,7 +6675,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="721.69647"
          height="2"
@@ -6685,7 +6685,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="723.69647"
          height="2"
@@ -6695,7 +6695,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="725.69647"
          height="2"
@@ -6705,7 +6705,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="727.69647"
          height="2"
@@ -6715,7 +6715,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="729.69647"
          height="2"
@@ -6725,7 +6725,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="731.69647"
          height="2"
@@ -6735,7 +6735,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="733.69647"
          height="2"
@@ -6745,7 +6745,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="735.69647"
          height="2"
@@ -6755,7 +6755,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="737.69647"
          height="2"
@@ -6765,7 +6765,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="739.69647"
          height="2"
@@ -6775,7 +6775,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="741.69647"
          height="2"
@@ -6785,7 +6785,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="743.69647"
          height="2"
@@ -6795,7 +6795,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="745.69647"
          height="2"
@@ -6805,7 +6805,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="747.69647"
          height="2"
@@ -6815,7 +6815,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="749.69647"
          height="2"
@@ -6825,7 +6825,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="751.69647"
          height="2"
@@ -6835,7 +6835,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="753.69647"
          height="2"
@@ -6845,7 +6845,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="755.69647"
          height="2"
@@ -6855,7 +6855,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="757.69647"
          height="2"
@@ -6866,13 +6866,13 @@
     <g
        id="g4598-7"
        transform="matrix(0,-1,1,0,518.46677,1004.3899)"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge_v.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge_v.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="712.26404"
          height="2"
@@ -6882,7 +6882,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="720.26404"
          height="2"
@@ -6892,7 +6892,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="728.26404"
          height="2"
@@ -6902,7 +6902,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="736.26404"
          height="2"
@@ -6912,7 +6912,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="744.26404"
          height="2"
@@ -6922,7 +6922,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="752.26404"
          height="2"
@@ -6933,13 +6933,13 @@
     <g
        transform="matrix(0,-1,1,0,521.84559,1004.5685)"
        id="g4598-5-9"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge_v_highlighted.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge_v_highlighted.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="712.26404"
          height="2"
@@ -6949,7 +6949,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="720.26404"
          height="2"
@@ -6959,7 +6959,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="728.26404"
          height="2"
@@ -6969,7 +6969,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="736.26404"
          height="2"
@@ -6979,7 +6979,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="744.26404"
          height="2"
@@ -6989,7 +6989,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="247.95987"
          x="752.26404"
          height="2"
@@ -7000,13 +7000,13 @@
     <g
        id="g5007-4"
        transform="matrix(0,-1,1,0,516.84318,1004.0009)"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge2_v.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge2_v.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="711.69647"
          height="2"
@@ -7016,7 +7016,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="713.69647"
          height="2"
@@ -7026,7 +7026,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="715.69647"
          height="2"
@@ -7036,7 +7036,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="717.69647"
          height="2"
@@ -7046,7 +7046,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="719.69647"
          height="2"
@@ -7056,7 +7056,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="721.69647"
          height="2"
@@ -7066,7 +7066,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="723.69647"
          height="2"
@@ -7076,7 +7076,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="725.69647"
          height="2"
@@ -7086,7 +7086,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="727.69647"
          height="2"
@@ -7096,7 +7096,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="729.69647"
          height="2"
@@ -7106,7 +7106,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="731.69647"
          height="2"
@@ -7116,7 +7116,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="733.69647"
          height="2"
@@ -7126,7 +7126,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="735.69647"
          height="2"
@@ -7136,7 +7136,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="737.69647"
          height="2"
@@ -7146,7 +7146,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="739.69647"
          height="2"
@@ -7156,7 +7156,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="741.69647"
          height="2"
@@ -7166,7 +7166,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="743.69647"
          height="2"
@@ -7176,7 +7176,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="745.69647"
          height="2"
@@ -7186,7 +7186,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="747.69647"
          height="2"
@@ -7196,7 +7196,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="749.69647"
          height="2"
@@ -7206,7 +7206,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="751.69647"
          height="2"
@@ -7216,7 +7216,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="753.69647"
          height="2"
@@ -7226,7 +7226,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="755.69647"
          height="2"
@@ -7236,7 +7236,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="757.69647"
          height="2"
@@ -7247,13 +7247,13 @@
     <g
        id="g5007-8-1"
        transform="matrix(0,-1,1,0,520.78956,1004.0009)"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge2_v_highlighted.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge2_v_highlighted.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="711.69647"
          height="2"
@@ -7263,7 +7263,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="713.69647"
          height="2"
@@ -7273,7 +7273,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="715.69647"
          height="2"
@@ -7283,7 +7283,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="717.69647"
          height="2"
@@ -7293,7 +7293,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="719.69647"
          height="2"
@@ -7303,7 +7303,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="721.69647"
          height="2"
@@ -7313,7 +7313,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="723.69647"
          height="2"
@@ -7323,7 +7323,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="725.69647"
          height="2"
@@ -7333,7 +7333,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="727.69647"
          height="2"
@@ -7343,7 +7343,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="729.69647"
          height="2"
@@ -7353,7 +7353,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="731.69647"
          height="2"
@@ -7363,7 +7363,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="733.69647"
          height="2"
@@ -7373,7 +7373,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="735.69647"
          height="2"
@@ -7383,7 +7383,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="737.69647"
          height="2"
@@ -7393,7 +7393,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="739.69647"
          height="2"
@@ -7403,7 +7403,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="741.69647"
          height="2"
@@ -7413,7 +7413,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="743.69647"
          height="2"
@@ -7423,7 +7423,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="745.69647"
          height="2"
@@ -7433,7 +7433,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="747.69647"
          height="2"
@@ -7443,7 +7443,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="749.69647"
          height="2"
@@ -7453,7 +7453,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="751.69647"
          height="2"
@@ -7463,7 +7463,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="753.69647"
          height="2"
@@ -7473,7 +7473,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="755.69647"
          height="2"
@@ -7483,7 +7483,7 @@
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\zone_edge.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\zone_edge.png"
          y="256.87305"
          x="757.69647"
          height="2"
@@ -7494,7 +7494,7 @@
     <g
        id="g3097-3-0"
        transform="matrix(0,6.8571429,-1.3333333,0,868.82401,-136.40332)"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\misc\wall_v.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\misc\wall_v.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
        style="fill:#aa0000;fill-opacity:1;stroke:none;stroke-width:0.35787138;stroke-opacity:1">
@@ -7511,19 +7511,19 @@
        id="rect2985-60-1-6-6-6"
        width="47.999966"
        height="48"
-       x="658.80255"
-       y="43.504272"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\markers\marker_neutral_owned_normal.png"
+       x="556.83771"
+       y="-241.39957"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_neutral_owned_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
-       style="fill:#c8c8c8;fill-opacity:0.32941177;stroke:none"
+       style="fill:#c8c8c8;fill-opacity:0.32941176;stroke:none"
        id="rect2985-60-1-6-6-5"
        width="47.999966"
        height="48"
-       x="658.80255"
-       y="139.50447"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\markers\marker_neutral_controled_normal.png"
+       x="613.40625"
+       y="-241.39957"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_neutral_controled_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -7533,7 +7533,7 @@
        height="48"
        x="940.19073"
        y="40.799278"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\cell_types\type_L_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\cell_types\type_L_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -7543,7 +7543,7 @@
        height="48"
        x="940.19073"
        y="89.799377"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\cell_types\type_L_selected.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\cell_types\type_L_selected.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <g
@@ -8096,13 +8096,13 @@
     <g
        id="g11635"
        transform="matrix(1,0,0,0.99980575,19.263631,103.72534)"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\cell_types\type_G_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\cell_types\type_G_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\cell_types\type_G_normal.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\cell_types\type_G_normal.png"
          y="-65.847656"
          x="983.58081"
          height="48"
@@ -8289,13 +8289,13 @@
     <g
        id="g11635-7"
        transform="matrix(1,0,0,0.99980575,16.704921,157.06351)"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\cell_types\type_G_selected.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\cell_types\type_G_selected.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\cell_types\type_G_normal.png"
+         inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\cell_types\type_G_normal.png"
          y="-65.847656"
          x="983.58081"
          height="48"
@@ -8340,13 +8340,13 @@
        height="48"
        x="1064.2144"
        y="39.433609"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\cell_types\type_B_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\cell_types\type_B_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <g
        id="g11862"
        transform="matrix(0.70643043,0.70778249,-0.70778249,0.70643043,367.88642,-751.19453)"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\cell_types\type_B_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\cell_types\type_B_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -8383,13 +8383,13 @@
        height="48"
        x="1063.9343"
        y="89.930466"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\cell_types\type_B_selected.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\cell_types\type_B_selected.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <g
        id="g11862-4"
        transform="matrix(0.70643043,0.70778249,-0.70778249,0.70643043,367.60637,-700.69767)"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\cell_types\type_B_selected.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\cell_types\type_B_selected.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -8453,7 +8453,7 @@
        height="48"
        x="1132.7858"
        y="39.219276"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\cell_types\type_V_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\cell_types\type_V_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8463,7 +8463,7 @@
        height="48"
        x="1132.7858"
        y="88.219368"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\cell_types\type_V_selected.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\cell_types\type_V_selected.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <path
@@ -8556,7 +8556,7 @@
        height="48"
        x="1200.2856"
        y="39.790752"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\cell_types\type_S_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\cell_types\type_S_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8566,7 +8566,7 @@
        height="48"
        x="1272.4286"
        y="34.790752"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\cell_types\type_J_normal.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\cell_types\type_J_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <path
@@ -8594,7 +8594,7 @@
        height="48"
        x="1200.6428"
        y="90.147896"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\cell_types\type_S_selected.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\cell_types\type_S_selected.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8604,7 +8604,7 @@
        height="48"
        x="1272.0714"
        y="88.005035"
-       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\work\img_export\cell_types\type_J_selected.png"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\cell_types\type_J_selected.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <g
@@ -8682,5 +8682,181 @@
          id="path12003-5-0"
          style="opacity:1;fill:none;fill-opacity:1;stroke:#494949;stroke-width:2.31294823;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.99999994;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5601"
+       width="312.78955"
+       height="331.42856"
+       x="480"
+       y="-330.49493" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="506.96973"
+       y="-294.17114"
+       id="text5603"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5605"
+         x="506.96973"
+         y="-294.17114"
+         style="font-size:25px">Neutral marker-pack</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="510.12704"
+       y="-198.20667"
+       id="text5607"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5609"
+         x="510.12704"
+         y="-198.20667" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="559.24042"
+       y="-253.76505"
+       id="text5611"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5613"
+         x="559.24042"
+         y="-253.76505">Owned</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="607.203"
+       y="-253.76505"
+       id="text5611-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5613-5"
+         x="607.203"
+         y="-253.76505">Controled</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="500.74625"
+       y="-212.73953"
+       id="text5611-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5613-7"
+         x="500.74625"
+         y="-212.73953">Normal</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="491.75577"
+       y="-158.19128"
+       id="text5611-5-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5613-7-5"
+         x="491.75577"
+         y="-158.19128">Selected</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="484.85269"
+       y="-83.561829"
+       id="text5611-5-1-2"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="484.85269"
+         y="-83.561829"
+         id="tspan5682">Lost anim</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="481.89859"
+       y="-28.003441"
+       id="text5611-5-1-2-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5613-7-5-4-2"
+         x="481.89859"
+         y="-28.003441">Gain anim</tspan></text>
+    <rect
+       style="fill:#c8c8c8;fill-opacity:0.32941176;stroke:none"
+       id="rect2985-60-1-6-6-5-0"
+       width="47.999966"
+       height="48"
+       x="556.83771"
+       y="-112.22186"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_neutral_controled_normal.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#c8c8c8;fill-opacity:0.32941176;stroke:none"
+       id="rect2985-60-1-6-6-5-8"
+       width="47.999966"
+       height="48"
+       x="556.83771"
+       y="-56.663475"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_neutral_controled_normal.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#c8c8c8;fill-opacity:0.32941176;stroke:none"
+       id="rect2985-60-1-6-6-5-0-6"
+       width="47.999966"
+       height="48"
+       x="613.40625"
+       y="-112.22186"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_neutral_controled_normal.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#c8c8c8;fill-opacity:0.32941176;stroke:none"
+       id="rect2985-60-1-6-6-5-0-9"
+       width="47.999966"
+       height="48"
+       x="669.97479"
+       y="-112.22186"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_neutral_controled_normal.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#c8c8c8;fill-opacity:0.32941176;stroke:none"
+       id="rect2985-60-1-6-6-5-0-2"
+       width="47.999966"
+       height="48"
+       x="726.54333"
+       y="-112.22186"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_neutral_controled_normal.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#c8c8c8;fill-opacity:0.32941176;stroke:none"
+       id="rect2985-60-1-6-6-5-0-69"
+       width="47.999966"
+       height="48"
+       x="613.40625"
+       y="-56.663475"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_neutral_controled_normal.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#c8c8c8;fill-opacity:0.32941176;stroke:none"
+       id="rect2985-60-1-6-6-5-0-0"
+       width="47.999966"
+       height="48"
+       x="669.97479"
+       y="-56.663475"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_neutral_controled_normal.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#c8c8c8;fill-opacity:0.32941176;stroke:none"
+       id="rect2985-60-1-6-6-5-0-8"
+       width="47.999966"
+       height="48"
+       x="726.54333"
+       y="-56.663475"
+       inkscape:export-filename="E:\Projets\Programmes\slamdunk-prototypes\WordArena\wordarena-client\work\img_export\markers\marker_neutral_controled_normal.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>

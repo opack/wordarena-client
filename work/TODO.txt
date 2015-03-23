@@ -1,3 +1,5 @@
+[ ] ADD : Animations pour les marqueurs de possession (herbe, eau...)
+[ ] ADD : Animations de cellule lors de la validation d'un mot (celleffects ?)
 [ ] ADD : Skin d'arène (1 skin = 1 atlas)
 [ ] ADD : Partie - RUNNING : Ajouter des carrés qui se remplissent pour indiquer le nombre de zones possédées
 [ ] ADD : Partie - RUNNING : Afficher les nouvelles dominations de zone au fur et à mesure de la saisie
