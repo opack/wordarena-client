@@ -13,7 +13,6 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.slamdunk.toolkit.screen.overlays.WorldOverlay;
 import com.slamdunk.toolkit.ui.GroupEx;
-import com.slamdunk.wordarena.GameManager;
 import com.slamdunk.wordarena.WordArenaGame;
 import com.slamdunk.wordarena.actors.ArenaCell;
 import com.slamdunk.wordarena.actors.ArenaWall;
@@ -62,7 +61,7 @@ public class ArenaOverlay extends WorldOverlay {
 	/**
 	 * Crée l'arène de jeu
 	 */
-	public void buildArena(String plan, GameManager gameManager) {
+	public void buildArena(String plan, MatchManager gameManager) {
 		// Charge le plan
 		JsonValue json = new JsonReader().parse(Gdx.files.internal(plan));
 		

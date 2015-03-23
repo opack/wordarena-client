@@ -13,7 +13,6 @@ import com.slamdunk.toolkit.lang.Deck;
 import com.slamdunk.toolkit.lang.KeyListMap;
 import com.slamdunk.toolkit.world.point.Point;
 import com.slamdunk.wordarena.Assets;
-import com.slamdunk.wordarena.GameManager;
 import com.slamdunk.wordarena.WordSelectionHandler;
 import com.slamdunk.wordarena.actors.ApplyToolListener;
 import com.slamdunk.wordarena.actors.ArenaCell;
@@ -22,6 +21,7 @@ import com.slamdunk.wordarena.actors.CellSelectionListener;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.enums.Letters;
+import com.slamdunk.wordarena.screens.arena.MatchManager;
 import com.slamdunk.wordarena.screens.editor.EditorScreen;
 
 /**
@@ -40,7 +40,7 @@ public class ArenaBuilder {
 	 */
 	private static final String POSITION_SEPARATOR = ";";
 	
-	private GameManager gameManager;
+	private MatchManager gameManager;
 	private Array<Player> players;
 	private Skin skin;
 	/**
@@ -61,13 +61,13 @@ public class ArenaBuilder {
 	private KeyListMap<String, ArenaCell> cellsByZone;
 	private Set<Point> cellsWithWalls;
 	
-	public ArenaBuilder(GameManager gameManager) {
+	public ArenaBuilder(MatchManager gameManager) {
 		this(gameManager, Assets.skin);
 	}
 	
-	public ArenaBuilder(GameManager gameManager, Skin skin) {
+	public ArenaBuilder(MatchManager gameManager, Skin skin) {
 		this.gameManager = gameManager;
-		this.players = gameManager.getPlayers();
+		this.players = gameManager.getCinematic().getPlayers();
 		this.skin = skin;
 		arena = new ArenaData();
 	}

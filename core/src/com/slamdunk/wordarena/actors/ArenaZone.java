@@ -11,13 +11,13 @@ import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.utils.Scaling;
 import com.slamdunk.toolkit.lang.MaxValueFinder;
 import com.slamdunk.toolkit.world.point.Point;
-import com.slamdunk.wordarena.GameManager;
 import com.slamdunk.wordarena.data.CellData;
 import com.slamdunk.wordarena.data.EdgeData;
 import com.slamdunk.wordarena.data.Player;
 import com.slamdunk.wordarena.data.ZoneData;
 import com.slamdunk.wordarena.enums.Borders;
 import com.slamdunk.wordarena.enums.CellStates;
+import com.slamdunk.wordarena.screens.arena.MatchManager;
 
 /**
  * Représente une zone.
@@ -29,7 +29,7 @@ public class ArenaZone extends Group {
 	
 	private ZoneData data;
 	
-	private GameManager gameManager;
+	private MatchManager gameManager;
 	
 	/**
 	 * Cellules uniques de la zone, rangées par position
@@ -40,7 +40,7 @@ public class ArenaZone extends Group {
 	
 	private static Point tmp = new Point(0, 0);
 	
-	public ArenaZone(GameManager gameManager, String id) {
+	public ArenaZone(MatchManager gameManager, String id) {
 		this.gameManager = gameManager;
 
 		data = new ZoneData(id);

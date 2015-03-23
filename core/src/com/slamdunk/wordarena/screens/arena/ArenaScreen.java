@@ -6,7 +6,6 @@ import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.utils.Array;
 import com.slamdunk.toolkit.screen.SlamGame;
 import com.slamdunk.toolkit.screen.SlamScreen;
-import com.slamdunk.wordarena.GameManager;
 import com.slamdunk.wordarena.actors.ZoomGestureHandler;
 import com.slamdunk.wordarena.actors.ZoomInputProcessor;
 import com.slamdunk.wordarena.data.Player;
@@ -14,14 +13,14 @@ import com.slamdunk.wordarena.data.Player;
 public class ArenaScreen extends SlamScreen {
 	public static final String NAME = "ARENA";
 	
-	private GameManager gameManager;
+	private MatchManager gameManager;
 	private ArenaOverlay arena;
 	private ArenaUI ui;
 	
 	public ArenaScreen(SlamGame game) {
 		super(game);
 
-		gameManager = new GameManager();
+		gameManager = new MatchManager();
 		
 		arena = new ArenaOverlay();
 		addOverlay(arena);

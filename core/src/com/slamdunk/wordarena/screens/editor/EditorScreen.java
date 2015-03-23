@@ -57,7 +57,7 @@ public static final String NAME = "EDITOR";
 		players.add(new Player(2, Assets.i18nBundle.get("ui.editor.player.2"), "orange"));
 		players.add(new Player(3, Assets.i18nBundle.get("ui.editor.player.3"), "green"));
 		players.add(new Player(4, Assets.i18nBundle.get("ui.editor.player.4"), "purple"));
-		gameManager.setPlayers(players);
+		gameManager.getCinematic().setPlayers(players);
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -140,6 +140,6 @@ public static final String NAME = "EDITOR";
 	}
 
 	public Array<Player> getPlayers() {
-		return gameManager.getPlayers();
+		return gameManager.getCinematic().getPlayers();
 	}
 }

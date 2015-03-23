@@ -8,7 +8,6 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.slamdunk.toolkit.screen.overlays.UIOverlay;
 import com.slamdunk.toolkit.ui.Overlap2DUtils;
 import com.slamdunk.wordarena.Assets;
-import com.slamdunk.wordarena.GameManager;
 import com.slamdunk.wordarena.WordArenaGame;
 import com.slamdunk.wordarena.data.Player;
 import com.slamdunk.wordarena.enums.GameStates;
@@ -19,7 +18,7 @@ import com.uwsoft.editor.renderer.actor.CompositeItem;
 public class ArenaUI extends UIOverlay {
 	private SceneLoader sceneLoader;
 	
-	private GameManager gameManager;
+	private MatchManager gameManager;
 	
 	private CompositeItem validateWord;
 	private CompositeItem cancelWord;
@@ -28,7 +27,7 @@ public class ArenaUI extends UIOverlay {
 	private Label info;
 	private Label stats;
 	
-	public ArenaUI(GameManager gameManager) {
+	public ArenaUI(MatchManager gameManager) {
 		this.gameManager = gameManager;
 		
 		// Par défaut, on travaillera dans un Stage qui prend tout l'écran
@@ -214,11 +213,11 @@ public class ArenaUI extends UIOverlay {
 
 	public void updateStats() {
 		StringBuilder sb = new StringBuilder();
-		for (Player player : gameManager.getPlayers()) {
+		for (Player player : gameManager.getCinematic().getPlayers()) {
 			sb.append("== ").append(player.name).append(" ==");
 			sb.append("\n\tScore : ").append(player.score);
 			sb.append("\n\tZones : ").append(player.nbZonesOwned).append("/").append(gameManager.getNbZones());
-			sb.append("\n\tRounds : ").append(player.nbRoundsWon).append("/").append(gameManager.getNbWinningRoundsPerGame());
+			sb.append("\n\tRounds : ").append(player.nbRoundsWon).append("/").append(gameManager.getCinematic().getNbWinningRoundsPerGame());
 			sb.append("\n");
 		}
 		

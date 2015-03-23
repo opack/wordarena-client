@@ -13,6 +13,7 @@ import com.slamdunk.wordarena.actors.ArenaCell;
 import com.slamdunk.wordarena.actors.ArenaZone;
 import com.slamdunk.wordarena.data.Player;
 import com.slamdunk.wordarena.enums.ReturnCodes;
+import com.slamdunk.wordarena.screens.arena.MatchManager;
 
 /**
  * Gère le mot actuellement sélectionné et détermine si une cellule
@@ -21,13 +22,13 @@ import com.slamdunk.wordarena.enums.ReturnCodes;
 public class WordSelectionHandler {
 	private static final int MIN_WORD_LENGTH = 2;
 
-	private GameManager gameManager;
+	private MatchManager gameManager;
 	private List<ArenaCell> selectedCells;
 	private final Set<String> dictionnary;
 	private final Set<String> alreadyPlayed;
 	private String lastValidatedWord;
 	
-	public WordSelectionHandler(GameManager gameManager) {
+	public WordSelectionHandler(MatchManager gameManager) {
 		this.gameManager = gameManager;
 		selectedCells = new ArrayList<ArenaCell>();
 		
@@ -94,7 +95,7 @@ public class WordSelectionHandler {
 		// contrôlée par le joueur
 		else {
 			ArenaZone zone = cell.getData().zone;
-			Player player = gameManager.getCurrentPlayer();
+			Player player = gameManager.getCinematic().getCurrentPlayer();
 			Player cellOwner = cell.getData().owner;
 			// La cellule est-elle dans une zone du joueur ?
 			boolean isInPlayerZone = (zone != null && player.equals(zone.getData().owner));
