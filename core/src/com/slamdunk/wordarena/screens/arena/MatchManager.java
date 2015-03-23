@@ -25,10 +25,12 @@ public class MatchManager implements GameCinematicListener{
 	private int nbZones;
 	
 	private WordSelectionHandler wordSelectionHandler;
+	private WordValidator wordValidator;
 	private MatchCinematic cinematic;
 	
 	public MatchManager() {		
 		wordSelectionHandler = new WordSelectionHandler(this);
+		wordValidator = new WordValidator();
 		cinematic = new MatchCinematic();
 		cinematic.setListener(this);
 	}
@@ -199,8 +201,9 @@ public class MatchManager implements GameCinematicListener{
 			player.nbWordsPlayed = 0;
 		}
 		
-		// Réinitialise le sélecteur de mots
-		wordSelectionHandler.reset();
+		// Réinitialise le sélecteur et le validateur de mots
+		wordSelectionHandler.cancel();
+		wordValidator.clearAlreadyPlayedList();
 		
 		// Charge l'arène
 		arena.buildArena(arenaPlanFile, this);
