@@ -13,19 +13,19 @@ import com.slamdunk.wordarena.data.Player;
 public class ArenaScreen extends SlamScreen {
 	public static final String NAME = "ARENA";
 	
-	private MatchManager gameManager;
+	private MatchManager matchManager;
 	private ArenaOverlay arena;
 	private ArenaUI ui;
 	
 	public ArenaScreen(SlamGame game) {
 		super(game);
 
-		gameManager = new MatchManager();
+		matchManager = new MatchManager();
 		
 		arena = new ArenaOverlay();
 		addOverlay(arena);
 		
-		ui = new ArenaUI(gameManager);
+		ui = new ArenaUI(matchManager);
 		addOverlay(ui);
 
 		// Gestionnaires permettant de zoomer avec la souris ou un pinch.
@@ -42,7 +42,7 @@ public class ArenaScreen extends SlamScreen {
 	
 	@Override
 	public void pause () {
-		gameManager.pause();
+		matchManager.pause();
 	}
 	
 	public ArenaOverlay getArena() {
@@ -54,14 +54,14 @@ public class ArenaScreen extends SlamScreen {
 	}
 
 	public void prepareGame(String arenaPlanFile, Array<Player> players) {
-		gameManager.prepareGame(this, arenaPlanFile, players);
+		matchManager.prepareGame(this, arenaPlanFile, players);
 	}
 	
 	@Override
 	public boolean keyDown(int keycode) {
 		// Au cours d'une partie, appuyer sur back met le jeu en pause
 		if (keycode == Keys.BACK) {
-			gameManager.requestBack();
+			matchManager.requestBack();
 		}
 	    return false;
 	 }

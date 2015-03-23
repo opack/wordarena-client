@@ -174,6 +174,7 @@ public class ArenaOverlay extends WorldOverlay {
 	}
 
 	protected void centerArena() {
+		arenaGroup.updateBounds();
 		arenaGroup.setX(Math.max(0, (int)((WordArenaGame.SCREEN_WIDTH - arenaGroup.getWidth()) / 2)));
 		arenaGroup.setY(Math.max(0, (int)((672 - arenaGroup.getHeight()) / 2)));
 	}

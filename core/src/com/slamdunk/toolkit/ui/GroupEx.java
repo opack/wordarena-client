@@ -52,7 +52,7 @@ public class GroupEx extends Group  {
         return super.getY();
     }
 
-    protected void updateBounds() {
+    public void updateBounds() {
         final int count = getChildren().size;
         Actor[] children = getChildren().items;
         if (count == 0) {
