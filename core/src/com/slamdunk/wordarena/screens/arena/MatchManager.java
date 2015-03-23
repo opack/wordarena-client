@@ -66,8 +66,8 @@ public class MatchManager implements GameCinematicListener{
 	 * sélectionné.
 	 */
 	public void validateWord() {
-		ReturnCodes result = wordSelectionHandler.validate();
-		String word = wordSelectionHandler.getLastValidatedWord();
+		ReturnCodes result = wordValidator.validate(wordSelectionHandler.getCurrentWord());
+		String word = wordValidator.getLastValidatedWord();
 		switch (result) {
 		
 		case OK:

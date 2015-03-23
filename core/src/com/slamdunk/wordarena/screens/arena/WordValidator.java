@@ -7,6 +7,7 @@ import java.util.Set;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.slamdunk.wordarena.enums.ReturnCodes;
 
 /**
  * Valide un mot à partir d'un dictionnaire et en maintenant une liste de mots précédemment
@@ -17,6 +18,7 @@ public class WordValidator {
 	
 	private final Set<String> dictionnary;
 	private final Set<String> alreadyPlayed;
+	private String lastValidatedWord;
 	
 	public WordValidator() {
 
@@ -54,5 +56,38 @@ public class WordValidator {
 	 */
 	public void clearAlreadyPlayedList() {
 		alreadyPlayed.clear();
+	}
+	
+	/**
+	 * Tente de valider le mot. 
+	 * @param selectedLetters
+	 * @return true si le mot est valide
+	 */
+	public ReturnCodes validate(String word) {
+		lastValidatedWord = word;
+		
+		// Vérifie si le mot est valide
+		ReturnCodes result = ReturnCodes.OK;
+		if (!dictionnary.contains(lastValidatedWord)) {
+			result = ReturnCodes.WORD_UNKNOWN;
+		}
+		if (alreadyPlayed.contains(lastValidatedWord)) {
+			result = ReturnCodes.WORD_ALREADY_PLAYED;
+		}
+		
+		// Le mot est valide. Ajout à la liste des mots joués.
+		if (result == ReturnCodes.OK) {
+			alreadyPlayed.add(lastValidatedWord);
+		}
+		return result;
+	}
+	
+	/**
+	 * Retourne le dernier mot dont on a tenté la validation
+	 * au moyen de la méthode {@link #validate()}.
+	 * @return
+	 */
+	public String getLastValidatedWord() {
+		return lastValidatedWord;
 	}
 }

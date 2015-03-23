@@ -1,18 +1,11 @@
 package com.slamdunk.wordarena;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
 import com.slamdunk.wordarena.actors.ArenaCell;
 import com.slamdunk.wordarena.actors.ArenaZone;
 import com.slamdunk.wordarena.data.Player;
-import com.slamdunk.wordarena.enums.ReturnCodes;
 import com.slamdunk.wordarena.screens.arena.MatchManager;
 
 /**
@@ -22,7 +15,6 @@ import com.slamdunk.wordarena.screens.arena.MatchManager;
 public class WordSelectionHandler {
 	private MatchManager gameManager;
 	private List<ArenaCell> selectedCells;
-	private String lastValidatedWord;
 	
 	public WordSelectionHandler(MatchManager gameManager) {
 		this.gameManager = gameManager;
@@ -99,31 +91,6 @@ public class WordSelectionHandler {
 	}
 
 	/**
-	 * Tente de valider le mot. 
-	 * @param selectedLetters
-	 * @return true si le mot est valide
-	 */
-	public ReturnCodes validate() {
-		// Reconstitue le mot à partir des cellules sélectionnées
-		lastValidatedWord = getCurrentWord();
-		
-		// Vérifie si le mot est valide
-		ReturnCodes result = ReturnCodes.OK;
-		if (!dictionnary.contains(lastValidatedWord)) {
-			result = ReturnCodes.WORD_UNKNOWN;
-		}
-		if (alreadyPlayed.contains(lastValidatedWord)) {
-			result = ReturnCodes.WORD_ALREADY_PLAYED;
-		}
-		
-		// Le mot est valide. Ajout à la liste des mots joués.
-		if (result == ReturnCodes.OK) {
-			alreadyPlayed.add(lastValidatedWord);
-		}
-		return result;
-	}
-	
-	/**
 	 * Réinitialise le mot sélectionné, supprimant toutes
 	 * les lettres
 	 */
@@ -139,15 +106,6 @@ public class WordSelectionHandler {
 		return selectedCells;
 	}
 
-	/**
-	 * Retourne le dernier mot dont on a tenté la validation
-	 * au moyen de la méthode {@link #validate()}.
-	 * @return
-	 */
-	public String getLastValidatedWord() {
-		return lastValidatedWord;
-	}
-	
 	/**
 	 * Retourne le mot actuellement sélectionné
 	 * @return
