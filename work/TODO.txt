@@ -1,5 +1,4 @@
 [ ] FIX : Partie : Certaines arènes ne sont pas correctement centrées en hauteur
-[ ] MOD : cellpack -> marker_pack
 [ ] ADD : Skin d'arène (1 skin = 1 atlas)
 [ ] ADD : Partie - RUNNING : Ajouter des carrés qui se remplissent pour indiquer le nombre de zones possédées
 [ ] ADD : Partie - RUNNING : Afficher les nouvelles dominations de zone au fur et à mesure de la saisie

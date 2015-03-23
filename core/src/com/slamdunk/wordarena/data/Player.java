@@ -8,7 +8,7 @@ import com.slamdunk.wordarena.Assets;
 public class Player {
 	public static final Player NEUTRAL;
 	static {
-		NEUTRAL = new Player(0, Assets.i18nBundle.get("ui.editor.player.0"), Assets.CELL_PACK_NEUTRAL);
+		NEUTRAL = new Player(0, Assets.i18nBundle.get("ui.editor.player.0"), Assets.MARKER_PACK_NEUTRAL);
 	}
 	
 	public int uid;
@@ -17,7 +17,7 @@ public class Player {
 	public int nbRoundsWon;
 	public int nbZonesOwned;
 	public int nbWordsPlayed;
-	public String cellPack;
+	public String markerPack;
 	
 	public Player() {
 	}
@@ -25,7 +25,7 @@ public class Player {
 	public Player(int uid, String name, String cellPack) {
 		this.uid = uid;
 		this.name = name;
-		this.cellPack = cellPack;
+		this.markerPack = cellPack;
 	}
 	
 	@Override

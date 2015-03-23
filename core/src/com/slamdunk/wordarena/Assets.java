@@ -18,17 +18,17 @@ import com.slamdunk.toolkit.lang.DoubleEntryArray;
 import com.slamdunk.toolkit.lang.TypedProperties;
 import com.slamdunk.toolkit.settings.SlamSettings;
 import com.slamdunk.wordarena.data.CellData;
-import com.slamdunk.wordarena.data.CellPack;
+import com.slamdunk.wordarena.data.MarkerPack;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.uwsoft.editor.renderer.resources.ResourceManager;
 import com.uwsoft.editor.renderer.utils.MySkin;
 
 public class Assets {
-	private static final String CELL_PACK_PREFIX = "cellpack";
+	private static final String MARKER_PACK_PREFIX = "marker";
 	private static final String CELL_TYPE_PREFIX = "type";
 	
-	public static final String CELL_PACK_NEUTRAL = "neutral";
+	public static final String MARKER_PACK_NEUTRAL = "neutral";
 	
 	public static TypedProperties appProperties;
 	public static I18NBundle i18nBundle;
@@ -43,7 +43,7 @@ public class Assets {
 	 */
 	private static MySkin specialSkinForOverlap;
 	public static TextureAtlas atlas;
-	public static Map<String, CellPack> cellPacks;
+	public static Map<String, MarkerPack> markerPacks;
 	public static DoubleEntryArray<CellTypes, Boolean/*selected?*/, TextureRegionDrawable> cellTypes;
 
 	public static TextureRegionDrawable edge_h;
@@ -75,8 +75,8 @@ public class Assets {
 	public static void loadAtlas() {
 		atlas = new TextureAtlas("textures/wordarena.txt");
 		
-		// Charge les cell-packs
-		loadCellPacks();
+		// Charge les marker-packs
+		loadMarkerPacks();
 		
 		// Charge les images des types
 		loadCellTypes();
@@ -137,35 +137,35 @@ public class Assets {
 		}
 	}
 	
-	private static void loadCellPacks() {
-		// Charge la liste des cell-packs
-		final String[] packList = appProperties.getStringArrayProperty("cellpacks", ",");
+	private static void loadMarkerPacks() {
+		// Charge la liste des marker-packs
+		final String[] packList = appProperties.getStringArrayProperty("markerpacks", ",");
 		
 		// Charge les cellules et les bords
-		cellPacks = new HashMap<String, CellPack>();
+		markerPacks = new HashMap<String, MarkerPack>();
 		
-		CellPack pack;
+		MarkerPack pack;
 		for (String packName : packList) {
 			// Crée le pack
-			pack = new CellPack();
+			pack = new MarkerPack();
 			pack.name = packName;
 			
 			// Charge les images des cellules
-			putCellPackImage(pack, CellStates.OWNED, Boolean.FALSE);
-			putCellPackImage(pack, CellStates.OWNED, Boolean.TRUE);
-			putCellPackImage(pack, CellStates.CONTROLED, Boolean.FALSE);
-			putCellPackImage(pack, CellStates.CONTROLED, Boolean.TRUE);
+			putMarkerPackImage(pack, CellStates.OWNED, Boolean.FALSE);
+			putMarkerPackImage(pack, CellStates.OWNED, Boolean.TRUE);
+			putMarkerPackImage(pack, CellStates.CONTROLED, Boolean.FALSE);
+			putMarkerPackImage(pack, CellStates.CONTROLED, Boolean.TRUE);
 			
 			// Charge le style de label
-			pack.labelStyle = skin.get(CELL_PACK_PREFIX + "_" + packName, LabelStyle.class);
+			pack.labelStyle = skin.get(MARKER_PACK_PREFIX + "_" + packName, LabelStyle.class);
 			
 			// Enregistre le pack
-			cellPacks.put(packName, pack);
+			markerPacks.put(packName, pack);
 		}
 	}
 	
-	private static void putCellPackImage(final CellPack pack, final CellStates state, Boolean selected) {
-		final String regionName = formatCellPackCellRegionName(pack.name, state, selected);
+	private static void putMarkerPackImage(final MarkerPack pack, final CellStates state, Boolean selected) {
+		final String regionName = formatMarkerPackCellRegionName(pack.name, state, selected);
 		final TextureRegion region = atlas.findRegion(regionName);
 		fixBleeding(region);
 		pack.cell.put(state, selected, new TextureRegionDrawable(region));
@@ -213,8 +213,8 @@ public class Assets {
 	 * @param selected
 	 * @return
 	 */
-	private static String formatCellPackCellRegionName(String pack, CellStates state, boolean selected) {
-		return CELL_PACK_PREFIX + "_"
+	private static String formatMarkerPackCellRegionName(String pack, CellStates state, boolean selected) {
+		return MARKER_PACK_PREFIX + "_"
 			+ pack + "_"
 			+ state.name().toLowerCase() + "_"
 			+ (selected ? "selected" : "normal");
@@ -242,7 +242,7 @@ public class Assets {
 	 * @return
 	 */
 	public static TextureRegionDrawable getCellOwnerImage(CellData data) {
-		return cellPacks.get(data.owner.cellPack).cell.get(data.state, data.selected);
+		return markerPacks.get(data.owner.markerPack).cell.get(data.state, data.selected);
 	}
 	
 	/**
@@ -260,7 +260,7 @@ public class Assets {
 	 * @return
 	 */
 	public static LabelStyle getLabelStyle(String pack) {
-		final String cellPack = pack != null ? pack : CELL_PACK_NEUTRAL;
-		return cellPacks.get(cellPack).labelStyle;
+		final String markerPack = pack != null ? pack : MARKER_PACK_NEUTRAL;
+		return markerPacks.get(markerPack).labelStyle;
 	}
 }

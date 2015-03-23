@@ -2,140 +2,140 @@ wordarena.png
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-cellpack_blue_controled_normal
+marker_blue_controled_normal
   rotate: false
   xy: 2, 324
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
-cellpack_blue_controled_selected
+marker_blue_controled_selected
   rotate: false
   xy: 2, 474
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
-cellpack_blue_owned_normal
+marker_blue_owned_normal
   rotate: false
   xy: 2, 424
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
-cellpack_blue_owned_selected
+marker_blue_owned_selected
   rotate: false
   xy: 2, 474
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
-cellpack_green_controled_normal
+marker_green_controled_normal
   rotate: false
   xy: 2, 524
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
-cellpack_green_controled_selected
+marker_green_controled_selected
   rotate: false
   xy: 2, 474
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
-cellpack_green_owned_normal
+marker_green_owned_normal
   rotate: false
   xy: 2, 374
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
-cellpack_green_owned_selected
+marker_green_owned_selected
   rotate: false
   xy: 2, 474
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
-cellpack_neutral_controled_normal
+marker_neutral_controled_normal
   rotate: false
   xy: 2, 274
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
-cellpack_neutral_controled_selected
+marker_neutral_controled_selected
   rotate: false
   xy: 2, 474
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
-cellpack_neutral_owned_normal
+marker_neutral_owned_normal
   rotate: false
   xy: 2, 574
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
-cellpack_neutral_owned_selected
+marker_neutral_owned_selected
   rotate: false
   xy: 2, 474
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
-cellpack_orange_controled_normal
+marker_orange_controled_normal
   rotate: false
   xy: 2, 674
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
-cellpack_orange_controled_selected
+marker_orange_controled_selected
   rotate: false
   xy: 2, 474
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
-cellpack_orange_owned_normal
+marker_orange_owned_normal
   rotate: false
   xy: 2, 824
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
-cellpack_orange_owned_selected
+marker_orange_owned_selected
   rotate: false
   xy: 2, 474
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
-cellpack_purple_controled_normal
+marker_purple_controled_normal
   rotate: false
   xy: 2, 774
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
-cellpack_purple_controled_selected
+marker_purple_controled_selected
   rotate: false
   xy: 2, 474
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
-cellpack_purple_owned_normal
+marker_purple_owned_normal
   rotate: false
   xy: 2, 874
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
-cellpack_purple_owned_selected
+marker_purple_owned_selected
   rotate: false
   xy: 2, 474
   size: 48, 48

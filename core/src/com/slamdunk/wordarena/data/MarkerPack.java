@@ -6,9 +6,10 @@ import com.slamdunk.toolkit.lang.DoubleEntryArray;
 import com.slamdunk.wordarena.enums.CellStates;
 
 /**
- * Représente les différentes images d'un pack pour cellule
+ * Représente les différentes images des marqueurs pour cellule ainsi
+ * qu'un style pour les écritures du joueur
  */
-public class CellPack {
+public class MarkerPack {
 	/**
 	 * Nom du pack
 	 */
@@ -25,7 +26,7 @@ public class CellPack {
 	 */
 	public LabelStyle labelStyle;
 	
-	public CellPack() {
+	public MarkerPack() {
 		cell = new DoubleEntryArray<CellStates, Boolean, TextureRegionDrawable>();
 	}
 }

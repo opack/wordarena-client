@@ -150,22 +150,22 @@ public class HomeUI extends UIOverlay {
 		Player p1 = new Player();
 		p1.uid = 1;
 		p1.name = "Alan";
-		p1.cellPack = "blue";
+		p1.markerPack = "blue";
 		
 		Player p2 = new Player();
 		p2.uid = 2;
 		p2.name = "Bob";
-		p2.cellPack = "orange";
+		p2.markerPack = "orange";
 		
 		Player p3 = new Player();
 		p3.uid = 3;
 		p3.name = "Charles";
-		p3.cellPack = "green";
+		p3.markerPack = "green";
 		
 		Player p4 = new Player();
 		p4.uid = 4;
 		p4.name = "Dave";
-		p4.cellPack = "purple";
+		p4.markerPack = "purple";
 		
 		GameData game1 = new GameData();
 		game1.gameType = GameTypes.DUEL;

@@ -47,13 +47,13 @@ public class HomeScreen extends SlamScreen {
 		p1.uid = 1;
 		p1.name = "Alan";
 		p1.score = 0;
-		p1.cellPack = "blue";
+		p1.markerPack = "blue";
 		
 		Player p2 = new Player();
 		p2.uid = 2;
 		p2.name = "Bob";
 		p2.score = 0;
-		p2.cellPack = "orange";
+		p2.markerPack = "orange";
 		
 		Array<Player> players = new Array<Player>();
 		players.add(p1);
