@@ -1,3 +1,4 @@
+[ ] ADD : Objet Dictionnary, chargé de valider et retenir les mots joués (extraire de WordSelectionHandler)
 [ ] FIX : Partie : Certaines arènes ne sont pas correctement centrées en hauteur
 [ ] MOD : cellpack -> marker_pack
 [ ] ADD : Skin d'arène (1 skin = 1 atlas)

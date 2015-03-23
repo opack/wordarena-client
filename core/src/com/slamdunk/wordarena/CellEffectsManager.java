@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.slamdunk.toolkit.lang.KeyListMap;
 import com.slamdunk.wordarena.actors.ArenaCell;
+import com.slamdunk.wordarena.actors.celleffects.BombExplosionEffect;
 import com.slamdunk.wordarena.actors.celleffects.BreakNeighborGlassEffect;
 import com.slamdunk.wordarena.actors.celleffects.CellEffect;
 import com.slamdunk.wordarena.data.ArenaData;
@@ -23,6 +24,9 @@ public class CellEffectsManager {
 		
 		// On casse le verre des cellules voisines lorsqu'un cellule Lettre, Bombe ou Joker est validée
 		registerCellEffect(new BreakNeighborGlassEffect(), CellTypes.L, CellTypes.B, CellTypes.J);
+		
+		// On défait la possession des cellules voisines ennemies lorsqu'une cellule Bombe est validée
+		registerCellEffect(new BombExplosionEffect(), CellTypes.B);
 	}
 	
 	private void registerCellEffect(CellEffect effect, CellTypes... types) {
