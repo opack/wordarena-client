@@ -198,7 +198,7 @@ public class ArenaZone extends Group {
 			}
 			
 			// Met à jour l'image
-			cell.updateDisplay();
+			//DBGcell.updateDisplay();
 		}
 	}
 	

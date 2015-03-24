@@ -8,11 +8,14 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.I18NBundle;
 import com.slamdunk.toolkit.lang.DoubleEntryArray;
 import com.slamdunk.toolkit.lang.TypedProperties;
@@ -159,11 +162,21 @@ public class Assets {
 			// Charge le style de label
 			pack.labelStyle = skin.get(MARKER_PACK_PREFIX + "_" + packName, LabelStyle.class);
 			
+			// Charge les animations de perte et gain de cellule
+			pack.cellLostAnim = loadMarkerPackAnim(packName, false);
+			pack.cellGainedAnim = loadMarkerPackAnim(packName, true);
+			
 			// Enregistre le pack
 			markerPacks.put(packName, pack);
 		}
 	}
 	
+	private static Animation loadMarkerPackAnim(String pack, boolean gainAnim) {
+		final String animPrefix = formatMarkerPackOwnershipChangeAnim(pack, gainAnim);
+		Array<AtlasRegion> regions = atlas.findRegions(animPrefix);
+		return new Animation(appProperties.getFloatProperty("anim.frameDuration", 0.125f), regions);
+	}
+
 	private static void putMarkerPackImage(final MarkerPack pack, final CellStates state, Boolean selected) {
 		final String regionName = formatMarkerPackCellRegionName(pack.name, state, selected);
 		final TextureRegion region = atlas.findRegion(regionName);
@@ -218,6 +231,19 @@ public class Assets {
 			+ pack + "_"
 			+ state.name().toLowerCase() + "_"
 			+ (selected ? "selected" : "normal");
+	}
+	
+	/**
+	 * Pour une animation de gain ou perte de cellule, retourne le préfixe des noms des régions en
+	 * fonction du nom du pack et de l'animation souhaitée (gain ou perte)
+	 * @param pack
+	 * @param gainAnim
+	 * @return
+	 */
+	private static String formatMarkerPackOwnershipChangeAnim(String pack, boolean gainAnim) {
+		return MARKER_PACK_PREFIX + "_"
+			+ pack + "_"
+			+ (gainAnim ? "gain" : "lost");
 	}
 	
 	/**

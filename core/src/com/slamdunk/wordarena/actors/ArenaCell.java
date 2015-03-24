@@ -56,6 +56,10 @@ public class ArenaCell extends GroupEx {
 		addActor(letter);
 	}
 	
+	public SlamActor getOwnerActorDBG() {
+		return ownerActor;
+	}
+	
 	public CellData getData() {
 		return data;
 	}

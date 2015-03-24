@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>3.6.0</string>
         <key>fileName</key>
-        <string>E:/Projets/Programmes/slamdunk-prototypes/WordArena/work/img_export/wordarena.tps</string>
+        <string>E:/Projets/Programmes/WordArena/wordarena-client/work/img_export/wordarena.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -188,9 +188,9 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>cell_packs</filename>
             <filename>misc</filename>
             <filename>cell_types</filename>
+            <filename>markers</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

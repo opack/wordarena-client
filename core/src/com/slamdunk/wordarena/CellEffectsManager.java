@@ -60,14 +60,14 @@ public class CellEffectsManager {
 				for (CellEffect effect : effectList) {
 					// Applique l'effet lié au type de la cellule
 					effect.applyEffect(player, cell, arena);
-					
-					// Petite temporisation pour que tous les effets n'arrivent pas en même temps
-					try {
-						Thread.sleep(125);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+//DBG					
+//					// Petite temporisation pour que tous les effets n'arrivent pas en même temps
+//					try {
+//						Thread.sleep(125);
+//					} catch (InterruptedException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
 				}
 			}
 		}
