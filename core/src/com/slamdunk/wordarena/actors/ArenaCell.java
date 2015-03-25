@@ -48,13 +48,11 @@ public class ArenaCell extends GroupEx {
 		ownerActor = new SlamActor(WIDTH, HEIGHT, false);
 		ownerActor.createDrawers(true, true, false);
 		ownerActor.setTouchable(Touchable.disabled);
-		ownerActor.getTextureDrawer().setTextureRegion(Assets.getCellOwnerImage(data));
 		ownerActor.getTextureDrawer().setActive(true);
-		ownerActor.getAnimationDrawer().setAnimation(Assets.getCellOwnerMomentaryAnim(data), false, false);
 		ownerActor.getAnimationDrawer().setActive(false);
 		addActor(ownerActor);
 		
-		cellTypeImage = new Image(Assets.getCellTypeImage(data));
+		cellTypeImage = new Image();
 		cellTypeImage.setTouchable(Touchable.disabled);
 		cellTypeImage.setBounds(0, 0, ownerActor.getWidth(), ownerActor.getHeight());
 		addActor(cellTypeImage);
@@ -65,8 +63,6 @@ public class ArenaCell extends GroupEx {
 		letter.setWidth(ownerActor.getWidth());
 		letter.setPosition(ownerActor.getWidth() / 2, ownerActor.getHeight() / 2, Align.center);
 		addActor(letter);
-		
-		momentaryTimerActive = false;
 	}
 	
 	/**

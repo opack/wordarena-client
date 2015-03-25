@@ -1,11 +1,10 @@
-package com.slamdunk.wordarena.actors.celleffects;
+package com.slamdunk.wordarena.screens.arena.celleffects;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.slamdunk.wordarena.actors.ArenaCell;
-import com.slamdunk.wordarena.data.ArenaData;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.enums.CellEffects;
 import com.slamdunk.wordarena.enums.CellTypes;
 
 /**
@@ -19,16 +18,21 @@ public class BreakNeighborGlassEffect extends CellEffect {
 	 */
 	private List<ArenaCell> tmpNeighbors;
 	
-	public BreakNeighborGlassEffect(Player player, ArenaCell cell, ArenaData arena) {
-		super(player, cell, arena);
+	public BreakNeighborGlassEffect(CellEffectsManager manager, ArenaCell cell) {
+		super(manager, cell);
 		tmpNeighbors = new ArrayList<ArenaCell>(8);
+	}
+	
+	@Override
+	public CellEffects getEffect() {
+		return CellEffects.BREAK_NEIGHBOR_GLASS;
 	}
 	
 	@Override
 	public boolean act(float delta) {
 		// Vide la liste des voisins
 		tmpNeighbors.clear();
-		getArena().getNeighbors4(getCell(), tmpNeighbors);
+		getManager().getArena().getNeighbors4(getCell(), tmpNeighbors);
 		
 		// Parcours chaque voisin pour voir s'il est en verre
 		for (ArenaCell neighbor : tmpNeighbors) {

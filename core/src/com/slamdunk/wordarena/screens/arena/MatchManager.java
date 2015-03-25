@@ -4,18 +4,19 @@ import java.util.List;
 
 import com.badlogic.gdx.utils.Array;
 import com.slamdunk.wordarena.Assets;
-import com.slamdunk.wordarena.CellEffectsManager;
 import com.slamdunk.wordarena.WordSelectionHandler;
 import com.slamdunk.wordarena.actors.ArenaCell;
 import com.slamdunk.wordarena.data.Player;
 import com.slamdunk.wordarena.enums.GameStates;
 import com.slamdunk.wordarena.enums.ReturnCodes;
 import com.slamdunk.wordarena.screens.arena.MatchCinematic.GameCinematicListener;
+import com.slamdunk.wordarena.screens.arena.celleffects.CellEffectsApplicationFinishedListener;
+import com.slamdunk.wordarena.screens.arena.celleffects.CellEffectsManager;
 
 /**
  * Gère la partie
  */
-public class MatchManager implements GameCinematicListener{
+public class MatchManager implements GameCinematicListener, CellEffectsApplicationFinishedListener{
 	
 	private ArenaOverlay arena;
 	private ArenaUI ui;
@@ -78,23 +79,14 @@ public class MatchManager implements GameCinematicListener{
 			ui.setInfo(Assets.i18nBundle.format("ui.arena.wordPlayed", player.name, word));
 			
 			// Déclenche les effets sur les cellules
-			CellEffectsManager.getInstance().triggerCellEffects(player, selectedCells, arena.getData());
+			CellEffectsManager effectsManager = new CellEffectsManager(player, arena.getData());
+			effectsManager.setListener(this);
+			effectsManager.triggerCellEffects(selectedCells);
 			
-			// Toutes les cellules passent sous la domination du joueur
-			//DBGarena.setOwner(selectedCells, player);
-			
-			// Le score du joueur est modifié
-			ScoreHelper.onValidWord(player, selectedCells);
+			// TODO Bloquer la saisie pour empêcher que le joueur ne joue de nouveau
 			
 			// Raz du mot sélectionné
 			cancelWord();
-			
-			// Le joueur a joué un coup. C'est bon à savoir pour les stats
-			// et pour autoriser ou non le refresh de la zone de départ
-			player.nbWordsPlayed++;
-			
-			// Fin du tour de ce joueur
-			cinematic.endMove();
 			
 			break;
 			
@@ -326,5 +318,25 @@ public class MatchManager implements GameCinematicListener{
 		// Affiche le bouton de rafraîchissement des lettres de la zone de départ.
 		// On ne peut rafraîchir la zone de départ qu'au premier coup du round.
 		ui.showRefreshStartingZoneButton(currentPlayer.nbWordsPlayed == 0);
+	}
+
+	/**
+	 * Cette méthode est appelée après la validation d'un mot, une fois que tous les
+	 * effets visuels et de gameplay ont été appliqués.
+	 */
+	@Override
+	public void onEffectApplicationFinished(Player player, List<ArenaCell> processedCells) {
+		// Toutes les cellules passent sous la domination du joueur
+		arena.setOwner(processedCells, player);
+		
+		// Le score du joueur est modifié
+		ScoreHelper.onValidWord(player, processedCells);
+		
+		// Le joueur a joué un coup. C'est bon à savoir pour les stats
+		// et pour autoriser ou non le refresh de la zone de départ
+		player.nbWordsPlayed++;
+		
+		// Fin du tour de ce joueur
+		cinematic.endMove();
 	}
 }

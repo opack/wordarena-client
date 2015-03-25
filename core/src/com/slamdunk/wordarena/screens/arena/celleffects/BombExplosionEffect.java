@@ -1,19 +1,19 @@
-package com.slamdunk.wordarena.actors.celleffects;
+package com.slamdunk.wordarena.screens.arena.celleffects;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.slamdunk.wordarena.actors.ArenaCell;
-import com.slamdunk.wordarena.data.ArenaData;
 import com.slamdunk.wordarena.data.CellData;
 import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.enums.CellEffects;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.enums.CellTypes;
 
 /**
  * Retirer la possession des adversaires dans les cellules voisines
  */
-public class BombExplosionEffect implements CellEffect {
+public class BombExplosionEffect extends CellEffect {
 	/**
 	 * Liste de travail qui contient les voisins à chaque appel
 	 * à applyEffect. Permet d'éviter l'instanciation d'une
@@ -21,18 +21,27 @@ public class BombExplosionEffect implements CellEffect {
 	 */
 	private List<ArenaCell> tmpNeighbors;
 	
-	public BombExplosionEffect() {
+	public BombExplosionEffect(CellEffectsManager manager, ArenaCell cell) {
+		super(manager, cell);
 		tmpNeighbors = new ArrayList<ArenaCell>(8);
+	}
+	
+	@Override
+	public CellEffects getEffect() {
+		return CellEffects.BOMB_EXPLOSION;
 	}
 
 	@Override
-	public boolean applyEffect(Player player, ArenaCell cell, ArenaData arena) {
+	public boolean act(float delta) {
+		ArenaCell cell = getCell();
+		
 		// Vide la liste des voisins
 		tmpNeighbors.clear();
-		arena.getNeighbors4(cell, tmpNeighbors);
+		getManager().getArena().getNeighbors4(cell, tmpNeighbors);
 		
 		// Récupère l'owner de la cellule où se trouve la bombe
-		Player owner = cell.getData().owner;
+		CellData cellData = cell.getData();
+		Player owner = cellData.owner;
 		
 		// Parcours chaque voisin pour voir s'il appartient à l'owner de la cellule
 		CellData neighborData;
@@ -55,12 +64,11 @@ public class BombExplosionEffect implements CellEffect {
 		}
 		
 		// La cellule n'est plus une bombe car elle a explosé
-		cell.getData().type = CellTypes.L;
+		cellData.type = CellTypes.L;
 		
 		// Mise à jour de l'apparence de la cellule
 		cell.updateDisplay();
 		
 		return true;
 	}
-
 }
