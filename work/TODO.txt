@@ -1,4 +1,5 @@
 [ ] ADD : Animations pour les marqueurs de possession (herbe, eau...)
+	- Quand une cellule est prise : lancer une momentary animation puis affecter la prochaine anim comme étant celle du nouveau player
 [ ] ADD : Animations de cellule lors de la validation d'un mot (celleffects ?)
 [ ] ADD : Skin d'arène (1 skin = 1 atlas)
 [ ] ADD : Partie - RUNNING : Ajouter des carrés qui se remplissent pour indiquer le nombre de zones possédées

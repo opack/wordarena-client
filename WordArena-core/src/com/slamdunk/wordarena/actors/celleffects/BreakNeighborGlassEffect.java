@@ -11,7 +11,7 @@ import com.slamdunk.wordarena.enums.CellTypes;
 /**
  * Effet qui consiste à casser le verre des cellules voisines
  */
-public class BreakNeighborGlassEffect implements CellEffect {
+public class BreakNeighborGlassEffect extends CellEffect {
 	/**
 	 * Liste de travail qui contient les voisins à chaque appel
 	 * à applyEffect. Permet d'éviter l'instanciation d'une
@@ -19,15 +19,16 @@ public class BreakNeighborGlassEffect implements CellEffect {
 	 */
 	private List<ArenaCell> tmpNeighbors;
 	
-	public BreakNeighborGlassEffect() {
+	public BreakNeighborGlassEffect(Player player, ArenaCell cell, ArenaData arena) {
+		super(player, cell, arena);
 		tmpNeighbors = new ArrayList<ArenaCell>(8);
 	}
 	
 	@Override
-	public void applyEffect(Player player, ArenaCell cell, ArenaData arena) {
+	public boolean act(float delta) {
 		// Vide la liste des voisins
 		tmpNeighbors.clear();
-		arena.getNeighbors4(cell, tmpNeighbors);
+		getArena().getNeighbors4(getCell(), tmpNeighbors);
 		
 		// Parcours chaque voisin pour voir s'il est en verre
 		for (ArenaCell neighbor : tmpNeighbors) {
@@ -42,5 +43,7 @@ public class BreakNeighborGlassEffect implements CellEffect {
 			// Mise à jour de l'apparence de la cellule
 			neighbor.updateDisplay();
 		}
+		
+		return true;
 	}
 }

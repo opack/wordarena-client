@@ -37,6 +37,11 @@ public class MarkerPack {
 	 */
 	public Animation cellGainedAnim;
 	
+	/**
+	 * Animation à jour de temps en temps pour donner vie à la cellule
+	 */
+	public Animation cellMomentaryAnim;
+	
 	public MarkerPack() {
 		cell = new DoubleEntryArray<CellStates, Boolean, TextureRegion>();
 	}

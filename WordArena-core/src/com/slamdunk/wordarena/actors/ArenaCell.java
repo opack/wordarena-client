@@ -1,16 +1,19 @@
 package com.slamdunk.wordarena.actors;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
+import com.slamdunk.toolkit.graphics.drawers.AnimationDrawer;
 import com.slamdunk.toolkit.ui.GroupEx;
 import com.slamdunk.toolkit.world.SlamActor;
 import com.slamdunk.wordarena.Assets;
 import com.slamdunk.wordarena.data.CellData;
 import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.enums.CellStates;
 
 /**
  * Une cellule de l'arène. Une cellule contient bien sûr une lettre
@@ -19,6 +22,9 @@ import com.slamdunk.wordarena.data.Player;
 public class ArenaCell extends GroupEx {
 	private final static int WIDTH = 48;
 	private final static int HEIGHT = 48;
+	
+	private final float MOMENTARY_ANIM_INTERVAL_MIN = 15.0f;
+	private final float MOMENTARY_ANIM_INTERVAL_MAX = 45.0f;
 	
 	/**
 	 * Le modèle de cette cellule
@@ -31,16 +37,21 @@ public class ArenaCell extends GroupEx {
 	
 	private Image cellTypeImage;
 	
+	private boolean momentaryTimerActive;
+	private float momentaryTimer;
+	
 	public ArenaCell(final Skin skin) {
 		// Crée les composants de la cellule
 		data = new CellData();
 		
 		// Crée les acteurs dans l'ordre de superposition
 		ownerActor = new SlamActor(WIDTH, HEIGHT, false);
-		ownerActor.createDrawers(true, true, true);
+		ownerActor.createDrawers(true, true, false);
 		ownerActor.setTouchable(Touchable.disabled);
 		ownerActor.getTextureDrawer().setTextureRegion(Assets.getCellOwnerImage(data));
 		ownerActor.getTextureDrawer().setActive(true);
+		ownerActor.getAnimationDrawer().setAnimation(Assets.getCellOwnerMomentaryAnim(data), false, false);
+		ownerActor.getAnimationDrawer().setActive(false);
 		addActor(ownerActor);
 		
 		cellTypeImage = new Image(Assets.getCellTypeImage(data));
@@ -54,6 +65,40 @@ public class ArenaCell extends GroupEx {
 		letter.setWidth(ownerActor.getWidth());
 		letter.setPosition(ownerActor.getWidth() / 2, ownerActor.getHeight() / 2, Align.center);
 		addActor(letter);
+		
+		momentaryTimerActive = false;
+	}
+	
+	/**
+	 * Choisit un délai aléatoire avant la prochaine exécution de l'animation
+	 */
+	private void startMomentaryAnimTimer() {
+		momentaryTimer = MathUtils.random(MOMENTARY_ANIM_INTERVAL_MIN, MOMENTARY_ANIM_INTERVAL_MAX);
+		momentaryTimerActive = true;
+	}
+
+	@Override
+	public void act(float delta) {
+		super.act(delta);
+		
+		if (!momentaryTimerActive) {
+			return;
+		}
+
+		// Mise à jour du timer
+		momentaryTimer -= delta;
+		
+		// Si le temps est venu de jouer l'animation momentanée, on la joue
+		AnimationDrawer animDrawer = ownerActor.getAnimationDrawer();
+		if (momentaryTimer <= 0) {
+			if (!animDrawer.isActive()) {
+				animDrawer.setStateTime(0);
+				animDrawer.setActive(true);
+			} else if (ownerActor.getAnimationDrawer().isAnimationFinished()) {
+				animDrawer.setActive(false);
+				startMomentaryAnimTimer();
+			}
+		}
 	}
 	
 	public SlamActor getOwnerActorDBG() {
@@ -90,8 +135,17 @@ public class ArenaCell extends GroupEx {
 	
 	public void updateDisplay() {
 		ownerActor.getTextureDrawer().setTextureRegion(Assets.getCellOwnerImage(data));
+		
+		ownerActor.getAnimationDrawer().setAnimation(Assets.getCellOwnerMomentaryAnim(data), false, false);
+		momentaryTimerActive = data.state == CellStates.OWNED && data.selected == false;
+		if (momentaryTimerActive && momentaryTimer <= 0) {
+			// Lance le timer pour jouer l'animation de cellule possédée dans un certain temps
+			startMomentaryAnimTimer();
+		}
+		
 		letter.setText(data.letter.label);
 		letter.setStyle(Assets.skin.get("power-" + data.power, LabelStyle.class));
+		
 		cellTypeImage.setDrawable(Assets.getCellTypeImage(data));
 	}
 

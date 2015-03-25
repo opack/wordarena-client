@@ -2,8 +2,10 @@ package com.slamdunk.wordarena;
 
 import java.util.List;
 
+import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import com.slamdunk.toolkit.lang.KeyListMap;
 import com.slamdunk.wordarena.actors.ArenaCell;
+import com.slamdunk.wordarena.actors.celleffects.CellEffect;
 import com.slamdunk.wordarena.actors.celleffects.BombExplosionEffect;
 import com.slamdunk.wordarena.actors.celleffects.BreakNeighborGlassEffect;
 import com.slamdunk.wordarena.actors.celleffects.CellEffect;
@@ -55,19 +57,13 @@ public class CellEffectsManager {
 	public void triggerCellEffects(Player player, List<ArenaCell> selectedCells, ArenaData arena) {
 		List<CellEffect> effectList;
 		for (ArenaCell cell : selectedCells) {
+			SequenceAction actions = new SequenceAction();
+			
 			effectList = effects.get(cell.getData().type);
 			if (effectList != null) {
 				for (CellEffect effect : effectList) {
 					// Applique l'effet lié au type de la cellule
-					effect.applyEffect(player, cell, arena);
-//DBG					
-//					// Petite temporisation pour que tous les effets n'arrivent pas en même temps
-//					try {
-//						Thread.sleep(125);
-//					} catch (InterruptedException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
+					actions.addAction(new CellEffect(effect, player, cell, arena));
 				}
 			}
 		}

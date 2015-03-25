@@ -190,7 +190,8 @@ public class ArenaOverlay extends WorldOverlay {
 		Set<ArenaZone> impactedZones = new HashSet<ArenaZone>();
 		ArenaZone zone;
 		for (ArenaCell cell : cells) {
-			cell.setOwner(owner);
+//DBG			cell.setOwner(owner);
+			cell.getData().owner = owner;
 			cell.getData().state = CellStates.OWNED;
 			
 			zone = cell.getData().zone;

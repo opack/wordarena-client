@@ -81,7 +81,7 @@ public class MatchManager implements GameCinematicListener{
 			CellEffectsManager.getInstance().triggerCellEffects(player, selectedCells, arena.getData());
 			
 			// Toutes les cellules passent sous la domination du joueur
-			arena.setOwner(selectedCells, player);
+			//DBGarena.setOwner(selectedCells, player);
 			
 			// Le score du joueur est modifié
 			ScoreHelper.onValidWord(player, selectedCells);

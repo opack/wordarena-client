@@ -26,7 +26,7 @@ public class BombExplosionEffect implements CellEffect {
 	}
 
 	@Override
-	public void applyEffect(Player player, ArenaCell cell, ArenaData arena) {
+	public boolean applyEffect(Player player, ArenaCell cell, ArenaData arena) {
 		// Vide la liste des voisins
 		tmpNeighbors.clear();
 		arena.getNeighbors4(cell, tmpNeighbors);
@@ -59,6 +59,8 @@ public class BombExplosionEffect implements CellEffect {
 		
 		// Mise à jour de l'apparence de la cellule
 		cell.updateDisplay();
+		
+		return true;
 	}
 
 }
