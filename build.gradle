@@ -107,7 +107,7 @@ project(":core") {
     dependencies {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
-		compile "com.underwaterapps.overlap2druntime:overlap2d-runtime-libgdx:0.0.8"
+		compile "com.underwaterapps.overlap2druntime:overlap2d-runtime-libgdx:0.0.9"
     }
 }
 

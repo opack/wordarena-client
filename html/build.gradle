@@ -65,6 +65,6 @@ sourceCompatibility = 1.6
 sourceSets.main.java.srcDirs = [ "src/" ]
 
 
-//DDEeclipse.project {
-//    name = appName + "-html"
-//}
+eclipse.project {
+    name = appName + "-html"
+}
