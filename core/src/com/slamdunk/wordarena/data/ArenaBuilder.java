@@ -244,11 +244,15 @@ public class ArenaBuilder {
 	}
 	
 	/**
-	 * Recherche les murs formant des coins.
+	 * Recherche les murs formant des coins ou des murs s'étalant
+	 * sur 2 longueurs
 	 */
 	private void createCornerWalls() {
 		Point pos2 = new Point(0, 0);
+		Point pos3 = new Point(0, 0);
 		for (Point pos1 : cellsWithWalls) {
+		// Teste les coins
+			
 			// Mur avec la cellule du haut ?
 			pos2.setXY(pos1.getX(), pos1.getY() + 1);
 			boolean hasWallUp = hasWall(pos1, pos2);
@@ -265,28 +269,83 @@ public class ArenaBuilder {
 			pos2.setXY(pos1.getX() + 1, pos1.getY());
 			boolean hasWallRight = hasWall(pos1, pos2);
 			
-			// Cherche si les murs de cette cellule forment un coin
-			boolean createWall = false;
+			// Crée les murs en coin
 			if (hasWallUp) {
 				if (hasWallLeft) {
 					pos2.setXY(pos1.getX() - 1, pos1.getY() + 1);
-					createWall = true;
-				} else if (hasWallRight) {
+					addWall(pos1, pos2);
+				}
+				if (hasWallRight) {
 					pos2.setXY(pos1.getX() + 1, pos1.getY() + 1);
-					createWall = true;
+					addWall(pos1, pos2);
 				}
 			} else if (hasWallDown) {
 				if (hasWallLeft) {
 					pos2.setXY(pos1.getX() - 1, pos1.getY() - 1);
-					createWall = true;
-				} else if (hasWallRight) {
+					addWall(pos1, pos2);
+				}
+				if (hasWallRight) {
 					pos2.setXY(pos1.getX() + 1, pos1.getY() - 1);
-					createWall = true;
+					addWall(pos1, pos2);
 				}
 			}
-			// Crée le mur virtuel représentant le coin
-			if (createWall) {
-				addWall(pos1, pos2);
+			
+		// Teste les murs de 2 longueurs
+			
+			// Murs du haut sur 2 longueurs avec le voisin de gauche ?
+			pos2.setXY(pos1.getX() - 1, pos1.getY());
+			pos3.setXY(pos1.getX() - 1, pos1.getY() + 1);
+			if (hasWallUp && hasWall(pos2, pos3)) {
+				addWall(pos1, pos3);
+			}
+			
+			// Murs du haut sur 2 longueurs avec le voisin de droite ?
+			pos2.setXY(pos1.getX() + 1, pos1.getY());
+			pos3.setXY(pos1.getX() + 1, pos1.getY() + 1);
+			if (hasWallUp && hasWall(pos2, pos3)) {
+				addWall(pos1, pos3);
+			}
+			
+			// Murs du bas sur 2 longueurs avec le voisin de gauche ?
+			pos2.setXY(pos1.getX() - 1, pos1.getY());
+			pos3.setXY(pos1.getX() - 1, pos1.getY() - 1);
+			if (hasWallDown && hasWall(pos2, pos3)) {
+				addWall(pos1, pos3);
+			}
+			
+			// Murs du bas sur 2 longueurs avec le voisin de droite ?
+			pos2.setXY(pos1.getX() + 1, pos1.getY());
+			pos3.setXY(pos1.getX() + 1, pos1.getY() - 1);
+			if (hasWallDown && hasWall(pos2, pos3)) {
+				addWall(pos1, pos3);
+			}
+			
+			// Murs de gauche sur 2 longueurs avec le voisin du haut ?
+			pos2.setXY(pos1.getX(), pos1.getY() + 1);
+			pos3.setXY(pos1.getX() - 1, pos1.getY() + 1);
+			if (hasWallLeft && hasWall(pos2, pos3)) {
+				addWall(pos1, pos3);
+			}
+			
+			// Murs de gauche sur 2 longueurs avec le voisin du bas ?
+			pos2.setXY(pos1.getX(), pos1.getY() - 1);
+			pos3.setXY(pos1.getX() - 1, pos1.getY() - 1);
+			if (hasWallLeft && hasWall(pos2, pos3)) {
+				addWall(pos1, pos3);
+			}
+			
+			// Murs de droite sur 2 longueurs avec le voisin du haut ?
+			pos2.setXY(pos1.getX(), pos1.getY() + 1);
+			pos3.setXY(pos1.getX() + 1, pos1.getY() + 1);
+			if (hasWallRight && hasWall(pos2, pos3)) {
+				addWall(pos1, pos3);
+			}
+			
+			// Murs de droite sur 2 longueurs avec le voisin du bas ?
+			pos2.setXY(pos1.getX(), pos1.getY() - 1);
+			pos3.setXY(pos1.getX() + 1, pos1.getY() - 1);
+			if (hasWallRight && hasWall(pos2, pos3)) {
+				addWall(pos1, pos3);
 			}
 		}
 	}
