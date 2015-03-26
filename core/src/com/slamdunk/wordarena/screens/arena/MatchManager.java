@@ -182,7 +182,13 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		if (newState == GameStates.RUNNING) {
 			// Re-masque ou ré-affiche les boutons en fonction de l'état de la partie
 			setCurrentWord(wordSelectionHandler.getCurrentWord());
+			
+			// Continue l'application des effets
+			cellEffectsManager.setPaused(false);
 		} else if (newState == GameStates.PAUSED) {
+			// Met en pause l'application des effets
+			cellEffectsManager.setPaused(true);
+			
 			ui.updateStats();
 		}
 	}

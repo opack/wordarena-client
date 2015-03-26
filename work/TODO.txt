@@ -1,4 +1,3 @@
-[ ] MOD : Effets : mettre en pause si le jeu passe en pause
 [ ] ADD : AnimationDrawer : rendre Poolable
 [ ] MOD : ArenaCell : utiliser un TextureDrawer au lieu d'un Image pour le type de cellule
 [ ] ADD : Skin d'arène (1 skin = 1 atlas)
