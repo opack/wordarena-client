@@ -1,9 +1,9 @@
 package com.slamdunk.wordarena.screens.editor;
 
-import com.slamdunk.wordarena.Assets;
 import com.slamdunk.wordarena.actors.ApplyToolListener;
 import com.slamdunk.wordarena.actors.ArenaCell;
 import com.slamdunk.wordarena.actors.ArenaZone;
+import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.ArenaData;
 import com.slamdunk.wordarena.data.CellData;
 import com.slamdunk.wordarena.data.Player;

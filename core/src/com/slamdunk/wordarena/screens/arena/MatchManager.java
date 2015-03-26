@@ -3,8 +3,8 @@ package com.slamdunk.wordarena.screens.arena;
 import java.util.List;
 
 import com.badlogic.gdx.utils.Array;
-import com.slamdunk.wordarena.Assets;
 import com.slamdunk.wordarena.actors.ArenaCell;
+import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.Player;
 import com.slamdunk.wordarena.enums.GameStates;
 import com.slamdunk.wordarena.enums.ReturnCodes;

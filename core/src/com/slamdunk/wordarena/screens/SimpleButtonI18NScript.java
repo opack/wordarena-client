@@ -1,6 +1,6 @@
 package com.slamdunk.wordarena.screens;
 
-import com.slamdunk.wordarena.Assets;
+import com.slamdunk.wordarena.assets.Assets;
 import com.uwsoft.editor.renderer.actor.CompositeItem;
 import com.uwsoft.editor.renderer.script.SimpleButtonScript;
 

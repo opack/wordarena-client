@@ -1,4 +1,4 @@
-package com.slamdunk.wordarena;
+package com.slamdunk.wordarena.assets;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -9,26 +9,21 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.I18NBundle;
 import com.slamdunk.toolkit.lang.DoubleEntryArray;
 import com.slamdunk.toolkit.lang.TypedProperties;
 import com.slamdunk.toolkit.settings.SlamSettings;
 import com.slamdunk.wordarena.data.CellData;
 import com.slamdunk.wordarena.data.MarkerPack;
-import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.uwsoft.editor.renderer.resources.ResourceManager;
 import com.uwsoft.editor.renderer.utils.MySkin;
 
 public class Assets {
-	private static final String MARKER_PACK_PREFIX = "marker_";
 	private static final String CELL_TYPE_PREFIX = "type_";
 	
 	public static final String MARKER_PACK_NEUTRAL = "neutral";
@@ -45,7 +40,7 @@ public class Assets {
 	 * On crée donc un MySkin et on y met notre skin.
 	 */
 	private static MySkin specialSkinForOverlap;
-	public static TextureAtlas atlas;
+	public static TextureAtlasEx atlas;
 	public static Map<String, MarkerPack> markerPacks;
 	public static DoubleEntryArray<CellTypes, Boolean/*selected?*/, TextureRegionDrawable> cellTypes;
 
@@ -76,7 +71,7 @@ public class Assets {
 	}
 	
 	public static void loadAtlas() {
-		atlas = new TextureAtlas("textures/wordarena.txt");
+		atlas = new TextureAtlasEx("textures/wordarena.txt");
 		
 		// Charge les marker-packs
 		loadMarkerPacks();
@@ -141,66 +136,18 @@ public class Assets {
 	}
 	
 	private static void loadMarkerPacks() {
+		// Crée l'objet chargé de parcourir l'atlas et la skin pour créer les packs
+		final float frameDuration = appProperties.getFloatProperty("anim.frameDuration", 0.125f);
+		PackLoader packLoader = new PackLoader(skin, frameDuration);
+		
 		// Charge la liste des marker-packs
 		final String[] packList = appProperties.getStringArrayProperty("markerpacks", ",");
-		
-		// Charge les cellules et les bords
-		markerPacks = new HashMap<String, MarkerPack>();
-		
-		MarkerPack pack;
-		for (String packName : packList) {
-			// Crée le pack
-			pack = new MarkerPack();
-			pack.name = packName;
-			
-			// Charge les images des cellules
-			pack.cell.put(CellStates.OWNED, Boolean.FALSE, loadImage(MARKER_PACK_PREFIX + packName + "_owned_normal"));
-			pack.cell.put(CellStates.OWNED, Boolean.TRUE, loadImage(MARKER_PACK_PREFIX + packName + "_owned_selected"));
-			pack.cell.put(CellStates.CONTROLED, Boolean.FALSE, loadImage(MARKER_PACK_PREFIX + packName + "_controled_normal"));
-			pack.cell.put(CellStates.CONTROLED, Boolean.TRUE, loadImage(MARKER_PACK_PREFIX + packName + "_controled_selected"));
-			
-			// Charge le style de label
-			pack.labelStyle = skin.get(MARKER_PACK_PREFIX + packName, LabelStyle.class);
-			
-			// Charge les animations de perte et gain de cellule
-			pack.cellGainedAnim = loadAnim(MARKER_PACK_PREFIX + packName + "_gain");
-			pack.cellMomentaryAnim = loadAnim(MARKER_PACK_PREFIX + packName + "_owned_normal");
-			
-			// Enregistre le pack
-			markerPacks.put(packName, pack);
-		}
-	}
-	
-	private static Animation loadAnim(String name) {
-		Array<AtlasRegion> regions = atlas.findRegions(name);
-		if (regions == null || regions.size == 0) {
-			return null;
-		}
-		for (TextureRegion region : regions) {
-			fixBleeding(region);
-		}
-		return new Animation(appProperties.getFloatProperty("anim.frameDuration", 0.125f), regions);
-	}
-	
-	private static Animation loadMarkerPackAnim(String pack, boolean gainAnim) {
-		final String animPrefix = formatMarkerPackOwnershipChangeAnim(pack, gainAnim);
-		Array<AtlasRegion> regions = atlas.findRegions(animPrefix);
-		if (regions == null || regions.size == 0) {
-			return null;
-		}
-		for (TextureRegion region : regions) {
-			fixBleeding(region);
-		}
-		return new Animation(appProperties.getFloatProperty("anim.frameDuration", 0.125f), regions);
-	}
 
-	private static TextureRegion loadImage(String name) {
-		final TextureRegion region = atlas.findRegion(name);
-		if (region == null) {
-			return null;
+		// Charge et enregistre le pack de la liste
+		markerPacks = new HashMap<String, MarkerPack>();
+		for (String packName : packList) {
+			markerPacks.put(packName, packLoader.load(packName, atlas));
 		}
-		fixBleeding(region);
-		return region;
 	}
 	
 	private static void loadCellTypes() {
@@ -213,53 +160,14 @@ public class Assets {
 	}
 	
 	private static void putCellTypeImage(final CellTypes type, Boolean selected) {
-		final String regionName = formatCellTypeRegionName(type.name(), selected);
-		final TextureRegion region = atlas.findRegion(regionName);
+		final String regionName = CELL_TYPE_PREFIX + type.name() + "_" + (selected ? "selected" : "normal");
+		
+		final TextureRegion region = atlas.findRegion(regionName, true);
 		if (region == null) {
 			throw new IllegalStateException("Missing image " + regionName + " in atlas !");
 		}
-		fixBleeding(region);
+		
 		cellTypes.put(type, selected, new TextureRegionDrawable(region));
-	}
-	
-	/**
-	 * Permet de corriger le texture bleeding en décalant les coordonnées de la région d'un demi-pixel.
-	 * Cette méthode vient de http://www.wendytech.de/2012/08/fixing-bleeding-in-libgdxs-textureatlas/.
-	 * @param region
-	 */
-	public static void fixBleeding(TextureRegion region) {
-		float x = region.getRegionX();
-		float y = region.getRegionY();
-		float width = region.getRegionWidth();
-		float height = region.getRegionHeight();
-		float invTexWidth = 1f / region.getTexture().getWidth();
-		float invTexHeight = 1f / region.getTexture().getHeight();
-		region.setRegion((x + .5f) * invTexWidth, (y+.5f) * invTexHeight, (x + width - .5f) * invTexWidth, (y + height - .5f) * invTexHeight);       
-	}
-
-	/**
-	 * Pour une animation de gain ou perte de cellule, retourne le préfixe des noms des régions en
-	 * fonction du nom du pack et de l'animation souhaitée (gain ou perte)
-	 * @param pack
-	 * @param gainAnim
-	 * @return
-	 */
-	private static String formatMarkerPackOwnershipChangeAnim(String pack, boolean gainAnim) {
-		return MARKER_PACK_PREFIX
-			+ pack + "_"
-			+ (gainAnim ? "gain" : "lost");
-	}
-	
-	/**
-	 * Retourne le nom d'une région d'une cellule en fonction du type et de l'état de sélection
-	 * @param type
-	 * @param selected
-	 * @return
-	 */
-	private static String formatCellTypeRegionName(String type, boolean selected) {
-		return CELL_TYPE_PREFIX
-			+ type + "_"
-			+ (selected ? "selected" : "normal");
 	}
 	
 	private static void disposeAtlas() {

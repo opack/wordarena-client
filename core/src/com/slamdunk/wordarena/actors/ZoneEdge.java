@@ -1,7 +1,7 @@
 package com.slamdunk.wordarena.actors;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.slamdunk.wordarena.Assets;
+import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.EdgeData;
 
 public class ZoneEdge extends Image {

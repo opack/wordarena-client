@@ -1,8 +1,8 @@
 package com.slamdunk.wordarena.screens.arena.celleffects;
 
 import com.slamdunk.toolkit.graphics.drawers.AnimationDrawer;
-import com.slamdunk.wordarena.Assets;
 import com.slamdunk.wordarena.actors.ArenaCell;
+import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.MarkerPack;
 import com.slamdunk.wordarena.data.Player;
 import com.slamdunk.wordarena.enums.CellEffects;

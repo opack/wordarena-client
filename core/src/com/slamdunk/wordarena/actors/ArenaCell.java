@@ -10,7 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.slamdunk.toolkit.graphics.drawers.AnimationDrawer;
 import com.slamdunk.toolkit.ui.GroupEx;
 import com.slamdunk.toolkit.world.SlamActor;
-import com.slamdunk.wordarena.Assets;
+import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.CellData;
 import com.slamdunk.wordarena.data.Player;
 import com.slamdunk.wordarena.enums.CellStates;

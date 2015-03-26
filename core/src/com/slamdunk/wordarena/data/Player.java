@@ -1,6 +1,6 @@
 package com.slamdunk.wordarena.data;
 
-import com.slamdunk.wordarena.Assets;
+import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.enums.PlayerKind;
 
 /**

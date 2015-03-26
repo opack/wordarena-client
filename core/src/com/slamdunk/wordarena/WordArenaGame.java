@@ -3,6 +3,7 @@ package com.slamdunk.wordarena;
 import com.badlogic.gdx.Gdx;
 import com.slamdunk.toolkit.screen.SlamGame;
 import com.slamdunk.toolkit.settings.SlamSettings;
+import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.screens.arena.ArenaScreen;
 import com.slamdunk.wordarena.screens.editor.EditorScreen;
 import com.slamdunk.wordarena.screens.home.HomeScreen;
