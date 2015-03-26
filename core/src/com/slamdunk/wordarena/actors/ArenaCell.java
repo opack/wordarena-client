@@ -48,7 +48,6 @@ public class ArenaCell extends GroupEx {
 		
 		// Crée les acteurs dans l'ordre de superposition
 		animationDrawer = new AnimationDrawer();
-//DBG		animationDrawer.setActive(false);
 		animationDrawer.setPaused(true);
 		animationDrawer.setActive(true);
 		
@@ -115,10 +114,8 @@ public class ArenaCell extends GroupEx {
 		if (momentaryTimer <= 0) {
 			if (!animationDrawer.isActive()) {
 				animationDrawer.setStateTime(0);
-//DBG				animationDrawer.setActive(true);
 				animationDrawer.setPaused(false);
 			} else if (animationDrawer.isAnimationFinished()) {
-//DBG				animationDrawer.setActive(false);
 				animationDrawer.setPaused(true);
 				startMomentaryAnimTimer();
 			}
