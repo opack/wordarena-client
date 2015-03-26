@@ -1,11 +1,14 @@
 package com.slamdunk.wordarena.screens.arena.celleffects;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.slamdunk.toolkit.graphics.drawers.AnimationDrawer;
 import com.slamdunk.wordarena.actors.ArenaCell;
+import com.slamdunk.wordarena.actors.ArenaZone;
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.ArenaData;
 import com.slamdunk.wordarena.data.CellData;
@@ -75,22 +78,24 @@ public class BombExplosionEffect extends DefaultCellEffect {
 	 * Met à jour l'arène après l'explosion
 	 */
 	private void updateArena() {
+		Set<ArenaZone> impactedZones = new HashSet<ArenaZone>();
+		
+		// Prépare le player associé aux cellules sélectionnées car on ne
+		// veut pas faire exploser ses possessions
+		Player player = getPlayer();
+		
 		for (ArenaCell cell : getTargetCells()) {
 			// Récupère les voisins
 			tmpNeighbors.clear();
 			getArena().getNeighbors4(cell, tmpNeighbors);
 			
-			// Récupère l'owner de la cellule où se trouve la bombe
-			CellData cellData = cell.getData();
-			Player owner = cellData.owner;
-			
 			// Parcours chaque voisin pour voir s'il appartient à l'owner de la cellule
 			CellData neighborData;
 			for (ArenaCell neighbor : tmpNeighbors) {
 				neighborData = neighbor.getData();
-				
+
 				// Si le voisin appartient ou joueur ou n'est pas possédé, on ne fait rien
-				if (owner.equals(neighborData.owner)
+				if (player.equals(neighborData.owner)
 				|| neighborData.state != CellStates.OWNED) {
 					continue;
 				}
@@ -101,13 +106,21 @@ public class BombExplosionEffect extends DefaultCellEffect {
 				
 				// Mise à jour de l'apparence de la cellule
 				neighbor.updateDisplay();
+				
+				// Note la zone impactée pour màj
+				impactedZones.add(neighborData.zone);
 			}
 			
 			// La cellule n'est plus une bombe car elle a explosé
-			cellData.type = CellTypes.L;
+			cell.getData().type = CellTypes.L;
 			
 			// Mise à jour de l'apparence de la cellule
 			cell.updateDisplay();
+		}
+		
+		// Met à jour les zones touchées
+		for (ArenaZone impactedZone : impactedZones) {
+			impactedZone.updateOwner();
 		}
 	}
 }

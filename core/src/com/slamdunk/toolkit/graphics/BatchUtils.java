@@ -1,27 +1,27 @@
 package com.slamdunk.toolkit.graphics;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.BitmapFont.TextBounds;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-public class SpriteBatchUtils {
+public class BatchUtils {
     public static enum TextAlignment {
         TOP_LEFT, TOP_CENTER, TOP_RIGHT, MIDDLE_LEFT, MIDDLE_CENTER, MIDDLE_RIGHT, BOTTOM_LEFT, BOTTOM_CENTER, BOTTOM_RIGHT
     }
 
     /**
-     * Dessine le texte indiqué en le centrant dans la zone bounds.
+     * Dessine le texte indiqué en l'alignant dans la zone bounds.
      * @param drawBatch
      * @param font
      * @param text
      * @param align
      * @param bounds
      */
-    public static void drawString(SpriteBatch spriteBatch, BitmapFont font, String text, TextAlignment align, Rectangle bounds) {
+    public static void drawString(Batch spriteBatch, BitmapFont font, String text, TextAlignment align, Rectangle bounds) {
         // Détermine la taille du texte
         TextBounds textBounds = font.getBounds(text);
 
@@ -68,7 +68,9 @@ public class SpriteBatchUtils {
         }
 
         // Dessine le texte
-        font.draw(spriteBatch, text, x, y);
+        // Pour une raison étrange, le texte semble être dessiné "vers le bas",
+        // donc il faut ajouter la hauteur du texte pour être sûr de bien aligner
+        font.draw(spriteBatch, text, x, y + textBounds.height);
     }
     
     /**

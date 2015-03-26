@@ -2,14 +2,14 @@ package com.slamdunk.wordarena.actors;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.scenes.scene2d.Touchable;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.utils.Align;
+import com.slamdunk.toolkit.graphics.BatchUtils;
+import com.slamdunk.toolkit.graphics.BatchUtils.TextAlignment;
 import com.slamdunk.toolkit.graphics.drawers.AnimationDrawer;
-import com.slamdunk.toolkit.ui.GroupEx;
+import com.slamdunk.toolkit.graphics.drawers.TextureDrawer;
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.CellData;
 import com.slamdunk.wordarena.data.Player;
@@ -18,7 +18,7 @@ import com.slamdunk.wordarena.data.Player;
  * Une cellule de l'arène. Une cellule contient bien sûr une lettre
  * mais aussi 4 bords qui indique à quelle zone appartient la cellule.
  */
-public class ArenaCell extends GroupEx {
+public class ArenaCell extends Actor {
 	private final static int WIDTH = 48;
 	private final static int HEIGHT = 48;
 	
@@ -30,11 +30,12 @@ public class ArenaCell extends GroupEx {
 	 */
 	private final CellData data;
 	
-	private AnimationDrawer animationDrawer;
+	private AnimationDrawer ownerDrawer;
 	
-	private Label letter;
+	private LabelStyle letterStyle;
+	private Rectangle bounds;
 	
-	private Image cellTypeImage;
+	private TextureDrawer cellTypeDrawer;
 	
 	private boolean momentaryTimerActive;
 	private float momentaryTimer;
@@ -46,26 +47,22 @@ public class ArenaCell extends GroupEx {
 		// Crée les composants de la cellule
 		data = new CellData();
 		
-		// Crée les acteurs dans l'ordre de superposition
-		animationDrawer = new AnimationDrawer();
-		animationDrawer.setPaused(true);
-		animationDrawer.setActive(true);
+		// Drawer pour animer le fond en fonction de l'owner
+		ownerDrawer = new AnimationDrawer();
+		ownerDrawer.setPaused(true);
+		ownerDrawer.setActive(true);
+
+		// Drawer pour dessiner l'image en fonction du type de cellule
+		cellTypeDrawer = new TextureDrawer();
+		cellTypeDrawer.setActive(true);
 		
-		cellTypeImage = new Image();
-		cellTypeImage.setTouchable(Touchable.disabled);
-		cellTypeImage.setBounds(0, 0, WIDTH, HEIGHT);
-		addActor(cellTypeImage);
-		
-		letter = new Label("", skin);
-		letter.setAlignment(Align.center, Align.center);
-		letter.setTouchable(Touchable.disabled);
-		letter.setWidth(WIDTH);
-		letter.setPosition(WIDTH / 2, HEIGHT / 2, Align.center);
-		addActor(letter);
+		// Style et rectangle utilisé pour le dessin de la lettre
+		letterStyle = Assets.skin.get("power-" + data.power, LabelStyle.class);
+		bounds = new Rectangle(getX(), getY(), WIDTH, HEIGHT);
 	}
 	
 	public AnimationDrawer getAnimationDrawer() {
-		return animationDrawer;
+		return ownerDrawer;
 	}
 	
 	public CellData getData() {
@@ -101,7 +98,7 @@ public class ArenaCell extends GroupEx {
 		super.act(delta);
 		
 		// Met à jour l'animation
-		animationDrawer.updateTime(delta);
+		ownerDrawer.updateTime(delta);
 		
 		if (!momentaryTimerActive) {
 			return;
@@ -112,11 +109,11 @@ public class ArenaCell extends GroupEx {
 		
 		// Si le temps est venu de jouer l'animation, on la joue
 		if (momentaryTimer <= 0) {
-			if (!animationDrawer.isActive()) {
-				animationDrawer.setStateTime(0);
-				animationDrawer.setPaused(false);
-			} else if (animationDrawer.isAnimationFinished()) {
-				animationDrawer.setPaused(true);
+			if (!ownerDrawer.isActive()) {
+				ownerDrawer.setStateTime(0);
+				ownerDrawer.setPaused(false);
+			} else if (ownerDrawer.isAnimationFinished()) {
+				ownerDrawer.setPaused(true);
 				startMomentaryAnimTimer();
 			}
 		}
@@ -124,18 +121,23 @@ public class ArenaCell extends GroupEx {
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		// Dessine l'animation
-		animationDrawer.draw(this, batch);
+		// Dessine l'animation de l'owner
+		ownerDrawer.draw(this, batch);
 		
-		// Le super est placé après l'animation pour que la lettre
-		// et le dessin de type de cellule soient dessinés au-dessus
-		super.draw(batch, parentAlpha);
+		// Dessine le type de cellule
+		cellTypeDrawer.draw(this, batch);
+		
+		// Dessine la lettre
+		if (letterStyle != null) {
+			letterStyle.font.setColor(letterStyle.fontColor);
+			BatchUtils.drawString(batch, letterStyle.font, data.letter.label, TextAlignment.MIDDLE_CENTER, bounds);
+		}
 	}
 	
 	public void updateDisplay() {
 		// Met à jour l'animation à jour en fonction de l'état de la cellule
-		animationDrawer.setAnimation(Assets.getCellAnim(data), true, false);
-		animationDrawer.setStateTime(0);
+		ownerDrawer.setAnimation(Assets.getCellAnim(data), true, false);
+		ownerDrawer.setStateTime(0);
 		
 		// Si la cellule n'est pas sélectionnée, on démarre le timer qui va déclencher
 		// l'animation momentanée de la cellule
@@ -146,11 +148,11 @@ public class ArenaCell extends GroupEx {
 		}
 		
 		// Met à jour la lettre
-		letter.setText(data.letter.label);
-		letter.setStyle(Assets.skin.get("power-" + data.power, LabelStyle.class));
+		letterStyle = Assets.skin.get("power-" + data.power, LabelStyle.class);
+		bounds.set(getX(), getY(), getWidth(), getHeight());
 		
 		// Met à jour l'image représentant le type de cellule
-		cellTypeImage.setDrawable(Assets.getCellTypeImage(data));
+		cellTypeDrawer.setTextureRegion(Assets.getCellTypeRegion(data));
 	}
 
 	/**
@@ -158,7 +160,11 @@ public class ArenaCell extends GroupEx {
 	 * @param show
 	 */
 	public void showLetter(boolean show) {
-		letter.setVisible(show);
+		if (show) {
+			letterStyle = Assets.skin.get("power-" + data.power, LabelStyle.class);
+		} else {
+			letterStyle = null;
+		}
 	}
 
 	/**

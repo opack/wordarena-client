@@ -43,7 +43,8 @@ public class Assets {
 	private static MySkin specialSkinForOverlap;
 	public static TextureAtlasEx atlas;
 	public static Map<String, MarkerPack> markerPacks;
-	public static DoubleEntryArray<CellTypes, Boolean/*selected?*/, TextureRegionDrawable> cellTypes;
+//DBG	public static DoubleEntryArray<CellTypes, Boolean/*selected?*/, TextureRegionDrawable> cellTypes;
+	public static DoubleEntryArray<CellTypes, Boolean/*selected?*/, TextureRegion> cellTypes;
 
 	public static TextureRegionDrawable edge_h;
 	public static TextureRegionDrawable edge_v;
@@ -160,7 +161,7 @@ public class Assets {
 	}
 	
 	private static void loadCellTypes() {
-		cellTypes = new DoubleEntryArray<CellTypes, Boolean, TextureRegionDrawable>();
+		cellTypes = new DoubleEntryArray<CellTypes, Boolean, TextureRegion>();
 		
 		for (CellTypes type : CellTypes.values()) {
 			putCellTypeImage(type, Boolean.FALSE);
@@ -176,7 +177,8 @@ public class Assets {
 			throw new IllegalStateException("Missing image " + regionName + " in atlas !");
 		}
 		
-		cellTypes.put(type, selected, new TextureRegionDrawable(region));
+//DBG		cellTypes.put(type, selected, new TextureRegionDrawable(region));
+		cellTypes.put(type, selected, region);
 	}
 	
 	private static void disposeAtlas() {
@@ -201,12 +203,21 @@ public class Assets {
 		return null;
 	}
 	
+//DBG	/**
+//	 * Retourne l'image de type de cellule pour l'état de la cellule indiqué.
+//	 * @param data
+//	 * @return
+//	 */
+//	public static TextureRegionDrawable getCellTypeImage(CellData data) {
+//		return cellTypes.get(data.type, data.selected);
+//	}
+	
 	/**
 	 * Retourne l'image de type de cellule pour l'état de la cellule indiqué.
 	 * @param data
 	 * @return
 	 */
-	public static TextureRegionDrawable getCellTypeImage(CellData data) {
+	public static TextureRegion getCellTypeRegion(CellData data) {
 		return cellTypes.get(data.type, data.selected);
 	}
 	
