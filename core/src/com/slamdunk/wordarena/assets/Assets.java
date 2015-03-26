@@ -53,6 +53,9 @@ public class Assets {
 	public static TextureRegionDrawable wall_h;
 	public static TextureRegionDrawable wall_v;
 	
+	public static Animation explosionAnim;
+	public static Animation breakGlassAnim;
+	
 	public static void load () {
 		loadAppProperties();
 		loadI18N();
@@ -72,10 +75,12 @@ public class Assets {
 	}
 	
 	public static void loadAtlas() {
+		final float frameDuration = appProperties.getFloatProperty("anim.frameDuration", 0.125f);
+		
 		atlas = new TextureAtlasEx("textures/wordarena.txt");
 		
 		// Charge les marker-packs
-		loadMarkerPacks();
+		loadMarkerPacks(frameDuration);
 		
 		// Charge les images des types
 		loadCellTypes();
@@ -89,6 +94,10 @@ public class Assets {
 		// Charge les images des murs
 		wall_v = new TextureRegionDrawable(atlas.findRegion("wall_v"));
 		wall_h = new TextureRegionDrawable(atlas.findRegion("wall_h"));
+		
+		// Charge les animations diverses
+		explosionAnim = atlas.findAnimation("explosion", frameDuration, true);
+		breakGlassAnim = explosionAnim; // TODO Faire une explosion de verre
 	}
 	
 	public static void loadI18N() {
@@ -136,9 +145,8 @@ public class Assets {
 		}
 	}
 	
-	private static void loadMarkerPacks() {
+	private static void loadMarkerPacks(float frameDuration) {
 		// Crée l'objet chargé de parcourir l'atlas et la skin pour créer les packs
-		final float frameDuration = appProperties.getFloatProperty("anim.frameDuration", 0.125f);
 		PackLoader packLoader = new PackLoader(skin, frameDuration);
 		
 		// Charge la liste des marker-packs
@@ -173,15 +181,6 @@ public class Assets {
 	
 	private static void disposeAtlas() {
 		atlas.dispose();
-	}
-
-	/**
-	 * Retourne l'image de propriétaire pour le pack et l'état de la cellule indiqués.
-	 * @param data
-	 * @return
-	 */
-	public static TextureRegion getCellOwnerImage(CellData data) {
-		return markerPacks.get(data.owner.markerPack).cell.get(data.state, data.selected);
 	}
 	
 	/**

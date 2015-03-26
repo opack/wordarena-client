@@ -5,9 +5,9 @@ height: 7
 plan.types: [
 	"L L L L L L L "
 	"L L L L L L L "
-	"L L L L L L L "
-	"L L L L L L L "
-	"L L L L L L L "
+	"L L B L L L L "
+	"L L L B L L L "
+	"L L L L B L L "
 	"L L L L L L L "
 	"L L L L L L L "
 ]

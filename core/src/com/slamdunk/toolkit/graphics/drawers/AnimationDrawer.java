@@ -109,12 +109,13 @@ public class AnimationDrawer {
 	public void setPaused(boolean paused) {
 		this.paused = paused;
 	}
-
+	
 	/**
 	 * Dessine l'animation dans le drawBatch indiqué, à la position
 	 * de l'acteur
 	 * @param actor
 	 * @param drawBatch
+	 * @param centerOnActor true s'il faut centrer l'animation sur l'acteur
 	 */
 	public void draw(Actor actor, Batch batch) {
 		// Dessine l'animation, uniquement si elle est active et non nulle

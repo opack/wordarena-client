@@ -82,7 +82,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 			ui.setInfo(Assets.i18nBundle.format("ui.arena.wordPlayed", player.name, word));
 			
 			// Déclenche les effets sur les cellules
-			cellEffectsManager.triggerCellEffects(player, selectedCells);
+			cellEffectsManager.applyEffects(selectedCells, player, arena.getData());
 			
 			// Bloquer la saisie pour empêcher que le joueur ne joue de nouveau pendant les animations
 			arena.enableCellSelection(false);

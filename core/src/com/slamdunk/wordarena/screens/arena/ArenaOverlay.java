@@ -105,9 +105,6 @@ public class ArenaOverlay extends WorldOverlay {
 		// Ajoute les zones
 		resetZones();
 		
-		// Met à jour le CellEffectsManager
-		cellEffectsManager.setArena(data);
-		
 		// Centre l'arène dans la zone d'affichage
 		centerArena();
 	}
