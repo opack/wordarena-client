@@ -27,6 +27,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	private WordSelectionHandler wordSelectionHandler;
 	private WordValidator wordValidator;
 	private MatchCinematic cinematic;
+	private CellEffectsManager cellEffectsManager;
 	
 	public MatchManager() {		
 		wordSelectionHandler = new WordSelectionHandler(this);
@@ -46,6 +47,9 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	public void prepareGame(ArenaScreen screen, String arenaPlanFile, Array<Player> playersList) {
 		arena = screen.getArena();
 		ui = screen.getUI();
+		
+		cellEffectsManager = arena.getCellEffectsManager();
+		cellEffectsManager.setListener(this);
 		
 		this.arenaPlanFile = arenaPlanFile;
 		cinematic.init(playersList);
@@ -78,9 +82,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 			ui.setInfo(Assets.i18nBundle.format("ui.arena.wordPlayed", player.name, word));
 			
 			// Déclenche les effets sur les cellules
-			CellEffectsManager effectsManager = new CellEffectsManager(player, arena.getData());
-			effectsManager.setListener(this);
-			effectsManager.triggerCellEffects(selectedCells);
+			cellEffectsManager.triggerCellEffects(player, selectedCells);
 			
 			// Bloquer la saisie pour empêcher que le joueur ne joue de nouveau pendant les animations
 			arena.enableCellSelection(false);

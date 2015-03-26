@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>3.6.0</string>
         <key>fileName</key>
-        <string>D:/perso/dev/WordArena/wordarena-client/work/img_export/wordarena.tps</string>
+        <string>E:/Projets/Programmes/WordArena/wordarena-client/work/img_export/wordarena.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -38,7 +38,7 @@
         <key>dataFormat</key>
         <string>libgdx</string>
         <key>textureFileName</key>
-        <filename>../../WordArena-android/assets/textures/wordarena.png</filename>
+        <filename>../../android/assets/textures/wordarena.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -145,7 +145,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../../WordArena-android/assets/textures/wordarena.txt</filename>
+                <filename>../../android/assets/textures/wordarena.txt</filename>
             </struct>
         </map>
         <key>multiPack</key>

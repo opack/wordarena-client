@@ -28,14 +28,34 @@ public class MarkerPack {
 	public LabelStyle labelStyle;
 	
 	/**
+	 * Animation à jouer lorsque la cellule est possédée. Cette animation est mise en
+	 * pause sur la 1ère frame et déclenchée à intervalles aléatoires pour donner vie
+	 * à la cellule.
+	 */
+	public Animation ownedAnim;
+	
+	/**
+	 * Animation à jouer lorsque la cellule est contrôlée. Cette animation est mise en
+	 * pause sur la 1ère frame et déclenchée à intervalles aléatoires pour donner vie
+	 * à la cellule.
+	 */
+	public Animation controledAnim;
+	
+	/**
+	 * Animation à jouer lorsque la cellule est sélectionnée. Cette animation est jouée
+	 * en looping.
+	 */
+	public Animation selectedAnim;
+	
+	/**
 	 * Animation à jouer lorsque le joueur gagne une cellule
 	 */
-	public Animation cellGainedAnim;
+	public Animation conquestAnim;
 	
 	/**
 	 * Animation à jour de temps en temps pour donner vie à la cellule
 	 */
-	public Animation cellMomentaryAnim;
+	public Animation momentaryAnim;
 	
 	public MarkerPack() {
 		cell = new DoubleEntryArray<CellStates, Boolean, TextureRegion>();

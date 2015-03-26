@@ -22,6 +22,7 @@ import com.slamdunk.wordarena.data.ArenaData;
 import com.slamdunk.wordarena.data.CellData;
 import com.slamdunk.wordarena.data.Player;
 import com.slamdunk.wordarena.enums.CellStates;
+import com.slamdunk.wordarena.screens.arena.celleffects.CellEffectsManager;
 import com.slamdunk.wordarena.screens.editor.EditorScreen;
 
 public class ArenaOverlay extends WorldOverlay {
@@ -31,6 +32,8 @@ public class ArenaOverlay extends WorldOverlay {
 	private GroupEx cellsGroup;
 	private Group wallsGroup;
 	private Group zonesGroup;
+	
+	private CellEffectsManager cellEffectsManager;
 	
 	public ArenaOverlay() {
 		createStage(new FitViewport(WordArenaGame.SCREEN_WIDTH, WordArenaGame.SCREEN_HEIGHT));
@@ -49,6 +52,9 @@ public class ArenaOverlay extends WorldOverlay {
 		zonesGroup = new Group();
 		zonesGroup.setTouchable(Touchable.disabled);
 		arenaGroup.addActor(zonesGroup);
+		
+		cellEffectsManager = new CellEffectsManager();
+		arenaGroup.addActor(cellEffectsManager);
 	}
 	
 	public ArenaData getData() {
@@ -59,6 +65,10 @@ public class ArenaOverlay extends WorldOverlay {
 		this.data = data;
 	}
 	
+	public CellEffectsManager getCellEffectsManager() {
+		return cellEffectsManager;
+	}
+
 	/**
 	 * Crée l'arène de jeu
 	 */
@@ -94,6 +104,9 @@ public class ArenaOverlay extends WorldOverlay {
 		
 		// Ajoute les zones
 		resetZones();
+		
+		// Met à jour le CellEffectsManager
+		cellEffectsManager.setArena(data);
 		
 		// Centre l'arène dans la zone d'affichage
 		centerArena();

@@ -31,8 +31,11 @@ public class PackLoader {
 		pack.labelStyle = skin.get(MARKER_PACK_PREFIX + name, LabelStyle.class);
 		
 		// Charge les animations
-		pack.cellGainedAnim = atlas.findAnimation(MARKER_PACK_PREFIX + name + "_gain", frameDuration, true);
-		pack.cellMomentaryAnim = atlas.findAnimation(MARKER_PACK_PREFIX + name + "_owned_normal", frameDuration, true);
+		pack.ownedAnim = atlas.findAnimation(MARKER_PACK_PREFIX + name + "_owned_normal", frameDuration, true);
+		pack.controledAnim = atlas.findAnimation(MARKER_PACK_PREFIX + name + "_controled_normal", frameDuration, true);
+		pack.selectedAnim = atlas.findAnimation(MARKER_PACK_PREFIX + name + "_owned_selected", frameDuration, true);
+		pack.conquestAnim = atlas.findAnimation(MARKER_PACK_PREFIX + name + "_gain", frameDuration, true);
+		pack.momentaryAnim = atlas.findAnimation(MARKER_PACK_PREFIX + name + "_owned_normal", frameDuration, true);
 		
 		return pack;
 	}

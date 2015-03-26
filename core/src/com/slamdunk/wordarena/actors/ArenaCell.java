@@ -1,5 +1,6 @@
 package com.slamdunk.wordarena.actors;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -9,11 +10,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.slamdunk.toolkit.graphics.drawers.AnimationDrawer;
 import com.slamdunk.toolkit.ui.GroupEx;
-import com.slamdunk.toolkit.world.SlamActor;
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.CellData;
 import com.slamdunk.wordarena.data.Player;
-import com.slamdunk.wordarena.enums.CellStates;
 
 /**
  * Une cellule de l'arène. Une cellule contient bien sûr une lettre
@@ -31,7 +30,7 @@ public class ArenaCell extends GroupEx {
 	 */
 	private final CellData data;
 	
-	private SlamActor ownerActor;
+	private AnimationDrawer animationDrawer;
 	
 	private Label letter;
 	
@@ -41,64 +40,33 @@ public class ArenaCell extends GroupEx {
 	private float momentaryTimer;
 	
 	public ArenaCell(final Skin skin) {
+		// Définit la taille de la cellule
+		setSize(WIDTH, HEIGHT);
+		
 		// Crée les composants de la cellule
 		data = new CellData();
 		
 		// Crée les acteurs dans l'ordre de superposition
-		ownerActor = new SlamActor(WIDTH, HEIGHT, false);
-		ownerActor.createDrawers(true, true, false);
-		ownerActor.setTouchable(Touchable.disabled);
-		ownerActor.getTextureDrawer().setActive(true);
-		ownerActor.getAnimationDrawer().setActive(false);
-		addActor(ownerActor);
+		animationDrawer = new AnimationDrawer();
+//DBG		animationDrawer.setActive(false);
+		animationDrawer.setPaused(true);
+		animationDrawer.setActive(true);
 		
 		cellTypeImage = new Image();
 		cellTypeImage.setTouchable(Touchable.disabled);
-		cellTypeImage.setBounds(0, 0, ownerActor.getWidth(), ownerActor.getHeight());
+		cellTypeImage.setBounds(0, 0, WIDTH, HEIGHT);
 		addActor(cellTypeImage);
 		
 		letter = new Label("", skin);
 		letter.setAlignment(Align.center, Align.center);
 		letter.setTouchable(Touchable.disabled);
-		letter.setWidth(ownerActor.getWidth());
-		letter.setPosition(ownerActor.getWidth() / 2, ownerActor.getHeight() / 2, Align.center);
+		letter.setWidth(WIDTH);
+		letter.setPosition(WIDTH / 2, HEIGHT / 2, Align.center);
 		addActor(letter);
 	}
 	
-	/**
-	 * Choisit un délai aléatoire avant la prochaine exécution de l'animation
-	 */
-	private void startMomentaryAnimTimer() {
-		momentaryTimer = MathUtils.random(MOMENTARY_ANIM_INTERVAL_MIN, MOMENTARY_ANIM_INTERVAL_MAX);
-		momentaryTimerActive = true;
-	}
-
-	@Override
-	public void act(float delta) {
-		super.act(delta);
-		
-		if (!momentaryTimerActive) {
-			return;
-		}
-
-		// Mise à jour du timer
-		momentaryTimer -= delta;
-		
-		// Si le temps est venu de jouer l'animation momentanée, on la joue
-		AnimationDrawer animDrawer = ownerActor.getAnimationDrawer();
-		if (momentaryTimer <= 0) {
-			if (!animDrawer.isActive()) {
-				animDrawer.setStateTime(0);
-				animDrawer.setActive(true);
-			} else if (ownerActor.getAnimationDrawer().isAnimationFinished()) {
-				animDrawer.setActive(false);
-				startMomentaryAnimTimer();
-			}
-		}
-	}
-	
-	public SlamActor getOwnerActor() {
-		return ownerActor;
+	public AnimationDrawer getAnimationDrawer() {
+		return animationDrawer;
 	}
 	
 	public CellData getData() {
@@ -116,33 +84,84 @@ public class ArenaCell extends GroupEx {
 		return false;
 	}
 	
+	@Override
+	public int hashCode() {
+		return data.position.hashCode();
+	}
+
+	/**
+	 * Choisit un délai aléatoire avant la prochaine exécution de l'animation
+	 */
+	private void startMomentaryAnimTimer() {
+		momentaryTimer = MathUtils.random(MOMENTARY_ANIM_INTERVAL_MIN, MOMENTARY_ANIM_INTERVAL_MAX);
+		momentaryTimerActive = true;
+	}
+
+	@Override
+	public void act(float delta) {
+		super.act(delta);
+		
+		// Met à jour l'animation
+		animationDrawer.updateTime(delta);
+		
+		if (!momentaryTimerActive) {
+			return;
+		}
+
+		// Mise à jour du timer
+		momentaryTimer -= delta;
+		
+		// Si le temps est venu de jouer l'animation, on la joue
+		if (momentaryTimer <= 0) {
+			if (!animationDrawer.isActive()) {
+				animationDrawer.setStateTime(0);
+//DBG				animationDrawer.setActive(true);
+				animationDrawer.setPaused(false);
+			} else if (animationDrawer.isAnimationFinished()) {
+//DBG				animationDrawer.setActive(false);
+				animationDrawer.setPaused(true);
+				startMomentaryAnimTimer();
+			}
+		}
+	}
+	
+	@Override
+	public void draw(Batch batch, float parentAlpha) {
+		// Dessine l'animation
+		animationDrawer.draw(this, batch);
+		
+		// Le super est placé après l'animation pour que la lettre
+		// et le dessin de type de cellule soient dessinés au-dessus
+		super.draw(batch, parentAlpha);
+	}
+	
+	public void updateDisplay() {
+		// Met à jour l'animation à jour en fonction de l'état de la cellule
+		animationDrawer.setAnimation(Assets.getCellAnim(data), true, false);
+		animationDrawer.setStateTime(0);
+		
+		// Si la cellule n'est pas sélectionnée, on démarre le timer qui va déclencher
+		// l'animation momentanée de la cellule
+		momentaryTimerActive = data.selected == false;
+		if (momentaryTimerActive && momentaryTimer <= 0) {
+			// Lance le timer pour jouer l'animation de cellule possédée dans un certain temps
+			startMomentaryAnimTimer();
+		}
+		
+		// Met à jour la lettre
+		letter.setText(data.letter.label);
+		letter.setStyle(Assets.skin.get("power-" + data.power, LabelStyle.class));
+		
+		// Met à jour l'image représentant le type de cellule
+		cellTypeImage.setDrawable(Assets.getCellTypeImage(data));
+	}
+
 	/**
 	 * Affiche ou masque la lettre de la cellule
 	 * @param show
 	 */
 	public void showLetter(boolean show) {
 		letter.setVisible(show);
-	}
-	
-	@Override
-	public int hashCode() {
-		return data.position.hashCode();
-	}
-	
-	public void updateDisplay() {
-		ownerActor.getTextureDrawer().setTextureRegion(Assets.getCellOwnerImage(data));
-		
-		ownerActor.getAnimationDrawer().setAnimation(Assets.getCellOwnerMomentaryAnim(data), false, false);
-		momentaryTimerActive = data.state == CellStates.OWNED && data.selected == false;
-		if (momentaryTimerActive && momentaryTimer <= 0) {
-			// Lance le timer pour jouer l'animation de cellule possédée dans un certain temps
-			startMomentaryAnimTimer();
-		}
-		
-		letter.setText(data.letter.label);
-		letter.setStyle(Assets.skin.get("power-" + data.power, LabelStyle.class));
-		
-		cellTypeImage.setDrawable(Assets.getCellTypeImage(data));
 	}
 
 	/**

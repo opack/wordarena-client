@@ -19,6 +19,7 @@ import com.slamdunk.toolkit.lang.TypedProperties;
 import com.slamdunk.toolkit.settings.SlamSettings;
 import com.slamdunk.wordarena.data.CellData;
 import com.slamdunk.wordarena.data.MarkerPack;
+import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.uwsoft.editor.renderer.resources.ResourceManager;
 import com.uwsoft.editor.renderer.utils.MySkin;
@@ -188,8 +189,17 @@ public class Assets {
 	 * @param data
 	 * @return
 	 */
-	public static Animation getCellOwnerMomentaryAnim(CellData data) {
-		return markerPacks.get(data.owner.markerPack).cellMomentaryAnim;
+	public static Animation getCellAnim(CellData data) {
+		MarkerPack pack = markerPacks.get(data.owner.markerPack);
+		if (data.selected) {
+			return pack.selectedAnim;
+		} else if (data.state == CellStates.OWNED) {
+			return pack.ownedAnim;
+		} else if (data.state == CellStates.CONTROLED) {
+			return pack.controledAnim;
+		}
+		// Ce cas ne devrait pas arriver
+		return null;
 	}
 	
 	/**

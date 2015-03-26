@@ -29,7 +29,7 @@ public class AnimationDrawer {
 	 */
 	private boolean isLooping = false;
 	private boolean killAllAnimations = false;
-	
+	private boolean paused = false;	
 	
 	/**
 	 * Indique si l'animation est terminée
@@ -102,6 +102,14 @@ public class AnimationDrawer {
 		this.killAllAnimations = killAllAnimations;
 	}
 	
+	public boolean isPaused() {
+		return paused;
+	}
+
+	public void setPaused(boolean paused) {
+		this.paused = paused;
+	}
+
 	/**
 	 * Dessine l'animation dans le drawBatch indiqué, à la position
 	 * de l'acteur
@@ -164,7 +172,9 @@ public class AnimationDrawer {
 	 * @param delta
 	 */
 	public void updateTime(float delta) {
-		stateTime += delta;
+		if (!paused) {
+			stateTime += delta;
+		}
 	}
 	
 	/**

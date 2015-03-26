@@ -1,3 +1,6 @@
+[/] MOD : MarkerPack : au lieu de simples images, utiliser 1 animation pour owned, 1 pour controled et 1 pour selected (inutile de distinguer owner/controled)
+[ ] ADD : AnimationDrawer : rendre Poolable
+[ ] MOD : ArenaCell : utiliser un TextureDrawer au lieu d'un Image pour le type de cellule
 [ ] ADD : Skin d'arène (1 skin = 1 atlas)
 [ ] ADD : Partie - RUNNING : Ajouter des carrés qui se remplissent pour indiquer le nombre de zones possédées
 [ ] ADD : Partie - RUNNING : Afficher les nouvelles dominations de zone au fur et à mesure de la saisie

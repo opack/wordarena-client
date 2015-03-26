@@ -1,10 +1,10 @@
 package com.slamdunk.wordarena.screens.arena.celleffects;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.slamdunk.toolkit.graphics.drawers.AnimationDrawer;
 import com.slamdunk.wordarena.actors.ArenaCell;
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.MarkerPack;
-import com.slamdunk.wordarena.data.Player;
 import com.slamdunk.wordarena.enums.CellEffects;
 import com.slamdunk.wordarena.enums.CellStates;
 
@@ -13,20 +13,29 @@ import com.slamdunk.wordarena.enums.CellStates;
  * conquis cette cellule, puis change effectivement la possession de la cellule.
  */
 public class TakeOwnershipEffect extends CellEffect {
-	private boolean playAnim;
+	private AnimationDrawer drawer;
 	
 	public TakeOwnershipEffect(CellEffectsManager manager, ArenaCell cell) {
 		super(manager, cell);
-		
+	}
+	
+	protected boolean init() {
 		// Si le joueur n'a pas changé, inutile de jouer l'animation
 		// On ne joue donc l'animation que si la cellule n'est pas actuellement
 		// possédée, ou qu'elle l'est par un autre joueur
-		playAnim = cell.getData().state != CellStates.OWNED
-				|| !manager.getPlayer().equals(cell.getData().owner);
+		if (getCell().getData().state != CellStates.OWNED
+		|| !getManager().getPlayer().equals(getCell().getData().owner)) {
+			
+			// Lance l'animation de prise de possession
+			final MarkerPack gainerPack = Assets.markerPacks.get(getManager().getPlayer().markerPack);
+			
+			drawer = new AnimationDrawer();
+			drawer.setAnimation(gainerPack.conquestAnim, true, false);
+			
+			return true;
+		}
+		return false;
 	}
-
-	private boolean launched = false;
-	private AnimationDrawer drawer;
 
 	@Override
 	public CellEffects getEffect() {
@@ -34,20 +43,16 @@ public class TakeOwnershipEffect extends CellEffect {
 	}
 	
 	@Override
-	public boolean act(float delta) {
-		if (!playAnim) {
-			return true;
-		}
-		
-		
-		// Lance l'animation
-		if (!launched) {
-			launchAnim(getManager().getPlayer(), getCell());
-		}
+	public boolean perform(float delta) {
+		// Déroule l'animation
+		drawer.updateTime(delta);
 		
 		// Vérifie si l'animation est terminée
-		if (checkEffectEnd()) {
-
+		if (drawer.isAnimationFinished()) {
+			
+			// Arrête l'animation
+			drawer.setActive(false);
+			
 			// Met à jour le statut de la cellule à la fin de l'animation
 			getCell().getData().owner = getManager().getPlayer();
 			getCell().getData().state = CellStates.OWNED;
@@ -59,22 +64,8 @@ public class TakeOwnershipEffect extends CellEffect {
 		return false;
 	}
 	
-	private boolean checkEffectEnd() {
-		if (drawer.getAnimationMomentary().isAnimationFinished(drawer.getStateTime())) {
-			drawer.setActive(false);
-			return true;
-		}
-		return false;
+	@Override
+	public void render(Batch batch, float parentAlpha) {
+		drawer.draw(getCell(), batch);
 	}
-
-	private void launchAnim(Player player, ArenaCell cell) {
-		drawer = cell.getOwnerActor().getAnimationDrawer();
-		
-		// Lance l'animation de prise de possession
-		final MarkerPack gainerPack = Assets.markerPacks.get(player.markerPack);
-		drawer.setAnimationMomentary(gainerPack.cellGainedAnim, true, null, false, false);
-		
-		launched = true;
-	}
-
 }
