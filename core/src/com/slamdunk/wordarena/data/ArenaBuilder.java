@@ -13,7 +13,6 @@ import com.slamdunk.toolkit.lang.Deck;
 import com.slamdunk.toolkit.lang.KeyListMap;
 import com.slamdunk.toolkit.world.point.Point;
 import com.slamdunk.wordarena.Assets;
-import com.slamdunk.wordarena.WordSelectionHandler;
 import com.slamdunk.wordarena.actors.ApplyToolListener;
 import com.slamdunk.wordarena.actors.ArenaCell;
 import com.slamdunk.wordarena.actors.ArenaZone;
@@ -22,6 +21,7 @@ import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.enums.Letters;
 import com.slamdunk.wordarena.screens.arena.MatchManager;
+import com.slamdunk.wordarena.screens.arena.WordSelectionHandler;
 import com.slamdunk.wordarena.screens.editor.EditorScreen;
 
 /**

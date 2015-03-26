@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.badlogic.gdx.utils.Array;
 import com.slamdunk.wordarena.Assets;
-import com.slamdunk.wordarena.WordSelectionHandler;
 import com.slamdunk.wordarena.actors.ArenaCell;
 import com.slamdunk.wordarena.data.Player;
 import com.slamdunk.wordarena.enums.GameStates;
@@ -83,7 +82,8 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 			effectsManager.setListener(this);
 			effectsManager.triggerCellEffects(selectedCells);
 			
-			// TODO Bloquer la saisie pour empêcher que le joueur ne joue de nouveau
+			// Bloquer la saisie pour empêcher que le joueur ne joue de nouveau pendant les animations
+			arena.enableCellSelection(false);
 			
 			// Raz du mot sélectionné
 			cancelWord();
@@ -227,7 +227,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		// Le score du joueur est modifié
 		ScoreHelper.onRefreshStartingZone(curPlayer);
 		
-		// Fin du tour de ce joueur
+		// Termine le tour de ce joueur
 		cinematic.endMove();
 	}
 	
@@ -318,6 +318,21 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		// Affiche le bouton de rafraîchissement des lettres de la zone de départ.
 		// On ne peut rafraîchir la zone de départ qu'au premier coup du round.
 		ui.showRefreshStartingZoneButton(currentPlayer.nbWordsPlayed == 0);
+		
+		switch (currentPlayer.kind) {
+		case CPU:
+			// TODO Si le joueur est un CPU, on le fait jouer
+			arena.enableCellSelection(false);
+			break;
+		case HUMAN_LOCAL:
+			// TODO Le prochain joueur joue sur ce terminal. On affiche une boîte de dialogue qu'il devra fermer pour débuter son tour.
+			arena.enableCellSelection(true);
+			break;
+		case HUMAN_NET:
+			// TODO Le prochain joueur joue sur le net. On désactive la saisie sur ce terminal.
+			arena.enableCellSelection(false);
+			break;
+		}
 	}
 
 	/**
@@ -327,7 +342,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	@Override
 	public void onEffectApplicationFinished(Player player, List<ArenaCell> processedCells) {
 		// Toutes les cellules passent sous la domination du joueur
-		arena.setOwner(processedCells, player);
+		arena.setCellsOwner(processedCells, player);
 		
 		// Le score du joueur est modifié
 		ScoreHelper.onValidWord(player, processedCells);
@@ -336,7 +351,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		// et pour autoriser ou non le refresh de la zone de départ
 		player.nbWordsPlayed++;
 		
-		// Fin du tour de ce joueur
+		// Termine le tour de ce joueur
 		cinematic.endMove();
 	}
 }

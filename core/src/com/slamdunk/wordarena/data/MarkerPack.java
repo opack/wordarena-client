@@ -28,11 +28,6 @@ public class MarkerPack {
 	public LabelStyle labelStyle;
 	
 	/**
-	 * Animation à jouer lorsque le joueur perd une cellule
-	 */
-	public Animation cellLostAnim;
-	
-	/**
 	 * Animation à jouer lorsque le joueur gagne une cellule
 	 */
 	public Animation cellGainedAnim;

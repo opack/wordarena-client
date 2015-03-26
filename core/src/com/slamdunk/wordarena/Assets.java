@@ -163,8 +163,7 @@ public class Assets {
 			pack.labelStyle = skin.get(MARKER_PACK_PREFIX + packName, LabelStyle.class);
 			
 			// Charge les animations de perte et gain de cellule
-			pack.cellLostAnim = loadMarkerPackAnim(packName, false);
-			pack.cellGainedAnim = loadAnim(MARKER_PACK_PREFIX + packName + "_gain");//DBGloadMarkerPackAnim(packName, true);
+			pack.cellGainedAnim = loadAnim(MARKER_PACK_PREFIX + packName + "_gain");
 			pack.cellMomentaryAnim = loadAnim(MARKER_PACK_PREFIX + packName + "_owned_normal");
 			
 			// Enregistre le pack
@@ -204,13 +203,6 @@ public class Assets {
 		return region;
 	}
 	
-//DBG	private static void putMarkerPackImage(final MarkerPack pack, final CellStates state, Boolean selected) {
-//		final String regionName = formatMarkerPackCellRegionName(pack.name, state, selected);
-//		final TextureRegion region = atlas.findRegion(regionName);
-//		fixBleeding(region);
-//		pack.cell.put(state, selected, region);
-//	}
-	
 	private static void loadCellTypes() {
 		cellTypes = new DoubleEntryArray<CellTypes, Boolean, TextureRegionDrawable>();
 		
@@ -245,21 +237,6 @@ public class Assets {
 		region.setRegion((x + .5f) * invTexWidth, (y+.5f) * invTexHeight, (x + width - .5f) * invTexWidth, (y + height - .5f) * invTexHeight);       
 	}
 
-//DBG	/**
-//	 * Retourne le nom d'une région d'une cellule en fonction du nom du pack et de l'état de la
-//	 * cellule pour lequel on souhaite récupérer l'image du pack dans l'atlas
-//	 * @param pack
-//	 * @param state
-//	 * @param selected
-//	 * @return
-//	 */
-//	private static String formatMarkerPackCellRegionName(String pack, CellStates state, boolean selected) {
-//		return MARKER_PACK_PREFIX
-//			+ pack + "_"
-//			+ state.name().toLowerCase() + "_"
-//			+ (selected ? "selected" : "normal");
-//	}
-	
 	/**
 	 * Pour une animation de gain ou perte de cellule, retourne le préfixe des noms des régions en
 	 * fonction du nom du pack et de l'animation souhaitée (gain ou perte)

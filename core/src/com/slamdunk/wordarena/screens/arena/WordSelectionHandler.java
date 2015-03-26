@@ -1,4 +1,4 @@
-package com.slamdunk.wordarena;
+package com.slamdunk.wordarena.screens.arena;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,6 @@ import java.util.List;
 import com.slamdunk.wordarena.actors.ArenaCell;
 import com.slamdunk.wordarena.actors.ArenaZone;
 import com.slamdunk.wordarena.data.Player;
-import com.slamdunk.wordarena.screens.arena.MatchManager;
 
 /**
  * Gère le mot actuellement sélectionné et détermine si une cellule
@@ -20,7 +19,7 @@ public class WordSelectionHandler {
 		this.gameManager = gameManager;
 		selectedCells = new ArrayList<ArenaCell>();
 	}
-	
+
 	/**
 	 * Ajoute la cellule indiquée au mot si elle peut l'être
 	 * @return true si la cellule a pu être ajoutée au mot

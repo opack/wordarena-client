@@ -1,6 +1,7 @@
 package com.slamdunk.wordarena.data;
 
 import com.slamdunk.wordarena.Assets;
+import com.slamdunk.wordarena.enums.PlayerKind;
 
 /**
  * Contient les informations sur le joueur participant à la partie
@@ -13,11 +14,19 @@ public class Player {
 	
 	public int uid;
 	public String name;
+	
+	/**
+	 * Donne le type de joueur (CPU, humain à distance, humain en local)
+	 */
+	public PlayerKind kind;
+	
+	public String markerPack;
+	
 	public int score;
+	
 	public int nbRoundsWon;
 	public int nbZonesOwned;
 	public int nbWordsPlayed;
-	public String markerPack;
 	
 	public Player() {
 	}
@@ -26,6 +35,7 @@ public class Player {
 		this.uid = uid;
 		this.name = name;
 		this.markerPack = cellPack;
+		this.kind = PlayerKind.HUMAN_LOCAL;
 	}
 	
 	@Override

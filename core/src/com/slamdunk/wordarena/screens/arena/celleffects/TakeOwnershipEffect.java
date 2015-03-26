@@ -68,7 +68,7 @@ public class TakeOwnershipEffect extends CellEffect {
 	}
 
 	private void launchAnim(Player player, ArenaCell cell) {
-		drawer = cell.getOwnerActorDBG().getAnimationDrawer();
+		drawer = cell.getOwnerActor().getAnimationDrawer();
 		
 		// Lance l'animation de prise de possession
 		final MarkerPack gainerPack = Assets.markerPacks.get(player.markerPack);

@@ -6,6 +6,7 @@ import com.badlogic.gdx.utils.Array;
 import com.slamdunk.toolkit.screen.SlamScreen;
 import com.slamdunk.wordarena.WordArenaGame;
 import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.enums.PlayerKind;
 import com.slamdunk.wordarena.screens.arena.ArenaScreen;
 import com.slamdunk.wordarena.screens.preeditor.PreEditorScreen;
 
@@ -48,12 +49,14 @@ public class HomeScreen extends SlamScreen {
 		p1.name = "Alan";
 		p1.score = 0;
 		p1.markerPack = "blue";
+		p1.kind = PlayerKind.HUMAN_LOCAL;
 		
 		Player p2 = new Player();
 		p2.uid = 2;
 		p2.name = "Bob";
 		p2.score = 0;
 		p2.markerPack = "orange";
+		p2.kind = PlayerKind.HUMAN_LOCAL;
 		
 		Array<Player> players = new Array<Player>();
 		players.add(p1);

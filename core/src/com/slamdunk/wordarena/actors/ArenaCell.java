@@ -97,7 +97,7 @@ public class ArenaCell extends GroupEx {
 		}
 	}
 	
-	public SlamActor getOwnerActorDBG() {
+	public SlamActor getOwnerActor() {
 		return ownerActor;
 	}
 	

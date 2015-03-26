@@ -26,6 +26,7 @@ import com.slamdunk.wordarena.screens.editor.EditorScreen;
 
 public class ArenaOverlay extends WorldOverlay {
 	private ArenaData data;
+	
 	private GroupEx arenaGroup;
 	private GroupEx cellsGroup;
 	private Group wallsGroup;
@@ -185,14 +186,14 @@ public class ArenaOverlay extends WorldOverlay {
 	 * @param cells
 	 * @param owner
 	 */
-	public void setOwner(List<ArenaCell> cells, Player owner) {
+	public void setCellsOwner(List<ArenaCell> cells, Player owner) {
 		// Change le propriétaire des cellules et note les zones impactées
 		Set<ArenaZone> impactedZones = new HashSet<ArenaZone>();
 		ArenaZone zone;
 		for (ArenaCell cell : cells) {
-//DBG			cell.setOwner(owner);
 			cell.getData().owner = owner;
 			cell.getData().state = CellStates.OWNED;
+			// On ne fait pas d'updateDisplay() car le rafraîchissement de la zone le fera
 			
 			zone = cell.getData().zone;
 			if (zone != null) {
@@ -246,6 +247,18 @@ public class ArenaOverlay extends WorldOverlay {
 				// les autres zones.
 				break;
 			}
+		}
+	}
+
+	/**
+	 * Active ou désactive la sélection de cellules
+	 * @param enabled
+	 */
+	public void enableCellSelection(boolean enabled) {
+		if (enabled) {
+			arenaGroup.setTouchable(Touchable.childrenOnly);
+		} else {
+			arenaGroup.setTouchable(Touchable.disabled);
 		}
 	}
 }
