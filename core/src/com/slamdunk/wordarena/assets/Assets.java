@@ -43,7 +43,6 @@ public class Assets {
 	private static MySkin specialSkinForOverlap;
 	public static TextureAtlasEx atlas;
 	public static Map<String, MarkerPack> markerPacks;
-//DBG	public static DoubleEntryArray<CellTypes, Boolean/*selected?*/, TextureRegionDrawable> cellTypes;
 	public static DoubleEntryArray<CellTypes, Boolean/*selected?*/, TextureRegion> cellTypes;
 
 	public static TextureRegionDrawable edge_h;
@@ -177,7 +176,6 @@ public class Assets {
 			throw new IllegalStateException("Missing image " + regionName + " in atlas !");
 		}
 		
-//DBG		cellTypes.put(type, selected, new TextureRegionDrawable(region));
 		cellTypes.put(type, selected, region);
 	}
 	
@@ -202,15 +200,6 @@ public class Assets {
 		// Ce cas ne devrait pas arriver
 		return null;
 	}
-	
-//DBG	/**
-//	 * Retourne l'image de type de cellule pour l'état de la cellule indiqué.
-//	 * @param data
-//	 * @return
-//	 */
-//	public static TextureRegionDrawable getCellTypeImage(CellData data) {
-//		return cellTypes.get(data.type, data.selected);
-//	}
 	
 	/**
 	 * Retourne l'image de type de cellule pour l'état de la cellule indiqué.
