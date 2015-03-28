@@ -122,7 +122,9 @@ public class ArenaCell extends Actor {
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		// Dessine l'animation de l'owner
-		ownerDrawer.draw(this, batch);
+		if (data.type.canBeOwned()) {
+			ownerDrawer.draw(this, batch);
+		}
 		
 		// Dessine le type de cellule
 		cellTypeDrawer.draw(this, batch);
@@ -135,16 +137,19 @@ public class ArenaCell extends Actor {
 	}
 	
 	public void updateDisplay() {
-		// Met à jour l'animation à jour en fonction de l'état de la cellule
-		ownerDrawer.setAnimation(Assets.getCellAnim(data), true, false);
-		ownerDrawer.setStateTime(0);
-		
-		// Si la cellule n'est pas sélectionnée, on démarre le timer qui va déclencher
-		// l'animation momentanée de la cellule
-		momentaryTimerActive = data.selected == false;
-		if (momentaryTimerActive && momentaryTimer <= 0) {
-			// Lance le timer pour jouer l'animation de cellule possédée dans un certain temps
-			startMomentaryAnimTimer();
+		momentaryTimerActive = false;
+		if (data.type.canBeOwned()) {
+			// Met à jour l'animation à jour en fonction de l'état de la cellule
+			ownerDrawer.setAnimation(Assets.markerPacks.get(data.owner.markerPack).getCellAnim(data), true, false);
+			ownerDrawer.setStateTime(0);
+			
+			// Si la cellule n'est pas sélectionnée, on démarre le timer qui va déclencher
+			// l'animation momentanée de la cellule
+			momentaryTimerActive = data.selected == false;
+			if (momentaryTimerActive && momentaryTimer <= 0) {
+				// Lance le timer pour jouer l'animation de cellule possédée dans un certain temps
+				startMomentaryAnimTimer();
+			}
 		}
 		
 		// Met à jour la lettre
@@ -152,7 +157,7 @@ public class ArenaCell extends Actor {
 		bounds.set(getX(), getY(), getWidth(), getHeight());
 		
 		// Met à jour l'image représentant le type de cellule
-		cellTypeDrawer.setTextureRegion(Assets.getCellTypeRegion(data));
+		cellTypeDrawer.setTextureRegion(Assets.arenaSkin.getCellTypeRegion(data));
 	}
 
 	/**

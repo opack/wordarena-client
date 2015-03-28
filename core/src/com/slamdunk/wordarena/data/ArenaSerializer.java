@@ -21,6 +21,7 @@ public class ArenaSerializer implements Json.Serializer<ArenaData>{
 		StringBuilder sb = new StringBuilder();
 		json.writeObjectStart();
 		json.writeValue("name", arena.name);
+		json.writeValue("skin", arena.skin);
 		json.writeValue("width", arena.width);
 		json.writeValue("height", arena.height);
 		

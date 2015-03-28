@@ -36,6 +36,11 @@ public class ArenaData {
 	 */
 	public String name;
 	
+	/**
+	 * Nom de la skin d'arène
+	 */
+	public String skin;
+	
 	public ArenaData() {
 		zones = new ArrayList<ArenaZone>();
 		walls = new DoubleEntryArray<ArenaCell, ArenaCell, Boolean>();

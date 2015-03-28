@@ -25,7 +25,7 @@ public class ArenaWall {
 		Borders border;
 		// Teste si les cellules sont sur la même colonne
 		if (pos1.getX() == pos2.getX()) {
-			image = new Image(Assets.wall_h);
+			image = new Image(Assets.arenaSkin.wall_h);
 			// Teste si cell1 est en-dessous de cell2
 			if (pos1.getY() < pos2.getY()) {
 				// Leur côté en commun est donc le côté haut de cell1
@@ -45,7 +45,7 @@ public class ArenaWall {
 		}
 		// Teste si les cellules sont sur la même ligne
 		else if (pos1.getY() == pos2.getY()) {
-			image = new Image(Assets.wall_v);
+			image = new Image(Assets.arenaSkin.wall_v);
 			// Teste si cell1 est à gauche de cell2
 			if (pos1.getX() < pos2.getX()) {
 				// Leur côté en commun est donc le côté droit de cell1

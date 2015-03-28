@@ -49,6 +49,7 @@ public class ArenaBuilder {
 	 */
 	private EditorScreen editorScreen;
 	
+	private String arenaSkinName;
 	private String[][] types;
 	private String[][] letters;
 	private int[][] powers;
@@ -74,6 +75,10 @@ public class ArenaBuilder {
 	
 	public EditorScreen getEditorScreen() {
 		return editorScreen;
+	}
+	
+	public void setArenaSkinName(String arenaSkinName) {
+		this.arenaSkinName = arenaSkinName;
 	}
 
 	public void setEditorScreen(EditorScreen editorScreen) {
@@ -118,6 +123,9 @@ public class ArenaBuilder {
 		
 		// Charge le nom de l'arène
 		setName(plan.getString("name"));
+		
+		// Charge le nom de la skin à appliquer
+		setArenaSkinName(plan.getString("skin"));
 		
 		// Charge les types de cellule
 		setTypes(extractStringTable(plan.get("plan.types")));
@@ -208,6 +216,9 @@ public class ArenaBuilder {
 			arena.letterDeck = new Deck<Letters>(Letters.values(), 1);
 		}
 		
+		// Chargement de la skin
+		loadArenaSkin();
+		
 		// Construction des cellules
 		buildCells();
 		
@@ -218,6 +229,11 @@ public class ArenaBuilder {
 		buildZones();
 		
 		return arena;
+	}
+
+	private void loadArenaSkin() {
+		arena.skin = arenaSkinName;
+		Assets.loadArenaSkin(arenaSkinName);
 	}
 
 	private void buildWalls() {

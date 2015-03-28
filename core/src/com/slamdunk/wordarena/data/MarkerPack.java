@@ -2,6 +2,7 @@ package com.slamdunk.wordarena.data;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
+import com.slamdunk.wordarena.enums.CellStates;
 
 /**
  * Représente les différentes images des marqueurs pour cellule ainsi
@@ -43,4 +44,21 @@ public class MarkerPack {
 	 * Animation à jouer lorsque le joueur gagne une cellule
 	 */
 	public Animation conquestAnim;
+	
+	/**
+	 * Retourne l'animation de propriétaire pour le pack et l'état de la cellule indiqués.
+	 * @param data
+	 * @return
+	 */
+	public Animation getCellAnim(CellData data) {
+		if (data.selected) {
+			return selectedAnim;
+		} else if (data.state == CellStates.OWNED) {
+			return ownedAnim;
+		} else if (data.state == CellStates.CONTROLED) {
+			return controledAnim;
+		}
+		// Ce cas ne devrait pas arriver
+		return null;
+	}
 }

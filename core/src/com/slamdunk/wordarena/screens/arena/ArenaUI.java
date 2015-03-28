@@ -178,7 +178,7 @@ public class ArenaUI extends UIOverlay {
 	
 	public void setCurrentPlayer(Player player, int turn, int maxTurns, int round) {
 		currentPlayer.setText(Assets.i18nBundle.format("ui.arena.currentTurn", player.name, round, turn, maxTurns));
-		currentPlayer.setStyle(Assets.getLabelStyle(player.markerPack));
+		currentPlayer.setStyle(Assets.markerPacks.get(player.markerPack).labelStyle);
 	}
 	
 	public void setCurrentWord(String word) {

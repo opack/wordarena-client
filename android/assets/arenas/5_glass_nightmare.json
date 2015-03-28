@@ -1,5 +1,6 @@
 {
 name: 5_glass_nightmare
+skin: default
 width: 12
 height: 12
 plan.types: [

@@ -1,5 +1,6 @@
 {
 name: 1_ivory_tower
+skin: default
 width: 9
 height: 9
 plan.types: [

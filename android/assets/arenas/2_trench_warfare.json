@@ -1,5 +1,6 @@
 {
 name: 2_trench_warfare
+skin: default
 width: 7
 height: 12
 plan.types: [

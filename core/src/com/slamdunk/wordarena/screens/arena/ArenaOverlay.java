@@ -8,6 +8,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -17,6 +18,7 @@ import com.slamdunk.wordarena.WordArenaGame;
 import com.slamdunk.wordarena.actors.ArenaCell;
 import com.slamdunk.wordarena.actors.ArenaWall;
 import com.slamdunk.wordarena.actors.ArenaZone;
+import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.ArenaBuilder;
 import com.slamdunk.wordarena.data.ArenaData;
 import com.slamdunk.wordarena.data.CellData;
@@ -28,6 +30,8 @@ import com.slamdunk.wordarena.screens.editor.EditorScreen;
 public class ArenaOverlay extends WorldOverlay {
 	private ArenaData data;
 	
+	private Image background;
+	private Group bordersGroup;
 	private GroupEx arenaGroup;
 	private GroupEx cellsGroup;
 	private Group wallsGroup;
@@ -38,6 +42,12 @@ public class ArenaOverlay extends WorldOverlay {
 	public ArenaOverlay() {
 		createStage(new FitViewport(WordArenaGame.SCREEN_WIDTH, WordArenaGame.SCREEN_HEIGHT));
 
+		background = new Image();
+		getWorld().addActor(background);
+		
+		bordersGroup = new Group();
+		getWorld().addActor(bordersGroup);
+		
 		arenaGroup = new GroupEx();
 		getWorld().addActor(arenaGroup);
 		
@@ -96,8 +106,14 @@ public class ArenaOverlay extends WorldOverlay {
 	 * Reconstruit l'arène à partir des données de l'ArenaData
 	 */
 	public void resetArena() {
+		// Modifie le fond de l'arène
+		resetBackground();
+		
 		// Ajoute les cellules
 		resetCells();
+		
+		// Ajoute les bords de l'arène
+		resetBorders();
 		
 		// Ajoute les murs
 		resetWalls();
@@ -109,6 +125,15 @@ public class ArenaOverlay extends WorldOverlay {
 		centerArena();
 	}
 	
+	private void resetBorders() {
+		// Teste si la cellule est sur le bord de l'arène
+	}
+
+	private void resetBackground() {
+		background.setDrawable(Assets.arenaSkin.background);
+		background.setBounds(0, 0, WordArenaGame.SCREEN_WIDTH, WordArenaGame.SCREEN_HEIGHT);
+	}
+
 	/**
 	 * Reconstruit les cellules à partir des données de l'ArenaData
 	 */
@@ -122,6 +147,8 @@ public class ArenaOverlay extends WorldOverlay {
 		}
 		
 		// Dimensionne les autres couches pour qu'elles soient superposées
+		// afin que toutes les coordonnées des éléments de l'arène soient
+		// relatives à la cellule (0;0)
 		final float width = cellsGroup.getWidth();
 		final float height = cellsGroup.getWidth();
 		wallsGroup.setBounds(0, 0, width, height);

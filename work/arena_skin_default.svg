@@ -16,9 +16,51 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="arena_skins.svg">
+   sodipodi:docname="arena_skin_default.svg">
   <defs
      id="defs4">
+    <linearGradient
+       id="linearGradient4702"
+       inkscape:collect="always">
+      <stop
+         id="stop4704"
+         offset="0"
+         style="stop-color:#3376c4;stop-opacity:1;" />
+      <stop
+         id="stop4706"
+         offset="1"
+         style="stop-color:#dfeaf6;stop-opacity:1" />
+    </linearGradient>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#pattern7409"
+       id="pattern7448"
+       patternTransform="translate(747.00544,98.257874)" />
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#pattern7409"
+       id="pattern7446"
+       patternTransform="translate(520.24119,209.11502)" />
+    <linearGradient
+       id="linearGradient5429"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#cccccc;stop-opacity:1;"
+         offset="0"
+         id="stop5431" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5209">
+      <stop
+         style="stop-color:#777777;stop-opacity:1"
+         offset="0"
+         id="stop5211" />
+      <stop
+         style="stop-color:#cccccc;stop-opacity:0;"
+         offset="1"
+         id="stop5213" />
+    </linearGradient>
     <linearGradient
        id="linearGradient5461"
        osb:paint="solid">
@@ -696,7 +738,7 @@
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient11400"
+       xlink:href="#linearGradient4702"
        id="linearGradient11406-9"
        x1="987.20105"
        y1="-4.0948539"
@@ -705,19 +747,7 @@
        gradientUnits="userSpaceOnUse" />
     <linearGradient
        inkscape:collect="always"
-       id="linearGradient11400">
-      <stop
-         style="stop-color:#3376c4;stop-opacity:1;"
-         offset="0"
-         id="stop11402" />
-      <stop
-         style="stop-color:#3376c4;stop-opacity:0;"
-         offset="1"
-         id="stop11404" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient11400"
+       xlink:href="#linearGradient4702"
        id="linearGradient5170"
        gradientUnits="userSpaceOnUse"
        x1="987.20105"
@@ -743,6 +773,332 @@
        y1="79.203934"
        x2="1070.6986"
        y2="49.912048" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5209"
+       id="radialGradient5215"
+       cx="361.21429"
+       cy="511.50507"
+       fx="361.21429"
+       fy="511.50507"
+       r="48"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.7291667,-2.2928033e-7,2.5986418e-7,1.9598213,-231.81412,-643.23913)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5209"
+       id="radialGradient5286"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.7291667,-2.2928033e-7,2.5986418e-7,1.9598213,-239.81412,-627.23913)"
+       cx="361.21429"
+       cy="511.50507"
+       fx="361.21429"
+       fy="511.50507"
+       r="48" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5209"
+       id="radialGradient5298"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.7291667,-2.2928033e-7,2.5986418e-7,1.9598213,-239.81412,-643.23913)"
+       cx="361.21429"
+       cy="511.50507"
+       fx="361.21429"
+       fy="511.50507"
+       r="48" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5209"
+       id="radialGradient5300"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.7291667,-2.2928033e-7,2.5986418e-7,1.9598213,-247.81412,-643.23913)"
+       cx="361.21429"
+       cy="511.50507"
+       fx="361.21429"
+       fy="511.50507"
+       r="48" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5209"
+       id="radialGradient5356"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.7291667,-2.2928033e-7,2.5986418e-7,1.9598213,-231.81412,-627.23913)"
+       cx="361.21429"
+       cy="511.50507"
+       fx="361.21429"
+       fy="511.50507"
+       r="48" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5209"
+       id="radialGradient5361"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.7291667,-2.2928033e-7,2.5986418e-7,1.9598213,-247.81412,-627.23913)"
+       cx="361.21429"
+       cy="511.50507"
+       fx="361.21429"
+       fy="511.50507"
+       r="48" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5209"
+       id="radialGradient5366"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.7291667,-2.2928033e-7,2.5986418e-7,1.9598213,-231.81412,-635.23913)"
+       cx="361.21429"
+       cy="511.50507"
+       fx="361.21429"
+       fy="511.50507"
+       r="48" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5209"
+       id="radialGradient5368"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.7291667,-2.2928033e-7,2.5986418e-7,1.9598213,-247.81412,-635.23913)"
+       cx="361.21429"
+       cy="511.50507"
+       fx="361.21429"
+       fy="511.50507"
+       r="48" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="158.5838"
+       height="35.345184"
+       patternTransform="translate(666.20068,76.054825)"
+       id="pattern6891">
+      <g
+         id="g6883"
+         transform="translate(-666.20068,-76.054825)">
+        <rect
+           style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#cccccc;stroke-width:0.99999994;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+           id="rect6881"
+           width="157.5838"
+           height="34.345184"
+           x="666.70068"
+           y="76.554825" />
+        <g
+           id="g5423"
+           style="fill:#e6e6e6"
+           transform="matrix(0.22083214,0,0,0.22083214,570.10987,60.983385)">
+          <text
+             xml:space="preserve"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:80px;line-height:125%;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, ';letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;stroke:none"
+             x="464.01749"
+             y="153.87122"
+             id="text3992-3"
+             sodipodi:linespacing="125%"><tspan
+               style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:70px;font-family:Arial;-inkscape-font-specification:'Arial Heavy';fill:#e6e6e6"
+               sodipodi:role="line"
+               id="tspan3994-7"
+               x="464.01749"
+               y="153.87122">Word</tspan></text>
+          <text
+             xml:space="preserve"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:72px;line-height:125%;font-family:AcmeFont;-inkscape-font-specification:AcmeFont;letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;stroke:none"
+             x="633.96326"
+             y="191.61563"
+             id="text3992"
+             sodipodi:linespacing="125%"><tspan
+               style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:80px;font-family:Verdana;-inkscape-font-specification:'Verdana Bold Italic';fill:#e6e6e6"
+               sodipodi:role="line"
+               id="tspan3994"
+               x="633.96326"
+               y="191.61563">Arena</tspan></text>
+        </g>
+      </g>
+    </pattern>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="186.36301"
+       height="35.345184"
+       patternTransform="translate(760.24119,96.257874)"
+       id="pattern7409">
+      <g
+         id="g7375"
+         transform="translate(-760.24119,-96.257874)">
+        <rect
+           style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#cccccc;stroke-width:0.99999994;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+           id="rect6918"
+           width="185.36299"
+           height="34.345184"
+           x="760.74121"
+           y="96.757874" />
+        <g
+           transform="translate(50.25509,14.647213)"
+           id="g7035-3">
+          <g
+             transform="matrix(0.22083214,0,0,0.22083214,551.92712,75.630597)"
+             style="fill:#e6e6e6"
+             id="g6920-3" />
+          <g
+             transform="matrix(0.22083214,0,0,0.22083214,645.36622,75.630597)"
+             style="fill:#e6e6e6"
+             id="g6920-6-2">
+            <text
+               sodipodi:linespacing="125%"
+               id="text6922-7-0"
+               y="151.57108"
+               x="552.73126"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:47.11491776px;line-height:125%;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, ';letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;stroke:none"
+               xml:space="preserve"><tspan
+                 y="151.57108"
+                 x="552.73126"
+                 id="tspan6924-7-8"
+                 sodipodi:role="line"
+                 style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:41.22555161px;font-family:Arial;-inkscape-font-specification:'Arial Heavy';fill:#e6e6e6">Word</tspan></text>
+            <text
+               sodipodi:linespacing="125%"
+               id="text6926-5-9"
+               y="173.80014"
+               x="652.81848"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.40342331px;line-height:125%;font-family:AcmeFont;-inkscape-font-specification:AcmeFont;letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;stroke:none"
+               xml:space="preserve"><tspan
+                 y="173.80014"
+                 x="652.81848"
+                 id="tspan6928-1-6"
+                 sodipodi:role="line"
+                 style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:47.11491776px;font-family:Verdana;-inkscape-font-specification:'Verdana Bold Italic';fill:#e6e6e6">Arena</tspan></text>
+          </g>
+        </g>
+        <g
+           transform="translate(93.312843,-1.9999979)"
+           id="g7035-2">
+          <g
+             transform="matrix(0.22083214,0,0,0.22083214,551.92712,75.630597)"
+             style="fill:#e6e6e6"
+             id="g6920-9">
+            <text
+               sodipodi:linespacing="125%"
+               id="text6922-8"
+               y="151.57108"
+               x="552.73126"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:47.11491776px;line-height:125%;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, ';letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;stroke:none"
+               xml:space="preserve"><tspan
+                 y="151.57108"
+                 x="552.73126"
+                 id="tspan6924-3"
+                 sodipodi:role="line"
+                 style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:41.22555161px;font-family:Arial;-inkscape-font-specification:'Arial Heavy';fill:#e6e6e6">Word</tspan></text>
+            <text
+               sodipodi:linespacing="125%"
+               id="text6926-6"
+               y="173.80014"
+               x="652.81848"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.40342331px;line-height:125%;font-family:AcmeFont;-inkscape-font-specification:AcmeFont;letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;stroke:none"
+               xml:space="preserve"><tspan
+                 y="173.80014"
+                 x="652.81848"
+                 id="tspan6928-0"
+                 sodipodi:role="line"
+                 style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:47.11491776px;font-family:Verdana;-inkscape-font-specification:'Verdana Bold Italic';fill:#e6e6e6">Arena</tspan></text>
+          </g>
+          <g
+             transform="matrix(0.22083214,0,0,0.22083214,645.36622,75.630597)"
+             style="fill:#e6e6e6"
+             id="g6920-6-3">
+            <text
+               sodipodi:linespacing="125%"
+               id="text6922-7-03"
+               y="151.57108"
+               x="552.73126"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:47.11491776px;line-height:125%;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, ';letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;stroke:none"
+               xml:space="preserve"><tspan
+                 y="151.57108"
+                 x="552.73126"
+                 id="tspan6924-7-7"
+                 sodipodi:role="line"
+                 style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:41.22555161px;font-family:Arial;-inkscape-font-specification:'Arial Heavy';fill:#e6e6e6">Word</tspan></text>
+            <text
+               sodipodi:linespacing="125%"
+               id="text6926-5-0"
+               y="173.80014"
+               x="652.81848"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.40342331px;line-height:125%;font-family:AcmeFont;-inkscape-font-specification:AcmeFont;letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;stroke:none"
+               xml:space="preserve"><tspan
+                 y="173.80014"
+                 x="652.81848"
+                 id="tspan6928-1-4"
+                 sodipodi:role="line"
+                 style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:47.11491776px;font-family:Verdana;-inkscape-font-specification:'Verdana Bold Italic';fill:#e6e6e6">Arena</tspan></text>
+          </g>
+        </g>
+        <g
+           transform="translate(143.31718,14.647213)"
+           id="g7035-3-3">
+          <g
+             transform="matrix(0.22083214,0,0,0.22083214,551.92712,75.630597)"
+             style="fill:#e6e6e6"
+             id="g6920-3-7">
+            <text
+               sodipodi:linespacing="125%"
+               id="text6922-9-9"
+               y="151.57108"
+               x="552.73126"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:47.11491776px;line-height:125%;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, ';letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;stroke:none"
+               xml:space="preserve"><tspan
+                 y="151.57108"
+                 x="552.73126"
+                 id="tspan6924-1-5"
+                 sodipodi:role="line"
+                 style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:41.22555161px;font-family:Arial;-inkscape-font-specification:'Arial Heavy';fill:#e6e6e6">Word</tspan></text>
+            <text
+               sodipodi:linespacing="125%"
+               id="text6926-2-4"
+               y="173.80014"
+               x="652.81848"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.40342331px;line-height:125%;font-family:AcmeFont;-inkscape-font-specification:AcmeFont;letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;stroke:none"
+               xml:space="preserve"><tspan
+                 y="173.80014"
+                 x="652.81848"
+                 id="tspan6928-6-8"
+                 sodipodi:role="line"
+                 style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:47.11491776px;font-family:Verdana;-inkscape-font-specification:'Verdana Bold Italic';fill:#e6e6e6">Arena</tspan></text>
+          </g>
+          <g
+             transform="matrix(0.22083214,0,0,0.22083214,645.36622,75.630597)"
+             style="fill:#e6e6e6"
+             id="g6920-6-2-5">
+            <text
+               sodipodi:linespacing="125%"
+               id="text6922-7-0-6"
+               y="151.57108"
+               x="552.73126"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:47.11491776px;line-height:125%;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, ';letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;stroke:none"
+               xml:space="preserve"><tspan
+                 y="151.57108"
+                 x="552.73126"
+                 id="tspan6924-7-8-0"
+                 sodipodi:role="line"
+                 style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:41.22555161px;font-family:Arial;-inkscape-font-specification:'Arial Heavy';fill:#e6e6e6">Word</tspan></text>
+            <text
+               sodipodi:linespacing="125%"
+               id="text6926-5-9-7"
+               y="173.80014"
+               x="652.81848"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.40342331px;line-height:125%;font-family:AcmeFont;-inkscape-font-specification:AcmeFont;letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;stroke:none"
+               xml:space="preserve"><tspan
+                 y="173.80014"
+                 x="652.81848"
+                 id="tspan6928-1-6-4"
+                 sodipodi:role="line"
+                 style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:47.11491776px;font-family:Verdana;-inkscape-font-specification:'Verdana Bold Italic';fill:#e6e6e6">Ar</tspan></text>
+          </g>
+        </g>
+        <text
+           sodipodi:linespacing="125%"
+           id="text6926-2-40"
+           y="128.65846"
+           x="759.86017"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.36403847px;line-height:125%;font-family:AcmeFont;-inkscape-font-specification:AcmeFont;letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="128.65846"
+             x="759.86017"
+             id="tspan6928-6-7"
+             sodipodi:role="line"
+             style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.40448856px;font-family:Verdana;-inkscape-font-specification:'Verdana Bold Italic';fill:#e6e6e6">ena</tspan></text>
+      </g>
+    </pattern>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -751,16 +1107,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="288.57143"
-     inkscape:cy="462.84237"
+     inkscape:zoom="2.8"
+     inkscape:cx="226.04806"
+     inkscape:cy="358.81229"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1680"
-     inkscape:window-height="988"
-     inkscape:window-x="1672"
-     inkscape:window-y="-8"
+     inkscape:window-width="1440"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="116"
      inkscape:window-maximized="1"
      showguides="false"
      inkscape:guide-bbox="true" />
@@ -799,7 +1155,7 @@
     <g
        id="g3097-3"
        transform="matrix(6.8571429,0,0,1.3333333,-359.12158,239.22114)"
-       inkscape:export-filename="img_export\misc\wall_h.png"
+       inkscape:export-filename="img_export\arena_skins\default\wall_h.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
        style="fill:#aa0000;fill-opacity:1;stroke:none;stroke-width:0.35787138;stroke-opacity:1">
@@ -813,8 +1169,8 @@
     </g>
     <g
        id="g4598"
-       transform="translate(-517.24638,68.851157)"
-       inkscape:export-filename="img_export\misc\zone_edge_h.png"
+       transform="translate(-516.17496,80.636871)"
+       inkscape:export-filename="img_export\arena_skins\default\zone_edge_h.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -879,9 +1235,9 @@
          style="fill:none;fill-opacity:1;stroke:none;stroke-width:1.73205078;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
     <g
-       transform="translate(-517.24638,146.0924)"
+       transform="translate(-517.60352,156.0924)"
        id="g4598-5"
-       inkscape:export-filename="img_export\misc\zone_edge_h_highlighted.png"
+       inkscape:export-filename="img_export\arena_skins\default\zone_edge_h_highlighted.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -947,8 +1303,8 @@
     </g>
     <g
        id="g5007"
-       transform="translate(-516.67881,70.738487)"
-       inkscape:export-filename="img_export\misc\zone_edge2_h.png"
+       transform="translate(-515.25024,59.309916)"
+       inkscape:export-filename="img_export\arena_skins\default\zone_edge_h.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -1194,8 +1550,8 @@
     </g>
     <g
        id="g5007-8"
-       transform="translate(-516.67881,151.33893)"
-       inkscape:export-filename="img_export\misc\zone_edge2_h_highlighted.png"
+       transform="translate(-516.32166,135.2675)"
+       inkscape:export-filename="img_export\arena_skins\default\zone_edge_h_highlighted.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -1441,8 +1797,8 @@
     </g>
     <g
        id="g4598-7"
-       transform="matrix(0,-1,1,0,9.8586677,1060.8937)"
-       inkscape:export-filename="img_export\misc\zone_edge_v.png"
+       transform="matrix(0,-1,1,0,24.858667,1061.608)"
+       inkscape:export-filename="img_export\arena_skins\default\zone_edge_v.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -1507,9 +1863,9 @@
          style="fill:none;fill-opacity:1;stroke:none;stroke-width:1.73205078;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
     <g
-       transform="matrix(0,-1,1,0,7.8586677,1135.2828)"
+       transform="matrix(0,-1,1,0,23.930097,1134.9257)"
        id="g4598-5-9"
-       inkscape:export-filename="img_export\misc\zone_edge_v_highlighted.png"
+       inkscape:export-filename="img_export\arena_skins\default\zone_edge_v_highlighted.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -1575,8 +1931,8 @@
     </g>
     <g
        id="g5007-4"
-       transform="matrix(0,-1,1,0,19.841321,1060.6352)"
-       inkscape:export-filename="img_export\misc\zone_edge2_v.png"
+       transform="matrix(0,-1,1,0,2.6984638,1060.9923)"
+       inkscape:export-filename="img_export\arena_skins\default\zone_edge_v.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -1822,8 +2178,8 @@
     </g>
     <g
        id="g5007-8-1"
-       transform="matrix(0,-1,1,0,19.841321,1134.7152)"
-       inkscape:export-filename="img_export\misc\zone_edge2_v_highlighted.png"
+       transform="matrix(0,-1,1,0,1.6270353,1135.0723)"
+       inkscape:export-filename="img_export\arena_skins\default\zone_edge_v_highlighted.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -2070,7 +2426,7 @@
     <g
        id="g3097-3-0"
        transform="matrix(0,6.8571429,-1.3333333,0,169.97175,-83.756083)"
-       inkscape:export-filename="img_export\misc\wall_v.png"
+       inkscape:export-filename="img_export\arena_skins\default\wall_v.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
        style="fill:#aa0000;fill-opacity:1;stroke:none;stroke-width:0.35787138;stroke-opacity:1">
@@ -2570,9 +2926,9 @@
     <rect
        style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00000012;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect5601-6-0-7-8-3-2"
-       width="171.93674"
+       width="181.22246"
        height="170.38864"
-       x="120.51936"
+       x="111.23365"
        y="266.93234" />
     <text
        xml:space="preserve"
@@ -2589,51 +2945,51 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="159.89265"
+       x="165.89265"
        y="329.28964"
        id="text5603-4-3-1-4-9-4-9"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-1-8"
-         x="159.89265"
+         x="165.89265"
          y="329.28964"
          style="font-size:12.5px;text-align:center;text-anchor:middle">Normal</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="155.38216"
+       x="152.44661"
        y="403.59366"
        id="text5603-4-3-1-4-9-4-9-7"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-1-8-9"
-         x="155.38216"
+         x="152.44661"
          y="403.59366"
-         style="font-size:12.5px;text-align:center;text-anchor:middle">Selected</tspan></text>
+         style="font-size:12.5px;text-align:center;text-anchor:middle">Highlighted</tspan></text>
     <rect
-       style="fill:none;fill-opacity:1;stroke:#000000"
+       style="fill:none;fill-opacity:1;stroke:none"
        id="rect2985-60-1-6-6-3"
        width="47.999966"
        height="48"
-       x="89.881088"
-       y="488.88254"
-       inkscape:export-filename="img_export\cell_types\type_L_normal.png"
+       x="95.595375"
+       y="653.16827"
+       inkscape:export-filename="img_export\arena_skins\default\cell_type_L_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
-       style="fill:none;fill-opacity:1;stroke:#000000"
+       style="fill:none;fill-opacity:1;stroke:none"
        id="rect2985-60-1-6-6-3-9"
        width="47.999966"
        height="48"
-       x="89.881088"
-       y="558.59692"
-       inkscape:export-filename="img_export\cell_types\type_L_selected.png"
+       x="95.595375"
+       y="722.88263"
+       inkscape:export-filename="img_export\arena_skins\default\cell_type_L_selected.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <g
        id="g11635"
-       transform="matrix(1,0,0,0.99980575,-741.91397,552.76865)"
-       inkscape:export-filename="img_export\cell_types\type_G_normal.png"
+       transform="matrix(1,0,0,0.99980575,-736.19968,717.05436)"
+       inkscape:export-filename="img_export\arena_skins\default\cell_type_G_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -2679,8 +3035,8 @@
     </g>
     <g
        id="g11635-7"
-       transform="matrix(1,0,0,0.99980575,-741.91397,627.0727)"
-       inkscape:export-filename="img_export\cell_types\type_G_selected.png"
+       transform="matrix(1,0,0,0.99980575,-736.19968,791.35841)"
+       inkscape:export-filename="img_export\arena_skins\default\cell_type_G_selected.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -2692,7 +3048,7 @@
          height="48"
          width="47.999966"
          id="rect2985-60-1-6-6-33-0"
-         style="fill:url(#linearGradient11406-9);fill-opacity:1;stroke:none" />
+         style="fill:url(#linearGradient11406-9);fill-opacity:1.0;stroke:none" />
       <path
          id="path758-7"
          d="m 984.63838,-33.903203 c 0,0 -0.39298,12.095854 0,13.567767 0.63776,2.38906 9.38445,1.65717 9.38445,1.65717 0,0 4.20571,0.828767 4.76091,-0.05629 0.5554,-0.884501 -8.1999,0.378146 -11.22533,-2.140751 -3.02567,-2.518262 -2.52735,-9.269011 -2.92003,-13.027901 z"
@@ -2726,7 +3082,10 @@
     </g>
     <g
        id="g5329"
-       transform="translate(246.33357,154.40759)">
+       transform="translate(252.04786,318.6933)"
+       inkscape:export-filename="img_export\arena_skins\default\cell_type_B_normal.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
@@ -2773,7 +3132,10 @@
     </g>
     <g
        id="g5311"
-       transform="translate(246.6136,178.21475)">
+       transform="translate(252.32789,342.50046)"
+       inkscape:export-filename="img_export\arena_skins\default\cell_type_B_selected.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
@@ -2847,7 +3209,7 @@
     </g>
     <g
        id="g3509"
-       transform="matrix(0.92346692,0,0,0.94272831,-91.442853,-24.520681)"
+       transform="matrix(0.92346692,0,0,0.94272831,-85.728567,139.76503)"
        inkscape:export-filename="../images/obstacle-stone.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
@@ -2883,7 +3245,10 @@
     </g>
     <g
        id="g5386"
-       transform="translate(-191.16633,329.05045)">
+       transform="translate(-185.45204,493.33616)"
+       inkscape:export-filename="img_export\arena_skins\default\cell_type_S_normal.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          transform="matrix(0.62238268,0.13055434,-0.13060413,0.62262005,57.863481,127.21323)"
          inkscape:transform-center-y="-1.7178433"
@@ -2915,7 +3280,10 @@
     </g>
     <g
        id="g5390"
-       transform="translate(37.405042,334.05046)">
+       transform="translate(43.119328,498.33617)"
+       inkscape:export-filename="img_export\arena_skins\default\cell_type_J_normal.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <g
          style="fill:none;stroke:#000000;stroke-width:2.31294823;stroke-miterlimit:4;stroke-dasharray:none"
          transform="matrix(0.37559526,0,0,0.49767757,-76.150723,366.01092)"
@@ -2958,7 +3326,10 @@
     </g>
     <g
        id="g5382"
-       transform="translate(-191.5235,352.99731)">
+       transform="translate(-185.80921,517.28302)"
+       inkscape:export-filename="img_export\arena_skins\default\cell_type_S_selected.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          transform="matrix(0.62238268,0.13055434,-0.13060413,0.62262005,58.220721,177.57037)"
          inkscape:transform-center-y="-1.7178433"
@@ -2990,7 +3361,7 @@
     </g>
     <g
        id="g12029-3-0"
-       transform="matrix(0.35006334,0,0,0.35006334,-6.4034884,821.40403)">
+       transform="matrix(0.35006334,0,0,0.35006334,-0.68920269,985.68974)">
       <path
          sodipodi:nodetypes="cccccccc"
          inkscape:connector-curvature="0"
@@ -3033,10 +3404,13 @@
        d="m 475.88285,295.75793 -18.24325,-5.13465 -14.57217,12.11744 -0.75413,-18.93705 -16.02742,-10.11447 17.77717,-6.56909 4.66668,-18.36853 11.74103,14.87713 18.91159,-1.2379 -10.52082,15.76366 z"
        inkscape:transform-center-x="0.015809022"
        inkscape:transform-center-y="-1.7178433"
-       transform="matrix(0.62238268,0.13055434,-0.13060413,0.62262005,-135.39282,585.03166)" />
+       transform="matrix(0.62238268,0.13055434,-0.13060413,0.62262005,-129.67853,749.31737)" />
     <g
        id="g5398"
-       transform="translate(37.762222,355.14018)">
+       transform="translate(43.476508,519.42589)"
+       inkscape:export-filename="img_export\arena_skins\default\cell_type_J_selected.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
@@ -3082,95 +3456,95 @@
        id="rect5601-6-0-7-8-3-9"
        width="140.16875"
        height="168.24579"
-       x="10.987047"
-       y="451.8107" />
+       x="16.701332"
+       y="616.09644" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="80.622818"
-       y="474.99789"
+       x="86.337105"
+       y="639.28363"
        id="text5603-4-3-1-4-9-9"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-7"
-         x="80.622818"
-         y="474.99789"
+         x="86.337105"
+         y="639.28363"
          style="font-size:17.5px;text-align:center;text-anchor:middle">Cellule L</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="51.094715"
-       y="514.15594"
+       x="56.809002"
+       y="678.44165"
        id="text5603-4-3-1-4-9-4-9-2"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-1-8-2"
-         x="51.094715"
-         y="514.15594"
+         x="56.809002"
+         y="678.44165"
          style="font-size:12.5px;text-align:center;text-anchor:middle">Normal</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="46.584217"
-       y="588.45996"
+       x="52.298504"
+       y="752.74567"
        id="text5603-4-3-1-4-9-4-9-7-4"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-1-8-9-6"
-         x="46.584217"
-         y="588.45996"
+         x="52.298504"
+         y="752.74567"
          style="font-size:12.5px;text-align:center;text-anchor:middle">Selected</tspan></text>
     <rect
        style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00000012;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect5601-6-0-7-8-3-9-9"
        width="140.16876"
        height="221.81721"
-       x="162.77277"
-       y="453.23929" />
+       x="168.48705"
+       y="617.52502" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="232.40854"
-       y="476.42648"
+       x="238.12282"
+       y="640.71222"
        id="text5603-4-3-1-4-9-9-7"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-7-8"
-         x="232.40854"
-         y="476.42648"
+         x="238.12282"
+         y="640.71222"
          style="font-size:17.5px;text-align:center;text-anchor:middle">Cellule G</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="202.88046"
-       y="515.58453"
+       x="208.59474"
+       y="679.87024"
        id="text5603-4-3-1-4-9-4-9-2-4"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-1-8-2-8"
-         x="202.88046"
-         y="515.58453"
+         x="208.59474"
+         y="679.87024"
          style="font-size:12.5px;text-align:center;text-anchor:middle">Normal</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="198.36996"
-       y="589.88855"
+       x="204.08424"
+       y="754.17426"
        id="text5603-4-3-1-4-9-4-9-7-4-0"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-1-8-9-6-1"
-         x="198.36996"
-         y="589.88855"
+         x="204.08424"
+         y="754.17426"
          style="font-size:12.5px;text-align:center;text-anchor:middle">Selected</tspan></text>
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000"
        id="rect2985-60-1-6-6-3-0"
        width="47.999966"
        height="48"
-       x="241.66682"
-       y="721.73969"
-       inkscape:export-filename="img_export\cell_types\type_V_normal.png"
+       x="247.3811"
+       y="886.02539"
+       inkscape:export-filename="img_export\arena_skins\default\cell_type_V_normal.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -3178,9 +3552,9 @@
        id="rect2985-60-1-6-6-3-9-6"
        width="47.999966"
        height="48"
-       x="241.66682"
-       y="791.45404"
-       inkscape:export-filename="img_export\cell_types\type_V_selected.png"
+       x="247.3811"
+       y="955.73975"
+       inkscape:export-filename="img_export\arena_skins\default\cell_type_V_selected.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -3188,208 +3562,208 @@
        id="rect5601-6-0-7-8-3-9-92"
        width="140.16875"
        height="168.24579"
-       x="162.77278"
-       y="684.66785" />
+       x="168.48706"
+       y="848.95355" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="232.40855"
-       y="707.85504"
+       x="238.12283"
+       y="872.14075"
        id="text5603-4-3-1-4-9-9-4"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-7-2"
-         x="232.40855"
-         y="707.85504"
+         x="238.12283"
+         y="872.14075"
          style="font-size:17.5px;text-align:center;text-anchor:middle">Cellule V</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="202.88045"
-       y="747.01306"
+       x="208.59473"
+       y="911.29877"
        id="text5603-4-3-1-4-9-4-9-2-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-1-8-2-3"
-         x="202.88045"
-         y="747.01306"
+         x="208.59473"
+         y="911.29877"
          style="font-size:12.5px;text-align:center;text-anchor:middle">Normal</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="198.36995"
-       y="821.31708"
+       x="204.08423"
+       y="985.60278"
        id="text5603-4-3-1-4-9-4-9-7-4-07"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-1-8-9-6-11"
-         x="198.36995"
-         y="821.31708"
+         x="204.08423"
+         y="985.60278"
          style="font-size:12.5px;text-align:center;text-anchor:middle">Selected</tspan></text>
     <rect
        style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00000012;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect5601-6-0-7-8-3-9-4"
        width="140.16875"
        height="168.24579"
-       x="312.0585"
-       y="453.23926" />
+       x="317.7728"
+       y="617.52496" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="381.69427"
-       y="476.42645"
+       x="387.40857"
+       y="640.71216"
        id="text5603-4-3-1-4-9-9-8"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-7-1"
-         x="381.69427"
-         y="476.42645"
+         x="387.40857"
+         y="640.71216"
          style="font-size:17.5px;text-align:center;text-anchor:middle">Cellule B</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="352.1662"
-       y="515.58447"
+       x="357.88049"
+       y="679.87018"
        id="text5603-4-3-1-4-9-4-9-2-2"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-1-8-2-2"
-         x="352.1662"
-         y="515.58447"
+         x="357.88049"
+         y="679.87018"
          style="font-size:12.5px;text-align:center;text-anchor:middle">Normal</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="347.6557"
-       y="589.88849"
+       x="353.37"
+       y="754.17419"
        id="text5603-4-3-1-4-9-4-9-7-4-01"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-1-8-9-6-10"
-         x="347.6557"
-         y="589.88849"
+         x="353.37"
+         y="754.17419"
          style="font-size:12.5px;text-align:center;text-anchor:middle">Selected</tspan></text>
     <rect
        style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00000012;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect5601-6-0-7-8-3-9-6"
        width="140.16875"
        height="213.96007"
-       x="10.629916"
-       y="628.23926" />
+       x="16.344202"
+       y="792.52496" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="80.265678"
-       y="651.42645"
+       x="85.979965"
+       y="815.71216"
        id="text5603-4-3-1-4-9-9-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-7-7"
-         x="80.265678"
-         y="651.42645"
+         x="85.979965"
+         y="815.71216"
          style="font-size:17.5px;text-align:center;text-anchor:middle">Cellule S</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="50.737576"
-       y="690.58447"
+       x="56.451862"
+       y="854.87018"
        id="text5603-4-3-1-4-9-4-9-2-8"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-1-8-2-4"
-         x="50.737576"
-         y="690.58447"
+         x="56.451862"
+         y="854.87018"
          style="font-size:12.5px;text-align:center;text-anchor:middle">Normal</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="46.227077"
-       y="764.88849"
+       x="51.941364"
+       y="929.17419"
        id="text5603-4-3-1-4-9-4-9-7-4-00"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-1-8-9-6-19"
-         x="46.227077"
-         y="764.88849"
+         x="51.941364"
+         y="929.17419"
          style="font-size:12.5px;text-align:center;text-anchor:middle">Selected</tspan></text>
     <rect
        style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00000012;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect5601-6-0-7-8-3-9-5"
        width="140.16875"
        height="206.81721"
-       x="311.34421"
-       y="628.23926" />
+       x="317.0585"
+       y="792.52496" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="380.97995"
-       y="651.42645"
+       x="386.69424"
+       y="815.71216"
        id="text5603-4-3-1-4-9-9-81"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-7-3"
-         x="380.97995"
-         y="651.42645"
+         x="386.69424"
+         y="815.71216"
          style="font-size:17.5px;text-align:center;text-anchor:middle">Cellule J</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="351.45187"
-       y="690.58447"
+       x="357.16617"
+       y="854.87018"
        id="text5603-4-3-1-4-9-4-9-2-32"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-1-8-2-0"
-         x="351.45187"
-         y="690.58447"
+         x="357.16617"
+         y="854.87018"
          style="font-size:12.5px;text-align:center;text-anchor:middle">Normal</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="346.94138"
-       y="764.88849"
+       x="352.65567"
+       y="929.17419"
        id="text5603-4-3-1-4-9-4-9-7-4-1"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-1-8-9-6-5"
-         x="346.94138"
-         y="764.88849"
+         x="352.65567"
+         y="929.17419"
          style="font-size:12.5px;text-align:center;text-anchor:middle">Selected</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="49.584209"
-       y="824.87933"
+       x="55.298496"
+       y="989.16504"
        id="text5603-4-3-1-4-9-4-9-7-4-00-8"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-1-8-9-6-19-8"
-         x="49.584209"
-         y="824.87933"
+         x="55.298496"
+         y="989.16504"
          style="font-size:12.5px;text-align:center;text-anchor:middle">Alternative</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="350.99808"
-       y="819.87939"
+       x="356.71237"
+       y="984.1651"
        id="text5603-4-3-1-4-9-4-9-7-4-00-8-7"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-1-8-9-6-19-8-9"
-         x="350.99808"
-         y="819.87939"
+         x="356.71237"
+         y="984.1651"
          style="font-size:12.5px;text-align:center;text-anchor:middle">Alternative</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="205.28384"
-       y="655.59363"
+       x="210.99812"
+       y="819.87933"
        id="text5603-4-3-1-4-9-4-9-7-4-00-8-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5605-4-7-0-4-6-1-8-9-6-19-8-3"
-         x="205.28384"
-         y="655.59363"
+         x="210.99812"
+         y="819.87933"
          style="font-size:12.5px;text-align:center;text-anchor:middle">Alternative</tspan></text>
     <rect
        style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00000012;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -3410,5 +3784,112 @@
          x="785.99573"
          y="226.60051"
          style="font-size:17.5px;text-align:center;text-anchor:middle">Image de fond</tspan></text>
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00000012;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5601-6-0-7-8-3-2-2"
+       width="176.9875"
+       height="168.72186"
+       x="299.74591"
+       y="268.85388" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="385.32123"
+       y="289.49789"
+       id="text5603-4-3-1-4-9-4-95"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5605-4-7-0-4-6-1-0"
+         x="385.32123"
+         y="289.49789"
+         style="font-size:17.5px;text-align:center;text-anchor:middle">Bordure d'arène</tspan></text>
+    <path
+       style="opacity:1;fill:url(#radialGradient5286);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 360.78627,423.21848 48,0 0,-24 -48,0 0,24 z"
+       id="path5289"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="img_export\arena_skins\default\arena_border_bottom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:url(#radialGradient5298);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 360.78627,335.21848 48,0 0,-24 -48,0 0,24 z"
+       id="path5291"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="img_export\arena_skins\default\arena_border_top.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:url(#radialGradient5361);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 352.78627,399.21848 -24,0 0,16.5 c 0,4.155 3.345,7.5 7.5,7.5 l 16.5,0 0,-24 z"
+       id="path5364"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="img_export\arena_skins\default\arena_border_bottom_left.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:url(#radialGradient5368);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 328.78627,343.21848 0,48 24,0 0,-48 -24,0 z"
+       id="path5339"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="img_export\arena_skins\default\arena_border_left.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:url(#radialGradient5300);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 328.78627,335.21848 24,0 0,-24 -16.5,0 c -4.155,0 -7.5,3.345 -7.5,7.5 l 0,16.5 z"
+       id="path5275"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="img_export\arena_skins\default\arena_border_top_left.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:url(#radialGradient5356);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 440.78627,399.21848 -24,0 0,24 16.5,0 c 4.155,0 7.5,-3.345 7.5,-7.5 l 0,-16.5 z"
+       id="path5359"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="img_export\arena_skins\default\arena_border_bottom_right.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:url(#radialGradient5366);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 416.78627,343.21848 0,48 24,0 0,-48 -24,0 z"
+       id="path5330"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="img_export\arena_skins\default\arena_border_right.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:url(#radialGradient5215);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 416.78627,335.21848 24,0 0,-16.5 c 0,-4.155 -3.345,-7.5 -7.5,-7.5 l -16.5,0 0,24 z"
+       id="rect5207"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="img_export\arena_skins\default\arena_border_top_right.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:url(#pattern7448);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.99999994;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       id="rect5370"
+       width="480"
+       height="800"
+       x="546.38879"
+       y="252.34186"
+       inkscape:export-filename="img_export\arena_skins\default\background.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="stroke:none;fill:none"
+       width="158.5838"
+       height="35.345184"
+       x="666.20068"
+       y="76.054825"
+       id="rect6900" />
+    <rect
+       style="fill:url(#pattern7446);stroke:none"
+       width="186.36301"
+       height="35.345184"
+       x="520.24121"
+       y="209.11502"
+       id="rect7444" />
   </g>
 </svg>

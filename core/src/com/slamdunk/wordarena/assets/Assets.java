@@ -9,24 +9,17 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.I18NBundle;
-import com.slamdunk.toolkit.lang.DoubleEntryArray;
 import com.slamdunk.toolkit.lang.TypedProperties;
 import com.slamdunk.toolkit.settings.SlamSettings;
-import com.slamdunk.wordarena.data.CellData;
+import com.slamdunk.wordarena.data.ArenaSkin;
 import com.slamdunk.wordarena.data.MarkerPack;
-import com.slamdunk.wordarena.enums.CellStates;
-import com.slamdunk.wordarena.enums.CellTypes;
 import com.uwsoft.editor.renderer.resources.ResourceManager;
 import com.uwsoft.editor.renderer.utils.MySkin;
 
 public class Assets {
-	private static final String CELL_TYPE_PREFIX = "type_";
-	
+	private static final String SKIN_FILE = "skins/ui/uiskin.json";
 	public static final String MARKER_PACK_NEUTRAL = "neutral";
 	
 	public static TypedProperties appProperties;
@@ -43,18 +36,12 @@ public class Assets {
 	private static MySkin specialSkinForOverlap;
 	public static TextureAtlasEx atlas;
 	public static Map<String, MarkerPack> markerPacks;
-	public static DoubleEntryArray<CellTypes, Boolean/*selected?*/, TextureRegion> cellTypes;
-
-	public static TextureRegionDrawable edge_h;
-	public static TextureRegionDrawable edge_v;
-	public static TextureRegionDrawable edge_h_highlighted;
-	public static TextureRegionDrawable edge_v_highlighted;
-	
-	public static TextureRegionDrawable wall_h;
-	public static TextureRegionDrawable wall_v;
+	public static ArenaSkin arenaSkin;	
 	
 	public static Animation explosionAnim;
 	public static Animation breakGlassAnim;
+	
+	private static ArenaSkinLoader arenaSkinLoader;
 	
 	public static void load () {
 		loadAppProperties();
@@ -65,6 +52,7 @@ public class Assets {
 	}
 	
 	public static void dispose () {
+		disposeArenaSkinLoader();
 		disposeAtlas();
 		disposeSkin();
 		disposeOverlapResources();
@@ -81,19 +69,6 @@ public class Assets {
 		
 		// Charge les marker-packs
 		loadMarkerPacks(frameDuration);
-		
-		// Charge les images des types
-		loadCellTypes();
-		
-		// Charge les images des bords de zone
-		edge_v = new TextureRegionDrawable(atlas.findRegion("zone_edge2_v"));
-		edge_h = new TextureRegionDrawable(atlas.findRegion("zone_edge2_h"));
-		edge_v_highlighted = new TextureRegionDrawable(atlas.findRegion("zone_edge2_v_highlighted"));
-		edge_h_highlighted = new TextureRegionDrawable(atlas.findRegion("zone_edge2_h_highlighted"));
-		
-		// Charge les images des murs
-		wall_v = new TextureRegionDrawable(atlas.findRegion("wall_v"));
-		wall_h = new TextureRegionDrawable(atlas.findRegion("wall_h"));
 		
 		// Charge les animations diverses
 		explosionAnim = atlas.findAnimation("explosion", frameDuration, true);
@@ -113,7 +88,7 @@ public class Assets {
 		// On est obligés de charger une seconde fois la skin car si on utilise ce MySkin pour
 		// l'UI de Scene2D, on subit un texture bleeding sur les lettres. Je ne sais pas pourquoi,
 		// donc on se retrouve à charger 2 fois la même skin :(
-		specialSkinForOverlap = new MySkin(Gdx.files.internal("skins/wordarena/uiskin.json"));
+		specialSkinForOverlap = new MySkin(Gdx.files.internal(SKIN_FILE));
 		overlap2dResourceManager = new ResourceManager() {
 			@Override
 			public MySkin getSkin() {
@@ -128,7 +103,7 @@ public class Assets {
 	}
 
 	private static void loadSkin() {
-		skin = new Skin(Gdx.files.internal("skins/wordarena/uiskin.json"));
+		skin = new Skin(Gdx.files.internal(SKIN_FILE));
 	}
 	
 	private static void disposeSkin() {
@@ -159,64 +134,20 @@ public class Assets {
 		}
 	}
 	
-	private static void loadCellTypes() {
-		cellTypes = new DoubleEntryArray<CellTypes, Boolean, TextureRegion>();
-		
-		for (CellTypes type : CellTypes.values()) {
-			putCellTypeImage(type, Boolean.FALSE);
-			putCellTypeImage(type, Boolean.TRUE);
-		}
-	}
-	
-	private static void putCellTypeImage(final CellTypes type, Boolean selected) {
-		final String regionName = CELL_TYPE_PREFIX + type.name() + "_" + (selected ? "selected" : "normal");
-		
-		final TextureRegion region = atlas.findRegion(regionName, true);
-		if (region == null) {
-			throw new IllegalStateException("Missing image " + regionName + " in atlas !");
-		}
-		
-		cellTypes.put(type, selected, region);
-	}
-	
 	private static void disposeAtlas() {
 		atlas.dispose();
 	}
 	
-	/**
-	 * Retourne l'animation de propriétaire pour le pack et l'état de la cellule indiqués.
-	 * @param data
-	 * @return
-	 */
-	public static Animation getCellAnim(CellData data) {
-		MarkerPack pack = markerPacks.get(data.owner.markerPack);
-		if (data.selected) {
-			return pack.selectedAnim;
-		} else if (data.state == CellStates.OWNED) {
-			return pack.ownedAnim;
-		} else if (data.state == CellStates.CONTROLED) {
-			return pack.controledAnim;
+	public static void loadArenaSkin(String name) {
+		if (arenaSkinLoader == null) {
+			arenaSkinLoader = new ArenaSkinLoader();
 		}
-		// Ce cas ne devrait pas arriver
-		return null;
+		arenaSkin = arenaSkinLoader.load(name);
 	}
 	
-	/**
-	 * Retourne l'image de type de cellule pour l'état de la cellule indiqué.
-	 * @param data
-	 * @return
-	 */
-	public static TextureRegion getCellTypeRegion(CellData data) {
-		return cellTypes.get(data.type, data.selected);
-	}
-	
-	/**
-	 * Retourne le LabelStyle pour le pack indiqué.
-	 * @param pack
-	 * @return
-	 */
-	public static LabelStyle getLabelStyle(String pack) {
-		final String markerPack = pack != null ? pack : MARKER_PACK_NEUTRAL;
-		return markerPacks.get(markerPack).labelStyle;
+	private static void disposeArenaSkinLoader() {
+		if (arenaSkinLoader != null) {
+			arenaSkinLoader.dispose();
+		}
 	}
 }

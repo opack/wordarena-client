@@ -1,5 +1,6 @@
 {
 name: 0_first_assault
+skin: default
 width: 7
 height: 7
 plan.types: [

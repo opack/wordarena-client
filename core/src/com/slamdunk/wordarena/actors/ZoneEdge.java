@@ -24,15 +24,15 @@ public class ZoneEdge extends Image {
 	public void update(boolean highlighted) {
 		if (data.border.isVertical()) {
 			if (highlighted) {
-				setDrawable(Assets.edge_v_highlighted);
+				setDrawable(Assets.arenaSkin.edge_v_highlighted);
 			} else {
-				setDrawable(Assets.edge_v);
+				setDrawable(Assets.arenaSkin.edge_v);
 			}
 		} else {
 			if (highlighted) {
-				setDrawable(Assets.edge_h_highlighted);
+				setDrawable(Assets.arenaSkin.edge_h_highlighted);
 			} else {
-				setDrawable(Assets.edge_h);
+				setDrawable(Assets.arenaSkin.edge_h);
 			}
 		}
 	}

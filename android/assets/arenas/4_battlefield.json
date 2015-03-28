@@ -1,5 +1,6 @@
 {
 name: 4_battlefield
+skin: default
 width: 10
 height: 12
 plan.types: [
