@@ -3,7 +3,6 @@ package com.slamdunk.wordarena.assets;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.slamdunk.wordarena.data.ArenaSkin;
-import com.slamdunk.wordarena.enums.BordersAndCorners;
 import com.slamdunk.wordarena.enums.CellTypes;
 
 /**
@@ -34,9 +33,6 @@ public class ArenaSkinLoader {
 		// Charge l'image de fond
 		loadBackground();
 		
-		// Charge les images des bords d'arène
-		loadArenaBorders();
-		
 		// Charge les images des murs
 		loadWalls();
 		
@@ -51,20 +47,6 @@ public class ArenaSkinLoader {
 	
 	private void loadBackground() {
 		skin.background = new TextureRegionDrawable(atlas.findRegion("background"));
-	}
-
-	private void loadArenaBorders() {
-		skin.arenaBorders.clear();
-		
-		for (BordersAndCorners border : BordersAndCorners.values()) {
-			
-			String regionName = "arena_border_" + border.name().toLowerCase();
-			TextureRegion region = atlas.findRegion(regionName);
-			
-			if (region != null) {
-				skin.arenaBorders.put(border, new TextureRegionDrawable(region));
-			}
-		}
 	}
 
 	private void loadWalls() {

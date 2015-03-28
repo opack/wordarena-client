@@ -1,12 +1,8 @@
 package com.slamdunk.wordarena.data;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.slamdunk.toolkit.lang.DoubleEntryArray;
-import com.slamdunk.wordarena.enums.BordersAndCorners;
 import com.slamdunk.wordarena.enums.CellTypes;
 
 /**
@@ -26,16 +22,10 @@ public class ArenaSkin {
 	
 	public DoubleEntryArray<CellTypes, Boolean/*selected?*/, TextureRegion> cellTypes;
 	
-	/**
-	 * Images à placer à côté des cellules de bord d'arène
-	 */
-	public Map<BordersAndCorners, TextureRegionDrawable> arenaBorders;
-	
 	public TextureRegionDrawable background;
 	
 	public ArenaSkin() {
 		cellTypes = new DoubleEntryArray<CellTypes, Boolean, TextureRegion>();
-		arenaBorders = new HashMap<BordersAndCorners, TextureRegionDrawable>();
 	}
 	
 	/**

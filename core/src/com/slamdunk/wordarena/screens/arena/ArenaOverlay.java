@@ -31,7 +31,6 @@ public class ArenaOverlay extends WorldOverlay {
 	private ArenaData data;
 	
 	private Image background;
-	private Group bordersGroup;
 	private GroupEx arenaGroup;
 	private GroupEx cellsGroup;
 	private Group wallsGroup;
@@ -44,9 +43,6 @@ public class ArenaOverlay extends WorldOverlay {
 
 		background = new Image();
 		getWorld().addActor(background);
-		
-		bordersGroup = new Group();
-		getWorld().addActor(bordersGroup);
 		
 		arenaGroup = new GroupEx();
 		getWorld().addActor(arenaGroup);
@@ -112,9 +108,6 @@ public class ArenaOverlay extends WorldOverlay {
 		// Ajoute les cellules
 		resetCells();
 		
-		// Ajoute les bords de l'arène
-		resetBorders();
-		
 		// Ajoute les murs
 		resetWalls();
 		
@@ -125,10 +118,6 @@ public class ArenaOverlay extends WorldOverlay {
 		centerArena();
 	}
 	
-	private void resetBorders() {
-		// Teste si la cellule est sur le bord de l'arène
-	}
-
 	private void resetBackground() {
 		background.setDrawable(Assets.arenaSkin.background);
 		background.setBounds(0, 0, WordArenaGame.SCREEN_WIDTH, WordArenaGame.SCREEN_HEIGHT);

@@ -50,18 +50,6 @@
          id="stop5431" />
     </linearGradient>
     <linearGradient
-       inkscape:collect="always"
-       id="linearGradient5209">
-      <stop
-         style="stop-color:#777777;stop-opacity:1"
-         offset="0"
-         id="stop5211" />
-      <stop
-         style="stop-color:#cccccc;stop-opacity:0;"
-         offset="1"
-         id="stop5213" />
-    </linearGradient>
-    <linearGradient
        id="linearGradient5461"
        osb:paint="solid">
       <stop
@@ -773,94 +761,6 @@
        y1="79.203934"
        x2="1070.6986"
        y2="49.912048" />
-    <radialGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5209"
-       id="radialGradient5215"
-       cx="361.21429"
-       cy="511.50507"
-       fx="361.21429"
-       fy="511.50507"
-       r="48"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.7291667,-2.2928033e-7,2.5986418e-7,1.9598213,-231.81412,-643.23913)" />
-    <radialGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5209"
-       id="radialGradient5286"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.7291667,-2.2928033e-7,2.5986418e-7,1.9598213,-239.81412,-627.23913)"
-       cx="361.21429"
-       cy="511.50507"
-       fx="361.21429"
-       fy="511.50507"
-       r="48" />
-    <radialGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5209"
-       id="radialGradient5298"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.7291667,-2.2928033e-7,2.5986418e-7,1.9598213,-239.81412,-643.23913)"
-       cx="361.21429"
-       cy="511.50507"
-       fx="361.21429"
-       fy="511.50507"
-       r="48" />
-    <radialGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5209"
-       id="radialGradient5300"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.7291667,-2.2928033e-7,2.5986418e-7,1.9598213,-247.81412,-643.23913)"
-       cx="361.21429"
-       cy="511.50507"
-       fx="361.21429"
-       fy="511.50507"
-       r="48" />
-    <radialGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5209"
-       id="radialGradient5356"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.7291667,-2.2928033e-7,2.5986418e-7,1.9598213,-231.81412,-627.23913)"
-       cx="361.21429"
-       cy="511.50507"
-       fx="361.21429"
-       fy="511.50507"
-       r="48" />
-    <radialGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5209"
-       id="radialGradient5361"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.7291667,-2.2928033e-7,2.5986418e-7,1.9598213,-247.81412,-627.23913)"
-       cx="361.21429"
-       cy="511.50507"
-       fx="361.21429"
-       fy="511.50507"
-       r="48" />
-    <radialGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5209"
-       id="radialGradient5366"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.7291667,-2.2928033e-7,2.5986418e-7,1.9598213,-231.81412,-635.23913)"
-       cx="361.21429"
-       cy="511.50507"
-       fx="361.21429"
-       fy="511.50507"
-       r="48" />
-    <radialGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5209"
-       id="radialGradient5368"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.7291667,-2.2928033e-7,2.5986418e-7,1.9598213,-247.81412,-635.23913)"
-       cx="361.21429"
-       cy="511.50507"
-       fx="361.21429"
-       fy="511.50507"
-       r="48" />
     <pattern
        patternUnits="userSpaceOnUse"
        width="158.5838"
@@ -1107,9 +1007,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8"
-     inkscape:cx="226.04806"
-     inkscape:cy="358.81229"
+     inkscape:zoom="0.7"
+     inkscape:cx="263.32743"
+     inkscape:cy="708.74213"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -3784,89 +3684,6 @@
          x="785.99573"
          y="226.60051"
          style="font-size:17.5px;text-align:center;text-anchor:middle">Image de fond</tspan></text>
-    <rect
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00000012;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5601-6-0-7-8-3-2-2"
-       width="176.9875"
-       height="168.72186"
-       x="299.74591"
-       y="268.85388" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="385.32123"
-       y="289.49789"
-       id="text5603-4-3-1-4-9-4-95"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan5605-4-7-0-4-6-1-0"
-         x="385.32123"
-         y="289.49789"
-         style="font-size:17.5px;text-align:center;text-anchor:middle">Bordure d'arène</tspan></text>
-    <path
-       style="opacity:1;fill:url(#radialGradient5286);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 360.78627,423.21848 48,0 0,-24 -48,0 0,24 z"
-       id="path5289"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="img_export\arena_skins\default\arena_border_bottom.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:url(#radialGradient5298);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 360.78627,335.21848 48,0 0,-24 -48,0 0,24 z"
-       id="path5291"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="img_export\arena_skins\default\arena_border_top.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:url(#radialGradient5361);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 352.78627,399.21848 -24,0 0,16.5 c 0,4.155 3.345,7.5 7.5,7.5 l 16.5,0 0,-24 z"
-       id="path5364"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="img_export\arena_skins\default\arena_border_bottom_left.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:url(#radialGradient5368);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 328.78627,343.21848 0,48 24,0 0,-48 -24,0 z"
-       id="path5339"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="img_export\arena_skins\default\arena_border_left.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:url(#radialGradient5300);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 328.78627,335.21848 24,0 0,-24 -16.5,0 c -4.155,0 -7.5,3.345 -7.5,7.5 l 0,16.5 z"
-       id="path5275"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="img_export\arena_skins\default\arena_border_top_left.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:url(#radialGradient5356);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 440.78627,399.21848 -24,0 0,24 16.5,0 c 4.155,0 7.5,-3.345 7.5,-7.5 l 0,-16.5 z"
-       id="path5359"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="img_export\arena_skins\default\arena_border_bottom_right.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:url(#radialGradient5366);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 416.78627,343.21848 0,48 24,0 0,-48 -24,0 z"
-       id="path5330"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="img_export\arena_skins\default\arena_border_right.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="opacity:1;fill:url(#radialGradient5215);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 416.78627,335.21848 24,0 0,-16.5 c 0,-4.155 -3.345,-7.5 -7.5,-7.5 l -16.5,0 0,24 z"
-       id="rect5207"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="img_export\arena_skins\default\arena_border_top_right.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
     <rect
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:url(#pattern7448);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.99999994;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        id="rect5370"
