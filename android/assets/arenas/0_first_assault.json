@@ -4,7 +4,7 @@ width: 7
 height: 7
 plan.types: [
 	"L L L L L L L "
-	"L L L L L L L "
+	"L L B B L L L "
 	"L L B L L L L "
 	"L L L B L L L "
 	"L L L L B L L "

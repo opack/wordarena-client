@@ -27,6 +27,12 @@ public class BreakNeighborGlassEffect extends DefaultCellEffect {
 	
 	private AnimationDrawer drawer;
 	
+	public BreakNeighborGlassEffect() {
+		tmpNeighbors = new ArrayList<ArenaCell>(4);
+		brokenCells = new ArrayList<ArenaCell>();
+		drawer = new AnimationDrawer();
+	}
+	
 	@Override
 	protected boolean isCellTargetable(ArenaCell cell) {
 		// Toute cellule sélectionnée peut avoir dans son entourage
@@ -38,8 +44,7 @@ public class BreakNeighborGlassEffect extends DefaultCellEffect {
 	public boolean init(List<ArenaCell> cells, Player player, ArenaData arena) {
 		super.init(cells, player, arena);
 
-		tmpNeighbors = new ArrayList<ArenaCell>(4);
-		brokenCells = new ArrayList<ArenaCell>();
+		brokenCells.clear();
 		
 		for (ArenaCell cell : getTargetCells()) {
 			// Récupère les voisins
@@ -63,7 +68,6 @@ public class BreakNeighborGlassEffect extends DefaultCellEffect {
 		}
 		
 		// TODO Démarre l'animation du verre qui se brise
-		drawer = new AnimationDrawer();
 		drawer.setAnimation(Assets.breakGlassAnim, true, false);
 		
 		// TODO Jouer un son de verre brisé

@@ -13,6 +13,10 @@ import com.slamdunk.wordarena.enums.CellStates;
 
 public class TakeOwnershipEffect extends DefaultCellEffect {
 	private AnimationDrawer drawer;
+	
+	public TakeOwnershipEffect() {
+		drawer = new AnimationDrawer();
+	}
 
 	@Override
 	protected boolean isCellTargetable(ArenaCell cell) {
@@ -34,8 +38,6 @@ public class TakeOwnershipEffect extends DefaultCellEffect {
 		
 		// Lance l'animation de prise de possession
 		final MarkerPack gainerPack = Assets.markerPacks.get(player.markerPack);
-		
-		drawer = new AnimationDrawer();
 		drawer.setAnimation(gainerPack.conquestAnim, true, false);
 		
 		return true;
