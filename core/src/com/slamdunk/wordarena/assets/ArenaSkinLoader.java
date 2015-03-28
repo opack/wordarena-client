@@ -21,6 +21,11 @@ public class ArenaSkinLoader {
 	}
 	
 	public ArenaSkin load(String name) {
+		// Si on a déjà chargé cette skin, on la retourne
+		if (name.equals(skin.name)) {
+			return skin;
+		}
+		
 		// Ouvre l'atlas
 		if (atlas != null) {
 			atlas.dispose();

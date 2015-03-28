@@ -13,34 +13,36 @@ import com.slamdunk.wordarena.enums.Letters;
 import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
 
 public class EditorArenaOverlay extends ArenaOverlay {
-	private ArenaData arena;
-	
-	public EditorArenaOverlay() {
-		arena = new ArenaData();
-		setData(arena);
-	}
 	
 	public void setArenaName(String name) {
-		arena.name = name;
+		getData().name = name;
+	}
+	
+	/**
+	 * Change la skin et la charge
+	 * @param skin
+	 */
+	public void setArenaSkin(String skin) {
+		getData().skin = skin;
+		Assets.loadArenaSkin(skin);
 	}
 	
 	public void setArenaSize(int width, int height) {
-		arena.width = width;
-		arena.height = height;
+		getData().width = width;
+		getData().height = height;
 	}
 	
-	@Override
-	public void resetArena() {
+	public void createEmptyArena() {
 		recreateCells();
-		arena.walls.clear();
-		arena.zones.clear();
+		getData().walls.clear();
+		getData().zones.clear();
 		
 		super.resetArena();
-		
-		centerArena();
 	}
 
 	public void recreateCells() {
+		ArenaData arena = getData();
+		
 		arena.cells = new ArenaCell[arena.width][arena.height];
 		
 		ArenaCell cell;
@@ -71,7 +73,7 @@ public class EditorArenaOverlay extends ArenaOverlay {
 
 	public ArenaZone createZone(String id) {
 		ArenaZone zone = new ArenaZone(null, id);
-		arena.zones.add(zone);
+		getData().zones.add(zone);
 		getArenaGroup().addActor(zone);
 		return zone;
 	}

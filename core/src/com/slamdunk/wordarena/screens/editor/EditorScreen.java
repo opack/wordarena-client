@@ -124,7 +124,8 @@ public static final String NAME = "EDITOR";
 	
 	public void createNewArena(String name, int width, int height) {
 		arena.setArenaSize(width, height);
-		arena.resetArena();
+		arena.setArenaSkin("default");
+		arena.createEmptyArena();
 		prepareUI(name);
 	}
 	
@@ -135,6 +136,7 @@ public static final String NAME = "EDITOR";
 	
 	private void prepareUI(String name) {
 		arena.getData().name = name;
+		arena.getData().skin = "default"; // TODO Ajouter une liste pour sélectionner la skin
 		ui.loadData(arena.getData());
 		getTool(WallTool.class).setArena(arena);
 	}
