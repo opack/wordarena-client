@@ -22,8 +22,8 @@ public class ArenaCell extends Actor {
 	private final static int WIDTH = 48;
 	private final static int HEIGHT = 48;
 	
-	private final float MOMENTARY_ANIM_INTERVAL_MIN = 1.0f;
-	private final float MOMENTARY_ANIM_INTERVAL_MAX = 4.0f;
+	private final float MOMENTARY_ANIM_INTERVAL_MIN = 15.0f;
+	private final float MOMENTARY_ANIM_INTERVAL_MAX = 45.0f;
 	
 	/**
 	 * Le modèle de cette cellule
