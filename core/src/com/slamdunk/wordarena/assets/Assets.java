@@ -122,7 +122,7 @@ public class Assets {
 	
 	private static void loadMarkerPacks(float frameDuration) {
 		// Crée l'objet chargé de parcourir l'atlas et la skin pour créer les packs
-		PackLoader packLoader = new PackLoader(skin, frameDuration);
+		MarkerPackLoader packLoader = new MarkerPackLoader(skin, frameDuration);
 		
 		// Charge la liste des marker-packs
 		final String[] packList = appProperties.getStringArrayProperty("markerpacks", ",");

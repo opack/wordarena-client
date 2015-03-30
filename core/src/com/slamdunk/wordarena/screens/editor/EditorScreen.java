@@ -99,11 +99,6 @@ public static final String NAME = "EDITOR";
 		return currentTool;
 	}
 
-	public void changeArenaSize(int width, int height) {
-		arena.setArenaSize(width, height);
-		arena.resetArena();
-	}
-
 	public ArenaZone getOrCreateZone(String id) {
 		for (ArenaZone zone : arena.getData().zones) {
 			if (zone.getData().id.equals(id)) {
@@ -123,9 +118,7 @@ public static final String NAME = "EDITOR";
 	}
 	
 	public void createNewArena(String name, int width, int height) {
-		arena.setArenaSize(width, height);
-		arena.setArenaSkin("default");
-		arena.createEmptyArena();
+		arena.createEmptyArena(width, height, "default");
 		prepareUI(name);
 	}
 	

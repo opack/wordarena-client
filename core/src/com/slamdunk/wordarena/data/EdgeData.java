@@ -3,14 +3,33 @@ package com.slamdunk.wordarena.data;
 import com.badlogic.gdx.math.Vector2;
 import com.slamdunk.wordarena.actors.ArenaCell;
 import com.slamdunk.wordarena.enums.Borders;
+import com.slamdunk.wordarena.enums.BordersAndCorners;
+import com.slamdunk.wordarena.enums.CornerTypes;
 
 /**
  * Représente un côté d'une zone s'étendant entre 2 cellules
  */
 public class EdgeData {
 	public ArenaCell cell;
-	public Borders border;
 	
+	public BordersAndCorners borderOrCorner;
+	public CornerTypes cornerType;
+	
+	/**
+	 * Par convention, les points de la zone sont définis dans le sens des aiguilles
+	 * d'une montre. Ainsi, selon la valeur de borderOrCorner, anchorPos désignera :
+	 * 
+	 *       borderOrCorner     |    anchroPos
+	 *  ------------------------|-----------------
+	 *	LEFT ou BOTTOM_LEFT		| coin bas-gauche
+	 *  TOP ou TOP_LEFT			| coin haut-gauche
+	 *  RIGHT ou TOP_RIGHT		| coin haut-droit
+	 *  BOTTOM ou BOTTOM_RIGHT	| coin bas-droit 
+	 */
+	public Vector2 anchorPos;
+	
+	// DBG Supprimer tout ce qui est dessous
+	public Borders border;
 	/**
 	 * Par convention, les points de la zone sont définis dans le sens des aiguilles
 	 * d'une montre. Ainsi, selon le côté, p1 désignera :

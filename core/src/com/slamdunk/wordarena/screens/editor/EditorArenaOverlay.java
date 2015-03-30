@@ -14,35 +14,22 @@ import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
 
 public class EditorArenaOverlay extends ArenaOverlay {
 	
-	public void setArenaName(String name) {
-		getData().name = name;
-	}
-	
-	/**
-	 * Change la skin et la charge
-	 * @param skin
-	 */
-	public void setArenaSkin(String skin) {
-		getData().skin = skin;
+	public void createEmptyArena(int width, int height, String skin) {
 		Assets.loadArenaSkin(skin);
-	}
-	
-	public void setArenaSize(int width, int height) {
-		getData().width = width;
-		getData().height = height;
-	}
-	
-	public void createEmptyArena() {
-		recreateCells();
-		getData().walls.clear();
-		getData().zones.clear();
+		
+		ArenaData arena = new ArenaData();
+		arena.width = width;
+		arena.height = height;
+		arena.skin = skin;
+		
+		createEmptyCells(arena);
+		
+		setData(arena);
 		
 		super.resetArena();
 	}
 
-	public void recreateCells() {
-		ArenaData arena = getData();
-		
+	private void createEmptyCells(ArenaData arena) {
 		arena.cells = new ArenaCell[arena.width][arena.height];
 		
 		ArenaCell cell;

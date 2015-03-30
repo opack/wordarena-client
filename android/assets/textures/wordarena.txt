@@ -198,135 +198,149 @@ marker_blue_selected
   orig: 48, 48
   offset: 0, 0
   index: 0
-marker_green_conquest
+marker_blue_zone_h
   rotate: false
   xy: 1152, 2
+  size: 48, 4
+  orig: 48, 4
+  offset: 0, 0
+  index: -1
+marker_blue_zone_v
+  rotate: false
+  xy: 1202, 2
+  size: 4, 48
+  orig: 4, 48
+  offset: 0, 0
+  index: -1
+marker_green_conquest
+  rotate: false
+  xy: 1208, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 0
 marker_green_conquest
   rotate: false
-  xy: 1202, 2
+  xy: 1258, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 1
 marker_green_conquest
   rotate: false
-  xy: 1202, 2
+  xy: 1258, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 2
 marker_green_conquest
   rotate: false
-  xy: 1252, 2
+  xy: 1308, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 3
 marker_green_conquest
   rotate: false
-  xy: 1302, 2
+  xy: 1358, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 4
 marker_green_conquest
   rotate: false
-  xy: 1352, 2
+  xy: 1408, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 5
 marker_green_conquest
   rotate: false
-  xy: 1402, 2
+  xy: 1458, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 6
 marker_green_conquest
   rotate: false
-  xy: 1452, 2
+  xy: 1508, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 7
 marker_green_conquest
   rotate: false
-  xy: 1502, 2
+  xy: 1558, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 8
 marker_green_controled
   rotate: false
-  xy: 1552, 2
+  xy: 1608, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 0
 marker_green_owned
   rotate: false
-  xy: 1602, 2
+  xy: 1658, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 0
 marker_green_owned
   rotate: false
-  xy: 1602, 2
+  xy: 1658, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 1
 marker_green_owned
   rotate: false
-  xy: 1652, 2
+  xy: 1708, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 2
 marker_green_owned
   rotate: false
-  xy: 1702, 2
+  xy: 1758, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 3
 marker_green_owned
   rotate: false
-  xy: 1752, 2
+  xy: 1808, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 4
 marker_green_owned
   rotate: false
-  xy: 1802, 2
+  xy: 1858, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 5
 marker_green_owned
   rotate: false
-  xy: 1852, 2
+  xy: 1908, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 6
 marker_green_owned
   rotate: false
-  xy: 1602, 2
+  xy: 1658, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 7
 marker_green_owned
   rotate: false
-  xy: 1602, 2
+  xy: 1658, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
@@ -347,7 +361,7 @@ marker_green_selected
   index: 0
 marker_neutral_conquest
   rotate: false
-  xy: 1902, 2
+  xy: 1958, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
@@ -583,135 +597,149 @@ marker_orange_selected
   orig: 48, 48
   offset: 0, 0
   index: 0
-marker_purple_conquest
+marker_orange_zone_h
   rotate: false
   xy: 1202, 52
+  size: 48, 6
+  orig: 48, 6
+  offset: 0, 0
+  index: -1
+marker_orange_zone_v
+  rotate: false
+  xy: 1252, 52
+  size: 6, 48
+  orig: 6, 48
+  offset: 0, 0
+  index: -1
+marker_purple_conquest
+  rotate: false
+  xy: 1260, 52
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 0
 marker_purple_conquest
   rotate: false
-  xy: 1252, 52
+  xy: 1310, 52
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 1
 marker_purple_conquest
   rotate: false
-  xy: 1252, 52
+  xy: 1310, 52
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 2
 marker_purple_conquest
   rotate: false
-  xy: 1302, 52
+  xy: 1360, 52
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 3
 marker_purple_conquest
   rotate: false
-  xy: 1352, 52
+  xy: 1410, 52
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 4
 marker_purple_conquest
   rotate: false
-  xy: 1402, 52
+  xy: 1460, 52
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 5
 marker_purple_conquest
   rotate: false
-  xy: 1452, 52
+  xy: 1510, 52
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 6
 marker_purple_conquest
   rotate: false
-  xy: 1502, 52
+  xy: 1560, 52
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 7
 marker_purple_conquest
   rotate: false
-  xy: 1552, 52
+  xy: 1610, 52
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 8
 marker_purple_controled
   rotate: false
-  xy: 1602, 52
+  xy: 1660, 52
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 0
 marker_purple_owned
   rotate: false
-  xy: 1652, 52
+  xy: 1710, 52
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 0
 marker_purple_owned
   rotate: false
-  xy: 1652, 52
+  xy: 1710, 52
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 1
 marker_purple_owned
   rotate: false
-  xy: 1702, 52
+  xy: 1760, 52
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 2
 marker_purple_owned
   rotate: false
-  xy: 1752, 52
+  xy: 1810, 52
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 3
 marker_purple_owned
   rotate: false
-  xy: 1802, 52
+  xy: 1860, 52
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 4
 marker_purple_owned
   rotate: false
-  xy: 1852, 52
+  xy: 1910, 52
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 5
 marker_purple_owned
   rotate: false
-  xy: 1902, 52
+  xy: 1960, 52
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 6
 marker_purple_owned
   rotate: false
-  xy: 1652, 52
+  xy: 1710, 52
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 7
 marker_purple_owned
   rotate: false
-  xy: 1652, 52
+  xy: 1710, 52
   size: 48, 48
   orig: 48, 48
   offset: 0, 0

@@ -58,6 +58,12 @@ public class Point {
         this.x += x;
         this.y += y;
     }
+    
+
+	public void add(Point offset) {
+		this.x += offset.x;
+        this.y += offset.y;
+	}
 
     /**
      * Returns the distance between the current point and the specified one.
@@ -124,7 +130,7 @@ public class Point {
 
     @Override
     public int hashCode() {
-        return x ^ y ^ index;
+        return 31 * x + y;
     }
 
     public void setIndex(int index) {
@@ -148,4 +154,14 @@ public class Point {
     public String toString() {
         return "(" + x + ";" + y + ")";
     }
+
+    /**
+     * Additionne 2 points et place le résultat dans un troisième
+     * @param op1
+     * @param op2
+     * @param result
+     */
+	public static void add(Point op1, Point op2, Point result) {
+		result.setXY(op1.x + op2.x, op1.y + op2.y);
+	}
 }
