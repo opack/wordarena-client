@@ -109,29 +109,30 @@ public class CellEffectsManager extends Actor {
 		
 		if (processing && !paused) {
 			
-			// Applique l'effet
-			if (effectsToApply.get(currentEffect).act(delta)) {
+			// S'il n'y a plus d'effet à appliquer, on a terminé
+			if (currentEffect >= effectsToApply.size()) {
+				// Arrête le traitement
+				processing = false;
+				
+				// Notifie le listener
+				if (listener != null) {
+					listener.onEffectApplicationFinished(player, cells);
+				}
+			}
+			
+			// Sinon, applique l'effet courant
+			else if (effectsToApply.get(currentEffect).act(delta)) {
 				
 				// L'effet est terminé, on passe au suivant
 				currentEffect++;
-				
-				// S'il n'y a plus de suivant, on a terminé
-				if (currentEffect >= effectsToApply.size()) {
-					// Arrête le traitement
-					processing = false;
-					
-					// Notifie le listener
-					if (listener != null) {
-						listener.onEffectApplicationFinished(player, cells);
-					}
-				}
 			}
 		}
 	}
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		if (processing) {
+		if (processing
+		&& currentEffect < effectsToApply.size()) {
 			effectsToApply.get(currentEffect).draw(batch, parentAlpha);
 		}
 	}

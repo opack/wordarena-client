@@ -1,7 +1,6 @@
 package com.slamdunk.wordarena.data;
 
 import com.badlogic.gdx.math.Vector2;
-import com.slamdunk.wordarena.actors.ArenaCell;
 import com.slamdunk.wordarena.enums.BordersAndCorners;
 import com.slamdunk.wordarena.enums.CornerTypes;
 
@@ -9,8 +8,6 @@ import com.slamdunk.wordarena.enums.CornerTypes;
  * Représente un côté d'une zone s'étendant entre 2 cellules
  */
 public class EdgeData {
-	public ArenaCell cell;
-	
 	public BordersAndCorners borderOrCorner;
 	public CornerTypes cornerType;
 	
@@ -35,14 +32,13 @@ public class EdgeData {
 			// Identique si c'est le même côté de la même cellule
 			EdgeData edge2 = (EdgeData)other;
 			return edge2.borderOrCorner == borderOrCorner
-				&& edge2.cornerType == cornerType
-				&& edge2.cell.equals(cell);
+				&& edge2.cornerType == cornerType;
 		}
 		return false;
 	}
 	
 	@Override
 	public int hashCode() {
-		return borderOrCorner.hashCode() *31 + cornerType.hashCode() * 31 + cell.hashCode();
+		return borderOrCorner.hashCode() *31 ^ cornerType.hashCode() * 31;
 	}
 }

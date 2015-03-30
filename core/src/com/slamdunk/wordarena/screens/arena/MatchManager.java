@@ -292,13 +292,8 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 
 	@Override
 	public void onRoundEnd(Player roundWinner) {
-		if (roundWinner == null) {
-			// Egalité
-			ui.setRoundWinner("Egalité ! Personne ne gagne ce round !");
-		} else {
-			// Victoire
-			ui.setRoundWinner(roundWinner.name + " gagne le round !");
-		}
+		ui.setRoundWinner(roundWinner);
+
 		changeState(GameStates.ROUND_OVER);
 		
 		// Cache les lettres de l'arène
@@ -308,11 +303,8 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	@Override
 	public void onGameEnd(Player gameWinner) {
 		// Affichage du gagnant
-		if (gameWinner == null) {
-			ui.setGameWinner("Egalité parfaite ! Personne ne gagne cette partie !");
-		} else {
-			ui.setGameWinner(gameWinner.name + " gagne la partie !");
-		}
+		ui.setGameWinner(gameWinner);
+		
 		changeState(GameStates.GAME_OVER);
 		
 		// Cache les lettres de l'arène

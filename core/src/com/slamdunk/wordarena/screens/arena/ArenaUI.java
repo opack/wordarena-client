@@ -194,12 +194,24 @@ public class ArenaUI extends UIOverlay {
 		sceneLoader.sceneActor.getLabelById("lblArenaName").setText(name);
 	}
 	
-	public void setRoundWinner(String winner) {
-		sceneLoader.sceneActor.getLabelById("lblRoundWinner").setText(Assets.i18nBundle.format("ui.arena.roundWinner", winner));
+	public void setRoundWinner(Player winner) {
+		if (winner == null) {
+			// Egalité
+			sceneLoader.sceneActor.getLabelById("lblRoundWinner").setText(Assets.i18nBundle.format("ui.arena.roundWinnerTie"));
+		} else {
+			// Victoire d'un joueur
+			sceneLoader.sceneActor.getLabelById("lblRoundWinner").setText(Assets.i18nBundle.format("ui.arena.roundWinner", winner.name));
+		}
 	}
 	
-	public void setGameWinner(String winner) {
-		sceneLoader.sceneActor.getLabelById("lblGameWinner").setText(Assets.i18nBundle.format("ui.arena.gameWinner", winner));
+	public void setGameWinner(Player winner) {
+		if (winner == null) {
+			// Egalité
+			sceneLoader.sceneActor.getLabelById("lblGameWinner").setText(Assets.i18nBundle.format("ui.arena.gameWinnerTie"));
+		} else {
+			// Victoire d'un joueur
+			sceneLoader.sceneActor.getLabelById("lblGameWinner").setText(Assets.i18nBundle.format("ui.arena.gameWinner", winner.name));
+		}
 	}
 	
 	public void showRefreshStartingZoneButton(boolean show) {

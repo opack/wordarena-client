@@ -114,7 +114,6 @@ public class ZoneBorderBuilder {
 		ZoneEdge edge = new ZoneEdge();
 		
 		// Définit les propriétés du ZoneEdge
-		edge.getData().cell = cell;
 		edge.getData().borderOrCorner = borderOrCorner;
 		edge.getData().cornerType = cornerType;
 		edge.getData().anchorPos = getCornerPos(cell, borderOrCorner);
