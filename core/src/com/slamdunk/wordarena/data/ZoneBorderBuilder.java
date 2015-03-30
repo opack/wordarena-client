@@ -10,6 +10,7 @@ import com.badlogic.gdx.utils.Scaling;
 import com.slamdunk.toolkit.world.point.Point;
 import com.slamdunk.wordarena.actors.ArenaCell;
 import com.slamdunk.wordarena.actors.ZoneEdge;
+import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.enums.Borders;
 import com.slamdunk.wordarena.enums.BordersAndCorners;
 import com.slamdunk.wordarena.enums.CornerTypes;
@@ -53,16 +54,18 @@ public class ZoneBorderBuilder {
 		borders = new HashMap<Point, ZoneBorderBuilder.CellBorders>();
 	}
 	
-	public void build() {
+	public void build(Player owner, boolean highlighted) {
 		performBordersPass();
 		performCornersPass();
-		createEdges();
+		createEdges(owner, highlighted);
 	}
 
 	/**
 	 * Parcours les CellBorders et crée des ZoneEdge pour chaque bord de zone
 	 */
-	private void createEdges() {
+	private void createEdges(Player owner, boolean highlighted) {
+		MarkerPack pack = Assets.markerPacks.get(owner.markerPack);
+				
 		edgesToFill.clear();
 		for (CellBorders cellBorders : borders.values()) {
 			// On ne traite que les cellBorders qui ont une ArenaCell attachée : cela
@@ -73,30 +76,30 @@ public class ZoneBorderBuilder {
 			
 			// Crée les bords
 			if (cellBorders.borderOnTop) {
-				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.TOP, CornerTypes.NONE));
+				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.TOP, CornerTypes.NONE, pack, highlighted));
 			}
 			if (cellBorders.borderOnRight) {
-				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.RIGHT, CornerTypes.NONE));
+				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.RIGHT, CornerTypes.NONE, pack, highlighted));
 			}
 			if (cellBorders.borderOnBottom) {
-				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.BOTTOM, CornerTypes.NONE));
+				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.BOTTOM, CornerTypes.NONE, pack, highlighted));
 			}
 			if (cellBorders.borderOnLeft) {
-				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.LEFT, CornerTypes.NONE));
+				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.LEFT, CornerTypes.NONE, pack, highlighted));
 			}
 			
 			// Crée les coins
 			if (cellBorders.cornerOnTopLeft != CornerTypes.NONE) {
-				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.TOP_LEFT, cellBorders.cornerOnTopLeft));
+				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.TOP_LEFT, cellBorders.cornerOnTopLeft, pack, highlighted));
 			}
 			if (cellBorders.cornerOnTopRight != CornerTypes.NONE) {
-				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.TOP_RIGHT, cellBorders.cornerOnTopRight));
+				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.TOP_RIGHT, cellBorders.cornerOnTopRight, pack, highlighted));
 			}
 			if (cellBorders.cornerOnBottomLeft != CornerTypes.NONE) {
-				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.BOTTOM_LEFT, cellBorders.cornerOnBottomLeft));
+				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.BOTTOM_LEFT, cellBorders.cornerOnBottomLeft, pack, highlighted));
 			}
 			if (cellBorders.cornerOnBottomRight != CornerTypes.NONE) {
-				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.BOTTOM_RIGHT, cellBorders.cornerOnBottomRight));
+				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.BOTTOM_RIGHT, cellBorders.cornerOnBottomRight, pack, highlighted));
 			}
 		}
 	}
@@ -107,7 +110,7 @@ public class ZoneBorderBuilder {
 	 * @param borderOrCorner
 	 * @return
 	 */
-	private ZoneEdge createEdge(ArenaCell cell, BordersAndCorners borderOrCorner, CornerTypes cornerType) {
+	private ZoneEdge createEdge(ArenaCell cell, BordersAndCorners borderOrCorner, CornerTypes cornerType, MarkerPack pack, boolean highlighted) {
 		ZoneEdge edge = new ZoneEdge();
 		
 		// Définit les propriétés du ZoneEdge
@@ -119,20 +122,50 @@ public class ZoneBorderBuilder {
 		// Choisit l'image adaptée
 		edge.setScaling(Scaling.stretch);
 		edge.setAlign(Align.center);
-		edge.update(false);
+		edge.updateDisplay(pack, highlighted);
 		
 		return edge;
 	}
 
 	/**
-	 * Retourne le point de base pour positionner les images correspondant au coin de la cellule indiquée
+	 * Retourne le point de base pour positionner les images correspondant au coin de la cellule indiquée.
+	 * Par convention, le point d'ancrage est défini dans le sens des aiguilles
+	 * d'une montre, sachant que l'image se dessine vers la droite et vers le haut.
+	 * Ainsi, selon la valeur de borderOrCorner, anchorPos désignera :
+	 * 
+	 *       borderOrCorner     |    anchroPos
+	 *  ------------------------|-----------------
+	 *	LEFT,BOTTOM,BOTTOM_LEFT	| coin bas-gauche
+	 *  TOP,TOP_LEFT			| coin haut-gauche
+	 *  TOP_RIGHT				| coin haut-droit
+	 *  RIGHT,BOTTOM_RIGHT		| coin bas-droit 
+	 *  
 	 * @param cell
 	 * @param borderOrCorner
 	 * @return
 	 */
 	private Vector2 getCornerPos(ArenaCell cell, BordersAndCorners borderOrCorner) {
-		// TODO Auto-generated method stub
-		return null;
+		switch (borderOrCorner) {
+		case TOP:
+		case TOP_LEFT:
+			return new Vector2(cell.getX(), cell.getTop());
+			
+		case TOP_RIGHT:
+			return new Vector2(cell.getRight(), cell.getTop());
+		
+		case RIGHT:
+		case BOTTOM_RIGHT:
+			return new Vector2(cell.getRight(), cell.getY());
+			
+		case LEFT:
+		case BOTTOM:
+		case BOTTOM_LEFT:
+			return new Vector2(cell.getX(), cell.getY());
+			
+		default:
+			// Ne doit pas pouvoir arriver
+			return null;
+		}
 	}
 
 	/**
@@ -140,15 +173,12 @@ public class ZoneBorderBuilder {
 	 * vers l'intérieur ou l'extérieur
 	 */
 	private void performCornersPass() {
-		System.out.println("ZoneBorderBuilder.performCornersPass() DEB");
 		for (CellBorders cellBorders : borders.values()) {
 			// On ne traite que les cellBorders qui ont une ArenaCell attachée : cela
 			// indique une cellule qui fait partie de la zone.
 			if (cellBorders.cell == null) {
 				continue;
 			}
-			
-			System.out.println("Traitement de " + cellBorders.cell);
 			
 		// Teste le coin haut-gauche
 			
@@ -176,6 +206,13 @@ public class ZoneBorderBuilder {
 				cellBorders.cornerOnTopLeft = CornerTypes.VERTICAL_JOINT;
 			}
 			
+			// Le coin fait partie d'une longue ligne de la zone, il faut donc mettre un joint
+			else if (cellBorders.borderOnTop) {
+				cellBorders.cornerOnTopLeft = CornerTypes.HORIZONTAL_JOINT;
+			} else if (cellBorders.borderOnLeft) {
+				cellBorders.cornerOnTopLeft = CornerTypes.VERTICAL_JOINT;
+			}
+			
 			// Le coin est vide
 			else {
 				cellBorders.cornerOnTopLeft = CornerTypes.NONE;
@@ -191,7 +228,7 @@ public class ZoneBorderBuilder {
 			
 			// Teste s'il y a un coin plein vers l'extérieur, ce qui est le cas
 			// s'il y a un bord à droite sur le voisin du dessus et en haut sur le voisin de gauche
-			else if (cellBorders.cellOnTop.borderOnRight && cellBorders.cellOnLeft.borderOnTop) {
+			else if (cellBorders.cellOnTop.borderOnRight && cellBorders.cellOnRight.borderOnTop) {
 				cellBorders.cornerOnTopRight = CornerTypes.OUTER_CORNER;
 			}
 			
@@ -207,9 +244,54 @@ public class ZoneBorderBuilder {
 				cellBorders.cornerOnTopRight = CornerTypes.VERTICAL_JOINT;
 			}
 			
+			// Le coin fait partie d'une longue ligne de la zone, il faut donc mettre un joint
+			else if (cellBorders.borderOnTop) {
+				cellBorders.cornerOnTopRight = CornerTypes.HORIZONTAL_JOINT;
+			} else if (cellBorders.borderOnRight) {
+				cellBorders.cornerOnTopRight = CornerTypes.VERTICAL_JOINT;
+			}
+			
 			// Le coin est vide
 			else {
 				cellBorders.cornerOnTopRight = CornerTypes.NONE;
+			}
+			
+		// Teste le coin bas-droit
+		
+			// Teste s'il y a un coin plein vers l'intérieur, ce qui est le cas
+			// s'il y a un bord à droite et en bas
+			if (cellBorders.borderOnRight && cellBorders.borderOnBottom) {
+				cellBorders.cornerOnBottomRight = CornerTypes.INNER_CORNER;
+			}
+			
+			// Teste s'il y a un coin plein vers l'extérieur, ce qui est le cas
+			// s'il y a un bord à droite sur le voisin du dessous et en bas sur le voisin de gauche
+			else if (cellBorders.cellOnBottom.borderOnRight && cellBorders.cellOnRight.borderOnBottom) {
+				cellBorders.cornerOnBottomRight = CornerTypes.OUTER_CORNER;
+			}
+			
+			// Teste s'il y a une jointure entre 2 bords horizontaux, ce qui est le cas
+			// s'il y a un bord en bas et un autre bord en bas sur le voisin de droite
+			else if (cellBorders.borderOnBottom && cellBorders.cellOnRight.borderOnBottom) {
+				cellBorders.cornerOnBottomRight = CornerTypes.HORIZONTAL_JOINT;
+			}
+			
+			// Teste s'il y a une jointure entre 2 bords verticaux, ce qui est le cas
+			// s'il y a un bord à droite et un autre bord à droite sur le voisin du bas
+			else if (cellBorders.borderOnRight && cellBorders.cellOnBottom.borderOnRight) {
+				cellBorders.cornerOnBottomRight = CornerTypes.VERTICAL_JOINT;
+			}
+			
+			// Le coin fait partie d'une longue ligne de la zone, il faut donc mettre un joint
+			else if (cellBorders.borderOnBottom) {
+				cellBorders.cornerOnBottomRight = CornerTypes.HORIZONTAL_JOINT;
+			} else if (cellBorders.borderOnRight) {
+				cellBorders.cornerOnBottomRight = CornerTypes.VERTICAL_JOINT;
+			}
+			
+			// Le coin est vide
+			else {
+				cellBorders.cornerOnBottomRight = CornerTypes.NONE;
 			}
 			
 		// Teste le coin bas-gauche
@@ -238,43 +320,18 @@ public class ZoneBorderBuilder {
 				cellBorders.cornerOnBottomLeft = CornerTypes.VERTICAL_JOINT;
 			}
 			
+			// Le coin fait partie d'une longue ligne de la zone, il faut donc mettre un joint
+			else if (cellBorders.borderOnBottom) {
+				cellBorders.cornerOnBottomLeft = CornerTypes.HORIZONTAL_JOINT;
+			} else if (cellBorders.borderOnLeft) {
+				cellBorders.cornerOnBottomLeft = CornerTypes.VERTICAL_JOINT;
+			}
+			
 			// Le coin est vide
 			else {
 				cellBorders.cornerOnBottomLeft = CornerTypes.NONE;
 			}
-			
-		// Teste le coin bas-droit
-		
-			// Teste s'il y a un coin plein vers l'intérieur, ce qui est le cas
-			// s'il y a un bord à droite et en bas
-			if (cellBorders.borderOnRight && cellBorders.borderOnBottom) {
-				cellBorders.cornerOnBottomRight = CornerTypes.INNER_CORNER;
-			}
-			
-			// Teste s'il y a un coin plein vers l'extérieur, ce qui est le cas
-			// s'il y a un bord à droite sur le voisin du dessous et en bas sur le voisin de gauche
-			else if (cellBorders.cellOnBottom.borderOnRight && cellBorders.cellOnLeft.borderOnBottom) {
-				cellBorders.cornerOnBottomRight = CornerTypes.OUTER_CORNER;
-			}
-			
-			// Teste s'il y a une jointure entre 2 bords horizontaux, ce qui est le cas
-			// s'il y a un bord en bas et un autre bord en bas sur le voisin de droite
-			else if (cellBorders.borderOnBottom && cellBorders.cellOnRight.borderOnBottom) {
-				cellBorders.cornerOnBottomRight = CornerTypes.HORIZONTAL_JOINT;
-			}
-			
-			// Teste s'il y a une jointure entre 2 bords verticaux, ce qui est le cas
-			// s'il y a un bord à droite et un autre bord à droite sur le voisin du bas
-			else if (cellBorders.borderOnRight && cellBorders.cellOnBottom.borderOnRight) {
-				cellBorders.cornerOnBottomRight = CornerTypes.VERTICAL_JOINT;
-			}
-			
-			// Le coin est vide
-			else {
-				cellBorders.cornerOnBottomRight = CornerTypes.NONE;
-			}
 		}
-		System.out.println("ZoneBorderBuilder.performCornersPass() FIN");
 	}
 
 	/**

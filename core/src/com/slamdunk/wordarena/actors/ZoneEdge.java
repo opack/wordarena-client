@@ -2,7 +2,6 @@ package com.slamdunk.wordarena.actors;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.EdgeData;
 import com.slamdunk.wordarena.data.MarkerPack;
 
@@ -23,23 +22,9 @@ public class ZoneEdge extends Image {
 	 * @param highlighted Indique si la bordure doit être
 	 * mise en surbrillance
 	 */
-	public void update(boolean highlighted) {
-//DBG		if (data.border.isVertical()) {
-//			if (highlighted) {
-//				setDrawable(Assets.arenaSkin.edge_v_highlighted);
-//			} else {
-//				setDrawable(Assets.arenaSkin.edge_v);
-//			}
-//		} else {
-//			if (highlighted) {
-//				setDrawable(Assets.arenaSkin.edge_h_highlighted);
-//			} else {
-//				setDrawable(Assets.arenaSkin.edge_h);
-//			}
-//		}
+	public void updateDisplay(MarkerPack markerPack, boolean highlighted) {
 		// Choisit l'image
-		MarkerPack pack = Assets.markerPacks.get(data.cell.getData().owner.markerPack);
-		TextureRegionDrawable drawable = pack.zoneEdges.get(data.borderOrCorner, data.cornerType);
+		TextureRegionDrawable drawable = markerPack.zoneEdges.get(data.borderOrCorner, data.cornerType);
 		if (drawable == null) {
 			return;
 		}

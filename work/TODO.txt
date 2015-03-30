@@ -1,6 +1,39 @@
+[ ] MOD : Zones borders : au lieu d'utiliser :
+	- 4 images pour les bords
+	- 4 images pour les coins intérieurs
+	- 4 images pour les coins extérieurs
+	- 4 images pour les joints horizontaux
+	- 4 images pour les joints verticaux
+	Utiliser :
+	- 1 image pour le bord LEFT
+	- 1 image pour le coin TOP_LEFT
+	- 1 image pour le joint vertical TOP_LEFT
+	Créer de nouvelles TextureRegions lors du load() et les rotate/flip pour simplifier la création et le maintien des marker packs :
+	- Images des bords :
+		- RIGHT = flipV bord LEFT
+		- TOP = rotate -90° bord LEFT
+		- BOTTOM = rotate -90° + flip bord LEFT
+	- Images des coins intérieurs
+		- TOP_RIGHT_INNER_CORNER = flipV corner TOP_LEFT_INNER_CORNER
+		- BOTTOM_RIGHT_INNER_CORNER = flipV + flipH corner TOP_LEFT_INNER_CORNER
+		- BOTTOM_LEFT_INNER_CORNER = flipH corner TOP_LEFT_INNER_CORNER
+	- Images des coins extérieurs
+		- TOP_LEFT_OUTER_CORNER = BOTTOM_RIGHT_INNER_CORNER
+		- TOP_RIGHT_OUTER_CORNER = BOTTOM_LEFT_INNER_CORNER
+		- BOTTOM_RIGHT_OUTER_CORNER = TOP_LEFT_INNER_CORNER
+		- BOTTOM_LEFT_OUTER_CORNER = TOP_RIGHT_INNER_CORNER
+	- Images des coins pleins
+		- TOP_RIGHT_V = flipV joint TOP_LEFT_V
+		- BOTTOM_RIGHT_V = TOP_RIGHT_V
+		- BOTTOM_LEFT_V = joint TOP_LEFT_V
+	- Images des joints horizontaux
+		- TOP_LEFT_H = rotate -90° joint TOP_LEFT_V
+		- TOP_RIGHT_H = joint TOP_LEFT_H
+		- BOTTOM_RIGHT_H = flipV joint TOP_LEFT
+		- BOTTOM_LEFT_H = BOTTOM_RIGHT
+		
 [ ] ADD : AnimationDrawer : rendre Poolable
-[/] ADD : Skin d'arène (1 skin = 1 atlas)
-	- Editeur : ajouter une liste déroulante pour sélectionner la skin parmi les skins existantes
+[ ] ADD : Editeur : ajouter une liste déroulante pour sélectionner la skin parmi les skins existantes
 [ ] ADD : Partie - RUNNING : Ajouter des carrés qui se remplissent pour indiquer le nombre de zones possédées
 [ ] ADD : Partie - RUNNING : Afficher les nouvelles dominations de zone au fur et à mesure de la saisie
 [ ] ADD : Partie - RUNNING : Valider un mot avec un ou plusieurs jokers

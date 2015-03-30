@@ -5,7 +5,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.slamdunk.wordarena.data.MarkerPack;
-import com.slamdunk.wordarena.enums.Borders;
 import com.slamdunk.wordarena.enums.BordersAndCorners;
 import com.slamdunk.wordarena.enums.CornerTypes;
 
@@ -29,34 +28,35 @@ public class MarkerPackLoader {
 		// Charge le style de label
 		pack.labelStyle = skin.get(atlasPackName, LabelStyle.class);
 		
-		// Charge les images des régions
-		TextureRegion region = atlas.findRegion(atlasPackName + "_zone_h");
-		pack.zone_h = region != null ? new TextureRegionDrawable(region) : null;
-		region = atlas.findRegion(atlasPackName + "_zone_v");
-		pack.zone_v = region != null ? new TextureRegionDrawable(region) : null;
+		// Charge les images des 4 bords de zone
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.TOP, CornerTypes.NONE);
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.LEFT, CornerTypes.NONE);
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.RIGHT, CornerTypes.NONE);
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.BOTTOM, CornerTypes.NONE);
 		
-		for (Borders border : Borders.values()) {
-			region = atlas.findRegion(atlasPackName + "_zone_" + border.name().toLowerCase());
-			pack.zones.put(border, region != null ? new TextureRegionDrawable(region) : null);
-		}
+		// Charge les images des 4 coins intérieurs de zone
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.TOP_LEFT, CornerTypes.INNER_CORNER);
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.TOP_RIGHT, CornerTypes.INNER_CORNER);
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.BOTTOM_LEFT, CornerTypes.INNER_CORNER);
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.BOTTOM_RIGHT, CornerTypes.INNER_CORNER);
 		
-		String borderRegionName;
-		for (BordersAndCorners border : BordersAndCorners.values()) {
-			for (CornerTypes cornerType : CornerTypes.values()) {
-				// Construit le nom de la région à récupérer à partir du bord et du coin courants
-				borderRegionName = atlasPackName
-						+ "_zone_" + border.name().toLowerCase()
-						+ ((cornerType != CornerTypes.NONE) ? cornerType.name().toLowerCase() : "");
-				
-				// Récupère la région
-				region = atlas.findRegion(borderRegionName);
-				
-				// Stocke la région
-				if (region != null) {
-					pack.zoneEdges.put(border, cornerType, new TextureRegionDrawable(region));
-				}
-			}
-		}
+		// Charge les images des 4 coins extérieurs de zone
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.TOP_LEFT, CornerTypes.OUTER_CORNER);
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.TOP_RIGHT, CornerTypes.OUTER_CORNER);
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.BOTTOM_LEFT, CornerTypes.OUTER_CORNER);
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.BOTTOM_RIGHT, CornerTypes.OUTER_CORNER);
+		
+		// Charge les images des 4 joints horizontaux de zone
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.TOP_LEFT, CornerTypes.HORIZONTAL_JOINT);
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.TOP_RIGHT, CornerTypes.HORIZONTAL_JOINT);
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.BOTTOM_LEFT, CornerTypes.HORIZONTAL_JOINT);
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.BOTTOM_RIGHT, CornerTypes.HORIZONTAL_JOINT);
+		
+		// Charge les images des 4 joints verticaux de zone
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.TOP_LEFT, CornerTypes.VERTICAL_JOINT);
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.TOP_RIGHT, CornerTypes.VERTICAL_JOINT);
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.BOTTOM_LEFT, CornerTypes.VERTICAL_JOINT);
+		loadBorderImage(pack, atlas, atlasPackName, BordersAndCorners.BOTTOM_RIGHT, CornerTypes.VERTICAL_JOINT);
 		
 		// Charge les animations
 		pack.ownedAnim = atlas.findAnimation(atlasPackName + "_owned", frameDuration, true);
@@ -65,6 +65,27 @@ public class MarkerPackLoader {
 		pack.conquestAnim = atlas.findAnimation(atlasPackName + "_conquest", frameDuration, true);
 		
 		return pack;
+	}
+
+	private void loadBorderImage(MarkerPack pack, TextureAtlasEx atlas, String atlasPackPrefix, BordersAndCorners border, CornerTypes cornerType) {
+		// Construit le nom de la région à récupérer à partir du bord et du coin courants
+		String borderRegionName;
+		if (cornerType != CornerTypes.NONE) {
+			borderRegionName = atlasPackPrefix
+					+ "_zone_" + border.name().toLowerCase()
+					+ "_" + cornerType.name().toLowerCase();
+		} else {
+			borderRegionName = atlasPackPrefix
+					+ "_zone_" + border.name().toLowerCase();
+		}
+		
+		// Récupère la région
+		TextureRegion region = atlas.findRegion(borderRegionName);
+		
+		// Stocke la région
+		if (region != null) {
+			pack.zoneEdges.put(border, cornerType, new TextureRegionDrawable(region));
+		}
 	}
 
 }

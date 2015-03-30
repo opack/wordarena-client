@@ -2,7 +2,6 @@ package com.slamdunk.wordarena.data;
 
 import com.badlogic.gdx.math.Vector2;
 import com.slamdunk.wordarena.actors.ArenaCell;
-import com.slamdunk.wordarena.enums.Borders;
 import com.slamdunk.wordarena.enums.BordersAndCorners;
 import com.slamdunk.wordarena.enums.CornerTypes;
 
@@ -16,51 +15,27 @@ public class EdgeData {
 	public CornerTypes cornerType;
 	
 	/**
-	 * Par convention, les points de la zone sont définis dans le sens des aiguilles
-	 * d'une montre. Ainsi, selon la valeur de borderOrCorner, anchorPos désignera :
+	 * Point de départ par rapport auquel sera dessinée la bordure.
+	 * Par convention, ce point d'ancrage est défini dans le sens des aiguilles
+	 * d'une montre, sachant que l'image se dessine vers la droite et vers le haut.
+	 * Ainsi, selon la valeur de borderOrCorner, anchorPos désignera :
 	 * 
 	 *       borderOrCorner     |    anchroPos
 	 *  ------------------------|-----------------
-	 *	LEFT ou BOTTOM_LEFT		| coin bas-gauche
-	 *  TOP ou TOP_LEFT			| coin haut-gauche
-	 *  RIGHT ou TOP_RIGHT		| coin haut-droit
-	 *  BOTTOM ou BOTTOM_RIGHT	| coin bas-droit 
+	 *	LEFT,BOTTOM,BOTTOM_LEFT	| coin bas-gauche
+	 *  TOP,TOP_LEFT			| coin haut-gauche
+	 *  TOP_RIGHT				| coin haut-droit
+	 *  RIGHT,BOTTOM_RIGHT		| coin bas-droit 
 	 */
 	public Vector2 anchorPos;
-	
-	// DBG Supprimer tout ce qui est dessous
-	public Borders border;
-	/**
-	 * Par convention, les points de la zone sont définis dans le sens des aiguilles
-	 * d'une montre. Ainsi, selon le côté, p1 désignera :
-	 * 	- border = LEFT : p1 = coin bas-gauche
-	 *  - border = TOP : p1 = coin haut-gauche
-	 *  - border = RIGHT : p1 = coin haut-droit
-	 *  - border = BOTTOM : p1 = coin bas-droit 
-	 */
-	public final Vector2 p1;
-	
-	/**
-	 * Par convention, les points de la zone sont définis dans le sens des aiguilles
-	 * d'une montre. Ainsi, selon le côté, p2 désignera :
-	 * 	- border = LEFT : p2 = coin haut-gauche
-	 *  - border = TOP : p2 = coin haut-droit
-	 *  - border = RIGHT : p2 = coin bas-droit
-	 *  - border = BOTTOM : p2 = coin bas-gauche
-	 */
-	public final Vector2 p2;
-	
-	public EdgeData() {
-		p1 = new Vector2(0, 0);
-		p2 = new Vector2(0, 0);
-	}
 	
 	@Override
 	public boolean equals(Object other) {
 		if (other instanceof EdgeData) {
 			// Identique si c'est le même côté de la même cellule
 			EdgeData edge2 = (EdgeData)other;
-			return edge2.border == border
+			return edge2.borderOrCorner == borderOrCorner
+				&& edge2.cornerType == cornerType
 				&& edge2.cell.equals(cell);
 		}
 		return false;
@@ -68,6 +43,6 @@ public class EdgeData {
 	
 	@Override
 	public int hashCode() {
-		return border.hashCode() ^ cell.hashCode();
+		return borderOrCorner.hashCode() *31 + cornerType.hashCode() * 31 + cell.hashCode();
 	}
 }

@@ -7,18 +7,14 @@ import java.util.List;
 import java.util.Map;
 
 import com.badlogic.gdx.scenes.scene2d.Group;
-import com.badlogic.gdx.scenes.scene2d.utils.Align;
-import com.badlogic.gdx.utils.Scaling;
 import com.slamdunk.toolkit.lang.MaxValueFinder;
 import com.slamdunk.toolkit.world.point.Point;
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.CellData;
-import com.slamdunk.wordarena.data.EdgeData;
 import com.slamdunk.wordarena.data.MarkerPack;
 import com.slamdunk.wordarena.data.Player;
 import com.slamdunk.wordarena.data.ZoneBorderBuilder;
 import com.slamdunk.wordarena.data.ZoneData;
-import com.slamdunk.wordarena.enums.Borders;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.screens.arena.MatchManager;
 
@@ -42,16 +38,12 @@ public class ArenaZone extends Group {
 	
 	private List<ZoneEdge> edges;
 	
-	private static Point tmp = new Point(0, 0);
-	
 	public ArenaZone(MatchManager gameManager, String id) {
 		this.gameManager = gameManager;
 
 		data = new ZoneData(id);
 		cells = new HashMap<Point, ArenaCell>();
 		edges = new ArrayList<ZoneEdge>();
-		
-		tmp = new Point(0, 0);
 	}
 	
 	public Collection<ArenaCell> getCells() {
@@ -73,21 +65,26 @@ public class ArenaZone extends Group {
 	}
 	
 	public void update() {
-		// Les cellules ajoutées à la zone NONE n'apparaissent pas dans une bordure
-		if (this == NONE) {
-			for (ArenaCell cell : cells.values()) {
-				// Affecte la zone à chaque cellule
-				cell.getData().zone = this;
-			}
-			return;
+		// Affecte la zone à chaque cellule
+		for (ArenaCell cell : cells.values()) {
+			cell.getData().zone = this;
 		}
 		
-		ZoneBorderBuilder zoneBorderBuilder = new ZoneBorderBuilder(cells, edges);
-		zoneBorderBuilder.build();
-		
+		// Dessine une bordure autour de la zone, sauf si c'est la zone NONE
+		// qui contient justement les cellules sans zone
 		clear();
-		for (ZoneEdge edge : edges) {
-			addActor(edge);
+		if (this != NONE) {
+			// Crée les bordures qui entourent la zone
+			ZoneBorderBuilder zoneBorderBuilder = new ZoneBorderBuilder(cells, edges);
+			zoneBorderBuilder.build(data.owner, data.highlighted);
+			
+			// Ajoute les bordures à la zone
+			for (ZoneEdge edge : edges) {
+				addActor(edge);
+			}
+			
+			// Choisit l'owner de la zone
+			updateOwner();
 		}
 		
 //		// Met à jour la liste des côtés
@@ -114,9 +111,9 @@ public class ArenaZone extends Group {
 //			ActorHelper.alignInside(edge.getData().border, edge.getData().p1, BORDER_POS_OFFSET, edge);
 //			addActor(edge);
 //		}
-		
-		// Choisit l'owner de la zone
-		updateOwner();
+//		
+//		// Choisit l'owner de la zone
+//		updateOwner();
 	}
 	
 	/**
@@ -125,62 +122,12 @@ public class ArenaZone extends Group {
 	 */
 	public void highlight(boolean highlighted) {
 		data.highlighted = highlighted;
+		MarkerPack pack = Assets.markerPacks.get(data.owner.markerPack);
 		for (ZoneEdge edge : edges) {
-			edge.update(highlighted);
+			edge.updateDisplay(pack, highlighted);
 		}
 	}
 	
-//DBG	/**
-//	 * Vérifie si le voisin à l'offset indiqué fait partie de cette zone.
-//	 * Si non, alors c'est que ce côté marque la fin de la zone, et il est
-//	 * donc ajouté à la liste des côté de la zone
-//	 * @param cell
-//	 * @param border
-//	 * @param offsetX
-//	 * @param offsetY
-//	 * @param edges
-//	 */
-//	private void checkEdge(ArenaCell cell, Borders border, int offsetX, int offsetY) {
-//		tmp.setX(cell.getData().position.getX() + offsetX);
-//		tmp.setY(cell.getData().position.getY() + offsetY);
-//		// S'il n'y a pas de voisin de ce côté, alors c'est qu'on est à la limite de la zone
-//		if (!cells.containsKey(tmp)) {
-//			edges.add(createEdge(cell, border));
-//		}
-//	}
-
-//DBG	private ZoneEdge createEdge(ArenaCell cell, Borders border) {
-//		ZoneEdge edge = new ZoneEdge();
-//		EdgeData data = edge.getData();
-//		data.border = border;
-//		data.cell = cell;
-//		
-//		final float cellX = cell.getX();
-//		final float cellY = cell.getY();
-//		final float cellWidth = cell.getWidth();
-//		final float cellHeight = cell.getHeight();
-//		
-//		switch (border) {
-//		case BOTTOM:
-//			data.p1.set(cellX, cellY);
-//			data.p2.set(cellX + cellWidth, cellY);
-//			break;
-//		case LEFT:
-//			data.p1.set(cellX, cellY);
-//			data.p2.set(cellX, cellY + cellHeight);
-//			break;
-//		case RIGHT:
-//			data.p1.set(cellX + cellWidth, cellY);
-//			data.p2.set(cellX + cellWidth, cellY + cellHeight);
-//			break;
-//		case TOP:
-//			data.p1.set(cellX, cellY + cellHeight);
-//			data.p2.set(cellX + cellWidth, cellY + cellHeight);
-//			break;
-//		}
-//		return edge;
-//	}
-
 	public ZoneData getData() {
 		return data;
 	}
@@ -195,49 +142,30 @@ public class ArenaZone extends Group {
 		// Changement de l'owner
 		data.owner = newOwner;
 		
-		// Change l'image des bordures
-		MarkerPack pack = Assets.markerPacks.get(data.owner.markerPack);
-		// DBG On ne fait rien si le pack ne contient pas les bordures
-//		if (pack.name.equals("blue")) {
-//			for (ZoneEdge edge : edges) {
-//				edge.setDrawable(pack.zones.get(edge.getData().border));
-//				edge.setSize(edge.getPrefWidth(), edge.getPrefHeight());
-//				ActorHelper.alignInsideCell(edge.getData().border, edge.getData().p1, BORDER_POS_OFFSET, edge);
-//			}
-//		} else
-//DBG		if (pack.zone_h != null && pack.zone_v != null) {
-//			for (ZoneEdge edge : edges) {
-//				if (edge.getData().border.isHorizontal()) {
-//					edge.setDrawable(pack.zone_h);
-//				} else {
-//					edge.setDrawable(pack.zone_v);
-//				}
-//				edge.setSize(edge.getPrefWidth(), edge.getPrefHeight());
-//				ActorHelper.alignInside(edge.getData().border, edge.getData().p1, BORDER_POS_OFFSET, edge);
-//			}
-//		}
-		if (!pack.zoneEdges.isEmpty()) {
-			for (ZoneEdge edge : edges) {
-				edge.update(data.highlighted);
-			}
-		}
-		
 		// Change l'image des cellules de la zone
-		CellData data;
+		CellData cellData;
 		for (ArenaCell cell : cells.values()) {
-			data = cell.getData();
+			cellData = cell.getData();
 			
 			// Une cellule passe sous le contrôle du joueur si elle est dans la zone et :
 			//    - soit neutre
 			//    - soit sous le simple contrôle d'un adversaire
-			if (Player.NEUTRAL.equals(data.owner)
-			|| data.state != CellStates.OWNED) {
-				data.owner = newOwner;
-				data.state = CellStates.CONTROLED;
+			if (Player.NEUTRAL.equals(cellData.owner)
+			|| cellData.state != CellStates.OWNED) {
+				cellData.owner = newOwner;
+				cellData.state = CellStates.CONTROLED;
 			}
 			
 			// Met à jour l'image
 			cell.updateDisplay();
+		}
+		
+		// Change les bordures de zone
+		if (!edges.isEmpty()) {
+			MarkerPack pack = Assets.markerPacks.get(newOwner.markerPack);
+			for (ZoneEdge edge : edges) {
+				edge.updateDisplay(pack, data.highlighted);
+			}
 		}
 	}
 	
