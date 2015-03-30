@@ -1,13 +1,9 @@
 package com.slamdunk.wordarena.data;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.slamdunk.toolkit.lang.DoubleEntryArray;
-import com.slamdunk.wordarena.enums.Borders;
 import com.slamdunk.wordarena.enums.BordersAndCorners;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.enums.CornerTypes;
@@ -53,16 +49,9 @@ public class MarkerPack {
 	 */
 	public Animation conquestAnim;
 	
-	public TextureRegionDrawable zone_h;
-	
-	public TextureRegionDrawable zone_v;
-	
-	public Map<Borders, TextureRegionDrawable> zones;
-	
 	public DoubleEntryArray<BordersAndCorners, CornerTypes, TextureRegionDrawable> zoneEdges;
 	
 	public MarkerPack() {
-		zones = new HashMap<Borders, TextureRegionDrawable>();
 		zoneEdges = new DoubleEntryArray<BordersAndCorners, CornerTypes, TextureRegionDrawable>();
 	}
 	

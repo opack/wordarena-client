@@ -57,13 +57,13 @@ public class ZoneBorderBuilder {
 	public void build(Player owner, boolean highlighted) {
 		performBordersPass();
 		performCornersPass();
-		createEdges(owner, highlighted);
+		performEdgesCreationPass(owner, highlighted);
 	}
 
 	/**
 	 * Parcours les CellBorders et crée des ZoneEdge pour chaque bord de zone
 	 */
-	private void createEdges(Player owner, boolean highlighted) {
+	private void performEdgesCreationPass(Player owner, boolean highlighted) {
 		MarkerPack pack = Assets.markerPacks.get(owner.markerPack);
 				
 		edgesToFill.clear();
