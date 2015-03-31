@@ -1,7 +1,6 @@
 package com.slamdunk.wordarena.assets;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.slamdunk.wordarena.data.ArenaSkin;
 import com.slamdunk.wordarena.enums.CellTypes;
 
@@ -51,20 +50,20 @@ public class ArenaSkinLoader {
 	}
 	
 	private void loadBackground() {
-		skin.background = new TextureRegionDrawable(atlas.findRegion("background"));
+		skin.background = atlas.findRegionDrawable("background", false);
 	}
 
 	private void loadWalls() {
-		skin.wall_h = new TextureRegionDrawable(atlas.findRegion("wall_h"));
-		skin.wall_v = new TextureRegionDrawable(atlas.findRegion("wall_v"));
+		skin.wall_h = atlas.findRegionDrawable("wall_h", false);
+		skin.wall_v = atlas.findRegionDrawable("wall_v", false);
 	}
 
 	private void loadZoneBorders() {
-		skin.edge_h = new TextureRegionDrawable(atlas.findRegion("zone_edge_h"));
-		skin.edge_v = new TextureRegionDrawable(atlas.findRegion("zone_edge_v"));
+		skin.edge_h = atlas.findRegionDrawable("zone_edge_h", false);
+		skin.edge_v = atlas.findRegionDrawable("zone_edge_v", false);
 		
-		skin.edge_h_highlighted = new TextureRegionDrawable(atlas.findRegion("zone_edge_h_highlighted"));
-		skin.edge_v_highlighted = new TextureRegionDrawable(atlas.findRegion("zone_edge_v_highlighted"));
+		skin.edge_h_highlighted = atlas.findRegionDrawable("zone_edge_h_highlighted", false);
+		skin.edge_v_highlighted = atlas.findRegionDrawable("zone_edge_v_highlighted", false);
 	}
 
 	private void loadCellTypes() {

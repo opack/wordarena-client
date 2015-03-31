@@ -86,34 +86,6 @@ public class ArenaZone extends Group {
 			// Choisit l'owner de la zone
 			updateOwner();
 		}
-		
-//		// Met à jour la liste des côtés
-//		edges.clear();
-//		for (ArenaCell cell : cells.values()) {
-//			// Affecte la zone à chaque cellule
-//			cell.getData().zone = this;
-//		
-//			// Ajoute les côtés uniques dans la liste
-//			checkEdge(cell, Borders.LEFT, -1, 0);
-//			checkEdge(cell, Borders.TOP, 0, +1);
-//			checkEdge(cell, Borders.RIGHT, +1, 0);
-//			checkEdge(cell, Borders.BOTTOM, 0, -1);
-//		}
-//		
-//		// Crée les lignes pour dessiner ces côtés
-//		clear();
-//		for (ZoneEdge edge : edges) {
-//			edge.update(data.highlighted);
-//			edge.setScaling(Scaling.stretch);
-//			edge.setAlign(Align.center);
-//			edge.setSize(edge.getPrefWidth(), edge.getPrefHeight());
-//			
-//			ActorHelper.alignInside(edge.getData().border, edge.getData().p1, BORDER_POS_OFFSET, edge);
-//			addActor(edge);
-//		}
-//		
-//		// Choisit l'owner de la zone
-//		updateOwner();
 	}
 	
 	/**
@@ -122,9 +94,15 @@ public class ArenaZone extends Group {
 	 */
 	public void highlight(boolean highlighted) {
 		data.highlighted = highlighted;
-		MarkerPack pack = Assets.markerPacks.get(data.owner.markerPack);
+		MarkerPack pack;
+		if (highlighted) {
+			pack = Assets.markerPacks.get(Assets.MARKER_PACK_EDITOR); 
+		} else {
+			pack = Assets.markerPacks.get(data.owner.markerPack);
+		}
+		
 		for (ZoneEdge edge : edges) {
-			edge.updateDisplay(pack, highlighted);
+			edge.updateDisplay(pack);
 		}
 	}
 	
@@ -157,10 +135,7 @@ public class ArenaZone extends Group {
 		
 		// Change les bordures de zone
 		if (!edges.isEmpty()) {
-			MarkerPack pack = Assets.markerPacks.get(newOwner.markerPack);
-			for (ZoneEdge edge : edges) {
-				edge.updateDisplay(pack, data.highlighted);
-			}
+			highlight(data.highlighted);
 		}
 		
 		// Changement d'owner ? Avertit le game manager pour la mise à jour du score

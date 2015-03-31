@@ -21,6 +21,42 @@
      id="defs4">
     <linearGradient
        inkscape:collect="always"
+       id="linearGradient4963">
+      <stop
+         style="stop-color:#c8ae00;stop-opacity:0"
+         offset="0"
+         id="stop4965" />
+      <stop
+         style="stop-color:#c8ae00;stop-opacity:1"
+         offset="1"
+         id="stop4967" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4957">
+      <stop
+         style="stop-color:#c8ae00;stop-opacity:1"
+         offset="0"
+         id="stop4959" />
+      <stop
+         style="stop-color:#c8ae00;stop-opacity:0"
+         offset="1"
+         id="stop4961" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4951"
+       inkscape:collect="always">
+      <stop
+         id="stop4953"
+         offset="0"
+         style="stop-color:#c8ae00;stop-opacity:1" />
+      <stop
+         id="stop4955"
+         offset="1"
+         style="stop-color:#c8ae00;stop-opacity:0" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
        id="linearGradient6387">
       <stop
          style="stop-color:#808080;stop-opacity:0"
@@ -1163,6 +1199,75 @@
        y1="-159.98131"
        x2="550.75244"
        y2="-155.98666" />
+    <linearGradient
+       gradientTransform="matrix(0.1,0,0,1,-1243.924,453.03104)"
+       inkscape:collect="always"
+       xlink:href="#linearGradient4951"
+       id="linearGradient5896-1-8"
+       x1="550.75244"
+       y1="-159.98131"
+       x2="550.75244"
+       y2="-155.98666"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       gradientTransform="matrix(0.1,0,0,1,-350.73091,-1041.2949)"
+       inkscape:collect="always"
+       xlink:href="#linearGradient4951"
+       id="linearGradient5896-1-2-7"
+       x1="550.75244"
+       y1="-159.98131"
+       x2="550.75244"
+       y2="-155.98666"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4963"
+       id="radialGradient5937-4-6"
+       cx="-111.08512"
+       cy="-370.51743"
+       fx="-111.08512"
+       fy="-370.51743"
+       r="2"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-4.8018291e-8,1.9956236,-2.0009862,0,252.23729,-70.091903)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4957"
+       id="radialGradient5937-5"
+       cx="-111.08512"
+       cy="-370.51743"
+       fx="-111.08512"
+       fy="-370.51743"
+       r="2"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-4.8018291e-8,1.9956236,-2.0009862,0,-1726.9902,509.72782)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6109"
+       id="linearGradient4935"
+       x1="550.75244"
+       y1="-159.98131"
+       x2="550.75244"
+       y2="-155.98666"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4951"
+       id="linearGradient4947"
+       gradientUnits="userSpaceOnUse"
+       x1="550.75244"
+       y1="-159.98131"
+       x2="550.75244"
+       y2="-155.98666" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4951"
+       id="linearGradient4949"
+       gradientUnits="userSpaceOnUse"
+       x1="550.75244"
+       y1="-159.98131"
+       x2="550.75244"
+       y2="-155.98666" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -1171,9 +1276,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="1238.4365"
-     inkscape:cy="698.2455"
+     inkscape:zoom="2.8"
+     inkscape:cx="870.73155"
+     inkscape:cy="1326.09"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -4167,5 +4272,275 @@
        inkscape:export-filename="img_export\markers\marker_green_possession.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
+    <g
+       transform="translate(625.29972,-3.9438437)"
+       id="g6974-2">
+      <rect
+         y="-635.41516"
+         x="2.4587395"
+         height="381.26901"
+         width="595.08252"
+         id="rect5601-6-0-9-5-9"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.99999988;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5603-4-3-4-5-0"
+         y="-614.32703"
+         x="296.14487"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.5px;font-family:Sans;-inkscape-font-specification:'Sans Bold';text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1"
+           y="-614.32703"
+           x="296.14487"
+           id="tspan5605-4-7-6-0-5"
+           sodipodi:role="line">Editor marker-pack</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text5611-5-1-2-3-0-3-1-3-3"
+         y="-372.98679"
+         x="14.45581"
+         style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           y="-372.98679"
+           x="14.45581"
+           id="tspan5613-7-5-4-2-5-9-7-1-40"
+           sodipodi:role="line">Gain anim</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text5611-5-5-6-3-72-4-0"
+         y="-492.39957"
+         x="16.091553"
+         style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           id="tspan5046-4-21-4-78"
+           y="-492.39957"
+           x="16.091553"
+           sodipodi:role="line">Controled</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text5611-5-1-6-3-5-35-2-34"
+         y="-435.49432"
+         x="51.412579"
+         style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           id="tspan5048-0-7-8-5"
+           y="-435.49432"
+           x="51.412579"
+           sodipodi:role="line">Selected</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text5611-5-5-6-3-7-5-3-19"
+         y="-548.21002"
+         x="33.303467"
+         style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           id="tspan5046-4-2-1-2-90"
+           y="-548.21002"
+           x="33.303467"
+           sodipodi:role="line">Owned</tspan></text>
+      <text
+         transform="scale(1.0086671,0.99140738)"
+         sodipodi:linespacing="125%"
+         id="text5611-6-6-8-8-8-0-85"
+         y="-291.52896"
+         x="72.852013"
+         style="font-style:normal;font-weight:normal;font-size:12.60833836px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="text-align:end;text-anchor:end"
+           y="-291.52896"
+           x="72.852013"
+           id="tspan5613-8-13-4-85-1-4-2"
+           sodipodi:role="line">Bords TOP</tspan><tspan
+           style="text-align:end;text-anchor:end"
+           id="tspan6441-4-87"
+           y="-275.76852"
+           x="72.852013"
+           sodipodi:role="line">et LEFT</tspan></text>
+      <text
+         transform="scale(1.0086671,0.99140738)"
+         sodipodi:linespacing="125%"
+         id="text5611-6-6-8-4-6-5-0-25"
+         y="-291.52896"
+         x="329.95834"
+         style="font-style:normal;font-weight:normal;font-size:12.60833836px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="text-align:end;text-anchor:end"
+           y="-291.52896"
+           x="329.95834"
+           id="tspan5613-8-13-4-7-9-0-6-2"
+           sodipodi:role="line">Coin TOP_LEFT vers</tspan><tspan
+           style="text-align:end;text-anchor:end"
+           id="tspan6018-4-8"
+           y="-275.76852"
+           x="329.95834"
+           sodipodi:role="line">l'intérieur et l'extérieur</tspan></text>
+      <text
+         transform="scale(1.0086671,0.99140738)"
+         sodipodi:linespacing="125%"
+         id="text5611-6-6-8-8-8-4-3-3"
+         y="-291.52896"
+         x="539.17615"
+         style="font-style:normal;font-weight:normal;font-size:12.60833836px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="text-align:end;text-anchor:end"
+           y="-291.52896"
+           x="539.17615"
+           id="tspan5613-8-13-4-85-1-1-1-2"
+           sodipodi:role="line">Joints TOP_LEFT</tspan><tspan
+           style="text-align:end;text-anchor:end"
+           id="tspan6020-3-1"
+           y="-275.76852"
+           x="539.17615"
+           sodipodi:role="line">horizontal et vertical</tspan></text>
+      <text
+         transform="scale(1.0086671,0.99140738)"
+         sodipodi:linespacing="125%"
+         id="text5611-6-6-8-8-8-6-7-8"
+         y="-323.01273"
+         x="295.62372"
+         style="font-style:normal;font-weight:normal;font-size:12.60833836px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.65167427px;font-family:Sans;-inkscape-font-specification:'Sans Italic';text-align:center;text-anchor:middle"
+           id="tspan6441-0-1-13"
+           y="-323.01273"
+           x="295.62372"
+           sodipodi:role="line">Bordure de zone</tspan></text>
+      <rect
+         y="-337.97305"
+         x="5.6141958"
+         height="79.233406"
+         width="588.79797"
+         id="rect5601-6-0-9-2-7-4"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.99999988;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         y="-604.14819"
+         x="5.6141958"
+         height="260.05069"
+         width="588.79797"
+         id="rect5601-6-0-9-2-1-5-6"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.99999976;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         transform="scale(1.0086671,0.99140738)"
+         sodipodi:linespacing="125%"
+         id="text5611-6-6-8-8-8-6-5-1-0"
+         y="-591.14783"
+         x="297.57724"
+         style="font-style:normal;font-weight:normal;font-size:12.60833836px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.65167427px;font-family:Sans;-inkscape-font-specification:'Sans Italic';text-align:center;text-anchor:middle"
+           id="tspan6441-0-7-5-9"
+           y="-591.14783"
+           x="297.57724"
+           sodipodi:role="line">Cellule</tspan></text>
+    </g>
+    <g
+       transform="matrix(0,1,-1,0,1292.7608,-453.95717)"
+       id="g4888-7-1-52-97"
+       inkscape:export-filename="img_export\markers\marker_editor_zone_top.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="img_export\markers\marker_blue_zone_left.png"
+         y="-159.98251"
+         x="527.46674"
+         height="4"
+         width="47.999966"
+         id="rect2985-60-1-6-6-6-1-5-01-5-1-0-0-3-3-8"
+         style="fill:none;fill-opacity:1;stroke:none" />
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="img_export\markers\marker_blue_zone_left.png"
+         y="-159.98251"
+         x="531.46674"
+         height="4"
+         width="40"
+         id="rect2985-60-1-6-6-6-1-5-01-5-1-0-6-6-0-7-21"
+         style="fill:url(#linearGradient4947);fill-opacity:1;stroke:none" />
+    </g>
+    <path
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:url(#radialGradient5937-5);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.99999994;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       id="path4721-8-0-2"
+       sodipodi:type="arc"
+       sodipodi:cx="-985.59302"
+       sodipodi:cy="288.03909"
+       sodipodi:rx="4"
+       sodipodi:ry="4"
+       sodipodi:start="0"
+       sodipodi:end="1.5707963"
+       d="m -981.59302,288.03909 a 4,4 0 0 1 -4,4 l 0,-4 z"
+       inkscape:export-filename="img_export\markers\marker_editor_zone_top_left_inner_corner.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(-1,-1)" />
+    <g
+       transform="translate(627.29486,-843.39025)"
+       id="g4888-7-1-52-9-6"
+       inkscape:export-filename="img_export\markers\marker_editor_zone_left.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="img_export\markers\marker_blue_zone_left.png"
+         y="-159.98251"
+         x="527.46674"
+         height="4"
+         width="47.999966"
+         id="rect2985-60-1-6-6-6-1-5-01-5-1-0-0-3-3-3-9"
+         style="fill:none;fill-opacity:1;stroke:none" />
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="img_export\markers\marker_blue_zone_left.png"
+         y="-159.98251"
+         x="531.46674"
+         height="4"
+         width="40"
+         id="rect2985-60-1-6-6-6-1-5-01-5-1-0-6-6-0-7-2-1"
+         style="fill:url(#linearGradient4949);fill-opacity:1.0;stroke:none" />
+    </g>
+    <path
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:url(#radialGradient5937-4-6);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.99999994;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       id="path4721-8-0-1-4"
+       sodipodi:type="arc"
+       sodipodi:cx="993.63452"
+       sodipodi:cy="-291.78067"
+       sodipodi:rx="4"
+       sodipodi:ry="4"
+       sodipodi:start="0"
+       sodipodi:end="1.5707963"
+       d="m 997.63452,-291.78067 a 4,4 0 0 1 -4,4 l 0,-4 z"
+       inkscape:export-filename="img_export\markers\marker_editor_zone_top_left_outer_corner.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       transform="scale(-1,-1)"
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="img_export\markers\marker_editor_zone_top_left_horizontal_joint.png"
+       y="293.04855"
+       x="-1190.7773"
+       height="4"
+       width="4"
+       id="rect2985-60-1-6-6-6-1-5-01-5-1-0-6-6-0-7-6-26"
+       style="fill:url(#linearGradient5896-1-8);fill-opacity:1.0;stroke:none" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="img_export\markers\marker_editor_zone_top_left_vertical_joint.png"
+       y="-1201.2773"
+       x="-297.58426"
+       height="4"
+       width="4"
+       id="rect2985-60-1-6-6-6-1-5-01-5-1-0-6-6-0-7-6-2-4"
+       style="fill:url(#linearGradient5896-1-2-7);fill-opacity:1.0;stroke:none"
+       transform="matrix(0,1,-1,0,0,0)" />
   </g>
 </svg>

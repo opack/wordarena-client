@@ -3,6 +3,7 @@ package com.slamdunk.wordarena.assets;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Array;
 
 public class TextureAtlasEx extends TextureAtlas {
@@ -38,6 +39,16 @@ public class TextureAtlasEx extends TextureAtlas {
 		}
 		
 		return region;
+	}
+	
+	public TextureRegionDrawable findRegionDrawable(String name, boolean fixTextureBleeding) {
+		final AtlasRegion region = findRegion(name, fixTextureBleeding);
+		
+		if (region == null) {
+			return null;
+		}
+		
+		return new TextureRegionDrawable(region);
 	}
 	
 	/**

@@ -27,10 +27,12 @@ public class MarkerPackLoader {
 		final String atlasPackName = MARKER_PACK_PREFIX + name;
 		
 		// Charge le style de label
-		pack.labelStyle = skin.get(atlasPackName, LabelStyle.class);
+		if (skin.has(atlasPackName, LabelStyle.class)) {
+			pack.labelStyle = skin.get(atlasPackName, LabelStyle.class);
+		}
 		
 		// Charge le marqueur de possession
-		pack.possessionMarker = new TextureRegionDrawable(atlas.findRegion(atlasPackName + "_possession"));
+		pack.possessionMarker = atlas.findRegionDrawable(atlasPackName + "_possession", false);
 		
 		// Charge les animations de cellule
 		pack.ownedAnim = atlas.findAnimation(atlasPackName + "_owned", frameDuration, true);

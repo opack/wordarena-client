@@ -1,6 +1,6 @@
+[ ] ADD : Partie - RUNNING : Afficher les nouvelles dominations de zone au fur et à mesure de la saisie (montrer les zones telles qu'elles seront si le mot actuel est validé en modifiant les controled et edges)
 [ ] ADD : AnimationDrawer : rendre Poolable
 [ ] ADD : Editeur : ajouter une liste déroulante pour sélectionner la skin parmi les skins existantes
-[ ] ADD : Partie - RUNNING : Afficher les nouvelles dominations de zone au fur et à mesure de la saisie
 [ ] ADD : Partie - RUNNING : Valider un mot avec un ou plusieurs jokers
 [ ] MOD : Partie - READY, PAUSED, ROUND_OVER, GAME_OVER : Mettre le texte et les boutons au-dessus de l'arène pour qu'elle reste visible en entier 
 [ ] ADD : Editeur / Types - Mettre un libellé pour les types de cellule

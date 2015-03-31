@@ -19,8 +19,9 @@ import com.uwsoft.editor.renderer.resources.ResourceManager;
 import com.uwsoft.editor.renderer.utils.MySkin;
 
 public class Assets {
-	private static final String SKIN_FILE = "skins/ui/uiskin.json";
 	public static final String MARKER_PACK_NEUTRAL = "neutral";
+	public static final String MARKER_PACK_EDITOR = "editor";
+	private static final String SKIN_FILE = "skins/ui/uiskin.json";
 	
 	public static TypedProperties appProperties;
 	public static I18NBundle i18nBundle;

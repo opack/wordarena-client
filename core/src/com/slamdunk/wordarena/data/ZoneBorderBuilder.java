@@ -121,7 +121,7 @@ public class ZoneBorderBuilder {
 		// Choisit l'image adaptée
 		edge.setScaling(Scaling.stretch);
 		edge.setAlign(Align.center);
-		edge.updateDisplay(pack, highlighted);
+		edge.updateDisplay(pack);
 		
 		return edge;
 	}

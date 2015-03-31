@@ -22,7 +22,7 @@ public class ZoneEdge extends Image {
 	 * @param highlighted Indique si la bordure doit être
 	 * mise en surbrillance
 	 */
-	public void updateDisplay(MarkerPack markerPack, boolean highlighted) {
+	public void updateDisplay(MarkerPack markerPack) {
 		// Choisit l'image
 		TextureRegionDrawable drawable = markerPack.zoneEdges.get(data.borderOrCorner, data.cornerType);
 		if (drawable == null) {
