@@ -28,14 +28,14 @@ public class UserManager {
 	 * raison ou une autre (pas de réseau, pas d'identifiants...)
 	 */
 	public boolean logIn() {
-		// TODO DBG Triche en attendant la vraie connexion de l'utilisateur
+		// DBG Triche en attendant la vraie connexion de l'utilisateur
 		user = new UserData();
 		user.name = "Alan";
 		return true;
 	}
 	
 	public void logOut() {
-		// TODO DBG Faire une vraie déconnexion
+		// TODO Faire une vraie déconnexion
 		user = null;
 	}
 	

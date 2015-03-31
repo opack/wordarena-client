@@ -39,7 +39,7 @@ public class HomeScreen extends SlamScreen {
 	 * Propose à l'utilisateur de quitter le jeu
 	 */
 	public void promptExit() {
-		// TODO DBG Afficher une boîte de confirmation
+		// TODO Afficher une boîte de confirmation
 		Gdx.app.exit();
 	}
 

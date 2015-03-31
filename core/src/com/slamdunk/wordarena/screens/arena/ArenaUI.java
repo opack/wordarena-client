@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Array;
@@ -23,6 +24,7 @@ import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.MarkerPack;
 import com.slamdunk.wordarena.data.Player;
 import com.slamdunk.wordarena.enums.GameStates;
+import com.slamdunk.wordarena.screens.arena.stats.StatsTable;
 import com.slamdunk.wordarena.screens.home.HomeScreen;
 import com.uwsoft.editor.renderer.SceneLoader;
 import com.uwsoft.editor.renderer.actor.CompositeItem;
@@ -37,9 +39,10 @@ public class ArenaUI extends UIOverlay {
 	private Label currentPlayer;
 	private Label currentWord;
 	private Label info;
-	private Label stats;
+	private StatsTable statsTable;
 	
 	private GroupEx zoneMarkers;
+	
 	/**
 	 * Map de travail permettant de stocker le nombre de zones par joueur
 	 * lors du rafraîchissement des marqueurs de zone
@@ -59,18 +62,29 @@ public class ArenaUI extends UIOverlay {
 		tmpZonesByPlayer = new HashMap<String, Integer>();
 	}
 	
+	/**
+	 * Appelée à lorsque la partie affichée change. Cela permet
+	 * d'éviter de recréer toute l'UI à chaque switch de partie.
+	 */
+	public void initGame(Array<Player> players, int nbRoundsToWin) {
+		statsTable.init(players, nbRoundsToWin);
+	}
+	
 
 	/**
 	 * Crée les carrés indiquant la possession des joueurs en terme
 	 * de zones
 	 * @param zones 
 	 */
-	public void createZoneMarkers(List<ArenaZone> zones) {
+	public void initZoneMarkers(List<ArenaZone> zones) {
 		// Prépare le marker par défaut
 		MarkerPack neutralPack = Assets.markerPacks.get(Assets.MARKER_PACK_NEUTRAL);
 		TextureRegionDrawable neutralPossessionMarker = neutralPack.possessionMarker;
 		
 		zoneMarkers.clear();
+		GroupEx pauseZoneMarkers = statsTable.getZoneMarkers();
+		pauseZoneMarkers.clear();
+		
 		int totalWidth = 0;
 		for (ArenaZone zone : zones) {
 			// La zone NONE n'est pas représentée car elle ne peut pas être possédée
@@ -82,6 +96,10 @@ public class ArenaUI extends UIOverlay {
 			Image marker = new Image(neutralPossessionMarker);
 			marker.setPosition(totalWidth, 0);
 			zoneMarkers.addActor(marker);
+			
+			marker = new Image(neutralPossessionMarker);
+			marker.setPosition(totalWidth, 0);
+			pauseZoneMarkers.addActor(marker);
 			
 			// On a ajouté un marqueur donc la taille totale a changé
 			totalWidth += neutralPossessionMarker.getMinWidth();
@@ -173,7 +191,9 @@ public class ArenaUI extends UIOverlay {
 			}
 		});
 		
-		stats = sceneLoader.sceneActor.getLabelById("lblStats");
+		statsTable = new StatsTable();
+		statsTable.setVisible(false);
+		getStage().addActor(statsTable);
 	}
 	
 	/**
@@ -218,6 +238,11 @@ public class ArenaUI extends UIOverlay {
 			// déverrouillée.
 			sceneLoader.sceneActor.setLayerLock(cur.name(), cur != state);
 		}
+		
+		// Gère la visibilité des composants ajoutés hors Overlap2D. Dommage qu'ils ne puissent pas
+		// être rajoutée proprement dans la couche adéquate des l'UI chargée par Overlap2D...
+		zoneMarkers.setVisible(state == GameStates.RUNNING);
+		statsTable.setVisible(state == GameStates.PAUSED);
 	}
 	
 	public void setCurrentPlayer(Player player, int turn, int maxTurns, int round) {
@@ -268,16 +293,8 @@ public class ArenaUI extends UIOverlay {
 	}
 
 	public void updateStats() {
-		StringBuilder sb = new StringBuilder();
-		for (Player player : gameManager.getCinematic().getPlayers()) {
-			sb.append("== ").append(player.name).append(" ==");
-			sb.append("\n\tScore : ").append(player.score);
-			sb.append("\n\tZones : ").append(player.nbZonesOwned).append("/").append(gameManager.getArenaData().zones.size());
-			sb.append("\n\tRounds : ").append(player.nbRoundsWon).append("/").append(gameManager.getCinematic().getNbWinningRoundsPerGame());
-			sb.append("\n");
-		}
-		
-		stats.setText(sb.toString());
+		statsTable.update(gameManager.getCinematic().getPlayers());
+		statsTable.setPosition(WordArenaGame.SCREEN_WIDTH / 2, WordArenaGame.SCREEN_HEIGHT - 10, Align.top);
 	}
 	
 	/**
@@ -334,13 +351,26 @@ public class ArenaUI extends UIOverlay {
 		MarkerPack pack = Assets.markerPacks.get(markerPack);
 		TextureRegionDrawable possessionMarker = pack.possessionMarker;
 		
-		// Met à jour les images
-		SnapshotArray<Actor> markers = zoneMarkers.getChildren();
+		// Met à jour les images et aussi celles de la StatsTable
+		SnapshotArray<Actor> mainScreenMarkers = zoneMarkers.getChildren();
+		SnapshotArray<Actor> pauseScreenMarkers = statsTable.getZoneMarkers().getChildren();
 		Image marker;
+		int markerIndex;
 		for (int curZone = 0; curZone < nbZonesOwned; curZone++) {
-			marker = (Image)markers.get(offset + curZone);
+			markerIndex = offset + curZone;
+			
+			// Met à jour l'image des marqueurs affichés sur l'arène
+			marker = (Image)mainScreenMarkers.get(markerIndex);
+			marker.setDrawable(possessionMarker);
+			
+			// Met à jour l' image de la stats table
+			marker = (Image)pauseScreenMarkers.get(markerIndex);
 			marker.setDrawable(possessionMarker);
 		}
 		return offset + nbZonesOwned;
+	}
+	
+	public void addPlayedWord(Player player, String word) {
+		statsTable.addPlayedWord(player, word);
 	}
 }

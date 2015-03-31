@@ -25,7 +25,7 @@ public class Assets {
 	public static TypedProperties appProperties;
 	public static I18NBundle i18nBundle;
 	public static ResourceManager overlap2dResourceManager;
-	public static Skin skin;
+	public static Skin uiSkin;
 	
 	/**
 	 * Overlap2D ne charge pas les skins. On doit donc surcharger la méthode getSkin() du ResourceManager
@@ -103,11 +103,11 @@ public class Assets {
 	}
 
 	private static void loadSkin() {
-		skin = new Skin(Gdx.files.internal(SKIN_FILE));
+		uiSkin = new Skin(Gdx.files.internal(SKIN_FILE));
 	}
 	
 	private static void disposeSkin() {
-		skin.dispose();
+		uiSkin.dispose();
 	}
 
 	public static Texture loadTexture (String file) {
@@ -122,7 +122,7 @@ public class Assets {
 	
 	private static void loadMarkerPacks(float frameDuration) {
 		// Crée l'objet chargé de parcourir l'atlas et la skin pour créer les packs
-		MarkerPackLoader packLoader = new MarkerPackLoader(skin, frameDuration);
+		MarkerPackLoader packLoader = new MarkerPackLoader(uiSkin, frameDuration);
 		
 		// Charge la liste des marker-packs
 		final String[] packList = appProperties.getStringArrayProperty("markerpacks", ",");

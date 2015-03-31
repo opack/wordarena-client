@@ -36,7 +36,7 @@ public class EditorArenaOverlay extends ArenaOverlay {
 		CellData data;
 		for (int y = arena.height - 1; y >= 0; y--) {
 			for (int x = 0; x < arena.width; x++) {
-				cell = new ArenaCell(Assets.skin);
+				cell = new ArenaCell(Assets.uiSkin);
 				cell.addListener(new ApplyToolListener((EditorScreen)getScreen(), cell));
 				arena.cells[x][y] = cell;
 				

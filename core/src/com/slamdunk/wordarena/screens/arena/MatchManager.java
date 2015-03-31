@@ -63,6 +63,8 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		
 		// Pas de mot et affichage des boutons en conséquence
 		setCurrentWord("");
+		// Màj du reste de l'UI
+		ui.initGame(cinematic.getPlayers(), cinematic.getNbWinningRoundsPerGame());
 		
 		// Démarre le jeu
 		changeState(GameStates.READY);
@@ -84,6 +86,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 			
 			// Affiche le mot joué
 			ui.setInfo(Assets.i18nBundle.format("ui.arena.wordPlayed", player.name, word));
+			ui.addPlayedWord(player, word);
 			
 			// Déclenche les effets sur les cellules
 			cellEffectsManager.applyEffects(selectedCells, player, arena.getData());
@@ -193,6 +196,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 			// Met en pause l'application des effets
 			cellEffectsManager.setPaused(true);
 			
+			// Met à jour les statistiques qui seront affichées
 			ui.updateStats();
 		}
 	}
@@ -217,7 +221,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		// Met à jour l'UI
 		ui.setArenaName(arena.getData().name);
 		ui.setInfo("");
-		ui.createZoneMarkers(arena.getData().zones);
+		ui.initZoneMarkers(arena.getData().zones);
 		ui.updateZoneMarkers(cinematic.getPlayers(), arena.getData().zones);
 	}
 	

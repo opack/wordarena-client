@@ -158,7 +158,7 @@ public class Scene extends InputAdapter {
 	 * Charge une scène depuis un fichier
 	 */
 	public void load(String file) {
-		// TODO
+		// TODO Charger la scène depuis un fichier
 	}
 	
 	public void init() {

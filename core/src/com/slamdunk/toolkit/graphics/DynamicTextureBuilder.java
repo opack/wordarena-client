@@ -43,7 +43,7 @@ public class DynamicTextureBuilder {
         FrameBuffer buffer = new FrameBuffer(Format.RGB565, maxWidth, maxHeight, false);
         buffer.begin();
         for (TextureRegion texture : textures) {
-        	// TODO
+        	// TODO Créer la texture dynamiquement
         }
         buffer.end();
         Texture result = buffer.getColorBufferTexture();

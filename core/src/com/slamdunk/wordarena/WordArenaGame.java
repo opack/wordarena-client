@@ -28,7 +28,7 @@ public class WordArenaGame extends SlamGame {
 
 		// Connecte l'utilisateur
 		if (!UserManager.getInstance().logIn()) {
-			// TODO DBG Faire une boîte de saisie d'identifiants
+			// TODO Faire une boîte de saisie d'identifiants
 			System.err.println("Connexion échouée. Veuillez saisir vos identifiants ou créer un compte.");
 		}
 		

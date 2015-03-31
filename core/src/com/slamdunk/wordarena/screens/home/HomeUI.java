@@ -103,7 +103,7 @@ public class HomeUI extends UIOverlay {
 		gamesTable = new Table();
 		
 		// Placer la table dans un ScrollPane pour permettre le scroll
-		ScrollPane scrollPane = new ScrollPane(gamesTable, Assets.skin);
+		ScrollPane scrollPane = new ScrollPane(gamesTable, Assets.uiSkin);
 		scrollPane.setupOverscroll(15, 30, 200);
 		scrollPane.setPosition(5, 5);
 		scrollPane.setSize(470, 595);
@@ -145,7 +145,7 @@ public class HomeUI extends UIOverlay {
 	}
 
 	private void fetchGames() {
-		// TODO DBG DEB Triche en attendant le chargement de vraies parties
+		// DBG Triche en attendant le chargement de vraies parties
 		List<GameData> fetched = new ArrayList<GameData>();
 		Player p1 = new Player();
 		p1.uid = 1;
@@ -219,7 +219,8 @@ public class HomeUI extends UIOverlay {
 		fetched.add(game5);
 		fetched.add(game5);
 		fetched.add(game5);
-		// FIN DBG
+		
+		
 		
 		// Répartit les jeux entre ceux où c'est au tour de l'utilisateur de jouer
 		// et ceux où c'est à un adversaire de jouer
@@ -252,7 +253,7 @@ public class HomeUI extends UIOverlay {
 	 */
 	private void createHeaderRow(GameStatus status) {
 		final String header = Assets.i18nBundle.get("ui.home.games.header." + status.name());
-		gamesTable.add(new Label(header, Assets.skin, GAME_LABEL_STYLE_STATUS_HEADER));
+		gamesTable.add(new Label(header, Assets.uiSkin, GAME_LABEL_STYLE_STATUS_HEADER));
 		
 		// Fin de la ligne
 		gamesTable.row();
@@ -290,7 +291,7 @@ public class HomeUI extends UIOverlay {
 				opponents.append(opponent.name);
 			}
 		}
-		gamesTable.add(new Label(opponents.toString(), Assets.skin, labelStyle));
+		gamesTable.add(new Label(opponents.toString(), Assets.uiSkin, labelStyle));
 		
 		// Fin de la ligne
 		gamesTable.row();

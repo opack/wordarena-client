@@ -63,7 +63,7 @@ public class ArenaBuilder {
 	private Set<Point> cellsWithWalls;
 	
 	public ArenaBuilder(MatchManager gameManager) {
-		this(gameManager, Assets.skin);
+		this(gameManager, Assets.uiSkin);
 	}
 	
 	public ArenaBuilder(MatchManager gameManager, Skin skin) {
@@ -142,7 +142,7 @@ public class ArenaBuilder {
 		// Charge les zones
 		setZones(extractStringTable(plan.get("plan.zones")));
 		
-		// TODO Charge les murs
+		// Charge les murs
 		setWalls(extractPointList(plan.get("plan.walls")));
 		
 		return true;

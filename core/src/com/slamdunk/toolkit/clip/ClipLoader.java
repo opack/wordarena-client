@@ -102,7 +102,7 @@ public class ClipLoader {
         }
 
         // Chargement des runnables
-        // TODO...
+        // TODO Charger les runnables
         return clip;
     }
 }
