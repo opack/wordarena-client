@@ -163,8 +163,15 @@ public class ArenaZone extends Group {
 		CellData cellData;
 		for (ArenaCell cell : cells.values()) {
 			cellData = cell.getData();
-			// Ajout de la puissance de la cellule à celle de ce joueur
-			if (cellData.state == CellStates.OWNED) {
+			
+			// Si la cellule est sélectionnée, alors on fait comme si elle
+			// appartenait au joueur courant
+			if (cellData.selected == true) {
+				occupations.addValue(gameManager.getCinematic().getCurrentPlayer(), cellData.power);
+			}
+			// Sinon on ajout de la puissance de la cellule à celle de ce joueur
+			// à qui elle appartient réellement
+			else if (cellData.state == CellStates.OWNED) {
 				occupations.addValue(cellData.owner, cellData.power);
 			}
 		}

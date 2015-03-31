@@ -69,7 +69,7 @@ public class WordSelectionHandler {
 		}
 		
 		// Tout est bon, on sélectionne la cellule puis on l'ajoute au mot
-		cell.select();
+		cell.select(true);
 		selectedCells.add(cell);
 		gameManager.setCurrentWord(getCurrentWord());
 		return true;
@@ -85,7 +85,7 @@ public class WordSelectionHandler {
 		ArenaCell removed;
 		for (int curSelected = lastCellIndex; curSelected >= index; curSelected--) {
 			removed = selectedCells.remove(curSelected);
-			removed.unselect();
+			removed.select(false);
 		}
 	}
 
@@ -95,7 +95,7 @@ public class WordSelectionHandler {
 	 */
 	public void cancel() {
 		for (ArenaCell cell : selectedCells) {
-			cell.unselect();
+			cell.select(false);
 		}
 		selectedCells.clear();
 		gameManager.setCurrentWord("");

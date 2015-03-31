@@ -1,7 +1,9 @@
 package com.slamdunk.wordarena.screens.arena.stats;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.utils.Array;
 import com.slamdunk.toolkit.ui.GroupEx;
 import com.slamdunk.wordarena.assets.Assets;
@@ -34,10 +36,13 @@ public class StatsTable extends Table {
 		Label roundsTitle = new Label(Assets.i18nBundle.format("ui.arena.roundsTitle"), Assets.uiSkin);
 		Label zonesTitle = new Label(Assets.i18nBundle.format("ui.arena.zonesTitle"), Assets.uiSkin);
 		
+		// Crée le zoneMarkers avec 1 image afin de réserver l'espace suffisant
 		zoneMarkers = new GroupEx();
 		
 		Label wordsTitle = new Label(Assets.i18nBundle.format("ui.arena.wordsTitle"), Assets.uiSkin);
 		playedWords = new Table();
+		ScrollPane wordsScroll = new ScrollPane(playedWords, Assets.uiSkin);
+		wordsScroll.setupOverscroll(15, 30, 200);
 		
 		// Place composants dans le tableau
 		// Noms des joueurs
@@ -49,7 +54,7 @@ public class StatsTable extends Table {
 		// Zones possédées
 		add(zonesTitle).colspan(3);
 		row();
-		add(zoneMarkers).colspan(3);
+		add(zoneMarkers).colspan(3).align(Align.center);
 		row();
 		
 		// Nombre de rounds gagnés
@@ -71,7 +76,7 @@ public class StatsTable extends Table {
 		// Mots déjà joués
 		add(wordsTitle).colspan(3);
 		row();
-		add(playedWords).colspan(3);
+		add(wordsScroll).height(200).fillX().colspan(3).align(Align.center);
 	}
 	
 	public void init(Array<Player> players, int nbRoundsToWin) {
@@ -89,7 +94,6 @@ public class StatsTable extends Table {
 	public void update(Array<Player> players) {
 		p1Stats.update(players.get(0));
 		p2Stats.update(players.get(1));
-		pack();
 	}
 
 	public void addPlayedWord(Player player, String word) {

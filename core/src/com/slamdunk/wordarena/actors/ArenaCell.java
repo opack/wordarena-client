@@ -173,20 +173,17 @@ public class ArenaCell extends Actor {
 	}
 
 	/**
-	 * Sélectionne la cellule, ce qui a pour effet de changer son état
-	 * (qui passe à SELECTED) et l'image de la lettre
+	 * Sélectionne ou désélectionne la cellule, ce qui a pour effet de changer 
+	 * son état, l'image de la lettre et la possession de la zone.
+	 * En effet, la zone va simuler l'appartenance de cette cellule au joueur
+	 * courant car elle est sélectionnée, afin de montrer au joueur ce qui
+	 * arrivera s'il valide le mot courant.
 	 */
-	public void select() {
-		data.selected = true;
-		updateDisplay();
-	}
-	
-	/**
-	 * Désélectionne la cellule, ce qui a pour effet de changer son état
-	 * (qui passe à NORMAL) et l'image de la lettre
-	 */
-	public void unselect() {
-		data.selected = false;
+	public void select(boolean selected) {
+		data.selected = selected;
+		
+		data.zone.updateOwner();
+		
 		updateDisplay();
 	}
 

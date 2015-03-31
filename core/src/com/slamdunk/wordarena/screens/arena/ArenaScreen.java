@@ -54,7 +54,7 @@ public class ArenaScreen extends SlamScreen {
 	}
 
 	public void prepareGame(String arenaPlanFile, Array<Player> players) {
-		matchManager.prepareGame(this, arenaPlanFile, players);
+		matchManager.init(this, arenaPlanFile, players);
 	}
 	
 	@Override

@@ -21,6 +21,7 @@ import com.slamdunk.toolkit.ui.Overlap2DUtils;
 import com.slamdunk.wordarena.WordArenaGame;
 import com.slamdunk.wordarena.actors.ArenaZone;
 import com.slamdunk.wordarena.assets.Assets;
+import com.slamdunk.wordarena.data.ArenaData;
 import com.slamdunk.wordarena.data.MarkerPack;
 import com.slamdunk.wordarena.data.Player;
 import com.slamdunk.wordarena.enums.GameStates;
@@ -65,9 +66,21 @@ public class ArenaUI extends UIOverlay {
 	/**
 	 * Appelée à lorsque la partie affichée change. Cela permet
 	 * d'éviter de recréer toute l'UI à chaque switch de partie.
+	 * @param arenaData 
 	 */
-	public void initGame(Array<Player> players, int nbRoundsToWin) {
+	public void init(ArenaData arenaData, Array<Player> players, int nbRoundsToWin) {
+		// Crée et remplit les marqueurs de possession de zone
+		initZoneMarkers(arenaData.zones);
+		updateZoneMarkers(players, arenaData.zones);
+		
+		// Initialise la table de statistiques
 		statsTable.init(players, nbRoundsToWin);
+		statsTable.layout();
+		statsTable.pack();
+		
+		// Initialise les informations affichées
+		setArenaName(arenaData.name);
+		setInfo("");
 	}
 	
 
@@ -76,7 +89,7 @@ public class ArenaUI extends UIOverlay {
 	 * de zones
 	 * @param zones 
 	 */
-	public void initZoneMarkers(List<ArenaZone> zones) {
+	private void initZoneMarkers(List<ArenaZone> zones) {
 		// Prépare le marker par défaut
 		MarkerPack neutralPack = Assets.markerPacks.get(Assets.MARKER_PACK_NEUTRAL);
 		TextureRegionDrawable neutralPossessionMarker = neutralPack.possessionMarker;

@@ -29,6 +29,14 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	private MatchCinematic cinematic;
 	private CellEffectsManager cellEffectsManager;
 	
+	/**
+	 * Indique que le joueur est en phase de sélection des lettres de son mot.
+	 * Pendant cette phase, le score n'est pas modifié par la conquête et la
+	 * perte de zone, et la perte de la dernière zone ne provoque pas la fin
+	 * du round.
+	 */
+	private boolean selectingLetters;
+	
 	public MatchManager() {		
 		wordSelectionHandler = new WordSelectionHandler(this);
 		wordValidator = new WordValidator();
@@ -48,7 +56,13 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		return arena.getData();
 	}
 
-	public void prepareGame(ArenaScreen screen, String arenaPlanFile, Array<Player> playersList) {
+	/**
+	 * Initialise le match. Cette méthode doit être appelée 1 fois lorsque le match est affiché.
+	 * @param screen
+	 * @param arenaPlanFile
+	 * @param playersList
+	 */
+	public void init(ArenaScreen screen, String arenaPlanFile, Array<Player> playersList) {
 		arena = screen.getArena();
 		ui = screen.getUI();
 		
@@ -60,11 +74,6 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		
 		// Charge l'arène
 		loadArena();
-		
-		// Pas de mot et affichage des boutons en conséquence
-		setCurrentWord("");
-		// Màj du reste de l'UI
-		ui.initGame(cinematic.getPlayers(), cinematic.getNbWinningRoundsPerGame());
 		
 		// Démarre le jeu
 		changeState(GameStates.READY);
@@ -124,6 +133,19 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	 * @param newOwner
 	 */
 	public void zoneChangedOwner(Player oldOwner, Player newOwner) {
+		// Met à jour l'UI si le jeu tourne. Sinon, on a sûrement
+		// été appelé pendant la création de l'arène. On ne met
+		// donc pas à jour l'UI.
+		if (state == GameStates.RUNNING) {
+			ui.updateZoneMarkers(cinematic.getPlayers(), arena.getData().zones);
+		}
+		
+		// Si le joueur est en train de sélectionner des lettres, alors
+		// on ne prend pas en compte ce changement de propriétaire de zone
+		if (selectingLetters) {
+			return;
+		}
+		
 		if (!Player.NEUTRAL.equals(newOwner)) {
 			// Le joueur a une zone de plus
 			newOwner.nbZonesOwned++;
@@ -146,13 +168,6 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 			if (oldOwner.nbZonesOwned <= 0) {
 				cinematic.endRound();
 			}
-		}
-		
-		// Met à jour l'UI si le jeu tourne. Sinon, on a sûrement
-		// été appelé pendant la création de l'arène. On ne met
-		// donc pas à jour l'UI.
-		if (state == GameStates.RUNNING) {
-			ui.updateZoneMarkers(cinematic.getPlayers(), arena.getData().zones);
 		}
 	}
 
@@ -219,10 +234,9 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		cinematic.setArenaData(arena.getData());
 		
 		// Met à jour l'UI
-		ui.setArenaName(arena.getData().name);
-		ui.setInfo("");
-		ui.initZoneMarkers(arena.getData().zones);
-		ui.updateZoneMarkers(cinematic.getPlayers(), arena.getData().zones);
+		ui.init(arena.getData(), cinematic.getPlayers(), cinematic.getNbWinningRoundsPerGame());
+		
+		selectingLetters = true;
 	}
 	
 	public void refreshStartingZone() {
@@ -291,6 +305,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		
 		// Réinitialise l'arène
 		loadArena();
+		
 		// Démarre le jeu
 		changeState(GameStates.RUNNING);
 	}
@@ -346,11 +361,10 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	 */
 	@Override
 	public void onEffectApplicationFinished(Player player, List<ArenaCell> processedCells) {
+		selectingLetters = false;
+		
 		// Toutes les cellules passent sous la domination du joueur
 		arena.setCellsOwner(processedCells, player);
-		
-		// DBG
-//		ui.updateZoneMarkers(cinematic.getPlayers(), arena.getData().zones);
 		
 		// Le score du joueur est modifié
 		ScoreHelper.onValidWord(player, processedCells);
@@ -361,5 +375,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		
 		// Termine le tour de ce joueur
 		cinematic.endMove();
+		
+		selectingLetters = true;
 	}
 }
