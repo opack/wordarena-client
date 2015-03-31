@@ -1,14 +1,26 @@
 package com.slamdunk.wordarena.screens.arena;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.SnapshotArray;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.slamdunk.toolkit.screen.overlays.UIOverlay;
+import com.slamdunk.toolkit.ui.GroupEx;
 import com.slamdunk.toolkit.ui.Overlap2DUtils;
 import com.slamdunk.wordarena.WordArenaGame;
+import com.slamdunk.wordarena.actors.ArenaZone;
 import com.slamdunk.wordarena.assets.Assets;
+import com.slamdunk.wordarena.data.MarkerPack;
 import com.slamdunk.wordarena.data.Player;
 import com.slamdunk.wordarena.enums.GameStates;
 import com.slamdunk.wordarena.screens.home.HomeScreen;
@@ -27,6 +39,13 @@ public class ArenaUI extends UIOverlay {
 	private Label info;
 	private Label stats;
 	
+	private GroupEx zoneMarkers;
+	/**
+	 * Map de travail permettant de stocker le nombre de zones par joueur
+	 * lors du rafraîchissement des marqueurs de zone
+	 */
+	private Map<String, Integer> tmpZonesByPlayer;
+	
 	public ArenaUI(MatchManager gameManager) {
 		this.gameManager = gameManager;
 		
@@ -35,16 +54,41 @@ public class ArenaUI extends UIOverlay {
 		
 		loadScene();
 		
-		createZoneSquares();
+		zoneMarkers = new GroupEx();
+		getStage().addActor(zoneMarkers);
+		tmpZonesByPlayer = new HashMap<String, Integer>();
 	}
 	
 
 	/**
 	 * Crée les carrés indiquant la possession des joueurs en terme
 	 * de zones
+	 * @param zones 
 	 */
-	private void createZoneSquares() {
-		// TODO Auto-generated method stub
+	public void createZoneMarkers(List<ArenaZone> zones) {
+		// Prépare le marker par défaut
+		MarkerPack neutralPack = Assets.markerPacks.get(Assets.MARKER_PACK_NEUTRAL);
+		TextureRegionDrawable neutralPossessionMarker = neutralPack.possessionMarker;
+		
+		zoneMarkers.clear();
+		int totalWidth = 0;
+		for (ArenaZone zone : zones) {
+			// La zone NONE n'est pas représentée car elle ne peut pas être possédée
+			if (zone == ArenaZone.NONE) {
+				continue;
+			}
+			
+			// Crée l'image
+			Image marker = new Image(neutralPossessionMarker);
+			marker.setPosition(totalWidth, 0);
+			zoneMarkers.addActor(marker);
+			
+			// On a ajouté un marqueur donc la taille totale a changé
+			totalWidth += neutralPossessionMarker.getMinWidth();
+		}
+		
+		// Centre le groupe à l'écran
+		zoneMarkers.setPosition((WordArenaGame.SCREEN_WIDTH - zoneMarkers.getWidth()) / 2, 701);
 	}
 
 
@@ -228,7 +272,7 @@ public class ArenaUI extends UIOverlay {
 		for (Player player : gameManager.getCinematic().getPlayers()) {
 			sb.append("== ").append(player.name).append(" ==");
 			sb.append("\n\tScore : ").append(player.score);
-			sb.append("\n\tZones : ").append(player.nbZonesOwned).append("/").append(gameManager.getNbZones());
+			sb.append("\n\tZones : ").append(player.nbZonesOwned).append("/").append(gameManager.getArenaData().zones.size());
 			sb.append("\n\tRounds : ").append(player.nbRoundsWon).append("/").append(gameManager.getCinematic().getNbWinningRoundsPerGame());
 			sb.append("\n");
 		}
@@ -239,8 +283,64 @@ public class ArenaUI extends UIOverlay {
 	/**
 	 * Met à jour les carrés de possession de zone en fonction des
 	 * zones possédées par chaque joueur.
+	 * @param array 
 	 */
-	public void updateZoneSquares() {
-		// TODO DBG Afficher l'image couleur des joueurs dans autant de carrés que de zones possédées
+	public void updateZoneMarkers(Array<Player> players, List<ArenaZone> zones) {
+		// Compte le nombre de zones possédées par chaque joueur
+		tmpZonesByPlayer.clear();
+		String playerPack;
+		for (ArenaZone zone : zones) {
+			if (zone == ArenaZone.NONE) {
+				continue;
+			}
+			
+			playerPack = zone.getData().owner.markerPack;
+			
+			Integer nbZones = tmpZonesByPlayer.get(playerPack);
+			if (nbZones == null) {
+				tmpZonesByPlayer.put(playerPack, 1);
+			} else {
+				tmpZonesByPlayer.put(playerPack, nbZones + 1);
+			}
+		}
+		
+		// Pour chaque joueur, remplit autant de carrés que de zones possédées
+		// On prend d'abord le premier joueur, puis le neutre, puis le second joueur,
+		// de façon à avoir une jolie barre
+		int lastMarkedSquare = fillZoneMarkers(0, players.get(0).markerPack);
+		
+		lastMarkedSquare = fillZoneMarkers(lastMarkedSquare, Assets.MARKER_PACK_NEUTRAL);
+		
+		lastMarkedSquare = fillZoneMarkers(lastMarkedSquare, players.get(1).markerPack);
+	}
+
+	/**
+	 * Remplit les marqueurs de zone à partir du offset-ième
+	 * avec autant de positions que tmpZonesByPlayer l'indique
+	 * pour le markerPack spécifié.
+	 * @param offset 1er marqueur à remplir
+	 * @param markerPack
+	 * @return L'indice de la dernière zone remplie, pour fournir
+	 * cette valeur à offset lors du prochain appel
+	 */
+	private int fillZoneMarkers(int offset, String markerPack) {
+		// Récupère le nombre de zones à marquer
+		Integer nbZonesOwned = tmpZonesByPlayer.get(markerPack);
+		if (nbZonesOwned == null) {
+			return offset;
+		}
+		
+		// Récupère l'image du marqueur de possession à dessiner
+		MarkerPack pack = Assets.markerPacks.get(markerPack);
+		TextureRegionDrawable possessionMarker = pack.possessionMarker;
+		
+		// Met à jour les images
+		SnapshotArray<Actor> markers = zoneMarkers.getChildren();
+		Image marker;
+		for (int curZone = 0; curZone < nbZonesOwned; curZone++) {
+			marker = (Image)markers.get(offset + curZone);
+			marker.setDrawable(possessionMarker);
+		}
+		return offset + nbZonesOwned;
 	}
 }

@@ -133,13 +133,8 @@ public class ArenaZone extends Group {
 	}
 
 	private void setOwner(Player newOwner) {
-		// Changement d'owner ? Avertit le game manager pour la mise à jour du score
-		if (!data.owner.equals(newOwner)
-		&& gameManager != null) {
-			gameManager.zoneChangedOwner(data.owner, newOwner);
-		}
-		
 		// Changement de l'owner
+		Player oldOwner = data.owner;
 		data.owner = newOwner;
 		
 		// Change l'image des cellules de la zone
@@ -166,6 +161,12 @@ public class ArenaZone extends Group {
 			for (ZoneEdge edge : edges) {
 				edge.updateDisplay(pack, data.highlighted);
 			}
+		}
+		
+		// Changement d'owner ? Avertit le game manager pour la mise à jour du score
+		if (!oldOwner.equals(newOwner)
+		&& gameManager != null) {
+			gameManager.zoneChangedOwner(oldOwner, newOwner);
 		}
 	}
 	

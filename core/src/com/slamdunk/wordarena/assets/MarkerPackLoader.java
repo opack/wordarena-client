@@ -29,17 +29,20 @@ public class MarkerPackLoader {
 		// Charge le style de label
 		pack.labelStyle = skin.get(atlasPackName, LabelStyle.class);
 		
+		// Charge le marqueur de possession
+		pack.possessionMarker = new TextureRegionDrawable(atlas.findRegion(atlasPackName + "_possession"));
+		
+		// Charge les animations de cellule
+		pack.ownedAnim = atlas.findAnimation(atlasPackName + "_owned", frameDuration, true);
+		pack.controledAnim = atlas.findAnimation(atlasPackName + "_controled", frameDuration, true);
+		pack.selectedAnim = atlas.findAnimation(atlasPackName + "_selected", frameDuration, true);
+		pack.conquestAnim = atlas.findAnimation(atlasPackName + "_conquest", frameDuration, true);
+		
 		// Charge les images de zone
 		loadZoneBorders(pack, atlas, atlasPackName);
 		loadZoneJoints(pack, atlas, atlasPackName);
 		loadZoneInnerCorners(pack, atlas, atlasPackName);
 		loadZoneOuterCorners(pack, atlas, atlasPackName);
-		
-		// Charge les animations
-		pack.ownedAnim = atlas.findAnimation(atlasPackName + "_owned", frameDuration, true);
-		pack.controledAnim = atlas.findAnimation(atlasPackName + "_controled", frameDuration, true);
-		pack.selectedAnim = atlas.findAnimation(atlasPackName + "_selected", frameDuration, true);
-		pack.conquestAnim = atlas.findAnimation(atlasPackName + "_conquest", frameDuration, true);
 		
 		return pack;
 	}

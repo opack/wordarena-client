@@ -49,6 +49,11 @@ public class MarkerPack {
 	 */
 	public Animation conquestAnim;
 	
+	/**
+	 * Image affichée dans les carrés indiquant la possession de chaque joueur
+	 */
+	public TextureRegionDrawable possessionMarker;
+	
 	public DoubleEntryArray<BordersAndCorners, CornerTypes, TextureRegionDrawable> zoneEdges;
 	
 	public MarkerPack() {

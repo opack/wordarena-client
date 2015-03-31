@@ -5,6 +5,7 @@ import java.util.List;
 import com.badlogic.gdx.utils.Array;
 import com.slamdunk.wordarena.actors.ArenaCell;
 import com.slamdunk.wordarena.assets.Assets;
+import com.slamdunk.wordarena.data.ArenaData;
 import com.slamdunk.wordarena.data.Player;
 import com.slamdunk.wordarena.enums.GameStates;
 import com.slamdunk.wordarena.enums.ReturnCodes;
@@ -22,7 +23,6 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	private String arenaPlanFile;
 	
 	private GameStates state;
-	private int nbZones;
 	
 	private WordSelectionHandler wordSelectionHandler;
 	private WordValidator wordValidator;
@@ -42,6 +42,10 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	
 	public MatchCinematic getCinematic() {
 		return cinematic;
+	}
+	
+	public ArenaData getArenaData() {
+		return arena.getData();
 	}
 
 	public void prepareGame(ArenaScreen screen, String arenaPlanFile, Array<Player> playersList) {
@@ -145,7 +149,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		// été appelé pendant la création de l'arène. On ne met
 		// donc pas à jour l'UI.
 		if (state == GameStates.RUNNING) {
-//			ui.updateStats();
+			ui.updateZoneMarkers(cinematic.getPlayers(), arena.getData().zones);
 		}
 	}
 
@@ -208,18 +212,15 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		// Charge l'arène
 		arena.buildArena(arenaPlanFile, this);
 		arena.showLetters(false);
-		nbZones = arena.getData().zones.size();
 		cinematic.setArenaData(arena.getData());
 		
 		// Met à jour l'UI
 		ui.setArenaName(arena.getData().name);
 		ui.setInfo("");
+		ui.createZoneMarkers(arena.getData().zones);
+		ui.updateZoneMarkers(cinematic.getPlayers(), arena.getData().zones);
 	}
 	
-	public int getNbZones() {
-		return nbZones;
-	}
-
 	public void refreshStartingZone() {
 		Player curPlayer = cinematic.getCurrentPlayer();
 		
@@ -343,6 +344,9 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	public void onEffectApplicationFinished(Player player, List<ArenaCell> processedCells) {
 		// Toutes les cellules passent sous la domination du joueur
 		arena.setCellsOwner(processedCells, player);
+		
+		// DBG
+//		ui.updateZoneMarkers(cinematic.getPlayers(), arena.getData().zones);
 		
 		// Le score du joueur est modifié
 		ScoreHelper.onValidWord(player, processedCells);

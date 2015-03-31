@@ -1171,9 +1171,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="738.58878"
-     inkscape:cy="988.04214"
+     inkscape:zoom="0.7"
+     inkscape:cx="1238.4365"
+     inkscape:cy="698.2455"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -4117,5 +4117,55 @@
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
        transform="matrix(0,1,-1,0,0,0)" />
+    <rect
+       style="fill:#c8c8c8;fill-opacity:1;stroke:#000000;stroke-width:0.99999994"
+       id="rect2985-60-1-6-6-5-5-3-45-5"
+       width="11"
+       height="11"
+       x="216.00002"
+       y="-33.209244"
+       inkscape:export-filename="img_export\markers\marker_neutral_possession.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#7db1ff;fill-opacity:1;stroke:#000000;stroke-width:0.99999994"
+       id="rect2985-60-1-6-6-5-5-3-45-5-3"
+       width="11"
+       height="11"
+       x="978.78571"
+       y="-41.709244"
+       inkscape:export-filename="img_export\markers\marker_blue_possession.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#ffb17d;fill-opacity:1;stroke:#000000;stroke-width:0.99999994"
+       id="rect2985-60-1-6-6-5-5-3-45-5-3-5"
+       width="11"
+       height="11"
+       x="1581.6428"
+       y="-47.423527"
+       inkscape:export-filename="img_export\markers\marker_orange_possession.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#d499e3;fill-opacity:1;stroke:#000000;stroke-width:0.99999994"
+       id="rect2985-60-1-6-6-5-5-3-45-5-3-6"
+       width="11"
+       height="11"
+       x="1590.2142"
+       y="365.43362"
+       inkscape:export-filename="img_export\markers\marker_purple_possession.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#b6e399;fill-opacity:1;stroke:#000000;stroke-width:0.99999994"
+       id="rect2985-60-1-6-6-5-5-3-45-5-3-3"
+       width="11"
+       height="11"
+       x="964.5"
+       y="371.14789"
+       inkscape:export-filename="img_export\markers\marker_green_possession.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>
