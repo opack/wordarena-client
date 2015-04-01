@@ -66,6 +66,11 @@ project(":android") {
         natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-armeabi"
         natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-armeabi-v7a"
         natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-x86"
+		
+		// DDE Ajouté pour tenter de compiler avec la lib de google play games services
+		// Cette lib se trouve dans [android-sdk]\extras\google\m2repository\com\google\android\gms\play-services-games
+		// si la coche "Google Repository" a été cochée dans le SDK Manager.
+		compile "com.google.android.gms:play-services-games:7.0.0"
     }
 }
 

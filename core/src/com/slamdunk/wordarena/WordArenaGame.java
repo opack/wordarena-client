@@ -1,6 +1,7 @@
 package com.slamdunk.wordarena;
 
 import com.badlogic.gdx.Gdx;
+import com.slamdunk.toolkit.google.GoogleServices;
 import com.slamdunk.toolkit.screen.SlamGame;
 import com.slamdunk.toolkit.settings.SlamSettings;
 import com.slamdunk.wordarena.assets.Assets;
@@ -12,6 +13,12 @@ import com.slamdunk.wordarena.screens.preeditor.PreEditorScreen;
 public class WordArenaGame extends SlamGame {
 	public static final int SCREEN_WIDTH = 480;
 	public static final int SCREEN_HEIGHT = 800;
+	
+	public static GoogleServices googleServices;
+	
+	public WordArenaGame(GoogleServices googleServices) {
+		WordArenaGame.googleServices = googleServices;
+	}
 	
 	@Override
 	public void create() {

@@ -9,6 +9,7 @@ public class DesktopLauncher {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.width = WordArenaGame.SCREEN_WIDTH;
 		config.height = WordArenaGame.SCREEN_HEIGHT;
-		new LwjglApplication(new WordArenaGame(), config);
+		
+		new LwjglApplication(new WordArenaGame(new DesktopGoogleServices()), config);
 	}
 }

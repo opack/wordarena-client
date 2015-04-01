@@ -1,3 +1,4 @@
+[ ] ADD : Reprise d'une partie en cours depuis l'écran principal 
 [ ] ADD : AnimationDrawer : rendre Poolable
 [ ] ADD : Editeur : ajouter une liste déroulante pour sélectionner la skin parmi les skins existantes
 [ ] ADD : Partie - RUNNING : Valider un mot avec un ou plusieurs jokers
