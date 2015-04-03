@@ -116,7 +116,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 			
 			break;
 			
-		case WORD_UNKNOWN:
+		case UNKNOWN_WORD:
 			ui.setInfo(Assets.i18nBundle.format("ui.arena.unknownWord", word));
 			
 			// Les boutons de validation doivent rester affichés

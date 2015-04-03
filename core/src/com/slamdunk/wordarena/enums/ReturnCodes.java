@@ -7,9 +7,9 @@ public enum ReturnCodes {
 	OK,
 	
 	/**
-	 * Mot inconnu dans le dictionnaire
+	 * Mot inconnu dans le lexique
 	 */
-	WORD_UNKNOWN,
+	UNKNOWN_WORD,
 	
 	/**
 	 * Mot déjà joué au cours de ce round
