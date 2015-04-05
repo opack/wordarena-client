@@ -11,6 +11,7 @@ import com.slamdunk.wordarena.screens.home.HomeScreen;
 import com.slamdunk.wordarena.screens.preeditor.PreEditorScreen;
 
 public class WordArenaGame extends SlamGame {
+	public static final String LOG_TAG = "WordArena";
 	public static final int SCREEN_WIDTH = 480;
 	public static final int SCREEN_HEIGHT = 800;
 	

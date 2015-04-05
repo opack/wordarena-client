@@ -8,15 +8,15 @@ import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.ArenaData;
 import com.slamdunk.wordarena.data.Player;
 import com.slamdunk.wordarena.enums.GameStates;
-import com.slamdunk.wordarena.enums.ReturnCodes;
 import com.slamdunk.wordarena.screens.arena.MatchCinematic.GameCinematicListener;
+import com.slamdunk.wordarena.screens.arena.WordValidator.WordValidationListener;
 import com.slamdunk.wordarena.screens.arena.celleffects.CellEffectsApplicationFinishedListener;
 import com.slamdunk.wordarena.screens.arena.celleffects.CellEffectsManager;
 
 /**
  * Gère la partie
  */
-public class MatchManager implements GameCinematicListener, CellEffectsApplicationFinishedListener{
+public class MatchManager implements GameCinematicListener, CellEffectsApplicationFinishedListener, WordValidationListener {
 	
 	private ArenaOverlay arena;
 	private ArenaUI ui;
@@ -39,7 +39,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	
 	public MatchManager() {		
 		wordSelectionHandler = new WordSelectionHandler(this);
-		wordValidator = new WordValidator();
+		wordValidator = new WordValidator(this);
 		cinematic = new MatchCinematic();
 		cinematic.setListener(this);
 	}
@@ -78,53 +78,15 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		// Démarre le jeu
 		changeState(GameStates.READY);
 	}
-
+	
 	/**
-	 * Vérifie si le mot est valide, ajoute des points au score
-	 * le cas échéant et choisit d'autres lettres sur le mot
-	 * sélectionné.
+	 * Demande la validation du mot actuellement sélectionné
 	 */
 	public void validateWord() {
-		ReturnCodes result = wordValidator.validate(wordSelectionHandler.getCurrentWord());
-		String word = wordValidator.getLastValidatedWord();
-		switch (result) {
+		// TODO Affiche une animation d'attente
 		
-		case OK:
-			Player player = cinematic.getCurrentPlayer();
-			List<ArenaCell> selectedCells = wordSelectionHandler.getSelectedCells();
-			
-			// Affiche le mot joué
-			ui.setInfo(Assets.i18nBundle.format("ui.arena.wordPlayed", player.name, word));
-			ui.addPlayedWord(player, word);
-			
-			// Déclenche les effets sur les cellules
-			cellEffectsManager.applyEffects(selectedCells, player, arena.getData());
-			
-			// Bloquer la saisie pour empêcher que le joueur ne joue de nouveau pendant les animations
-			arena.enableCellSelection(false);
-			
-			// Raz du mot sélectionné
-			cancelWord();
-			
-			break;
-			
-		case WORD_ALREADY_PLAYED:
-			ui.setInfo(Assets.i18nBundle.format("ui.arena.alreadyPlayed", word));
-			
-			// Les boutons de validation doivent rester affichés
-			ui.showWordValidationButtons(true);
-			
-			break;
-			
-		case UNKNOWN_WORD:
-			ui.setInfo(Assets.i18nBundle.format("ui.arena.unknownWord", word));
-			
-			// Les boutons de validation doivent rester affichés
-			ui.showWordValidationButtons(true);
-			
-			break;
-			
-		}
+		// Demande la validation
+		wordValidator.validate(wordSelectionHandler.getCurrentWord());
 	}
 
 	/**
@@ -377,5 +339,60 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		cinematic.endMove();
 		
 		selectingLetters = true;
+	}
+	
+	@Override
+	public void onWordValidated(String word) {
+		// TODO Arrête l'animation d'attente
+		
+		
+		Player player = cinematic.getCurrentPlayer();
+		List<ArenaCell> selectedCells = wordSelectionHandler.getSelectedCells();
+		
+		// Affiche le mot joué
+		ui.setInfo(Assets.i18nBundle.format("ui.arena.wordValidation.valid", player.name, word));
+		ui.addPlayedWord(player, word);
+		
+		// Déclenche les effets sur les cellules
+		cellEffectsManager.applyEffects(selectedCells, player, arena.getData());
+		
+		// Bloquer la saisie pour empêcher que le joueur ne joue de nouveau pendant les animations
+		arena.enableCellSelection(false);
+		
+		// Raz du mot sélectionné
+		cancelWord();
+	}
+
+	@Override
+	public void onWordAlreadyPlayed(String word) {
+		// TODO Arrête l'animation d'attente
+		
+		// Informe l'utilisateur
+		ui.setInfo(Assets.i18nBundle.format("ui.arena.wordValidation.alreadyPlayed", word));
+		
+		// Les boutons de validation doivent rester affichés
+		ui.showWordValidationButtons(true);
+	}
+
+	@Override
+	public void onWordUnknown(String word) {
+		// TODO Arrête l'animation d'attente
+		
+		// Informe l'utilisateur
+		ui.setInfo(Assets.i18nBundle.format("ui.arena.wordValidation.unknownWord", word));
+		
+		// Les boutons de validation doivent rester affichés
+		ui.showWordValidationButtons(true);
+	}
+
+	@Override
+	public void onWordValidationFailed(String word) {
+		// TODO Arrête l'animation d'attente
+		
+		// Informe l'utilisateur
+		ui.setInfo(Assets.i18nBundle.format("ui.arena.wordValidation.failure", word));
+		
+		// Les boutons de validation doivent rester affichés
+		ui.showWordValidationButtons(true);
 	}
 }
