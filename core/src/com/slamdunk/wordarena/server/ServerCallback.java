@@ -11,10 +11,11 @@ public interface ServerCallback {
 	void onResponse(JsonValue jsonResponse);
 
 	/**
-	 * Appelée si une exception a été levée par le serveur
-	 * ou avant d'appeler le serveur
+	 * Appelée si une exception a été levée lors de l'appel
+	 * au serveur et que la commande n'a donc pas pû être
+	 * effectuée
 	 * @param serverException
 	 */
-	void onException(ServerException serverException);
+	void onCallException(CallServerException serverException);
 
 }

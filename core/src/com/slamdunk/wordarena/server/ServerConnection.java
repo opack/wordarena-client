@@ -37,11 +37,11 @@ public class ServerConnection {
 						callback.onResponse(jsonResponse);
 					}
 					
-				} catch (ServerException e) {
+				} catch (CallServerException e) {
 					
-					// Si une exception s'est produite, on l'envoie au callback
+					// Si une exception s'est produite lors de l'appel, on l'envoie au callback
 					if (callback != null) {
-						callback.onException(e);
+						callback.onCallException(e);
 					}
 				}
 			}
@@ -51,9 +51,9 @@ public class ServerConnection {
 			 * @param command
 			 * @param parameters
 			 * @return
-			 * @throws ServerException
+			 * @throws CallServerException
 			 */
-			private JsonValue callServer(String command, String parameters) throws ServerException {
+			private JsonValue callServer(String command, String parameters) throws CallServerException {
 				// Ouvre une connexion vers le serveur
 				String serverAddress = Assets.appProperties.getProperty("server.address", "");
 				int serverPort = Assets.appProperties.getIntegerProperty("server.port", 1601);
@@ -75,12 +75,12 @@ public class ServerConnection {
 				} catch (UnsupportedEncodingException e) {
 					
 					Gdx.app.log(WordArenaGame.LOG_TAG, "ERROR : Unsupported encoding UTF-8 : " + e.getMessage());
-					throw new ServerException(e);
+					throw new CallServerException(e);
 					
 				} catch (IOException e) {
 					
 					Gdx.app.log(WordArenaGame.LOG_TAG, "ERROR : Error while connecting to server : " + e.getMessage());
-					throw new ServerException(e);
+					throw new CallServerException(e);
 					
 				} finally {
 					

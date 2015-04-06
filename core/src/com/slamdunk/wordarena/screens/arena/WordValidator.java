@@ -5,7 +5,7 @@ import java.util.Set;
 
 import com.badlogic.gdx.utils.JsonValue;
 import com.slamdunk.wordarena.server.ServerCallback;
-import com.slamdunk.wordarena.server.ServerException;
+import com.slamdunk.wordarena.server.CallServerException;
 import com.slamdunk.wordarena.server.lexis.LexisService;
 
 /**
@@ -91,7 +91,7 @@ public class WordValidator {
 				}
 	
 				@Override
-				public void onException(ServerException serverException) {
+				public void onCallException(CallServerException serverException) {
 					listener.onWordValidationFailed(word);
 				}
 			});
