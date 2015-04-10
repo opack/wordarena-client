@@ -1,12 +1,12 @@
 package com.slamdunk.wordarena.screens.editor;
 
 import com.slamdunk.wordarena.actors.ApplyToolListener;
-import com.slamdunk.wordarena.actors.ArenaCell;
-import com.slamdunk.wordarena.actors.ArenaZone;
+import com.slamdunk.wordarena.actors.CellActor;
+import com.slamdunk.wordarena.actors.ZoneActor;
 import com.slamdunk.wordarena.assets.Assets;
-import com.slamdunk.wordarena.data.ArenaData;
-import com.slamdunk.wordarena.data.CellData;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.data.arena.ArenaData;
+import com.slamdunk.wordarena.data.arena.cell.CellData;
+import com.slamdunk.wordarena.data.game.Player;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.enums.Letters;
@@ -17,31 +17,29 @@ public class EditorArenaOverlay extends ArenaOverlay {
 	public void createEmptyArena(int width, int height, String skin) {
 		Assets.loadArenaSkin(skin);
 		
-		ArenaData arena = new ArenaData();
-		arena.width = width;
-		arena.height = height;
-		arena.skin = skin;
+		ArenaData arenaData = new ArenaData();
+		arenaData.width = width;
+		arenaData.height = height;
+		arenaData.skin = skin;
 		
-		createEmptyCells(arena);
+		createEmptyCells(arenaData);
+		arenaData.zones.add(ZoneActor.NONE.getData());
 		
-		setData(arena);
+		setData(arenaData);
 		
 		super.resetArena();
 	}
 
-	private void createEmptyCells(ArenaData arena) {
-		arena.cells = new ArenaCell[arena.width][arena.height];
+	private void createEmptyCells(ArenaData arenaData) {
+		arenaData.cells = new CellData[arenaData.width][arenaData.height];
 		
-		ArenaCell cell;
 		CellData data;
-		for (int y = arena.height - 1; y >= 0; y--) {
-			for (int x = 0; x < arena.width; x++) {
-				cell = new ArenaCell(Assets.uiSkin);
-				cell.addListener(new ApplyToolListener((EditorScreen)getScreen(), cell));
-				arena.cells[x][y] = cell;
+		for (int y = arenaData.height - 1; y >= 0; y--) {
+			for (int x = 0; x < arenaData.width; x++) {
+				data = new CellData();
+				arenaData.cells[x][y] = data;
 				
 				// Définition des données du modèle
-				data = cell.getData();
 				data.position.setXY(x, y);
 				data.state = CellStates.OWNED;
 				
@@ -50,17 +48,32 @@ public class EditorArenaOverlay extends ArenaOverlay {
 				data.letter = Letters.FROM_TYPE;
 				data.power = 1;
 				data.owner = Player.NEUTRAL;
-				
-				// Placement de la cellule dans le monde et mise à jour du display
-				cell.setPosition(x * cell.getWidth(), y * cell.getHeight());
-				cell.updateDisplay();
+				data.zone = ZoneActor.NONE.getData().id;
+			}
+		}
+	}
+	
+	@Override
+	public void resetCells() {
+		// Crée les cellules
+		super.resetCells();
+		
+		// Change le listener associé aux cellules
+		EditorScreen screen = (EditorScreen)getScreen();
+		final int width = getData().width;
+		final int height = getData().height;
+		for (int y = 0; y < height; y++) {
+			for (int x = 0; x < width; x++) {
+				CellActor cell = getCell(x, y);
+				cell.getListeners().clear(); // TODO Voir si on ne pourrait pas juste ajouter le listener du tool sans faire un clear. Cela laisse la possibilité plus tard de tester l'arène en cours d'édition
+				cell.addListener(new ApplyToolListener(screen, cell));
 			}
 		}
 	}
 
-	public ArenaZone createZone(String id) {
-		ArenaZone zone = new ArenaZone(null, id);
-		getData().zones.add(zone);
+	public ZoneActor createZone(String id) {
+		ZoneActor zone = new ZoneActor(null, id);
+		getData().zones.add(zone.getData());
 		getArenaGroup().addActor(zone);
 		return zone;
 	}

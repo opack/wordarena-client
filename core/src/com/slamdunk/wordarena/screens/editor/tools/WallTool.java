@@ -2,10 +2,10 @@ package com.slamdunk.wordarena.screens.editor.tools;
 
 import java.util.Collection;
 
-import com.slamdunk.wordarena.actors.ArenaCell;
+import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
 
-public class WallTool extends EditorTool<ArenaCell> {
+public class WallTool extends EditorTool<CellActor> {
 	private ArenaOverlay arena;
 	
 	public void setArena(ArenaOverlay arena) {
@@ -13,9 +13,9 @@ public class WallTool extends EditorTool<ArenaCell> {
 	}
 	
 	@Override
-	public void apply(ArenaCell cell) {
+	public void apply(CellActor cell) {
 		// Récupère la cellule déjà sélectionnée
-		ArenaCell firstCell = getValue();
+		CellActor firstCell = getValue();
 		
 		// Vérifie si on vient de choisir de nouveau la même
 		// cellule. Dans ce cas, on la désélectionne.
@@ -52,7 +52,7 @@ public class WallTool extends EditorTool<ArenaCell> {
 		}
 		
 		// Les 2 cellules sont valides, on crée ou supprime le mur
-		if (arena.getData().hasWall(firstCell, cell)) {
+		if (arena.hasWall(firstCell, cell)) {
 			arena.removeWall(firstCell, cell);
 		} else {
 			arena.addWall(firstCell, cell);
@@ -61,8 +61,8 @@ public class WallTool extends EditorTool<ArenaCell> {
 	}
 
 	@Override
-	public void apply(Collection<ArenaCell> cells) {
-		for (ArenaCell cell : cells) {
+	public void apply(Collection<CellActor> cells) {
+		for (CellActor cell : cells) {
 			apply(cell);
 		}
 	}

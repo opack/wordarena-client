@@ -1,4 +1,4 @@
-package com.slamdunk.wordarena.data;
+package com.slamdunk.wordarena.data.arena.cell;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;

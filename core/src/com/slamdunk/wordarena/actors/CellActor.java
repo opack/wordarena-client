@@ -11,14 +11,14 @@ import com.slamdunk.toolkit.graphics.BatchUtils.TextAlignment;
 import com.slamdunk.toolkit.graphics.drawers.AnimationDrawer;
 import com.slamdunk.toolkit.graphics.drawers.TextureDrawer;
 import com.slamdunk.wordarena.assets.Assets;
-import com.slamdunk.wordarena.data.CellData;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.data.arena.cell.CellData;
+import com.slamdunk.wordarena.data.game.Player;
 
 /**
  * Une cellule de l'arène. Une cellule contient bien sûr une lettre
  * mais aussi 4 bords qui indique à quelle zone appartient la cellule.
  */
-public class ArenaCell extends Actor {
+public class CellActor extends Actor {
 	private final static int WIDTH = 48;
 	private final static int HEIGHT = 48;
 	
@@ -30,6 +30,11 @@ public class ArenaCell extends Actor {
 	 */
 	private final CellData data;
 	
+	/**
+	 * La zone à laquelle appartient cette cellule
+	 */
+	private ZoneActor zone;
+	
 	private AnimationDrawer ownerDrawer;
 	
 	private LabelStyle letterStyle;
@@ -40,12 +45,16 @@ public class ArenaCell extends Actor {
 	private boolean momentaryTimerActive;
 	private float momentaryTimer;
 	
-	public ArenaCell(final Skin skin) {
+	public CellActor(final Skin skin) {
+		this(skin, null);
+	}
+	
+	public CellActor(final Skin skin, CellData data) {
 		// Définit la taille de la cellule
 		setSize(WIDTH, HEIGHT);
 		
 		// Crée les composants de la cellule
-		data = new CellData();
+		this.data = data;
 		
 		// Drawer pour animer le fond en fonction de l'owner
 		ownerDrawer = new AnimationDrawer();
@@ -57,7 +66,11 @@ public class ArenaCell extends Actor {
 		cellTypeDrawer.setActive(true);
 		
 		// Style et rectangle utilisé pour le dessin de la lettre
-		letterStyle = Assets.uiSkin.get("power-" + data.power, LabelStyle.class);
+		if (data != null) {
+			letterStyle = Assets.uiSkin.get("power-" + data.power, LabelStyle.class);
+		} else {
+			letterStyle = Assets.uiSkin.get("power-0", LabelStyle.class);
+		}
 		bounds = new Rectangle(getX(), getY(), WIDTH, HEIGHT);
 	}
 	
@@ -71,10 +84,10 @@ public class ArenaCell extends Actor {
 
 	@Override
 	public boolean equals(Object other) {
-		if (other instanceof ArenaCell) {
+		if (other instanceof CellActor) {
 			// 2 cellules sont considérées identiques si elles sont
 			// au même endroit
-			ArenaCell cell2 = (ArenaCell)other;
+			CellActor cell2 = (CellActor)other;
 			return cell2.data.position.equals(data.position);
 		}
 		return false;
@@ -182,7 +195,7 @@ public class ArenaCell extends Actor {
 	public void select(boolean selected) {
 		data.selected = selected;
 		
-		data.zone.updateOwner();
+		zone.updateOwner();
 		
 		updateDisplay();
 	}
@@ -196,6 +209,15 @@ public class ArenaCell extends Actor {
 		updateDisplay();		
 	}
 	
+	public ZoneActor getZone() {
+		return zone;
+	}
+
+	public void setZone(ZoneActor zone) {
+		this.zone = zone;
+		data.zone = zone.getData().id;
+	}
+
 	@Override
 	public String toString() {
 		return data.position.toString();

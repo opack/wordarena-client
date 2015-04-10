@@ -1,13 +1,20 @@
 package com.slamdunk.wordarena.screens.arena;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import com.badlogic.gdx.utils.Array;
-import com.slamdunk.wordarena.actors.ArenaCell;
+import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.assets.Assets;
-import com.slamdunk.wordarena.data.ArenaData;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.data.arena.ArenaData;
+import com.slamdunk.wordarena.data.game.GameCache;
+import com.slamdunk.wordarena.data.game.GameChat;
+import com.slamdunk.wordarena.data.game.GameData;
+import com.slamdunk.wordarena.data.game.GameMove;
+import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.WordPlayed;
 import com.slamdunk.wordarena.enums.GameStates;
+import com.slamdunk.wordarena.enums.GameTypes;
+import com.slamdunk.wordarena.enums.Objectives;
 import com.slamdunk.wordarena.screens.arena.MatchCinematic.GameCinematicListener;
 import com.slamdunk.wordarena.screens.arena.WordValidator.WordValidationListener;
 import com.slamdunk.wordarena.screens.arena.celleffects.CellEffectsApplicationFinishedListener;
@@ -17,6 +24,8 @@ import com.slamdunk.wordarena.screens.arena.celleffects.CellEffectsManager;
  * Gère la partie
  */
 public class MatchManager implements GameCinematicListener, CellEffectsApplicationFinishedListener, WordValidationListener {
+	
+	private GameCache cache;
 	
 	private ArenaOverlay arena;
 	private ArenaUI ui;
@@ -55,6 +64,40 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	public ArenaData getArenaData() {
 		return arena.getData();
 	}
+	
+	public void init(ArenaScreen screen, GameCache cache) {
+		// Attache ce manager au Screen
+		arena = screen.getArena();
+		arena.setMatchManager(this);
+		ui = screen.getUI();
+		cellEffectsManager = arena.getCellEffectsManager();
+		cellEffectsManager.setListener(this);
+		
+		// Récupère le cache puis initialise l'environnement à partir de ses données
+		this.cache = cache;
+		GameData game = cache.getData();
+		
+		// Initialise le sélecteur et le validateur de mots
+		wordSelectionHandler.cancel();
+		wordValidator.init(game);
+		
+		// Charge l'arène
+		this.arenaPlanFile = "arenas/" + game.arena.name + ".json";
+		arena.loadArena(game.arena);
+		arena.showLetters(false);
+		cinematic.init(game);
+		
+		// Met à jour l'UI
+		ui.init(arena.getData(), cinematic.getPlayers(), cinematic.getNbWinningRoundsPerGame());
+		
+		// TODO Rejouer le dernier coup
+		// TODO Charger les chats
+		
+		selectingLetters = true;
+
+		// Démarre le jeu
+		changeState(GameStates.READY);
+	}
 
 	/**
 	 * Initialise le match. Cette méthode doit être appelée 1 fois lorsque le match est affiché.
@@ -62,7 +105,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	 * @param arenaPlanFile
 	 * @param playersList
 	 */
-	public void init(ArenaScreen screen, String arenaPlanFile, Array<Player> playersList) {
+	public void init(ArenaScreen screen, String arenaPlanFile, List<Player> playersList) {
 		arena = screen.getArena();
 		ui = screen.getUI();
 		
@@ -74,6 +117,24 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		
 		// Charge l'arène
 		loadArena();
+
+		// DBG Test cache
+		cache = new GameCache();
+		cache.loadOrCreate(3);
+		GameData game = cache.getData();
+		game.gameType = GameTypes.TRAINING;
+		game.objective = Objectives.CONQUEST;
+		game.curRound = cinematic.getCurrentRound();
+		game.curTurn = cinematic.getCurrentTurn();
+		game.curPlayer = cinematic.getCurrentPlayer().place;
+		game.firstPlayer = cinematic.getFirstPlayer();
+		game.players = playersList;
+		game.gameOver = cinematic.isGameOver();
+		game.arena = arena.getData();
+		game.wordsPlayed = new ArrayList<WordPlayed>();
+		game.lastMove = new GameMove();
+		game.chats = new ArrayList<GameChat>();
+		cache.save();
 		
 		// Démarre le jeu
 		changeState(GameStates.READY);
@@ -211,7 +272,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		wordSelectionHandler.cancel();
 		
 		// Affiche un message de confirmation
-		ui.setInfo(Assets.i18nBundle.format("ui.arena.redrewLetters", curPlayer.name));
+		ui.setInfo(Assets.i18nBundle.format("ui.arena.redrewLetters", curPlayer.id));
 		
 		// Le score du joueur est modifié
 		ScoreHelper.onRefreshStartingZone(curPlayer);
@@ -255,8 +316,8 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	 * @param cell
 	 * @return
 	 */
-	public boolean hasWall(ArenaCell cell1, ArenaCell cell2) {
-		return arena.getData().hasWall(cell1, cell2);
+	public boolean hasWall(CellActor cell1, CellActor cell2) {
+		return arena.getData().hasWall(cell1.getData(), cell2.getData());
 	}
 	
 	/**
@@ -322,7 +383,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	 * effets visuels et de gameplay ont été appliqués.
 	 */
 	@Override
-	public void onEffectApplicationFinished(Player player, List<ArenaCell> processedCells) {
+	public void onEffectApplicationFinished(Player player, List<CellActor> processedCells) {
 		selectingLetters = false;
 		
 		// Toutes les cellules passent sous la domination du joueur
@@ -338,6 +399,9 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		// Termine le tour de ce joueur
 		cinematic.endMove();
 		
+		// TODO Met à jour l'état de la partie dans le cache et auprès du serveur
+		cache.save();
+		
 		selectingLetters = true;
 	}
 	
@@ -345,16 +409,15 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	public void onWordValidated(String word) {
 		// TODO Arrête l'animation d'attente
 		
-		
 		Player player = cinematic.getCurrentPlayer();
-		List<ArenaCell> selectedCells = wordSelectionHandler.getSelectedCells();
+		List<CellActor> selectedCells = wordSelectionHandler.getSelectedCells();
 		
 		// Affiche le mot joué
-		ui.setInfo(Assets.i18nBundle.format("ui.arena.wordValidation.valid", player.name, word));
+		ui.setInfo(Assets.i18nBundle.format("ui.arena.wordValidation.valid", player.id, word));
 		ui.addPlayedWord(player, word);
 		
 		// Déclenche les effets sur les cellules
-		cellEffectsManager.applyEffects(selectedCells, player, arena.getData());
+		cellEffectsManager.applyEffects(selectedCells, player, arena);
 		
 		// Bloquer la saisie pour empêcher que le joueur ne joue de nouveau pendant les animations
 		arena.enableCellSelection(false);

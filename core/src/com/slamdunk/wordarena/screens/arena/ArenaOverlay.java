@@ -1,7 +1,9 @@
 package com.slamdunk.wordarena.screens.arena;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import com.badlogic.gdx.Gdx;
@@ -12,17 +14,20 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.slamdunk.toolkit.lang.KeyListMap;
 import com.slamdunk.toolkit.screen.overlays.WorldOverlay;
 import com.slamdunk.toolkit.ui.GroupEx;
 import com.slamdunk.wordarena.WordArenaGame;
-import com.slamdunk.wordarena.actors.ArenaCell;
-import com.slamdunk.wordarena.actors.ArenaWall;
-import com.slamdunk.wordarena.actors.ArenaZone;
+import com.slamdunk.wordarena.actors.CellActor;
+import com.slamdunk.wordarena.actors.CellSelectionListener;
+import com.slamdunk.wordarena.actors.WallBuilder;
+import com.slamdunk.wordarena.actors.ZoneActor;
 import com.slamdunk.wordarena.assets.Assets;
-import com.slamdunk.wordarena.data.ArenaBuilder;
-import com.slamdunk.wordarena.data.ArenaData;
-import com.slamdunk.wordarena.data.CellData;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.data.arena.ArenaBuilder;
+import com.slamdunk.wordarena.data.arena.ArenaData;
+import com.slamdunk.wordarena.data.arena.cell.CellData;
+import com.slamdunk.wordarena.data.arena.zone.ZoneData;
+import com.slamdunk.wordarena.data.game.Player;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.screens.arena.celleffects.CellEffectsManager;
 import com.slamdunk.wordarena.screens.editor.EditorScreen;
@@ -37,6 +42,10 @@ public class ArenaOverlay extends WorldOverlay {
 	private Group zonesGroup;
 	
 	private CellEffectsManager cellEffectsManager;
+	private MatchManager matchManager;
+	
+	private CellActor[][] cells;
+	private Map<String, ZoneActor> zones;
 	
 	public ArenaOverlay() {
 		createStage(new FitViewport(WordArenaGame.SCREEN_WIDTH, WordArenaGame.SCREEN_HEIGHT));
@@ -61,6 +70,8 @@ public class ArenaOverlay extends WorldOverlay {
 		
 		cellEffectsManager = new CellEffectsManager();
 		arenaGroup.addActor(cellEffectsManager);
+		
+		zones = new HashMap<String, ZoneActor>();
 	}
 	
 	public ArenaData getData() {
@@ -74,16 +85,20 @@ public class ArenaOverlay extends WorldOverlay {
 	public CellEffectsManager getCellEffectsManager() {
 		return cellEffectsManager;
 	}
+	
+	public void setMatchManager(MatchManager matchManager) {
+		this.matchManager = matchManager;
+	}
 
 	/**
 	 * Crée l'arène de jeu
 	 */
-	public void buildArena(String plan, MatchManager gameManager) {
+	public void buildArena(String plan, MatchManager matchManager) {
 		// Charge le plan
 		JsonValue json = new JsonReader().parse(Gdx.files.internal(plan));
 		
 		// Crée les données de l'arène à partir du plan
-		ArenaBuilder builder = new ArenaBuilder(gameManager);
+		ArenaBuilder builder = new ArenaBuilder(matchManager);
 		if (getScreen() instanceof EditorScreen) {
 			builder.setEditorScreen((EditorScreen)getScreen());
 		}
@@ -91,6 +106,11 @@ public class ArenaOverlay extends WorldOverlay {
 		data = builder.build();
 			
 		// Construit l'arène
+		resetArena();
+	}
+	
+	public void loadArena(ArenaData arenaData) {
+		this.data = arenaData;
 		resetArena();
 	}
 	
@@ -127,11 +147,24 @@ public class ArenaOverlay extends WorldOverlay {
 	 * Reconstruit les cellules à partir des données de l'ArenaData
 	 */
 	public void resetCells() {
+		final WordSelectionHandler wordSelectionHandler = matchManager.getWordSelectionHandler();
+		
 		cellsGroup.clear();
+		cells = new CellActor[data.width][data.height];
+		
 		for (int y = 0; y < data.height; y++) {
 			for (int x = 0; x < data.width; x++) {
+				// Construction de la cellule
+				CellActor cell = new CellActor(Assets.uiSkin, data.cells[x][y]);
+				cell.addListener(new CellSelectionListener(cell, wordSelectionHandler));
+			
+				// Placement de la cellule dans le monde et mise à jour du display
+				cell.setPosition(x * cell.getWidth(), y * cell.getHeight());
+				cell.updateDisplay();
+				
 				// Ajout de la cellule à l'arène
-				cellsGroup.addActor(data.cells[x][y]);
+				cells[x][y] = cell;
+				cellsGroup.addActor(cell);
 			}
 		}
 		
@@ -151,9 +184,12 @@ public class ArenaOverlay extends WorldOverlay {
 	public void resetWalls() {
 		wallsGroup.clear();
 		Actor wallActor;
-		for (ArenaCell cell1 : data.walls.getEntries1()) {
-			for (ArenaCell cell2 : data.walls.getEntries2(cell1)) {
-				wallActor = ArenaWall.buildWall(cell1, cell2);
+		for (CellData cellData1 : data.walls.getEntries1()) {
+			for (CellData cellData2 : data.walls.getEntries2(cellData1)) {
+				CellActor cell1 = cells[cellData1.position.getX()][cellData1.position.getY()];
+				CellActor cell2 = cells[cellData2.position.getX()][cellData2.position.getY()];
+				
+				wallActor = WallBuilder.buildWall(cell1, cell2);
 				if (wallActor != null) {
 					wallsGroup.addActor(wallActor);
 				}
@@ -166,15 +202,25 @@ public class ArenaOverlay extends WorldOverlay {
 	 * @param cell1
 	 * @param cell2
 	 */
-	public void addWall(ArenaCell cell1, ArenaCell cell2) {
+	public void addWall(CellActor cell1, CellActor cell2) {
 		// Mise à jour du modèle
-		data.addWall(cell1, cell2);
+		data.addWall(cell1.getData(), cell2.getData());
 		
 		// Mise à jour de la vue
-		Actor wallActor = ArenaWall.buildWall(cell1, cell2);
+		Actor wallActor = WallBuilder.buildWall(cell1, cell2);
 		if (wallActor != null) {
 			wallsGroup.addActor(wallActor);
 		}
+	}
+	
+	/**
+	 * Indique s'il y a un mur entre les 2 cellules spécifiées
+	 * @param cell1
+	 * @param cell2
+	 */
+	public boolean hasWall(CellActor cell1, CellActor cell2) {
+		// Mise à jour du modèle
+		return data.hasWall(cell1.getData(), cell2.getData());
 	}
 	
 	/**
@@ -182,9 +228,9 @@ public class ArenaOverlay extends WorldOverlay {
 	 * @param cell1
 	 * @param cell2
 	 */
-	public void removeWall(ArenaCell cell1, ArenaCell cell2) {
+	public void removeWall(CellActor cell1, CellActor cell2) {
 		// Mise à jour du modèle
-		data.removeWall(cell1, cell2);
+		data.removeWall(cell1.getData(), cell2.getData());
 		
 		// Mise à jour de la vue
 		resetWalls();
@@ -194,8 +240,47 @@ public class ArenaOverlay extends WorldOverlay {
 	 * Reconstruit les zones à partir des données de l'ArenaData
 	 */
 	public void resetZones() {
+		
+		// Organise les cellules par zones
+		KeyListMap<String, CellActor> cellsByZone = new KeyListMap<String, CellActor>();
+		for (int y = 0; y < data.height; y++) {
+			for (int x = 0; x < data.width; x++) {
+				// Regroupe les cellules par zone
+				// DBG Faut-il laisser les cellules sans zone dans la zone_none ou pas ?
+//				if (!ZONE_NONE.equals(zones[x][y])) {
+					cellsByZone.putValue(data.cells[x][y].zone, cells[x][y]);
+//				}
+			}
+		}
+		
 		zonesGroup.clear();
-		for (ArenaZone zone : data.zones) {
+		zones.clear();
+		
+		// Construit les zones
+		ZoneActor zone;
+		List<CellActor> cells;
+		for (ZoneData zoneData : data.zones) {
+			// Crée la zone. Si c'est la zone none, alors on l'a déjà
+			if (zoneData.id.equals(ZoneActor.NONE.getData().id)) {
+				ZoneActor.NONE.setData(zoneData);
+				zone = ZoneActor.NONE;
+			} else {
+				zone = new ZoneActor(matchManager, zoneData);
+			}
+			
+			// Affecte les cellules à la zone
+			cells = cellsByZone.get(zoneData.id);
+			if (cells != null) {
+				for (CellActor cell : cells) {
+					zone.addCell(cell);
+				}
+			}
+			
+			// Met à jour la zone et son owner
+			zone.update();
+			
+			// Ajoute la zone à l'overlay
+			zones.put(zoneData.id, zone);
 			zonesGroup.addActor(zone);
 		}
 	}
@@ -212,24 +297,29 @@ public class ArenaOverlay extends WorldOverlay {
 	 * @param cells
 	 * @param owner
 	 */
-	public void setCellsOwner(List<ArenaCell> cells, Player owner) {
+	public void setCellsOwner(List<CellActor> cells, Player owner) {
 		// Change le propriétaire des cellules et note les zones impactées
-		Set<ArenaZone> impactedZones = new HashSet<ArenaZone>();
-		ArenaZone zone;
-		for (ArenaCell cell : cells) {
-			cell.getData().owner = owner;
-			cell.getData().state = CellStates.OWNED;
+		Set<String> impactedZones = new HashSet<String>();
+		ZoneActor zone;
+		CellData cellData;
+		for (CellActor cell : cells) {
+			cellData = cell.getData();
+			cellData.owner = owner;
+			cellData.state = CellStates.OWNED;
 			// On ne fait pas d'updateDisplay() car le rafraîchissement de la zone le fera
 			
-			zone = cell.getData().zone;
+			zone = zones.get(cellData.zone);
 			if (zone != null) {
-				impactedZones.add(zone);
+				impactedZones.add(cellData.zone);
 			}
 		}
 		
 		// Change le propriétaire des zones
-		for (ArenaZone impactedZone : impactedZones) {
-			impactedZone.updateOwner();
+		for (String impactedZone : impactedZones) {
+			zone = zones.get(impactedZone);
+			if (zone != null) {
+				zone.updateOwner();
+			}
 		}
 	}
 
@@ -248,7 +338,7 @@ public class ArenaOverlay extends WorldOverlay {
 	public void showLetters(boolean show) {
 		for (int y = 0; y < data.height; y++) {
 			for (int x = 0; x < data.width; x++) {
-				data.cells[x][y].showLetter(show);
+				cells[x][y].showLetter(show);
 			}
 		}
 	}
@@ -259,11 +349,11 @@ public class ArenaOverlay extends WorldOverlay {
 	 */
 	public void refreshStartingZone(Player owner) {
 		// Recherche la zone de cet owner
-		for (ArenaZone zone : data.zones) {
+		for (ZoneActor zone : zones.values()) {
 			if (owner.equals(zone.getData().owner)) {
 				// Tire de nouvelles lettres pour les cellules de cette zone
 				CellData cellData;
-				for (ArenaCell cell : zone.getCells()) {
+				for (CellActor cell : zone.getCells()) {
 					cellData = cell.getData();
 					cellData.letter = ArenaBuilder.chooseLetter(cellData.type, cellData.planLetter, data.letterDeck);
 					cell.updateDisplay();
@@ -285,6 +375,71 @@ public class ArenaOverlay extends WorldOverlay {
 			arenaGroup.setTouchable(Touchable.childrenOnly);
 		} else {
 			arenaGroup.setTouchable(Touchable.disabled);
+		}
+	}
+
+	public CellActor getCell(CellData data) {
+		if (data == null || data.position == null) {
+			return null;
+		}
+		return getCell(data.position.getX(), data.position.getY());
+	}
+	
+	public CellActor getCell(int x, int y) {
+		if (!data.isValidPos(x, y)) {
+			return null;
+		}
+		return cells[x][y];
+	}
+
+	public ZoneActor getZone(String id) {
+		return zones.get(id);
+	}
+	
+	/**
+	 * Retourne une liste des 8 voisins de la cellule indiquée
+	 * @param cell
+	 * @param listToFill Liste qui contiendra les résultats
+	 * @return
+	 */
+	public void getNeighbors8(CellActor cell, List<CellActor> listToFill) {
+		final int x = cell.getData().position.getX();
+		final int y = cell.getData().position.getY();
+		
+		addCellIfValidPos(x - 1, y - 1, listToFill);
+		addCellIfValidPos(x + 0, y - 1, listToFill);
+		addCellIfValidPos(x + 1, y - 1, listToFill);
+		
+		addCellIfValidPos(x - 1, y + 0, listToFill);
+		addCellIfValidPos(x + 1, y + 0, listToFill);
+		
+		addCellIfValidPos(x - 1, y + 1, listToFill);
+		addCellIfValidPos(x + 0, y + 1, listToFill);
+		addCellIfValidPos(x + 1, y + 1, listToFill);
+	}
+	
+	/**
+	 * Retourne une liste des 4 voisins (haut, bas, gauche, droite) 
+	 * de la cellule indiquée
+	 * @param cell
+	 * @param listToFill Liste qui contiendra les résultats
+	 * @return
+	 */
+	public void getNeighbors4(CellActor cell, List<CellActor> listToFill) {
+		final int x = cell.getData().position.getX();
+		final int y = cell.getData().position.getY();
+		
+		addCellIfValidPos(x + 0, y - 1, listToFill);
+		
+		addCellIfValidPos(x - 1, y + 0, listToFill);
+		addCellIfValidPos(x + 1, y + 0, listToFill);
+		
+		addCellIfValidPos(x + 0, y + 1, listToFill);
+	}
+	
+	private void addCellIfValidPos(int x, int y, List<CellActor> listToFill) {
+		if (data.isValidPos(x, y)) {
+			listToFill.add(cells[x][y]);
 		}
 	}
 }

@@ -2,9 +2,9 @@ package com.slamdunk.wordarena.screens.editor.tools;
 
 import java.util.Collection;
 
-import com.slamdunk.wordarena.actors.ArenaCell;
-import com.slamdunk.wordarena.data.CellData;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.actors.CellActor;
+import com.slamdunk.wordarena.data.arena.cell.CellData;
+import com.slamdunk.wordarena.data.game.Player;
 import com.slamdunk.wordarena.enums.CellStates;
 
 public class OwnerTool extends EditorTool<Player> {
@@ -14,7 +14,7 @@ public class OwnerTool extends EditorTool<Player> {
 	}
 
 	@Override
-	public void apply(ArenaCell cell) {
+	public void apply(CellActor cell) {
 		CellData data = cell.getData();
 		if (!data.type.canBeOwned()) {
 			return;
@@ -23,12 +23,12 @@ public class OwnerTool extends EditorTool<Player> {
 		data.state = CellStates.OWNED;
 		
 		// Met à jour l'owner de la zone
-		data.zone.updateOwner();
+		cell.getZone().updateOwner();
 	}
 
 	@Override
-	public void apply(Collection<ArenaCell> cells) {
-		for (ArenaCell cell : cells) {
+	public void apply(Collection<CellActor> cells) {
+		for (CellActor cell : cells) {
 			apply(cell);
 		}
 	}

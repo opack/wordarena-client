@@ -1,12 +1,13 @@
 package com.slamdunk.wordarena.screens.arena;
 
-import com.badlogic.gdx.utils.Array;
+import java.util.List;
+
 import com.slamdunk.toolkit.lang.MaxValueFinder;
-import com.slamdunk.wordarena.actors.ArenaCell;
-import com.slamdunk.wordarena.actors.ArenaZone;
-import com.slamdunk.wordarena.data.ArenaData;
-import com.slamdunk.wordarena.data.CellData;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.data.arena.ArenaData;
+import com.slamdunk.wordarena.data.arena.cell.CellData;
+import com.slamdunk.wordarena.data.arena.zone.ZoneData;
+import com.slamdunk.wordarena.data.game.GameData;
+import com.slamdunk.wordarena.data.game.Player;
 
 /**
  * Gère la cinématique du jeu et détermine qui est le prochain joueur à jouer
@@ -40,7 +41,7 @@ public class MatchCinematic {
 	 */
 	private static final int MAX_NB_ROUNDS_PER_GAME = 3;
 	
-	private Array<Player> players;
+	private List<Player> players;
 	private ArenaData arenaData;
 	
 	private int firstPlayer;
@@ -52,6 +53,8 @@ public class MatchCinematic {
 	private int curRound;
 	private int nbWinningRoundsPerGame;
 	
+	private boolean gameOver;
+	
 	private GameCinematicListener listener;
 	
 	public MatchCinematic() {
@@ -59,6 +62,10 @@ public class MatchCinematic {
 		nbWinningRoundsPerGame = WINNING_ROUNDS_PER_GAME;
 	}
 	
+	public boolean isGameOver() {
+		return gameOver;
+	}
+
 	public void setArenaData(ArenaData arenaData) {
 		this.arenaData = arenaData;
 	}
@@ -68,11 +75,11 @@ public class MatchCinematic {
 	}
 
 
-	public Array<Player> getPlayers() {
+	public List<Player> getPlayers() {
 		return players;
 	}
 	
-	public void setPlayers(Array<Player> players) {
+	public void setPlayers(List<Player> players) {
 		this.players = players;
 	}
 
@@ -100,6 +107,10 @@ public class MatchCinematic {
 		}
 	}
 	
+	public int getFirstPlayer() {
+		return firstPlayer;
+	}
+
 	public Player getCurrentPlayer() {
 		return players.get(curPlayer);
 	}
@@ -127,13 +138,28 @@ public class MatchCinematic {
 		return curRound == MAX_NB_ROUNDS_PER_GAME - 1;
 	}
 
-	public void init(Array<Player> playersList) {
+	public void init(List<Player> playersList) {
 		this.players = playersList;
 		
 		firstPlayer = 0;
 		setCurrentPlayer(0);
 		curTurn = 0;
 		curRound = 0;
+		
+		gameOver = false;
+	}
+	
+	public void init(GameData gameData) {
+		this.players = gameData.players;
+		
+		firstPlayer = gameData.firstPlayer;
+		setCurrentPlayer(gameData.curPlayer);
+		curTurn = gameData.curTurn;
+		curRound = gameData.curRound;
+		
+		gameOver = gameData.gameOver;
+		
+		setArenaData(gameData.arena);
 	}
 	
 	/**
@@ -141,7 +167,7 @@ public class MatchCinematic {
 	 */
 	public void endMove() {
 		// Le joueur suivant est celui juste après
-		curPlayer = (curPlayer + 1) % players.size;
+		curPlayer = (curPlayer + 1) % players.size();
 		
 		// Si tout le monde a joué, on a fini un tour
 		if (curPlayer == firstPlayer) {
@@ -191,8 +217,8 @@ public class MatchCinematic {
 		maxValueFinder.setIgnoredValue(Player.NEUTRAL);
 		
 		// Recherche le joueur ayant le plus de zones
-		for (ArenaZone zone : arenaData.zones) {
-			maxValueFinder.addValue(zone.getData().owner);
+		for (ZoneData zone : arenaData.zones) {
+			maxValueFinder.addValue(zone.owner);
 		}
 		Player winner = maxValueFinder.getMaxValue();
 		
@@ -204,11 +230,10 @@ public class MatchCinematic {
 			// S'il y a égalité, le gagnant est celui occupant le plus de terrain,
 			// en tenant compte de la puissance de chaque cellule
 			maxValueFinder.reset();
-			ArenaCell[][] cells = arenaData.cells;
 			CellData cellData;
 			for (int y = 0; y < arenaData.height; y++) {
 				for (int x = 0; x < arenaData.width; x++) {
-					cellData = cells[x][y].getData();
+					cellData = arenaData.cells[x][y];
 					maxValueFinder.addValue(cellData.owner, cellData.power);
 				}
 			}
@@ -274,6 +299,7 @@ public class MatchCinematic {
 		if (listener != null) {
 			listener.onGameEnd(gameWinner);
 		}
+		gameOver = true;
 		return true;
 	}
 	
@@ -288,7 +314,7 @@ public class MatchCinematic {
 		
 		// Le joueur qui débute le nouveau round n'est pas le même que celui
 		// du round précédent.
-		firstPlayer = (firstPlayer + 1) % players.size;
+		firstPlayer = (firstPlayer + 1) % players.size();
 		setCurrentPlayer(firstPlayer);
 	}
 }

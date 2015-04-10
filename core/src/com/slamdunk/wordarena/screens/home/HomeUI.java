@@ -16,8 +16,8 @@ import com.slamdunk.wordarena.UserManager;
 import com.slamdunk.wordarena.Utils;
 import com.slamdunk.wordarena.WordArenaGame;
 import com.slamdunk.wordarena.assets.Assets;
-import com.slamdunk.wordarena.data.GameData;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.data.game.GameData;
+import com.slamdunk.wordarena.data.game.Player;
 import com.slamdunk.wordarena.enums.GameStatus;
 import com.slamdunk.wordarena.enums.GameTypes;
 import com.uwsoft.editor.renderer.SceneLoader;
@@ -148,53 +148,60 @@ public class HomeUI extends UIOverlay {
 		// DBG Triche en attendant le chargement de vraies parties
 		List<GameData> fetched = new ArrayList<GameData>();
 		Player p1 = new Player();
-		p1.uid = 1;
-		p1.name = "Alan";
+		p1.id = "Alan";
 		p1.markerPack = "blue";
 		
 		Player p2 = new Player();
-		p2.uid = 2;
-		p2.name = "Bob";
+		p2.id = "Bob";
 		p2.markerPack = "orange";
 		
 		Player p3 = new Player();
-		p3.uid = 3;
-		p3.name = "Charles";
+		p3.id = "Charles";
 		p3.markerPack = "green";
 		
 		Player p4 = new Player();
-		p4.uid = 4;
-		p4.name = "Dave";
+		p4.id = "Dave";
 		p4.markerPack = "purple";
 		
 		GameData game1 = new GameData();
 		game1.gameType = GameTypes.DUEL;
-		game1.players = new Player[]{p1, p2};
-		game1.currentPlayer = 1;
+		game1.players = new ArrayList<Player>();
+		game1.players.add(p1);
+		game1.players.add(p2);
+		game1.curPlayer = 1;
 		fetched.add(game1);
 		
 		GameData game2 = new GameData();
 		game2.gameType = GameTypes.DUEL;
-		game2.players = new Player[]{p1, p3};
-		game2.currentPlayer = 0;
+		game2.players = new ArrayList<Player>();
+		game2.players.add(p1);
+		game2.players.add(p3);
+		game2.curPlayer = 0;
 		fetched.add(game2);
 		
 		GameData game3 = new GameData();
 		game3.gameType = GameTypes.DUEL;
-		game3.players = new Player[]{p1, p4};
-		game3.currentPlayer = 0;
+		game3.players = new ArrayList<Player>();
+		game3.players.add(p1);
+		game3.players.add(p4);
+		game3.curPlayer = 0;
 		fetched.add(game3);
 		
 		GameData game4 = new GameData();
 		game4.gameType = GameTypes.TOURNAMENT;
-		game4.players = new Player[]{p1, p2, p3};
-		game4.currentPlayer = 0;
+		game4.players = new ArrayList<Player>();
+		game4.players.add(p1);
+		game4.players.add(p2);
+		game4.players.add(p3);
+		game4.curPlayer = 0;
 		fetched.add(game4);
 		
 		GameData game5 = new GameData();
 		game5.gameType = GameTypes.DUEL;
-		game5.players = new Player[]{p1, p2};
-		game5.currentPlayer = 0;
+		game5.players = new ArrayList<Player>();
+		game5.players.add(p1);
+		game5.players.add(p2);
+		game5.curPlayer = 0;
 		game5.gameOver = true;
 		fetched.add(game5);
 		
@@ -233,8 +240,8 @@ public class HomeUI extends UIOverlay {
 			if (gameData.gameOver) {
 				status = GameStatus.GAME_OVER;
 			} else {
-				currentPlayer = gameData.players[gameData.currentPlayer];
-				if (username.equals(currentPlayer.name)) {
+				currentPlayer = gameData.players.get(gameData.curPlayer);
+				if (username.equals(currentPlayer.id)) {
 					status = GameStatus.USER_TURN;
 				} else {
 					status = GameStatus.OPPONENT_TURN;
@@ -287,8 +294,8 @@ public class HomeUI extends UIOverlay {
 			if (opponents.length() != 0) {
 				opponents.append(", ");
 			}
-			if (!username.equals(opponent.name)) {
-				opponents.append(opponent.name);
+			if (!username.equals(opponent.id)) {
+				opponents.append(opponent.id);
 			}
 		}
 		gamesTable.add(new Label(opponents.toString(), Assets.uiSkin, labelStyle));

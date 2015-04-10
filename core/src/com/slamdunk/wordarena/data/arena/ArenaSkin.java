@@ -1,8 +1,9 @@
-package com.slamdunk.wordarena.data;
+package com.slamdunk.wordarena.data.arena;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.slamdunk.toolkit.lang.DoubleEntryArray;
+import com.slamdunk.wordarena.data.arena.cell.CellData;
 import com.slamdunk.wordarena.enums.CellTypes;
 
 /**

@@ -2,7 +2,7 @@ package com.slamdunk.wordarena.screens.editor.tools;
 
 import java.util.Collection;
 
-import com.slamdunk.wordarena.actors.ArenaCell;
+import com.slamdunk.wordarena.actors.CellActor;
 
 public abstract class EditorTool<ValueType> {
 	
@@ -26,11 +26,11 @@ public abstract class EditorTool<ValueType> {
 	 * Applique l'outil sur la cellule indiquée
 	 * @param cell
 	 */
-	public abstract void apply(ArenaCell cell);
+	public abstract void apply(CellActor cell);
 	
 	/**
 	 * Applique l'outil sur les cellules indiquées
 	 * @param cell
 	 */
-	public abstract void apply(Collection<ArenaCell> cells);
+	public abstract void apply(Collection<CellActor> cells);
 }

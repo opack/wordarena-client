@@ -2,8 +2,8 @@ package com.slamdunk.wordarena.screens.arena;
 
 import java.util.List;
 
-import com.slamdunk.wordarena.actors.ArenaCell;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.actors.CellActor;
+import com.slamdunk.wordarena.data.game.Player;
 
 /**
  * Classe utilitaire simplifiant le calcul des scores
@@ -28,10 +28,10 @@ public class ScoreHelper {
 	 * @param list
 	 * @return
 	 */
-	public static void onValidWord(Player player, List<ArenaCell> cells) {
+	public static void onValidWord(Player player, List<CellActor> cells) {
 		// Mot validé : 1pt * cell.power
 		int score = 0;
-		for (ArenaCell cell : cells) {
+		for (CellActor cell : cells) {
 			score += cell.getData().power;
 		}
 		

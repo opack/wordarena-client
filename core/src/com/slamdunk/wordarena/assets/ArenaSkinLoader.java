@@ -1,7 +1,7 @@
 package com.slamdunk.wordarena.assets;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.slamdunk.wordarena.data.ArenaSkin;
+import com.slamdunk.wordarena.data.arena.ArenaSkin;
 import com.slamdunk.wordarena.enums.CellTypes;
 
 /**

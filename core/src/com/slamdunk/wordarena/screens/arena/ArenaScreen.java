@@ -1,14 +1,15 @@
 package com.slamdunk.wordarena.screens.arena;
 
+import java.util.List;
+
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.input.GestureDetector;
-import com.badlogic.gdx.utils.Array;
 import com.slamdunk.toolkit.screen.SlamGame;
 import com.slamdunk.toolkit.screen.SlamScreen;
 import com.slamdunk.wordarena.actors.ZoomGestureHandler;
 import com.slamdunk.wordarena.actors.ZoomInputProcessor;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.data.game.Player;
 
 public class ArenaScreen extends SlamScreen {
 	public static final String NAME = "ARENA";
@@ -53,7 +54,7 @@ public class ArenaScreen extends SlamScreen {
 		return ui;
 	}
 
-	public void prepareGame(String arenaPlanFile, Array<Player> players) {
+	public void prepareGame(String arenaPlanFile, List<Player> players) {
 		matchManager.init(this, arenaPlanFile, players);
 	}
 	

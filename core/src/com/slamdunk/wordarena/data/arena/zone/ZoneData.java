@@ -1,4 +1,6 @@
-package com.slamdunk.wordarena.data;
+package com.slamdunk.wordarena.data.arena.zone;
+
+import com.slamdunk.wordarena.data.game.Player;
 
 /**
  * Contient les données logiques d'une zone

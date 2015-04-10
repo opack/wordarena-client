@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.badlogic.gdx.utils.JsonValue;
+import com.slamdunk.wordarena.data.game.GameData;
+import com.slamdunk.wordarena.data.game.WordPlayed;
 import com.slamdunk.wordarena.server.ServerCallback;
 import com.slamdunk.wordarena.server.CallServerException;
 import com.slamdunk.wordarena.server.lexis.LexisService;
@@ -95,6 +97,13 @@ public class WordValidator {
 					listener.onWordValidationFailed(word);
 				}
 			});
+		}
+	}
+
+	public void init(GameData game) {
+		alreadyPlayed.clear();
+		for (WordPlayed word : game.wordsPlayed) {
+			alreadyPlayed.add(word.wordId);
 		}
 	}
 }

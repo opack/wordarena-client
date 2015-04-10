@@ -5,11 +5,11 @@ import java.util.List;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.slamdunk.toolkit.graphics.drawers.AnimationDrawer;
-import com.slamdunk.wordarena.actors.ArenaCell;
+import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.assets.Assets;
-import com.slamdunk.wordarena.data.ArenaData;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.data.game.Player;
 import com.slamdunk.wordarena.enums.CellTypes;
+import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
 
 public class BreakNeighborGlassEffect extends DefaultCellEffect {
 	/**
@@ -17,42 +17,42 @@ public class BreakNeighborGlassEffect extends DefaultCellEffect {
 	 * à applyEffect. Permet d'éviter l'instanciation d'une
 	 * nouvelle liste à chaque fois.
 	 */
-	private List<ArenaCell> tmpNeighbors;
+	private List<CellActor> tmpNeighbors;
 	
 	/**
 	 * Cellules dont le verre sera brisé, donc où il faudra
 	 * jouer une animation de verre brisé
 	 */
-	private List<ArenaCell> brokenCells;
+	private List<CellActor> brokenCells;
 	
 	private AnimationDrawer drawer;
 	
 	public BreakNeighborGlassEffect() {
-		tmpNeighbors = new ArrayList<ArenaCell>(4);
-		brokenCells = new ArrayList<ArenaCell>();
+		tmpNeighbors = new ArrayList<CellActor>(4);
+		brokenCells = new ArrayList<CellActor>();
 		drawer = new AnimationDrawer();
 	}
 	
 	@Override
-	protected boolean isCellTargetable(ArenaCell cell) {
+	protected boolean isCellTargetable(CellActor cell) {
 		// Toute cellule sélectionnée peut avoir dans son entourage
 		// une cellule en verre à briser
 		return true;
 	}
 	
 	@Override
-	public boolean init(List<ArenaCell> cells, Player player, ArenaData arena) {
+	public boolean init(List<CellActor> cells, Player player, ArenaOverlay arena) {
 		super.init(cells, player, arena);
 
 		brokenCells.clear();
 		
-		for (ArenaCell cell : getTargetCells()) {
+		for (CellActor cell : getTargetCells()) {
 			// Récupère les voisins
 			tmpNeighbors.clear();
 			getArena().getNeighbors4(cell, tmpNeighbors);
 			
 			// Parcours chaque voisin pour voir s'il est en verre
-			for (ArenaCell neighbor : tmpNeighbors) {
+			for (CellActor neighbor : tmpNeighbors) {
 				if (neighbor.getData().type != CellTypes.G) {
 					continue;
 				}
@@ -93,7 +93,7 @@ public class BreakNeighborGlassEffect extends DefaultCellEffect {
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		// Dessine l'animation sur chaque cellule cassée
-		for (ArenaCell brokenCell : brokenCells) {
+		for (CellActor brokenCell : brokenCells) {
 			drawer.draw(brokenCell, batch);
 		}
 	}
@@ -103,7 +103,7 @@ public class BreakNeighborGlassEffect extends DefaultCellEffect {
 	 */
 	private void updateArena() {
 		// Chaque cellule cassée devient une cellule normale
-		for (ArenaCell brokenCell : brokenCells) {
+		for (CellActor brokenCell : brokenCells) {
 			// La cellule touchée change de type et devient une cellule normale
 			brokenCell.getData().type = CellTypes.L;
 			

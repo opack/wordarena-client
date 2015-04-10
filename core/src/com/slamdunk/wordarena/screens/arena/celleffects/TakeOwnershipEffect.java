@@ -4,12 +4,12 @@ import java.util.List;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.slamdunk.toolkit.graphics.drawers.AnimationDrawer;
-import com.slamdunk.wordarena.actors.ArenaCell;
+import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.assets.Assets;
-import com.slamdunk.wordarena.data.ArenaData;
-import com.slamdunk.wordarena.data.MarkerPack;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.data.arena.cell.MarkerPack;
+import com.slamdunk.wordarena.data.game.Player;
 import com.slamdunk.wordarena.enums.CellStates;
+import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
 
 public class TakeOwnershipEffect extends DefaultCellEffect {
 	private AnimationDrawer drawer;
@@ -19,7 +19,7 @@ public class TakeOwnershipEffect extends DefaultCellEffect {
 	}
 
 	@Override
-	protected boolean isCellTargetable(ArenaCell cell) {
+	protected boolean isCellTargetable(CellActor cell) {
 		// Seules les cellules qui peuvent être possédées sont targetables
 		return cell.getData().type.canBeOwned()
 		// Seules les cellules qui sont actuellement libres, ou possédées
@@ -28,7 +28,7 @@ public class TakeOwnershipEffect extends DefaultCellEffect {
 	}
 	
 	@Override
-	public boolean init(List<ArenaCell> cells, Player player, ArenaData arena) {
+	public boolean init(List<CellActor> cells, Player player, ArenaOverlay arena) {
 		super.init(cells, player, arena);
 		
 		// S'il n'y a pas de cellules à conquérir, il n'y a rien à faire
@@ -65,7 +65,7 @@ public class TakeOwnershipEffect extends DefaultCellEffect {
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		for (ArenaCell cell : getTargetCells()) {
+		for (CellActor cell : getTargetCells()) {
 			drawer.draw(cell, batch);
 		}
 	}
@@ -74,7 +74,7 @@ public class TakeOwnershipEffect extends DefaultCellEffect {
 	 * Met à jour l'arène à la fin de la prise de contrôle
 	 */
 	private void updateArena() {
-		for (ArenaCell cell : getTargetCells()) {
+		for (CellActor cell : getTargetCells()) {
 			cell.getData().owner = getPlayer();
 			cell.getData().state = CellStates.OWNED;
 			

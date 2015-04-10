@@ -1,9 +1,9 @@
 package com.slamdunk.wordarena.enums;
 
 /**
- * Types d'arène
+ * Objectifs
  */
-public enum ArenaTypes {
+public enum Objectives {
 	/**
 	 * Conquête : mode basique. Le gagnant est celui
 	 * qui contrôle le plus de zones.

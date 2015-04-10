@@ -2,13 +2,13 @@ package com.slamdunk.wordarena.actors;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.slamdunk.wordarena.data.EdgeData;
-import com.slamdunk.wordarena.data.MarkerPack;
+import com.slamdunk.wordarena.data.arena.cell.MarkerPack;
+import com.slamdunk.wordarena.data.arena.zone.EdgeData;
 
-public class ZoneEdge extends Image {
+public class EdgeActor extends Image {
 	private EdgeData data;
 
-	public ZoneEdge() {
+	public EdgeActor() {
 		this.data = new EdgeData();
 	}
 	
@@ -37,7 +37,7 @@ public class ZoneEdge extends Image {
 			setSize(drawable.getMinWidth(), drawable.getMinHeight());
 			
 			// Aligne la bordure par rapport à la cellule
-			ActorHelper.alignInside(data.borderOrCorner, data.anchorPos, ArenaZone.BORDER_POS_OFFSET, this);
+			ActorHelper.alignInside(data.borderOrCorner, data.anchorPos, ZoneActor.BORDER_POS_OFFSET, this);
 		}
 	}
 }

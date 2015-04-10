@@ -1,7 +1,8 @@
-package com.slamdunk.wordarena.data;
+package com.slamdunk.wordarena.data.arena.cell;
 
 import com.slamdunk.toolkit.world.point.Point;
-import com.slamdunk.wordarena.actors.ArenaZone;
+import com.slamdunk.wordarena.actors.ZoneActor;
+import com.slamdunk.wordarena.data.game.Player;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.enums.Letters;
@@ -54,7 +55,7 @@ public class CellData {
 	/**
 	 * Indique dans quelle zone se trouve cette cellule
 	 */
-	public ArenaZone zone;
+	public String zone;
 	
 	public CellData() {
 		letter = Letters.A;
@@ -63,6 +64,6 @@ public class CellData {
 		position = new Point(0, 0);
 		owner = Player.NEUTRAL;
 		power = 1;
-		zone = ArenaZone.NONE;
+		zone = ZoneActor.NONE.getData().id;
 	}
 }

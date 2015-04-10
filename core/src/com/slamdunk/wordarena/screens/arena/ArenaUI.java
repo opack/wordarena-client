@@ -12,18 +12,18 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.SnapshotArray;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.slamdunk.toolkit.screen.overlays.UIOverlay;
 import com.slamdunk.toolkit.ui.GroupEx;
 import com.slamdunk.toolkit.ui.Overlap2DUtils;
 import com.slamdunk.wordarena.WordArenaGame;
-import com.slamdunk.wordarena.actors.ArenaZone;
+import com.slamdunk.wordarena.actors.ZoneActor;
 import com.slamdunk.wordarena.assets.Assets;
-import com.slamdunk.wordarena.data.ArenaData;
-import com.slamdunk.wordarena.data.MarkerPack;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.data.arena.ArenaData;
+import com.slamdunk.wordarena.data.arena.cell.MarkerPack;
+import com.slamdunk.wordarena.data.arena.zone.ZoneData;
+import com.slamdunk.wordarena.data.game.Player;
 import com.slamdunk.wordarena.enums.GameStates;
 import com.slamdunk.wordarena.screens.arena.stats.StatsTable;
 import com.slamdunk.wordarena.screens.home.HomeScreen;
@@ -33,7 +33,7 @@ import com.uwsoft.editor.renderer.actor.CompositeItem;
 public class ArenaUI extends UIOverlay {
 	private SceneLoader sceneLoader;
 	
-	private MatchManager gameManager;
+	private MatchManager matchManager;
 	
 	private CompositeItem validateWord;
 	private CompositeItem cancelWord;
@@ -50,8 +50,8 @@ public class ArenaUI extends UIOverlay {
 	 */
 	private Map<String, Integer> tmpZonesByPlayer;
 	
-	public ArenaUI(MatchManager gameManager) {
-		this.gameManager = gameManager;
+	public ArenaUI(MatchManager matchManager) {
+		this.matchManager = matchManager;
 		
 		// Par défaut, on travaillera dans un Stage qui prend tout l'écran
 		createStage(new FitViewport(WordArenaGame.SCREEN_WIDTH, WordArenaGame.SCREEN_HEIGHT));
@@ -68,7 +68,7 @@ public class ArenaUI extends UIOverlay {
 	 * d'éviter de recréer toute l'UI à chaque switch de partie.
 	 * @param arenaData 
 	 */
-	public void init(ArenaData arenaData, Array<Player> players, int nbRoundsToWin) {
+	public void init(ArenaData arenaData, List<Player> players, int nbRoundsToWin) {
 		// Crée et remplit les marqueurs de possession de zone
 		initZoneMarkers(arenaData.zones);
 		updateZoneMarkers(players, arenaData.zones);
@@ -89,7 +89,7 @@ public class ArenaUI extends UIOverlay {
 	 * de zones
 	 * @param zones 
 	 */
-	private void initZoneMarkers(List<ArenaZone> zones) {
+	private void initZoneMarkers(List<ZoneData> zones) {
 		// Prépare le marker par défaut
 		MarkerPack neutralPack = Assets.markerPacks.get(Assets.MARKER_PACK_NEUTRAL);
 		TextureRegionDrawable neutralPossessionMarker = neutralPack.possessionMarker;
@@ -99,9 +99,9 @@ public class ArenaUI extends UIOverlay {
 		pauseZoneMarkers.clear();
 		
 		int totalWidth = 0;
-		for (ArenaZone zone : zones) {
+		for (ZoneData zoneData : zones) {
 			// La zone NONE n'est pas représentée car elle ne peut pas être possédée
-			if (zone == ArenaZone.NONE) {
+			if (zoneData.id.equals(ZoneActor.NONE.getData().id)) {
 				continue;
 			}
 			
@@ -147,7 +147,7 @@ public class ArenaUI extends UIOverlay {
 		Overlap2DUtils.createSimpleButtonScript(sceneLoader, "btnStart", new ClickListener() {
 			public void clicked(InputEvent event, float x, float y) {
 //				Assets.playSound(Assets.clickSound);
-				gameManager.changeState(GameStates.RUNNING);
+				matchManager.changeState(GameStates.RUNNING);
 			}
 		});
 	}
@@ -158,26 +158,26 @@ public class ArenaUI extends UIOverlay {
 	private void initRunningLayer() {
 		validateWord = Overlap2DUtils.createSimpleButtonScript(sceneLoader, "btnValidateWord", new ClickListener() {
 			public void clicked(InputEvent event, float x, float y) {
-				gameManager.validateWord();
+				matchManager.validateWord();
 			}
 		}).getItem();
 		
 		cancelWord = Overlap2DUtils.createSimpleButtonScript(sceneLoader, "btnCancelWord", new ClickListener() {
 			public void clicked(InputEvent event, float x, float y) {
-				gameManager.cancelWord();
+				matchManager.cancelWord();
 			}
 		}).getItem();
 		
 		Overlap2DUtils.createSimpleButtonScript(sceneLoader, "btnRefreshZone", new ClickListener() {
 			public void clicked(InputEvent event, float x, float y) {
-				gameManager.refreshStartingZone();
+				matchManager.refreshStartingZone();
 			}
 		});
 		
 		Overlap2DUtils.createSimpleButtonScript(sceneLoader, "btnPause", new ClickListener() {
 			public void clicked(InputEvent event, float x, float y) {
 //				Assets.playSound(Assets.clickSound);
-				gameManager.changeState(GameStates.PAUSED);
+				matchManager.changeState(GameStates.PAUSED);
 			}
 		});
 		
@@ -193,7 +193,7 @@ public class ArenaUI extends UIOverlay {
 		Overlap2DUtils.createSimpleButtonScript(sceneLoader, "btnResume", new ClickListener() {
 			public void clicked(InputEvent event, float x, float y) {
 //				Assets.playSound(Assets.clickSound);
-				gameManager.changeState(GameStates.RUNNING);
+				matchManager.changeState(GameStates.RUNNING);
 			}
 		});
 		
@@ -216,7 +216,7 @@ public class ArenaUI extends UIOverlay {
 		Overlap2DUtils.createSimpleButtonScript(sceneLoader, "btnNextRound", new ClickListener() {
 			public void clicked(InputEvent event, float x, float y) {
 //				Assets.playSound(Assets.clickSound);
-				gameManager.nextRound();
+				matchManager.nextRound();
 			}
 		});
 	}
@@ -259,7 +259,7 @@ public class ArenaUI extends UIOverlay {
 	}
 	
 	public void setCurrentPlayer(Player player, int turn, int maxTurns, int round) {
-		currentPlayer.setText(Assets.i18nBundle.format("ui.arena.currentTurn", player.name, round, turn, maxTurns));
+		currentPlayer.setText(Assets.i18nBundle.format("ui.arena.currentTurn", player.id, round, turn, maxTurns));
 		currentPlayer.setStyle(Assets.markerPacks.get(player.markerPack).labelStyle);
 	}
 	
@@ -282,7 +282,7 @@ public class ArenaUI extends UIOverlay {
 			sceneLoader.sceneActor.getLabelById("lblRoundWinner").setText(Assets.i18nBundle.format("ui.arena.roundWinnerTie"));
 		} else {
 			// Victoire d'un joueur
-			sceneLoader.sceneActor.getLabelById("lblRoundWinner").setText(Assets.i18nBundle.format("ui.arena.roundWinner", winner.name));
+			sceneLoader.sceneActor.getLabelById("lblRoundWinner").setText(Assets.i18nBundle.format("ui.arena.roundWinner", winner.id));
 		}
 	}
 	
@@ -292,7 +292,7 @@ public class ArenaUI extends UIOverlay {
 			sceneLoader.sceneActor.getLabelById("lblGameWinner").setText(Assets.i18nBundle.format("ui.arena.gameWinnerTie"));
 		} else {
 			// Victoire d'un joueur
-			sceneLoader.sceneActor.getLabelById("lblGameWinner").setText(Assets.i18nBundle.format("ui.arena.gameWinner", winner.name));
+			sceneLoader.sceneActor.getLabelById("lblGameWinner").setText(Assets.i18nBundle.format("ui.arena.gameWinner", winner.id));
 		}
 	}
 	
@@ -306,7 +306,7 @@ public class ArenaUI extends UIOverlay {
 	}
 
 	public void updateStats() {
-		statsTable.update(gameManager.getCinematic().getPlayers());
+		statsTable.update(matchManager.getCinematic().getPlayers());
 		statsTable.setPosition(WordArenaGame.SCREEN_WIDTH / 2, WordArenaGame.SCREEN_HEIGHT - 10, Align.top);
 	}
 	
@@ -315,16 +315,16 @@ public class ArenaUI extends UIOverlay {
 	 * zones possédées par chaque joueur.
 	 * @param array 
 	 */
-	public void updateZoneMarkers(Array<Player> players, List<ArenaZone> zones) {
+	public void updateZoneMarkers(List<Player> players, List<ZoneData> zones) {
 		// Compte le nombre de zones possédées par chaque joueur
 		tmpZonesByPlayer.clear();
 		String playerPack;
-		for (ArenaZone zone : zones) {
-			if (zone == ArenaZone.NONE) {
+		for (ZoneData zoneData : zones) {
+			if (zoneData.id.equals(ZoneActor.NONE.getData().id)) {
 				continue;
 			}
 			
-			playerPack = zone.getData().owner.markerPack;
+			playerPack = zoneData.owner.markerPack;
 			
 			Integer nbZones = tmpZonesByPlayer.get(playerPack);
 			if (nbZones == null) {

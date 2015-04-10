@@ -3,49 +3,49 @@ package com.slamdunk.wordarena.screens.arena;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.slamdunk.wordarena.actors.ArenaCell;
-import com.slamdunk.wordarena.actors.ArenaZone;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.actors.CellActor;
+import com.slamdunk.wordarena.data.arena.zone.ZoneData;
+import com.slamdunk.wordarena.data.game.Player;
 
 /**
  * Gère le mot actuellement sélectionné et détermine si une cellule
  * peut être ajoutée au mot.
  */
 public class WordSelectionHandler {
-	private MatchManager gameManager;
-	private List<ArenaCell> selectedCells;
+	private MatchManager matchManager;
+	private List<CellActor> selectedCells;
 	
-	public WordSelectionHandler(MatchManager gameManager) {
-		this.gameManager = gameManager;
-		selectedCells = new ArrayList<ArenaCell>();
+	public WordSelectionHandler(MatchManager matchManager) {
+		this.matchManager = matchManager;
+		selectedCells = new ArrayList<CellActor>();
 	}
 
 	/**
 	 * Ajoute la cellule indiquée au mot si elle peut l'être
 	 * @return true si la cellule a pu être ajoutée au mot
 	 */
-	public boolean selectCell(ArenaCell cell) {
+	public boolean selectCell(CellActor cell) {
 		// Vérifie que la cellule n'est pas déjà sélectionnée
 		if (cell.getData().selected
 		|| selectedCells.contains(cell)) {
 			// La cellule est déjà sélectionnée : on souhaite donc
 			// la désélectionner, ainsi que les suivantes
 			unselectCellsFrom(cell);
-			gameManager.setCurrentWord(getCurrentWord());
+			matchManager.setCurrentWord(getCurrentWord());
 			return false;
 		}
 		
 		// Vérifie que la cellule peut être sélectionnée après la précédente
 		if (!selectedCells.isEmpty()) {
 			// Vérifie que la cellule est bien voisine de la dernière sélectionnée
-			ArenaCell last = selectedCells.get(selectedCells.size() - 1);
+			CellActor last = selectedCells.get(selectedCells.size() - 1);
 			double distance = last.getData().position.distance(cell.getData().position);
 			if (distance >= 2) {
 				return false;
 			}
 			
 			// Vérifie qu'il n'y a pas de mur entre les 2
-			if (gameManager.hasWall(last, cell)) {
+			if (matchManager.hasWall(last, cell)) {
 				return false;
 			}
 		}
@@ -53,11 +53,12 @@ public class WordSelectionHandler {
 		// une zone contrôlée par le joueur ou qu'elle est elle-même
 		// contrôlée par le joueur
 		else {
-			ArenaZone zone = cell.getData().zone;
-			Player player = gameManager.getCinematic().getCurrentPlayer();
+			ZoneData zoneData = matchManager.getArenaData().getZoneData(cell.getData().zone);
+			Player player = matchManager.getCinematic().getCurrentPlayer();
 			Player cellOwner = cell.getData().owner;
+			
 			// La cellule est-elle dans une zone du joueur ?
-			boolean isInPlayerZone = (zone != null && player.equals(zone.getData().owner));
+			boolean isInPlayerZone = (zoneData != null && player.equals(zoneData.owner));
 
 			// Si la cellule n'appartient pas au joueur...
 			if (!player.equals(cellOwner)
@@ -71,18 +72,18 @@ public class WordSelectionHandler {
 		// Tout est bon, on sélectionne la cellule puis on l'ajoute au mot
 		cell.select(true);
 		selectedCells.add(cell);
-		gameManager.setCurrentWord(getCurrentWord());
+		matchManager.setCurrentWord(getCurrentWord());
 		return true;
 	}
 	
-	private void unselectCellsFrom(ArenaCell cell) {
+	private void unselectCellsFrom(CellActor cell) {
 		int index = selectedCells.indexOf(cell);
 		if (index == -1) {
 			return;
 		}
 		
 		final int lastCellIndex = selectedCells.size() - 1;
-		ArenaCell removed;
+		CellActor removed;
 		for (int curSelected = lastCellIndex; curSelected >= index; curSelected--) {
 			removed = selectedCells.remove(curSelected);
 			removed.select(false);
@@ -94,14 +95,14 @@ public class WordSelectionHandler {
 	 * les lettres
 	 */
 	public void cancel() {
-		for (ArenaCell cell : selectedCells) {
+		for (CellActor cell : selectedCells) {
 			cell.select(false);
 		}
 		selectedCells.clear();
-		gameManager.setCurrentWord("");
+		matchManager.setCurrentWord("");
 	}
 
-	public List<ArenaCell> getSelectedCells() {
+	public List<CellActor> getSelectedCells() {
 		return selectedCells;
 	}
 
@@ -111,7 +112,7 @@ public class WordSelectionHandler {
 	 */
 	public String getCurrentWord() {
 		StringBuilder word = new StringBuilder();
-		for (ArenaCell cell : selectedCells) {
+		for (CellActor cell : selectedCells) {
 			word.append(cell.getData().letter.label);
 		}
 		return word.toString();

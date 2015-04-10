@@ -1,4 +1,4 @@
-package com.slamdunk.wordarena.data;
+package com.slamdunk.wordarena.data.arena.zone;
 
 import com.badlogic.gdx.math.Vector2;
 import com.slamdunk.wordarena.enums.BordersAndCorners;

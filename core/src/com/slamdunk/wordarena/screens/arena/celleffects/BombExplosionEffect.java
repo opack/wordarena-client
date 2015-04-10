@@ -7,42 +7,42 @@ import java.util.Set;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.slamdunk.toolkit.graphics.drawers.AnimationDrawer;
-import com.slamdunk.wordarena.actors.ArenaCell;
-import com.slamdunk.wordarena.actors.ArenaZone;
+import com.slamdunk.wordarena.actors.CellActor;
+import com.slamdunk.wordarena.actors.ZoneActor;
 import com.slamdunk.wordarena.assets.Assets;
-import com.slamdunk.wordarena.data.ArenaData;
-import com.slamdunk.wordarena.data.CellData;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.data.arena.cell.CellData;
+import com.slamdunk.wordarena.data.game.Player;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.enums.CellTypes;
+import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
 
 public class BombExplosionEffect extends DefaultCellEffect {
 	
 	/**
 	 * Liste de cellules sur lesquelles dessiner l'animation d'explosion
 	 */
-	private Set<ArenaCell> explodedNeighbors;
+	private Set<CellActor> explodedNeighbors;
 	
 	/**
 	 * Liste des bombes qui explosent suite à une réaction en chaine
 	 */
-	private Set<ArenaCell> chainReaction;
+	private Set<CellActor> chainReaction;
 	
 	private AnimationDrawer drawer;
 	
 	public BombExplosionEffect() {
-		explodedNeighbors = new HashSet<ArenaCell>();
-		chainReaction = new HashSet<ArenaCell>();
+		explodedNeighbors = new HashSet<CellActor>();
+		chainReaction = new HashSet<CellActor>();
 		drawer = new AnimationDrawer();
 	}
 	
 	@Override
-	protected boolean isCellTargetable(ArenaCell cell) {
+	protected boolean isCellTargetable(CellActor cell) {
 		return cell.getData().type == CellTypes.B;
 	}
 	
 	@Override
-	public boolean init(List<ArenaCell> cells, Player player, ArenaData arena) {
+	public boolean init(List<CellActor> cells, Player player, ArenaOverlay arena) {
 		super.init(cells, player, arena);
 		
 		// S'il n'y a pas de bombe, il n'y a rien à faire
@@ -53,7 +53,7 @@ public class BombExplosionEffect extends DefaultCellEffect {
 		explodedNeighbors.clear();
 		chainReaction.clear();
 		// Fait exploser les voisins directs et recherche d'éventuelles explosion en chaine
-		for (ArenaCell bomb : getTargetCells()) {
+		for (CellActor bomb : getTargetCells()) {
 			explode(bomb, player);
 		}
 		
@@ -73,43 +73,43 @@ public class BombExplosionEffect extends DefaultCellEffect {
 	 * @param trackChainReaction Si true, les bombes voisines sont stockées dans une
 	 * liste pour pouvoir les faire exploser par la suite.
 	 */
-	private void explode(ArenaCell bomb, Player player) {
+	private void explode(CellActor bomb, Player player) {
 		// Récupère les voisins
-		List<ArenaCell> tmpNeighbors = new ArrayList<ArenaCell>(4);
+		List<CellActor> tmpNeighbors = new ArrayList<CellActor>(4);
 		getArena().getNeighbors4(bomb, tmpNeighbors);
 		
 		CellData neighborData;
 		boolean isBomb;
 		boolean isEnnemy;
-		for (ArenaCell neighbor : tmpNeighbors) {
+		for (CellActor neighborCell : tmpNeighbors) {
 			// Si cette cellule est déjà prévue pour exploser, on n'a rien à faire de plus
 			// (évite la récurrence infinie pour des bombes en cercle)
-			if (explodedNeighbors.contains(neighbor)) {
+			if (explodedNeighbors.contains(neighborCell)) {
 				continue;
 			}
 			
 			// Teste si cette cellule est une bombe
-			isBomb = isCellTargetable(neighbor);
+			isBomb = isCellTargetable(neighborCell);
 			
 			// Le voisin explose s'il appartient à un joueur adverse
 			// ou qu'il a explosé parce que c'était une bombe
-			neighborData = neighbor.getData();
+			neighborData = neighborCell.getData();
 			isEnnemy = !neighborData.owner.equals(player)
 					&& !neighborData.owner.equals(Player.NEUTRAL)
 					&& neighborData.state == CellStates.OWNED;
 			
 			// Ce voisin explose s'il est une bombe ou une cellule ennemie
 			if (isBomb || isEnnemy) {
-				explodedNeighbors.add(neighbor);
+				explodedNeighbors.add(neighborCell);
 			}
 			
 			// Si c'est une bombe, on la fait exploser
 			if (isBomb) {
 				// Ajoute la bombe à la réaction en chaine
-				chainReaction.add(neighbor);
+				chainReaction.add(neighborCell);
 				
 				// Déclenche l'explosion des cellules voisines
-				explode(neighbor, player);
+				explode(neighborCell, player);
 			}
 		}
 	}
@@ -131,10 +131,10 @@ public class BombExplosionEffect extends DefaultCellEffect {
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		for (ArenaCell cell : getTargetCells()) {
+		for (CellActor cell : getTargetCells()) {
 			drawer.draw(cell, batch);
 		}
-		for (ArenaCell cell : explodedNeighbors) {
+		for (CellActor cell : explodedNeighbors) {
 			drawer.draw(cell, batch);
 		}
 	}
@@ -143,18 +143,18 @@ public class BombExplosionEffect extends DefaultCellEffect {
 	 * Met à jour l'arène après l'explosion
 	 */
 	private void updateArena() {
-		Set<ArenaZone> impactedZones = new HashSet<ArenaZone>();
+		Set<String> impactedZones = new HashSet<String>();
 		
 		// Supprime la possession adverse des cellules explosées
 		CellData neighborData;
-		for (ArenaCell neighbor : explodedNeighbors) {
+		for (CellActor neighbor : explodedNeighbors) {
 			neighborData = neighbor.getData();
 			
 			// La cellule perd son owner
 			neighborData.owner = Player.NEUTRAL;
 			
 			// Si la cellule n'est pas dans une zone, elle devient possédée par le neutre
-			if (ArenaZone.NONE.equals(neighborData.zone)) {
+			if (ZoneActor.NONE.equals(neighborData.zone)) {
 				neighborData.state = CellStates.OWNED;
 			}
 			// Sinon, elle est contrôlée par le neutre
@@ -171,7 +171,7 @@ public class BombExplosionEffect extends DefaultCellEffect {
 		
 		// Les cellules bombe (sélectionnées + réaction en chaine) deviennent des cellules normales
 		getTargetCells().addAll(chainReaction);
-		for (ArenaCell cell : getTargetCells()) {
+		for (CellActor cell : getTargetCells()) {
 			// La cellule n'est plus une bombe car elle a explosé
 			cell.getData().type = CellTypes.L;
 			
@@ -180,8 +180,11 @@ public class BombExplosionEffect extends DefaultCellEffect {
 		}
 		
 		// Met à jour les zones touchées
-		for (ArenaZone impactedZone : impactedZones) {
-			impactedZone.updateOwner();
+		for (String impactedZone : impactedZones) {
+			ZoneActor zone = getArena().getZone(impactedZone);
+			if (zone != null) {
+				zone.updateOwner();
+			}
 		}
 	}
 }

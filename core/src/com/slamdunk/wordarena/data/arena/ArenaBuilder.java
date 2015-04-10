@@ -1,34 +1,30 @@
-package com.slamdunk.wordarena.data;
+package com.slamdunk.wordarena.data.arena;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.JsonValue;
 import com.slamdunk.toolkit.lang.Deck;
-import com.slamdunk.toolkit.lang.KeyListMap;
 import com.slamdunk.toolkit.world.point.Point;
-import com.slamdunk.wordarena.actors.ApplyToolListener;
-import com.slamdunk.wordarena.actors.ArenaCell;
-import com.slamdunk.wordarena.actors.ArenaZone;
-import com.slamdunk.wordarena.actors.CellSelectionListener;
+import com.slamdunk.wordarena.actors.ZoneActor;
 import com.slamdunk.wordarena.assets.Assets;
+import com.slamdunk.wordarena.data.arena.cell.CellData;
+import com.slamdunk.wordarena.data.arena.zone.ZoneData;
+import com.slamdunk.wordarena.data.game.Player;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.enums.Letters;
 import com.slamdunk.wordarena.screens.arena.MatchManager;
-import com.slamdunk.wordarena.screens.arena.WordSelectionHandler;
 import com.slamdunk.wordarena.screens.editor.EditorScreen;
 
 /**
  * Construit une arène à partir d'un plan
  */
 public class ArenaBuilder {
-	public static final String ZONE_NONE = ArenaZone.NONE.getData().id;
+	public static final String ZONE_NONE = ZoneActor.NONE.getData().id;
 	
 	/**
 	 * Caractère qui sépare l'info de 2 cellules dans le Json
@@ -40,9 +36,7 @@ public class ArenaBuilder {
 	 */
 	private static final String POSITION_SEPARATOR = ";";
 	
-	private MatchManager gameManager;
-	private Array<Player> players;
-	private Skin skin;
+	private List<Player> players;
 	/**
 	 * Indique si on est en train de construire une arène pour l'éditeur
 	 * ou pour jouer.
@@ -59,17 +53,15 @@ public class ArenaBuilder {
 	
 	private ArenaData arena;
 	
-	private KeyListMap<String, ArenaCell> cellsByZone;
+	private Set<String> zonesNames;
 	private Set<Point> cellsWithWalls;
 	
-	public ArenaBuilder(MatchManager gameManager) {
-		this(gameManager, Assets.uiSkin);
+	public ArenaBuilder(MatchManager matchManager) {
+		this(matchManager, Assets.uiSkin);
 	}
 	
-	public ArenaBuilder(MatchManager gameManager, Skin skin) {
-		this.gameManager = gameManager;
-		this.players = gameManager.getCinematic().getPlayers();
-		this.skin = skin;
+	public ArenaBuilder(MatchManager matchManager, Skin skin) {
+		this.players = matchManager.getCinematic().getPlayers();
 		arena = new ArenaData();
 	}
 	
@@ -377,35 +369,22 @@ public class ArenaBuilder {
 
 	private void buildZones() {
 		arena.zones.clear();
-		for (Map.Entry<String, List<ArenaCell>> entry : cellsByZone.entrySet()) {
-			ArenaZone zone = new ArenaZone(gameManager, entry.getKey());
-			for (ArenaCell cell : entry.getValue()) {
-				zone.addCell(cell);
-			}
-			zone.update();
-			arena.zones.add(zone);
+		for (String zoneName : zonesNames) {
+			arena.zones.add(new ZoneData(zoneName));
 		}
 	}
 
 	private void buildCells() {
-		final WordSelectionHandler wordSelectionHandler = gameManager.getWordSelectionHandler();
-		cellsByZone = new KeyListMap<String, ArenaCell>();
-		arena.cells = new ArenaCell[arena.width][arena.height];
+		zonesNames = new HashSet<String>();
+		arena.cells = new CellData[arena.width][arena.height];
 		
-		ArenaCell cell;
 		CellData data;
 		for (int y = arena.height - 1; y >= 0; y--) {
 			for (int x = 0; x < arena.width; x++) {
-				cell = new ArenaCell(skin);
-				if (editorScreen != null) {
-					cell.addListener(new ApplyToolListener(editorScreen, cell));
-				} else {
-					cell.addListener(new CellSelectionListener(cell, wordSelectionHandler));
-				}
-				arena.cells[x][y] = cell;
+				data = new CellData();
+				arena.cells[x][y] = data;
 				
 				// Définition des données du modèle
-				data = cell.getData();
 				data.position.setXY(x, y);
 				data.state = CellStates.OWNED;
 				
@@ -414,15 +393,8 @@ public class ArenaBuilder {
 				data.letter = chooseLetter(data.type, letters[x][y], arena.letterDeck);
 				data.power = choosePower(data.type, powers[x][y]);
 				data.owner = chooseOwner(data.type, owners[x][y]);
-				
-				// Placement de la cellule dans le monde et mise à jour du display
-				cell.setPosition(x * cell.getWidth(), y * cell.getHeight());
-				cell.updateDisplay();
-				
-				// Regroupe les cellules par zone
-				if (!ZONE_NONE.equals(zones[x][y])) {
-					cellsByZone.putValue(zones[x][y], cell);
-				}
+				data.zone = zones[x][y];
+				zonesNames.add(data.zone);
 			}
 		}
 	}

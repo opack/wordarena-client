@@ -1,4 +1,4 @@
-package com.slamdunk.wordarena.data;
+package com.slamdunk.wordarena.data.arena.zone;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,9 +8,11 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.utils.Scaling;
 import com.slamdunk.toolkit.world.point.Point;
-import com.slamdunk.wordarena.actors.ArenaCell;
-import com.slamdunk.wordarena.actors.ZoneEdge;
+import com.slamdunk.wordarena.actors.CellActor;
+import com.slamdunk.wordarena.actors.EdgeActor;
 import com.slamdunk.wordarena.assets.Assets;
+import com.slamdunk.wordarena.data.arena.cell.MarkerPack;
+import com.slamdunk.wordarena.data.game.Player;
 import com.slamdunk.wordarena.enums.Borders;
 import com.slamdunk.wordarena.enums.BordersAndCorners;
 import com.slamdunk.wordarena.enums.CornerTypes;
@@ -40,15 +42,15 @@ public class ZoneBorderBuilder {
 		CellBorders cellOnBottom;
 		CellBorders cellOnLeft;
 		
-		ArenaCell cell;
+		CellActor cell;
 	}
 	
-	private Map<Point, ArenaCell> cells;
-	private List<ZoneEdge> edgesToFill;
+	private Map<Point, CellActor> cells;
+	private List<EdgeActor> edgesToFill;
 	
 	private Map<Point, CellBorders> borders;
 	
-	public ZoneBorderBuilder(Map<Point, ArenaCell> cells, List<ZoneEdge> edgesToFill) {
+	public ZoneBorderBuilder(Map<Point, CellActor> cells, List<EdgeActor> edgesToFill) {
 		this.cells = cells;
 		this.edgesToFill = edgesToFill;
 		borders = new HashMap<Point, ZoneBorderBuilder.CellBorders>();
@@ -110,8 +112,8 @@ public class ZoneBorderBuilder {
 	 * @param borderOrCorner
 	 * @return
 	 */
-	private ZoneEdge createEdge(ArenaCell cell, BordersAndCorners borderOrCorner, CornerTypes cornerType, MarkerPack pack, boolean highlighted) {
-		ZoneEdge edge = new ZoneEdge();
+	private EdgeActor createEdge(CellActor cell, BordersAndCorners borderOrCorner, CornerTypes cornerType, MarkerPack pack, boolean highlighted) {
+		EdgeActor edge = new EdgeActor();
 		
 		// Définit les propriétés du ZoneEdge
 		edge.getData().borderOrCorner = borderOrCorner;
@@ -143,7 +145,7 @@ public class ZoneBorderBuilder {
 	 * @param borderOrCorner
 	 * @return
 	 */
-	private Vector2 getCornerPos(ArenaCell cell, BordersAndCorners borderOrCorner) {
+	private Vector2 getCornerPos(CellActor cell, BordersAndCorners borderOrCorner) {
 		switch (borderOrCorner) {
 		case TOP:
 		case TOP_LEFT:
@@ -341,7 +343,7 @@ public class ZoneBorderBuilder {
 		Point neighborPos = new Point(0, 0);
 		CellBorders cellBorders;
 		
-		for (ArenaCell cell : cells.values()) {
+		for (CellActor cell : cells.values()) {
 			cellPos = cell.getData().position;
 			cellBorders = getOrCreateCellBorders(cellPos);
 			

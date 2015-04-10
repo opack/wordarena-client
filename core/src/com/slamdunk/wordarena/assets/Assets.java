@@ -13,8 +13,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.I18NBundle;
 import com.slamdunk.toolkit.lang.TypedProperties;
 import com.slamdunk.toolkit.settings.SlamSettings;
-import com.slamdunk.wordarena.data.ArenaSkin;
-import com.slamdunk.wordarena.data.MarkerPack;
+import com.slamdunk.wordarena.data.arena.ArenaSkin;
+import com.slamdunk.wordarena.data.arena.cell.MarkerPack;
 import com.uwsoft.editor.renderer.resources.ResourceManager;
 import com.uwsoft.editor.renderer.utils.MySkin;
 

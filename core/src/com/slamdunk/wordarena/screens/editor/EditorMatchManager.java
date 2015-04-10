@@ -1,11 +1,11 @@
 package com.slamdunk.wordarena.screens.editor;
 
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.data.game.Player;
 import com.slamdunk.wordarena.enums.GameStates;
 import com.slamdunk.wordarena.screens.arena.MatchManager;
 import com.slamdunk.wordarena.screens.arena.WordSelectionHandler;
 
-public class EditorGameManager extends MatchManager {
+public class EditorMatchManager extends MatchManager {
 	@Override
 	public void changeState(GameStates newState) {
 	}

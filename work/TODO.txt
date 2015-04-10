@@ -1,4 +1,6 @@
-[ ] ADD : Reprise d'une partie en cours depuis l'écran principal 
+[ ] ADD : Reprise d'une partie en cours depuis l'écran principal
+	- Charger un fichier json en cache représentant le GameData
+	- Mettre à jour ce fichier de cache en ne modifiant que ce qui change au fur et à mesure 
 [ ] ADD : AnimationDrawer : rendre Poolable
 [ ] ADD : Editeur : ajouter une liste déroulante pour sélectionner la skin parmi les skins existantes
 [ ] ADD : Partie - RUNNING : Valider un mot avec un ou plusieurs jokers

@@ -5,11 +5,11 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.slamdunk.wordarena.screens.arena.WordSelectionHandler;
 
 public class CellSelectionListener extends InputListener {
-	private ArenaCell cell;
+	private CellActor cell;
 	private WordSelectionHandler wordSelectionHandler;
 	private boolean enabled;
 	
-	public CellSelectionListener(ArenaCell cell, WordSelectionHandler wordSelectionHandler) {
+	public CellSelectionListener(CellActor cell, WordSelectionHandler wordSelectionHandler) {
 		this.cell = cell;
 		this.wordSelectionHandler = wordSelectionHandler;
 		enabled = true;

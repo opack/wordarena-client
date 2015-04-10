@@ -7,8 +7,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.SnapshotArray;
 import com.slamdunk.toolkit.ui.GroupEx;
 import com.slamdunk.wordarena.assets.Assets;
-import com.slamdunk.wordarena.data.MarkerPack;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.data.arena.cell.MarkerPack;
+import com.slamdunk.wordarena.data.game.Player;
 
 public class PlayerStatsUI {
 	public Label lblName;
@@ -25,7 +25,7 @@ public class PlayerStatsUI {
 		MarkerPack pack = Assets.markerPacks.get(player.markerPack);
 		
 		lblName.setStyle(pack.labelStyle);
-		lblName.setText(player.name);
+		lblName.setText(player.id);
 		
 		lblScore.setStyle(pack.labelStyle);
 		lblScore.setText(String.valueOf(player.score));

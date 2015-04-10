@@ -1,4 +1,4 @@
-package com.slamdunk.wordarena.data;
+package com.slamdunk.wordarena.data.game;
 
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.enums.PlayerKind;
@@ -9,11 +9,16 @@ import com.slamdunk.wordarena.enums.PlayerKind;
 public class Player {
 	public static final Player NEUTRAL;
 	static {
-		NEUTRAL = new Player(0, Assets.i18nBundle.get("ui.editor.player.0"), Assets.MARKER_PACK_NEUTRAL);
+		NEUTRAL = new Player(Assets.i18nBundle.get("ui.editor.player.0"), Assets.MARKER_PACK_NEUTRAL);
 	}
 	
-	public int uid;
-	public String name;
+	public String id;
+	
+	/**
+	 * Indique l'ordre de jeu, donc l'indice du joueur
+	 * dans la liste des joueurs de la partie
+	 */
+	public int place;
 	
 	/**
 	 * Donne le type de joueur (CPU, humain à distance, humain en local)
@@ -31,29 +36,33 @@ public class Player {
 	public Player() {
 	}
 	
-	public Player(int uid, String name, String cellPack) {
-		this.uid = uid;
-		this.name = name;
+	public Player(String id, String cellPack) {
+		this(id, cellPack, -1);
+	}
+	
+	public Player(String id, String cellPack, int place) {
+		this.id = id;
+		this.place = place;
 		this.markerPack = cellPack;
 		this.kind = PlayerKind.HUMAN_LOCAL;
 	}
 	
 	@Override
 	public int hashCode() {
-		return uid + name.hashCode() * 31;
+		return id.hashCode();
 	}
 	
 	@Override
 	public boolean equals(Object obj) {
 		if (obj != null
 		&& (obj instanceof Player)) {
-			return uid == ((Player)obj).uid;
+			return id.equals(((Player)obj).id);
 		}
 		return false;
 	}
 	
 	@Override
 	public String toString() {
-		return name;
+		return id;
 	}
 }

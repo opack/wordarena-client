@@ -2,28 +2,28 @@ package com.slamdunk.wordarena.screens.editor.tools;
 
 import java.util.Collection;
 
-import com.slamdunk.wordarena.actors.ArenaCell;
-import com.slamdunk.wordarena.actors.ArenaZone;
+import com.slamdunk.wordarena.actors.CellActor;
+import com.slamdunk.wordarena.actors.ZoneActor;
 
-public class ZoneTool extends EditorTool<ArenaZone> {
+public class ZoneTool extends EditorTool<ZoneActor> {
 	@Override
-	public void apply(ArenaCell cell) {
+	public void apply(CellActor cell) {
 		// Retire la cellule de l'ancienne zone
-		ArenaZone oldZone = cell.getData().zone;
+		ZoneActor oldZone = cell.getZone();
 		if (oldZone != null) {
 			oldZone.removeCell(cell);
 			oldZone.update();
 		}
 		
 		// Ajoute la cellule à la nouvelle zone
-		ArenaZone zone = getValue();
+		ZoneActor zone = getValue();
 		zone.addCell(cell);
 		zone.update();
 	}
 
 	@Override
-	public void apply(Collection<ArenaCell> cells) {
-		for (ArenaCell cell : cells) {
+	public void apply(Collection<CellActor> cells) {
+		for (CellActor cell : cells) {
 			apply(cell);
 		}
 	}

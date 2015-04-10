@@ -6,10 +6,10 @@ import com.slamdunk.wordarena.screens.editor.EditorScreen;
 import com.slamdunk.wordarena.screens.editor.tools.EditorTool;
 
 public class ApplyToolListener extends InputListener {
-	private ArenaCell cell;
+	private CellActor cell;
 	private EditorScreen screen;
 	
-	public ApplyToolListener(EditorScreen screen, ArenaCell cell) {
+	public ApplyToolListener(EditorScreen screen, CellActor cell) {
 		this.screen = screen;
 		this.cell = cell;
 	}

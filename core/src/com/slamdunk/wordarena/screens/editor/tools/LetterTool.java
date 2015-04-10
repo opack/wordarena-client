@@ -2,7 +2,7 @@ package com.slamdunk.wordarena.screens.editor.tools;
 
 import java.util.Collection;
 
-import com.slamdunk.wordarena.actors.ArenaCell;
+import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.enums.Letters;
 
@@ -12,7 +12,7 @@ public class LetterTool extends EditorTool<Letters> {
 	}
 
 	@Override
-	public void apply(ArenaCell cell) {
+	public void apply(CellActor cell) {
 		CellTypes type = cell.getData().type;
 		
 		// On ne fait rien pour les cellules d'un type
@@ -27,8 +27,8 @@ public class LetterTool extends EditorTool<Letters> {
 	}
 
 	@Override
-	public void apply(Collection<ArenaCell> cells) {
-		for (ArenaCell cell : cells) {
+	public void apply(Collection<CellActor> cells) {
+		for (CellActor cell : cells) {
 			apply(cell);
 		}
 	}

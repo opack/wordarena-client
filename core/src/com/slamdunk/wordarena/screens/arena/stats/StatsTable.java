@@ -1,14 +1,15 @@
 package com.slamdunk.wordarena.screens.arena.stats;
 
+import java.util.List;
+
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
-import com.badlogic.gdx.utils.Array;
 import com.slamdunk.toolkit.ui.GroupEx;
 import com.slamdunk.wordarena.assets.Assets;
-import com.slamdunk.wordarena.data.MarkerPack;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.data.arena.cell.MarkerPack;
+import com.slamdunk.wordarena.data.game.Player;
 
 public class StatsTable extends Table {
 	
@@ -79,7 +80,7 @@ public class StatsTable extends Table {
 		add(wordsScroll).height(200).fillX().colspan(3).align(Align.center);
 	}
 	
-	public void init(Array<Player> players, int nbRoundsToWin) {
+	public void init(List<Player> players, int nbRoundsToWin) {
 		// Prépare les libellés
 		p1Stats.init(players.get(0), nbRoundsToWin);
 		p2Stats.init(players.get(1), nbRoundsToWin);
@@ -91,7 +92,7 @@ public class StatsTable extends Table {
 		update(players);
 	}
 
-	public void update(Array<Player> players) {
+	public void update(List<Player> players) {
 		p1Stats.update(players.get(0));
 		p2Stats.update(players.get(1));
 	}

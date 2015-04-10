@@ -2,7 +2,6 @@ package com.slamdunk.wordarena.screens.editor;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,13 +16,14 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.slamdunk.toolkit.screen.overlays.UIOverlay;
 import com.slamdunk.toolkit.ui.Overlap2DUtils;
 import com.slamdunk.wordarena.WordArenaGame;
-import com.slamdunk.wordarena.actors.ArenaZone;
+import com.slamdunk.wordarena.actors.ZoneActor;
 import com.slamdunk.wordarena.assets.Assets;
-import com.slamdunk.wordarena.data.ArenaData;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.data.arena.zone.ZoneData;
+import com.slamdunk.wordarena.data.game.Player;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.enums.Letters;
 import com.slamdunk.wordarena.screens.SimpleButtonI18NScript;
+import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
 import com.slamdunk.wordarena.screens.editor.tools.CellTypeTool;
 import com.slamdunk.wordarena.screens.editor.tools.EditorTool;
 import com.slamdunk.wordarena.screens.editor.tools.LetterTool;
@@ -41,8 +41,8 @@ public class EditorUI extends UIOverlay {
 	private EditorScreen screen;
 	private LabelItem lblName;
 	
-	private Array<ArenaZone> zones;
-	private SelectBoxItem<ArenaZone> selZone;
+	private Array<ZoneActor> zones;
+	private SelectBoxItem<ZoneActor> selZone;
 	
 	@SuppressWarnings("rawtypes")
 	private Map<Class<? extends EditorTool>, SimpleButtonI18NScript> toolsScripts;
@@ -57,32 +57,27 @@ public class EditorUI extends UIOverlay {
 		loadScene();
 	}
 	
-	public void loadData(ArenaData arena) {
+	public void loadData(ArenaOverlay arena) {
 		// Change le nom de l'arène
-		lblName.setText(arena.name);
+		lblName.setText(arena.getData().name);
 		
 		// Charge les zones existantes
 		loadZonesFromArena(arena);
 	}
 	
-	private void loadZonesFromArena(ArenaData arena) {
+	private void loadZonesFromArena(ArenaOverlay arena) {
 		// Trie les zones existantes
-		List<ArenaZone> sortedZones = new ArrayList<ArenaZone>();
-		for (ArenaZone zone : arena.zones) {
-			sortedZones.add(zone);
+		List<String> sortedZones = new ArrayList<String>();
+		for (ZoneData zoneData : arena.getData().zones) {
+			sortedZones.add(zoneData.id);
 		}
-		Collections.sort(sortedZones, new Comparator<ArenaZone>() {
-			@Override
-			public int compare(ArenaZone a1, ArenaZone a2) {
-				return a1.getData().id.compareTo(a2.getData().id);
-			}
-		});
+		Collections.sort(sortedZones);
 		
 		// Ajoute les zones à la liste
 		zones.clear();
-		zones.add(ArenaZone.NONE);
-		for (ArenaZone zone : sortedZones) {
-			zones.add(zone);
+		zones.add(ZoneActor.NONE);
+		for (String zoneId : sortedZones) {
+			zones.add(arena.getZone(zoneId));
 		}
 		selZone.setItems(zones);
 	}
@@ -150,9 +145,9 @@ public class EditorUI extends UIOverlay {
 	@SuppressWarnings("unchecked")
 	private void loadToolZone(SceneLoader sceneLoader) {
 		// Initialise la liste des zones
-		zones = new Array<ArenaZone>();
-		zones.add(ArenaZone.NONE);
-		selZone = (SelectBoxItem<ArenaZone>)sceneLoader.sceneActor.getItemById("selZone");
+		zones = new Array<ZoneActor>();
+		zones.add(ZoneActor.NONE);
+		selZone = (SelectBoxItem<ZoneActor>)sceneLoader.sceneActor.getItemById("selZone");
 		selZone.setWidth(150);
 		selZone.setItems(zones);
 		selZone.setSelected(screen.getTool(ZoneTool.class).getValue());
@@ -169,7 +164,7 @@ public class EditorUI extends UIOverlay {
 				
 				// Vérifie que le champ de nom de zone n'indique pas une zone existante
 				boolean exists = false;
-				for (ArenaZone zone : selZone.getItems()) {
+				for (ZoneActor zone : selZone.getItems()) {
 					if (zoneName.equals(zone.getData().id)) {
 						exists = true;
 						break;
@@ -177,7 +172,7 @@ public class EditorUI extends UIOverlay {
 				}
 				
 				// Crée le nouvelle zone et l'ajoute à la liste
-				final ArenaZone newZone = screen.getOrCreateZone(zoneName);
+				final ZoneActor newZone = screen.getOrCreateZone(zoneName);
 				if (!exists) {
 					zones.add(newZone);
 					selZone.setItems(zones);
@@ -191,11 +186,11 @@ public class EditorUI extends UIOverlay {
 		
 		// Ajoute le listener pour màj la valeur applicable dans l'outil
 		selZone.addListener(new ChangeListener() {
-			private ArenaZone lastValue;
+			private ZoneActor lastValue;
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				ZoneTool tool = screen.getTool(ZoneTool.class);
-				ArenaZone selected = selZone.getSelected();
+				ZoneActor selected = selZone.getSelected();
 				tool.setValue(selected);
 				
 				if (lastValue != null) {
@@ -215,7 +210,11 @@ public class EditorUI extends UIOverlay {
 		@SuppressWarnings("unchecked")
 		final SelectBoxItem<Player> selOwner = (SelectBoxItem<Player>)sceneLoader.sceneActor.getItemById("selOwner");
 		selOwner.setWidth(150);
-		selOwner.setItems(screen.getPlayers());
+		Array<Player> items = new Array<Player>();
+		for (Player player : screen.getPlayers()) {
+			items.add(player);
+		}
+		selOwner.setItems(items);
 		selOwner.setSelected(screen.getTool(OwnerTool.class).getValue());
 		
 		// Ajoute le listener pour màj la valeur applicable dans l'outil

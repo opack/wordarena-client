@@ -1,20 +1,21 @@
 package com.slamdunk.wordarena.screens.editor;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
 import com.slamdunk.toolkit.screen.SlamScreen;
 import com.slamdunk.wordarena.WordArenaGame;
-import com.slamdunk.wordarena.actors.ArenaZone;
+import com.slamdunk.wordarena.actors.ZoneActor;
 import com.slamdunk.wordarena.assets.Assets;
-import com.slamdunk.wordarena.data.ArenaData;
-import com.slamdunk.wordarena.data.ArenaSerializer;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.data.arena.ArenaData;
+import com.slamdunk.wordarena.data.arena.ArenaSerializer;
+import com.slamdunk.wordarena.data.game.Player;
 import com.slamdunk.wordarena.screens.editor.tools.CellTypeTool;
 import com.slamdunk.wordarena.screens.editor.tools.EditorTool;
 import com.slamdunk.wordarena.screens.editor.tools.LetterTool;
@@ -28,7 +29,7 @@ public class EditorScreen extends SlamScreen {
 public static final String NAME = "EDITOR";
 	private EditorArenaOverlay arena;
 	private EditorUI ui;
-	private EditorGameManager gameManager;
+	private EditorMatchManager matchManager;
 	
 	@SuppressWarnings("rawtypes")
 	private Map<Class<? extends EditorTool>, EditorTool> tools;
@@ -39,7 +40,7 @@ public static final String NAME = "EDITOR";
 	public EditorScreen(WordArenaGame game) {
 		super(game);
 		
-		createGameManager();
+		createMatchManager();
 		createTools();
 	
 		arena = new EditorArenaOverlay();
@@ -49,15 +50,15 @@ public static final String NAME = "EDITOR";
 		addOverlay(ui);
 	}
 	
-	private void createGameManager() {
-		gameManager = new EditorGameManager();
-		Array<Player> players = new Array<Player>();
+	private void createMatchManager() {
+		matchManager = new EditorMatchManager();
+		List<Player> players = new ArrayList<Player>();
 		players.add(Player.NEUTRAL);
-		players.add(new Player(1, Assets.i18nBundle.get("ui.editor.player.1"), "blue"));
-		players.add(new Player(2, Assets.i18nBundle.get("ui.editor.player.2"), "orange"));
-		players.add(new Player(3, Assets.i18nBundle.get("ui.editor.player.3"), "green"));
-		players.add(new Player(4, Assets.i18nBundle.get("ui.editor.player.4"), "purple"));
-		gameManager.getCinematic().setPlayers(players);
+		players.add(new Player(Assets.i18nBundle.get("ui.editor.player.1"), "blue", 0));
+		players.add(new Player(Assets.i18nBundle.get("ui.editor.player.2"), "orange", 1));
+		players.add(new Player(Assets.i18nBundle.get("ui.editor.player.3"), "green", 2));
+		players.add(new Player(Assets.i18nBundle.get("ui.editor.player.4"), "purple", 3));
+		matchManager.getCinematic().setPlayers(players);
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -99,13 +100,13 @@ public static final String NAME = "EDITOR";
 		return currentTool;
 	}
 
-	public ArenaZone getOrCreateZone(String id) {
-		for (ArenaZone zone : arena.getData().zones) {
-			if (zone.getData().id.equals(id)) {
-				return zone;
-			}
+	public ZoneActor getOrCreateZone(String id) {
+		ZoneActor zone = arena.getZone(id);
+		if (zone == null) {
+			return arena.createZone(id);
+		} else {
+			return zone;
 		}
-		return arena.createZone(id);
 	}
 
 	public void save() {
@@ -123,18 +124,18 @@ public static final String NAME = "EDITOR";
 	}
 	
 	public void editExistingArena(String name) {
-		arena.buildArena("arenas/" + name + ".json", gameManager);
+		arena.buildArena("arenas/" + name + ".json", matchManager);
 		prepareUI(name);
 	}
 	
 	private void prepareUI(String name) {
 		arena.getData().name = name;
 		arena.getData().skin = "default"; // TODO Ajouter une liste pour sélectionner la skin
-		ui.loadData(arena.getData());
+		ui.loadData(arena);
 		getTool(WallTool.class).setArena(arena);
 	}
 
-	public Array<Player> getPlayers() {
-		return gameManager.getCinematic().getPlayers();
+	public List<Player> getPlayers() {
+		return matchManager.getCinematic().getPlayers();
 	}
 }

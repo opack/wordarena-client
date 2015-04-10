@@ -2,7 +2,7 @@ package com.slamdunk.wordarena.screens.editor.tools;
 
 import java.util.Collection;
 
-import com.slamdunk.wordarena.actors.ArenaCell;
+import com.slamdunk.wordarena.actors.CellActor;
 
 public class PowerTool extends EditorTool<Integer> {
 	public PowerTool() {
@@ -10,7 +10,7 @@ public class PowerTool extends EditorTool<Integer> {
 	}
 
 	@Override
-	public void apply(ArenaCell cell) {
+	public void apply(CellActor cell) {
 		if (!cell.getData().type.hasPower()) {
 			return;
 		}
@@ -18,8 +18,8 @@ public class PowerTool extends EditorTool<Integer> {
 	}
 
 	@Override
-	public void apply(Collection<ArenaCell> cells) {
-		for (ArenaCell cell : cells) {
+	public void apply(Collection<CellActor> cells) {
+		for (CellActor cell : cells) {
 			apply(cell);
 		}
 	}

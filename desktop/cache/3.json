@@ -1,0 +1,103 @@
+{
+id: 3
+gameType: TRAINING
+objective: CONQUEST
+curRound: 1
+curTurn: 1
+players: [
+	{
+		id: Alan
+		kind: HUMAN_LOCAL
+		markerPack: blue
+		nbRoundsWon: 1
+	}
+	{
+		id: Bob
+		place: 1
+		kind: HUMAN_LOCAL
+		markerPack: orange
+		score: 3
+		nbWordsPlayed: 1
+	}
+]
+arena: {
+	name: 5_glass_nightmare
+	skin: default
+	width: 10
+	height: 12
+	plan.types: [
+		"L L L L L L L L L L "
+		"L L L L L L L L L L "
+		"L L L L L L L L L L "
+		"G G G L L L L L L G "
+		"L L L G L L L L L L "
+		"L L L G L L L L L L "
+		"L L L L L L G L L L "
+		"L L L G L L L L L L "
+		"G G G G L G G L L L "
+		"L L L L L L L L L L "
+		"L L L L L L L L L L "
+		"L L L L L L L L L L "
+	]
+	plan.letters: [
+		"- - - - - - - - - - "
+		"- - - - - - - - - - "
+		"- - - - - - - - - - "
+		"- - - - - - - - - - "
+		"- - - - - - - - - - "
+		"- - - - - - - - - - "
+		"- - - - - - - - - - "
+		"- - - - - - - - - - "
+		"- - - - - - - - - - "
+		"- - - - - - - - - - "
+		"- - - - - - - - - - "
+		"- - - - - - - - - - "
+	]
+	plan.powers: [
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+	]
+	plan.owners: [
+		"0 0 0 0 1 1 0 0 0 0 "
+		"0 0 0 0 0 1 0 0 0 0 "
+		"0 0 0 0 1 1 0 0 0 0 "
+		"0 0 0 0 1 1 1 1 0 0 "
+		"0 0 0 0 0 0 1 1 0 0 "
+		"0 0 0 0 0 1 0 1 0 0 "
+		"0 0 0 0 1 0 0 0 1 0 "
+		"0 0 0 0 0 0 0 1 0 0 "
+		"0 0 0 0 0 0 0 0 2 0 "
+		"0 0 0 0 2 0 0 2 2 0 "
+		"0 0 0 2 2 0 2 2 2 0 "
+		"0 0 0 0 2 2 2 2 0 0 "
+	]
+	plan.zones: [
+		"- - 1 1 1 1 1 1 - - "
+		"- - 1 1 1 1 1 1 - - "
+		"- - - - - - - - - - "
+		"- - - - - - - - - - "
+		"3 3 3 - 5 5 - 4 4 4 "
+		"3 3 3 - 5 5 - 4 4 4 "
+		"3 3 3 - 5 5 - 4 4 4 "
+		"3 3 3 - 5 5 - 4 4 4 "
+		"- - - - - - - - - - "
+		"- - - - - - - - - - "
+		"- - 2 2 2 2 2 2 - - "
+		"- - 2 2 2 2 2 2 - - "
+	]
+	plan.walls: []
+}
+wordsPlayed: []
+lastMove: {}
+chats: []
+}

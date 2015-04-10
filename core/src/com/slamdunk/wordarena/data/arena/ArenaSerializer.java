@@ -1,10 +1,11 @@
-package com.slamdunk.wordarena.data;
+package com.slamdunk.wordarena.data.arena;
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.slamdunk.toolkit.lang.DoubleEntryArray;
 import com.slamdunk.toolkit.world.point.Point;
-import com.slamdunk.wordarena.actors.ArenaCell;
+import com.slamdunk.wordarena.data.arena.cell.CellData;
+import com.slamdunk.wordarena.data.game.Player;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.screens.editor.EditorScreen;
 
@@ -30,7 +31,7 @@ public class ArenaSerializer implements Json.Serializer<ArenaData>{
 		for (int y = arena.height - 1; y >= 0; y--) {
 			sb.setLength(0);
 			for (int x = 0; x < arena.width; x++) {
-				sb.append(arena.cells[x][y].getData().type).append(" ");
+				sb.append(arena.cells[x][y].type).append(" ");
 			}
 			json.writeValue(sb.toString());
 		}
@@ -41,7 +42,7 @@ public class ArenaSerializer implements Json.Serializer<ArenaData>{
 		for (int y = arena.height - 1; y >= 0; y--) {
 			sb.setLength(0);
 			for (int x = 0; x < arena.width; x++) {
-				sb.append(arena.cells[x][y].getData().planLetter).append(" ");
+				sb.append(arena.cells[x][y].planLetter).append(" ");
 			}
 			json.writeValue(sb.toString());
 		}
@@ -52,7 +53,7 @@ public class ArenaSerializer implements Json.Serializer<ArenaData>{
 		for (int y = arena.height - 1; y >= 0; y--) {
 			sb.setLength(0);
 			for (int x = 0; x < arena.width; x++) {
-				sb.append(arena.cells[x][y].getData().power).append(" ");
+				sb.append(arena.cells[x][y].power).append(" ");
 			}
 			json.writeValue(sb.toString());
 		}
@@ -67,10 +68,10 @@ public class ArenaSerializer implements Json.Serializer<ArenaData>{
 				// alors on l'attribue au joueur neutre de façon à ce que dans le plan
 				// ce contrôle (qui est déterminé dynamiquement) ne soit pas vu comme
 				// une possession.
-				if (arena.cells[x][y].getData().state == CellStates.OWNED) {
-					sb.append(arena.cells[x][y].getData().owner.uid).append(" ");
+				if (arena.cells[x][y].state == CellStates.OWNED) {
+					sb.append(arena.cells[x][y].owner.place + 1).append(" ");
 				} else {
-					sb.append(Player.NEUTRAL.uid).append(" ");
+					sb.append(Player.NEUTRAL.place + 1).append(" ");
 				}
 			}
 			json.writeValue(sb.toString());
@@ -82,7 +83,7 @@ public class ArenaSerializer implements Json.Serializer<ArenaData>{
 		for (int y = arena.height - 1; y >= 0; y--) {
 			sb.setLength(0);
 			for (int x = 0; x < arena.width; x++) {
-				sb.append(arena.cells[x][y].getData().zone.getData().id).append(" ");
+				sb.append(arena.cells[x][y].zone).append(" ");
 			}
 			json.writeValue(sb.toString());
 		}
@@ -92,17 +93,17 @@ public class ArenaSerializer implements Json.Serializer<ArenaData>{
 		json.writeArrayStart("plan.walls");
 		Point pos1;
 		Point pos2;
-		DoubleEntryArray<ArenaCell, ArenaCell, Boolean> addedWalls = new DoubleEntryArray<ArenaCell, ArenaCell, Boolean>();
-		for (ArenaCell cell1 : arena.walls.getEntries1()) {
-			for (ArenaCell cell2 : arena.walls.getEntries2(cell1)) {
+		DoubleEntryArray<CellData, CellData, Boolean> addedWalls = new DoubleEntryArray<CellData, CellData, Boolean>();
+		for (CellData cell1 : arena.walls.getEntries1()) {
+			for (CellData cell2 : arena.walls.getEntries2(cell1)) {
 				// Si le mur a déjà été ajouté au json, on ne le remet pas
 				if (addedWalls.get(cell1, cell2) != null
 				|| addedWalls.get(cell2, cell1) != null) {
 					continue;
 				}
 				
-				pos1 = cell1.getData().position;
-				pos2 = cell2.getData().position;
+				pos1 = cell1.position;
+				pos2 = cell2.position;
 				
 				// Si c'est un mur en coin, on ne le sérialise pas
 				if (pos1.getX() != pos2.getX()

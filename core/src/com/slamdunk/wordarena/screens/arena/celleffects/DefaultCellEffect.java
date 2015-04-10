@@ -3,9 +3,9 @@ package com.slamdunk.wordarena.screens.arena.celleffects;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.slamdunk.wordarena.actors.ArenaCell;
-import com.slamdunk.wordarena.data.ArenaData;
-import com.slamdunk.wordarena.data.Player;
+import com.slamdunk.wordarena.actors.CellActor;
+import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
 
 /**
  * Un effet par défaut qui ne fait rien à part filtrer les cellules reçues
@@ -13,23 +13,23 @@ import com.slamdunk.wordarena.data.Player;
  * et l'arène pour utilisation future
  */
 public abstract class DefaultCellEffect implements CellEffect {
-	private List<ArenaCell> targetCells;
+	private List<CellActor> targetCells;
 	private Player player;
-	private ArenaData arena;
+	private ArenaOverlay arena;
 	
 	public DefaultCellEffect() {
-		targetCells = new ArrayList<ArenaCell>();
+		targetCells = new ArrayList<CellActor>();
 	}
 
 	@Override
-	public boolean init(List<ArenaCell> cells, Player player, ArenaData arena) {
+	public boolean init(List<CellActor> cells, Player player, ArenaOverlay arena) {
 		this.player = player;
 		this.arena = arena;
 		
 		// Filtre les cellules reçues pour ne conserver que celles sur
 		// lesquelles cet effet peut être appliqué
 		targetCells.clear();
-		for (ArenaCell cell : cells) {
+		for (CellActor cell : cells) {
 			if (isCellTargetable(cell)) {
 				targetCells.add(cell);
 			}
@@ -47,9 +47,9 @@ public abstract class DefaultCellEffect implements CellEffect {
 	 * @param cell
 	 * @return
 	 */
-	protected abstract boolean isCellTargetable(ArenaCell cell);
+	protected abstract boolean isCellTargetable(CellActor cell);
 
-	public List<ArenaCell> getTargetCells() {
+	public List<CellActor> getTargetCells() {
 		return targetCells;
 	}
 
@@ -57,7 +57,7 @@ public abstract class DefaultCellEffect implements CellEffect {
 		return player;
 	}
 
-	public ArenaData getArena() {
+	public ArenaOverlay getArena() {
 		return arena;
 	}
 }

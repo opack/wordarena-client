@@ -9,14 +9,14 @@ import com.slamdunk.wordarena.enums.Borders;
 /**
  * Représente un mur de l'arène
  */
-public class ArenaWall {
+public class WallBuilder {
 	/**
 	 * Crée le Sprite pour le mur entre ces 2 cellules
 	 * @param cell1
 	 * @param cell2
 	 * @return null si aucun mur ne doit être dessiné (2 cellules en diagonale)
 	 */
-	public static Image buildWall(ArenaCell cell1, ArenaCell cell2) {
+	public static Image buildWall(CellActor cell1, CellActor cell2) {
 		// Trouve les 2 points en commun entre ces cellules
 		Vector2 corner = new Vector2();
 		Point pos1 = cell1.getData().position;
