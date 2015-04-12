@@ -1,0 +1,99 @@
+{
+header: {
+	id: 57170
+	gameType: TRAINING
+	objective: CONQUEST
+}
+cinematic: {
+	curTurn: 1
+	curPlayer: 1
+}
+players: [
+	{
+		name: Alan
+		kind: HUMAN_LOCAL
+		markerPack: blue
+		score: 18
+		nbZonesOwned: 2
+		nbWordsPlayed: 2
+	}
+	{
+		name: Bob
+		place: 1
+		kind: HUMAN_LOCAL
+		markerPack: orange
+		score: 4
+		nbZonesOwned: 1
+		nbWordsPlayed: 1
+	}
+]
+arena: {
+	name: 0_first_assault
+	skin: default
+	width: 7
+	height: 7
+	types: [
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+	]
+	letters: [
+		"S L P Y F D O "
+		"A M S E T N A "
+		"L R W E S O E "
+		"R A R E V O N "
+		"D I I E H U O "
+		"T A E I U Q F "
+		"U A A L A B L "
+	]
+	powers: [
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+	]
+	owners: [
+		"0 0 0 0 0 0 1 "
+		"0 0 0 1 1 1 0 "
+		"0 0 0 1 1 1 0 "
+		"0 1 1 0 0 0 0 "
+		"0 1 0 0 0 0 0 "
+		"2 2 2 0 0 0 0 "
+		"2 0 0 0 0 0 0 "
+	]
+	zones: [
+		"3 3 - - - 1 1 "
+		"3 3 5 5 5 1 1 "
+		"- 5 5 5 5 5 - "
+		"- 5 5 5 5 5 - "
+		"- 5 5 5 5 5 - "
+		"2 2 5 5 5 4 4 "
+		"2 2 - - - 4 4 "
+	]
+	walls: []
+}
+wordsPlayed: [
+	{
+		time: {}
+		wordId: NOTEES
+	}
+	{
+		time: {}
+		player: 1
+		wordId: TAIE
+	}
+	{
+		time: {}
+		wordId: SERAI
+	}
+]
+lastMove: {}
+chats: []
+}

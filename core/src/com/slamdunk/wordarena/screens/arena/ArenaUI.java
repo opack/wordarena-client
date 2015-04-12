@@ -20,10 +20,11 @@ import com.slamdunk.toolkit.ui.Overlap2DUtils;
 import com.slamdunk.wordarena.WordArenaGame;
 import com.slamdunk.wordarena.actors.ZoneActor;
 import com.slamdunk.wordarena.assets.Assets;
-import com.slamdunk.wordarena.data.arena.ArenaData;
 import com.slamdunk.wordarena.data.arena.cell.MarkerPack;
 import com.slamdunk.wordarena.data.arena.zone.ZoneData;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.GameData;
+import com.slamdunk.wordarena.data.game.PlayerData;
+import com.slamdunk.wordarena.data.game.WordPlayed;
 import com.slamdunk.wordarena.enums.GameStates;
 import com.slamdunk.wordarena.screens.arena.stats.StatsTable;
 import com.slamdunk.wordarena.screens.home.HomeScreen;
@@ -68,19 +69,24 @@ public class ArenaUI extends UIOverlay {
 	 * d'éviter de recréer toute l'UI à chaque switch de partie.
 	 * @param arenaData 
 	 */
-	public void init(ArenaData arenaData, List<Player> players, int nbRoundsToWin) {
+	public void init(GameData gameData, int nbRoundsToWin) {
 		// Crée et remplit les marqueurs de possession de zone
-		initZoneMarkers(arenaData.zones);
-		updateZoneMarkers(players, arenaData.zones);
+		initZoneMarkers(gameData.arena.zones);
+		updateZoneMarkers(gameData.arena.zones);
 		
 		// Initialise la table de statistiques
-		statsTable.init(players, nbRoundsToWin);
+		statsTable.init(gameData.players, nbRoundsToWin);
 		statsTable.layout();
 		statsTable.pack();
 		
 		// Initialise les informations affichées
-		setArenaName(arenaData.name);
+		setArenaName(gameData.arena.name);
 		setInfo("");
+		
+		// Initialise les mots joués
+		for (WordPlayed wordPlayed : gameData.wordsPlayed) {
+			addPlayedWord(gameData.players.get(wordPlayed.player), wordPlayed.wordId);
+		}
 	}
 	
 
@@ -258,8 +264,8 @@ public class ArenaUI extends UIOverlay {
 		statsTable.setVisible(state == GameStates.PAUSED);
 	}
 	
-	public void setCurrentPlayer(Player player, int turn, int maxTurns, int round) {
-		currentPlayer.setText(Assets.i18nBundle.format("ui.arena.currentTurn", player.id, round, turn, maxTurns));
+	public void setCurrentPlayer(PlayerData player, int turn, int maxTurns, int round) {
+		currentPlayer.setText(Assets.i18nBundle.format("ui.arena.currentTurn", player.name, round, turn, maxTurns));
 		currentPlayer.setStyle(Assets.markerPacks.get(player.markerPack).labelStyle);
 	}
 	
@@ -276,23 +282,23 @@ public class ArenaUI extends UIOverlay {
 		sceneLoader.sceneActor.getLabelById("lblArenaName").setText(name);
 	}
 	
-	public void setRoundWinner(Player winner) {
+	public void setRoundWinner(PlayerData winner) {
 		if (winner == null) {
 			// Egalité
 			sceneLoader.sceneActor.getLabelById("lblRoundWinner").setText(Assets.i18nBundle.format("ui.arena.roundWinnerTie"));
 		} else {
 			// Victoire d'un joueur
-			sceneLoader.sceneActor.getLabelById("lblRoundWinner").setText(Assets.i18nBundle.format("ui.arena.roundWinner", winner.id));
+			sceneLoader.sceneActor.getLabelById("lblRoundWinner").setText(Assets.i18nBundle.format("ui.arena.roundWinner", winner.name));
 		}
 	}
 	
-	public void setGameWinner(Player winner) {
+	public void setGameWinner(PlayerData winner) {
 		if (winner == null) {
 			// Egalité
 			sceneLoader.sceneActor.getLabelById("lblGameWinner").setText(Assets.i18nBundle.format("ui.arena.gameWinnerTie"));
 		} else {
 			// Victoire d'un joueur
-			sceneLoader.sceneActor.getLabelById("lblGameWinner").setText(Assets.i18nBundle.format("ui.arena.gameWinner", winner.id));
+			sceneLoader.sceneActor.getLabelById("lblGameWinner").setText(Assets.i18nBundle.format("ui.arena.gameWinner", winner.name));
 		}
 	}
 	
@@ -315,17 +321,20 @@ public class ArenaUI extends UIOverlay {
 	 * zones possédées par chaque joueur.
 	 * @param array 
 	 */
-	public void updateZoneMarkers(List<Player> players, List<ZoneData> zones) {
+	public void updateZoneMarkers(List<ZoneData> zones) {
 		// Compte le nombre de zones possédées par chaque joueur
 		tmpZonesByPlayer.clear();
 		String playerPack;
 		for (ZoneData zoneData : zones) {
+			// On ne traite pas les zones NONE (cellules hors zone)
 			if (zoneData.id.equals(ZoneActor.NONE.getData().id)) {
 				continue;
 			}
 			
-			playerPack = zoneData.owner.markerPack;
+			// Récupère le pack du possesseur de la zone
+			playerPack = matchManager.getPlayer(zoneData.ownerPlace).markerPack;
 			
+			// Ajoute 1 zone à dessiner avec ce pack
 			Integer nbZones = tmpZonesByPlayer.get(playerPack);
 			if (nbZones == null) {
 				tmpZonesByPlayer.put(playerPack, 1);
@@ -337,11 +346,11 @@ public class ArenaUI extends UIOverlay {
 		// Pour chaque joueur, remplit autant de carrés que de zones possédées
 		// On prend d'abord le premier joueur, puis le neutre, puis le second joueur,
 		// de façon à avoir une jolie barre
-		int lastMarkedSquare = fillZoneMarkers(0, players.get(0).markerPack);
+		int lastMarkedSquare = fillZoneMarkers(0, matchManager.getPlayer(0).markerPack);
 		
 		lastMarkedSquare = fillZoneMarkers(lastMarkedSquare, Assets.MARKER_PACK_NEUTRAL);
 		
-		lastMarkedSquare = fillZoneMarkers(lastMarkedSquare, players.get(1).markerPack);
+		lastMarkedSquare = fillZoneMarkers(lastMarkedSquare, matchManager.getPlayer(1).markerPack);
 	}
 
 	/**
@@ -383,7 +392,7 @@ public class ArenaUI extends UIOverlay {
 		return offset + nbZonesOwned;
 	}
 	
-	public void addPlayedWord(Player player, String word) {
+	public void addPlayedWord(PlayerData player, String word) {
 		statsTable.addPlayedWord(player, word);
 	}
 }

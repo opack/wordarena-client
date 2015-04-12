@@ -24,7 +24,7 @@ public class GameLaunchScript extends SimpleButtonI18NScript {
 				|| arenaFile.isEmpty()) {
 					return;
 				}
-				screen.launchGame(arenaFile);
+				screen.startNewGame(arenaFile);
 			}
 		});
 	}

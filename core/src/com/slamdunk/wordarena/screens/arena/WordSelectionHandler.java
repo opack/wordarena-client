@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.data.arena.zone.ZoneData;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 
 /**
  * Gère le mot actuellement sélectionné et détermine si une cellule
@@ -54,16 +54,16 @@ public class WordSelectionHandler {
 		// contrôlée par le joueur
 		else {
 			ZoneData zoneData = matchManager.getArenaData().getZoneData(cell.getData().zone);
-			Player player = matchManager.getCinematic().getCurrentPlayer();
-			Player cellOwner = cell.getData().owner;
+			PlayerData player = matchManager.getCinematic().getCurrentPlayer();
+			int cellOwner = cell.getData().ownerPlace;
 			
 			// La cellule est-elle dans une zone du joueur ?
-			boolean isInPlayerZone = (zoneData != null && player.equals(zoneData.owner));
+			boolean isInPlayerZone = (zoneData != null && player.place == zoneData.ownerPlace);
 
 			// Si la cellule n'appartient pas au joueur...
-			if (!player.equals(cellOwner)
+			if (player.place != cellOwner
 			// ... et que ce n'est pas une cellule neutre dans une zone du joueur ...
-			&& (!Player.NEUTRAL.equals(cellOwner) || !isInPlayerZone)) {
+			&& (!PlayerData.isNeutral(cellOwner) || !isInPlayerZone)) {
 				// ... alors il est interdit de commencer un mot dessus
 				return false;
 			}

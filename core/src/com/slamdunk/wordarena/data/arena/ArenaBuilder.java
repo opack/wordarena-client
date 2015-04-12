@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.JsonValue;
 import com.slamdunk.toolkit.lang.Deck;
 import com.slamdunk.toolkit.world.point.Point;
@@ -13,11 +12,10 @@ import com.slamdunk.wordarena.actors.ZoneActor;
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.arena.cell.CellData;
 import com.slamdunk.wordarena.data.arena.zone.ZoneData;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.enums.Letters;
-import com.slamdunk.wordarena.screens.arena.MatchManager;
 import com.slamdunk.wordarena.screens.editor.EditorScreen;
 
 /**
@@ -36,7 +34,6 @@ public class ArenaBuilder {
 	 */
 	private static final String POSITION_SEPARATOR = ";";
 	
-	private List<Player> players;
 	/**
 	 * Indique si on est en train de construire une arène pour l'éditeur
 	 * ou pour jouer.
@@ -56,12 +53,7 @@ public class ArenaBuilder {
 	private Set<String> zonesNames;
 	private Set<Point> cellsWithWalls;
 	
-	public ArenaBuilder(MatchManager matchManager) {
-		this(matchManager, Assets.uiSkin);
-	}
-	
-	public ArenaBuilder(MatchManager matchManager, Skin skin) {
-		this.players = matchManager.getCinematic().getPlayers();
+	public ArenaBuilder() {
 		arena = new ArenaData();
 	}
 	
@@ -120,22 +112,22 @@ public class ArenaBuilder {
 		setArenaSkinName(plan.getString("skin"));
 		
 		// Charge les types de cellule
-		setTypes(extractStringTable(plan.get("plan.types")));
+		setTypes(extractStringTable(plan.get("types")));
 		
 		// Charge les lettres initiales.
-		setLetters(extractStringTable(plan.get("plan.letters")));
+		setLetters(extractStringTable(plan.get("letters")));
 		
 		// Charge les puissances
-		setPowers(extractIntTable(plan.get("plan.powers")));
+		setPowers(extractIntTable(plan.get("powers")));
 		
 		// Charge les possesseurs
-		setOwners(extractIntTable(plan.get("plan.owners")));
+		setOwners(extractIntTable(plan.get("owners")));
 		
 		// Charge les zones
-		setZones(extractStringTable(plan.get("plan.zones")));
+		setZones(extractStringTable(plan.get("zones")));
 		
 		// Charge les murs
-		setWalls(extractPointList(plan.get("plan.walls")));
+		setWalls(extractPointList(plan.get("walls")));
 		
 		return true;
 	}
@@ -392,24 +384,43 @@ public class ArenaBuilder {
 				data.planLetter = letters[x][y];
 				data.letter = chooseLetter(data.type, letters[x][y], arena.letterDeck);
 				data.power = choosePower(data.type, powers[x][y]);
-				data.owner = chooseOwner(data.type, owners[x][y]);
+				data.ownerPlace = chooseOwner(data.type, owners[x][y]);
 				data.zone = zones[x][y];
 				zonesNames.add(data.zone);
 			}
 		}
 	}
 
-	private Player chooseOwner(CellTypes cellType, int ownerIndex) {
-		if (!cellType.canBeOwned()
-		|| ownerIndex == 0) {
-			return Player.NEUTRAL;
+	/**
+	 * Si le plan indique un owner = 0 on doit comprendre qu'il s'agit
+	 * du joueur. Or la liste des joueurs ne contient pas le joueur Neutre,
+	 * et l'owner 0 est donc le premier joueur réel. Il faut donc
+	 * "convertir" l'indice du plan pour qu'il corresponde à la liste
+	 * de joueurs.
+	 * Ainsi l'owner réel = plan - 1.
+	 * De plus, cette méthode s'assure que si la cellule ne peut pas être
+	 * possédée, elle sera attribuée au joueur Neutre.
+	 * @param cellType
+	 * @param ownerIndex
+	 * @return
+	 */
+	private int chooseOwner(CellTypes cellType, int ownerIndex) {
+		if (!cellType.canBeOwned()) {
+			return PlayerData.NEUTRAL.place;
 		}
-		// Dans le plan, l'owner comence à 1. C'est bien le premier joueur
-		// en mode jeu, mais pas en mode édition
+		
+		// Dans le plan JSON, le premier joueur à l'indice 0 et le joueur
+		// NEUTRAL n'apparaîtra pas dans la liste des joueurs du GameData.
+		// On doit donc considérer que le joueur 0 du plan correspond au
+		// joueur -1 (NEUTRAL), que le joueur 1 du plan correspond au
+		// joueur 1 etc.
 		if (editorScreen == null) {
-			return players.get(ownerIndex - 1);
-		} else {
-			return players.get(ownerIndex);
+			return ownerIndex - 1;
+		}
+		// En mode édition, le joueur NEUTRAL apparaît dans la liste. L'indice
+		// mentionné peut donc être utilisé tel quel.
+		else {
+			return ownerIndex;
 		}
 	}
 

@@ -1,0 +1,93 @@
+{
+header: {
+	gameType: TRAINING
+	objective: CONQUEST
+}
+cinematic: {}
+players: [
+	{
+		name: Neutre
+		place: -1
+		kind: HUMAN_LOCAL
+		markerPack: neutral
+	}
+	{
+		name: Joueur 1
+		kind: HUMAN_LOCAL
+		markerPack: blue
+	}
+	{
+		name: Joueur 2
+		place: 1
+		kind: HUMAN_LOCAL
+		markerPack: orange
+	}
+	{
+		name: Joueur 3
+		place: 2
+		kind: HUMAN_LOCAL
+		markerPack: green
+	}
+	{
+		name: Joueur 4
+		place: 3
+		kind: HUMAN_LOCAL
+		markerPack: purple
+	}
+]
+arena: {
+	name: editor
+	skin: default
+	width: 7
+	height: 7
+	types: [
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+	]
+	letters: [
+		"U X N E W A D "
+		"B U F O F U E "
+		"Z T G A E P A "
+		"A A E L U A N "
+		"L R E L E D O "
+		"T V E H J Y K "
+		"O O I V I N S "
+	]
+	powers: [
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+	]
+	owners: [
+		"0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 "
+	]
+	zones: [
+		"- - - - - - - "
+		"- - - - - - - "
+		"- - - - - - - "
+		"- - - - - - - "
+		"- - - - - - - "
+		"- - - - - - - "
+		"- - - - - - - "
+	]
+	walls: []
+}
+wordsPlayed: []
+lastMove: {}
+chats: []
+}

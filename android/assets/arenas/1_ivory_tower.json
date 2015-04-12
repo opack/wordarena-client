@@ -3,7 +3,7 @@ name: 1_ivory_tower
 skin: default
 width: 9
 height: 9
-plan.types: [
+types: [
 	"L L L L L L L L L "
 	"L L L L L L L L L "
 	"L L L L L L L L L "
@@ -14,7 +14,7 @@ plan.types: [
 	"L L L L L L L L L "
 	"L L L L L L L L L "
 ]
-plan.letters: [
+letters: [
 	"- - - - - - - - - "
 	"- - - - - - - - - "
 	"- - - - - - - - - "
@@ -25,7 +25,7 @@ plan.letters: [
 	"- - - - - - - - - "
 	"- - - - - - - - - "
 ]
-plan.powers: [
+powers: [
 	"1 1 1 1 1 1 1 1 1 "
 	"1 1 1 1 1 1 1 1 1 "
 	"1 1 1 1 1 1 1 1 1 "
@@ -36,7 +36,7 @@ plan.powers: [
 	"1 1 1 1 1 1 1 1 1 "
 	"1 1 1 1 1 1 1 1 1 "
 ]
-plan.owners: [
+owners: [
 	"0 0 0 0 0 0 0 0 1 "
 	"0 0 0 0 0 0 0 0 0 "
 	"0 0 0 0 0 0 0 0 0 "
@@ -47,7 +47,7 @@ plan.owners: [
 	"0 0 0 0 0 0 0 0 0 "
 	"2 0 0 0 0 0 0 0 0 "
 ]
-plan.zones: [
+zones: [
 	"1 1 1 1 - 2 2 2 2 "
 	"1 1 1 1 - 2 2 2 2 "
 	"1 1 - - - - - 2 2 "
@@ -58,7 +58,7 @@ plan.zones: [
 	"4 4 4 4 - 3 3 3 3 "
 	"4 4 4 4 - 3 3 3 3 "
 ]
-plan.walls: [
+walls: [
 	6;6 7;6
 	6;6 6;7
 	2;2 1;2

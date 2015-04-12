@@ -3,7 +3,7 @@ package com.slamdunk.wordarena.screens.arena;
 import java.util.List;
 
 import com.slamdunk.wordarena.actors.CellActor;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 
 /**
  * Classe utilitaire simplifiant le calcul des scores
@@ -28,7 +28,7 @@ public class ScoreHelper {
 	 * @param list
 	 * @return
 	 */
-	public static void onValidWord(Player player, List<CellActor> cells) {
+	public static void onValidWord(PlayerData player, List<CellActor> cells) {
 		// Mot validé : 1pt * cell.power
 		int score = 0;
 		for (CellActor cell : cells) {
@@ -58,18 +58,18 @@ public class ScoreHelper {
 	 * @param oldOwner Le joueur qui vient de perdre la zone. null si la zone
 	 * n'appartenait à personne.
 	 */
-	public static void onZoneConquest(Player newOwner, Player oldOwner) {
+	public static void onZoneConquest(PlayerData newOwner, PlayerData oldOwner) {
 		// Si la zone appartenait à un adversaire, le joueur
 		// gagne plus de points
 		if (oldOwner != null
-		&& !Player.NEUTRAL.equals(oldOwner)) {
+		&& !oldOwner.isNeutral()) {
 			newOwner.score += SCORE_ZONE_STEALED;
 		} else {
 			newOwner.score += SCORE_ZONE_GAINED;
 		}
 	}
 
-	public static void onRefreshStartingZone(Player player) {
+	public static void onRefreshStartingZone(PlayerData player) {
 		player.score -= MALUS_REFRESH_STARTING_ZONE;
 	}
 }

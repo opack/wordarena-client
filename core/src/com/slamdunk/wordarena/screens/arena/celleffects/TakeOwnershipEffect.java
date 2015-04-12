@@ -7,7 +7,7 @@ import com.slamdunk.toolkit.graphics.drawers.AnimationDrawer;
 import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.arena.cell.MarkerPack;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
 
@@ -24,11 +24,11 @@ public class TakeOwnershipEffect extends DefaultCellEffect {
 		return cell.getData().type.canBeOwned()
 		// Seules les cellules qui sont actuellement libres, ou possédées
 		// par un autre joueur sont targetables
-			&& (cell.getData().state != CellStates.OWNED || !getPlayer().equals(cell.getData().owner));
+			&& (cell.getData().state != CellStates.OWNED || getPlayer().place != cell.getData().ownerPlace);
 	}
 	
 	@Override
-	public boolean init(List<CellActor> cells, Player player, ArenaOverlay arena) {
+	public boolean init(List<CellActor> cells, PlayerData player, ArenaOverlay arena) {
 		super.init(cells, player, arena);
 		
 		// S'il n'y a pas de cellules à conquérir, il n'y a rien à faire
@@ -75,9 +75,7 @@ public class TakeOwnershipEffect extends DefaultCellEffect {
 	 */
 	private void updateArena() {
 		for (CellActor cell : getTargetCells()) {
-			cell.getData().owner = getPlayer();
-			cell.getData().state = CellStates.OWNED;
-			
+			cell.setOwner(getPlayer(), CellStates.OWNED);
 			cell.updateDisplay();
 		}
 	}

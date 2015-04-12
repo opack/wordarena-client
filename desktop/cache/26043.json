@@ -1,23 +1,21 @@
 {
-id: 3
-gameType: TRAINING
-objective: CONQUEST
-curRound: 1
-curTurn: 1
+header: {
+	id: 26043
+	gameType: TRAINING
+	objective: CONQUEST
+}
+cinematic: {}
 players: [
 	{
-		id: Alan
+		name: Alan
 		kind: HUMAN_LOCAL
 		markerPack: blue
-		nbRoundsWon: 1
 	}
 	{
-		id: Bob
+		name: Bob
 		place: 1
 		kind: HUMAN_LOCAL
 		markerPack: orange
-		score: 3
-		nbWordsPlayed: 1
 	}
 ]
 arena: {
@@ -25,35 +23,35 @@ arena: {
 	skin: default
 	width: 10
 	height: 12
-	plan.types: [
+	types: [
 		"L L L L L L L L L L "
 		"L L L L L L L L L L "
 		"L L L L L L L L L L "
-		"G G G L L L L L L G "
-		"L L L G L L L L L L "
-		"L L L G L L L L L L "
-		"L L L L L L G L L L "
-		"L L L G L L L L L L "
-		"G G G G L G G L L L "
+		"G G G G G G G G G G "
+		"L L L G L L G L L L "
+		"L L L G L L G L L L "
+		"L L L G L L G L L L "
+		"L L L G L L G L L L "
+		"G G G G G G G G G G "
 		"L L L L L L L L L L "
 		"L L L L L L L L L L "
 		"L L L L L L L L L L "
 	]
-	plan.letters: [
-		"- - - - - - - - - - "
-		"- - - - - - - - - - "
-		"- - - - - - - - - - "
-		"- - - - - - - - - - "
-		"- - - - - - - - - - "
-		"- - - - - - - - - - "
-		"- - - - - - - - - - "
-		"- - - - - - - - - - "
-		"- - - - - - - - - - "
-		"- - - - - - - - - - "
-		"- - - - - - - - - - "
-		"- - - - - - - - - - "
+	letters: [
+		"I A S E O Y E W T S "
+		"M O D E S D I E O L "
+		"A T S P I V A T X E "
+		"A J I Q A E I Z F N "
+		"T E A E H F R R G H "
+		"E T L U K O N C T U "
+		"E U E I S L U V P A "
+		"U R B E L N N O B I "
+		"A G S O D I L R E E "
+		"N M C N M A R R E U "
+		"V E B Y G D N L H U "
+		"I A T T E E O E H N "
 	]
-	plan.powers: [
+	powers: [
 		"1 1 1 1 1 1 1 1 1 1 "
 		"1 1 1 1 1 1 1 1 1 1 "
 		"1 1 1 1 1 1 1 1 1 1 "
@@ -67,21 +65,21 @@ arena: {
 		"1 1 1 1 1 1 1 1 1 1 "
 		"1 1 1 1 1 1 1 1 1 1 "
 	]
-	plan.owners: [
+	owners: [
 		"0 0 0 0 1 1 0 0 0 0 "
-		"0 0 0 0 0 1 0 0 0 0 "
-		"0 0 0 0 1 1 0 0 0 0 "
-		"0 0 0 0 1 1 1 1 0 0 "
-		"0 0 0 0 0 0 1 1 0 0 "
-		"0 0 0 0 0 1 0 1 0 0 "
-		"0 0 0 0 1 0 0 0 1 0 "
-		"0 0 0 0 0 0 0 1 0 0 "
-		"0 0 0 0 0 0 0 0 2 0 "
-		"0 0 0 0 2 0 0 2 2 0 "
-		"0 0 0 2 2 0 2 2 2 0 "
-		"0 0 0 0 2 2 2 2 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 2 2 0 0 0 0 "
 	]
-	plan.zones: [
+	zones: [
 		"- - 1 1 1 1 1 1 - - "
 		"- - 1 1 1 1 1 1 - - "
 		"- - - - - - - - - - "
@@ -95,7 +93,7 @@ arena: {
 		"- - 2 2 2 2 2 2 - - "
 		"- - 2 2 2 2 2 2 - - "
 	]
-	plan.walls: []
+	walls: []
 }
 wordsPlayed: []
 lastMove: {}

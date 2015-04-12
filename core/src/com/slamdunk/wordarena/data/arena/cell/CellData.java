@@ -2,7 +2,7 @@ package com.slamdunk.wordarena.data.arena.cell;
 
 import com.slamdunk.toolkit.world.point.Point;
 import com.slamdunk.wordarena.actors.ZoneActor;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.enums.Letters;
@@ -43,9 +43,10 @@ public class CellData {
 	public final Point position;
 	
 	/**
-	 * Indique qui possède la cellule
+	 * Indice (parmi la liste des joueurs de cette
+	 * partie) du joueur qui possède la cellule
 	 */
-	public Player owner;
+	public int ownerPlace;
 	
 	/**
 	 * Indique la puissance de cette cellule
@@ -62,7 +63,7 @@ public class CellData {
 		state = CellStates.OWNED;
 		selected = false;
 		position = new Point(0, 0);
-		owner = Player.NEUTRAL;
+		ownerPlace = PlayerData.NEUTRAL.place;
 		power = 1;
 		zone = ZoneActor.NONE.getData().id;
 	}

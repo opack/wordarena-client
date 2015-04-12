@@ -27,7 +27,7 @@ import com.slamdunk.wordarena.data.arena.ArenaBuilder;
 import com.slamdunk.wordarena.data.arena.ArenaData;
 import com.slamdunk.wordarena.data.arena.cell.CellData;
 import com.slamdunk.wordarena.data.arena.zone.ZoneData;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.screens.arena.celleffects.CellEffectsManager;
 import com.slamdunk.wordarena.screens.editor.EditorScreen;
@@ -47,7 +47,9 @@ public class ArenaOverlay extends WorldOverlay {
 	private CellActor[][] cells;
 	private Map<String, ZoneActor> zones;
 	
-	public ArenaOverlay() {
+	public ArenaOverlay(MatchManager matchManager) {
+		this.matchManager = matchManager;
+		
 		createStage(new FitViewport(WordArenaGame.SCREEN_WIDTH, WordArenaGame.SCREEN_HEIGHT));
 
 		background = new Image();
@@ -93,12 +95,12 @@ public class ArenaOverlay extends WorldOverlay {
 	/**
 	 * Crée l'arène de jeu
 	 */
-	public void buildArena(String plan, MatchManager matchManager) {
+	public void buildArena(String plan) {
 		// Charge le plan
 		JsonValue json = new JsonReader().parse(Gdx.files.internal(plan));
 		
 		// Crée les données de l'arène à partir du plan
-		ArenaBuilder builder = new ArenaBuilder(matchManager);
+		ArenaBuilder builder = new ArenaBuilder();
 		if (getScreen() instanceof EditorScreen) {
 			builder.setEditorScreen((EditorScreen)getScreen());
 		}
@@ -109,6 +111,10 @@ public class ArenaOverlay extends WorldOverlay {
 		resetArena();
 	}
 	
+	/**
+	 * Charge les données d'arène spécifiées
+	 * @param arenaData
+	 */
 	public void loadArena(ArenaData arenaData) {
 		this.data = arenaData;
 		resetArena();
@@ -155,10 +161,10 @@ public class ArenaOverlay extends WorldOverlay {
 		for (int y = 0; y < data.height; y++) {
 			for (int x = 0; x < data.width; x++) {
 				// Construction de la cellule
-				CellActor cell = new CellActor(Assets.uiSkin, data.cells[x][y]);
+				CellActor cell = new CellActor(Assets.uiSkin, data.cells[x][y], matchManager);
 				cell.addListener(new CellSelectionListener(cell, wordSelectionHandler));
 			
-				// Placement de la cellule dans le monde et mise à jour du display
+				// Placement de la cellule dans le monde
 				cell.setPosition(x * cell.getWidth(), y * cell.getHeight());
 				cell.updateDisplay();
 				
@@ -297,14 +303,14 @@ public class ArenaOverlay extends WorldOverlay {
 	 * @param cells
 	 * @param owner
 	 */
-	public void setCellsOwner(List<CellActor> cells, Player owner) {
+	public void setCellsOwner(List<CellActor> cells, PlayerData owner) {
 		// Change le propriétaire des cellules et note les zones impactées
 		Set<String> impactedZones = new HashSet<String>();
 		ZoneActor zone;
 		CellData cellData;
 		for (CellActor cell : cells) {
 			cellData = cell.getData();
-			cellData.owner = owner;
+			cellData.ownerPlace = owner.place;
 			cellData.state = CellStates.OWNED;
 			// On ne fait pas d'updateDisplay() car le rafraîchissement de la zone le fera
 			
@@ -347,10 +353,10 @@ public class ArenaOverlay extends WorldOverlay {
 	 * Si le joueur n'a pas encore joué, il peut demander de nouvelles
 	 * lettres dans sa zone de départ
 	 */
-	public void refreshStartingZone(Player owner) {
+	public void refreshStartingZone(PlayerData owner) {
 		// Recherche la zone de cet owner
 		for (ZoneActor zone : zones.values()) {
-			if (owner.equals(zone.getData().owner)) {
+			if (owner.place == zone.getData().ownerPlace) {
 				// Tire de nouvelles lettres pour les cellules de cette zone
 				CellData cellData;
 				for (CellActor cell : zone.getCells()) {

@@ -1,13 +1,13 @@
 package com.slamdunk.wordarena.screens.arena;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Date;
+import java.util.List;
 
 import com.badlogic.gdx.utils.JsonValue;
 import com.slamdunk.wordarena.data.game.GameData;
 import com.slamdunk.wordarena.data.game.WordPlayed;
-import com.slamdunk.wordarena.server.ServerCallback;
 import com.slamdunk.wordarena.server.CallServerException;
+import com.slamdunk.wordarena.server.ServerCallback;
 import com.slamdunk.wordarena.server.lexis.LexisService;
 
 /**
@@ -46,20 +46,19 @@ public class WordValidator {
 		 */
 		void onWordValidationFailed(String word);
 	}
-	
-	private final Set<String> alreadyPlayed;
+
+	private List<WordPlayed> wordsPlayed;
 	private WordValidationListener listener;
 	
 	public WordValidator(WordValidationListener listener) {
 		this.listener = listener;
-		alreadyPlayed = new HashSet<String>();
 	}
 	
 	/**
 	 * Réinitialise la liste des mots joués à ce round
 	 */
 	public void clearAlreadyPlayedList() {
-		alreadyPlayed.clear();
+		wordsPlayed.clear();
 	}
 	
 	/**
@@ -67,12 +66,11 @@ public class WordValidator {
 	 * @param selectedLetters
 	 * @return true si le mot est valide
 	 */
-	public void validate(final String word) {
+	public void validate(final String word, final int playerPlace) {
 		// Vérifie si le mot a déjà été joué
-		if (alreadyPlayed.contains(word)) {
+		if (isAlreadyPlayed(word)) {
 			listener.onWordAlreadyPlayed(word);
 		}
-
 		// Si le mot n'a pas encore été joué, on vérifie
 		// s'il existe bien dans le lexique
 		else {
@@ -86,7 +84,11 @@ public class WordValidator {
 					
 					// Le mot est valide. Ajout à la liste des mots joués.
 					else {
-						alreadyPlayed.add(word);
+						WordPlayed wordPlayed = new WordPlayed();
+						wordPlayed.time = new Date(); // TODO Trouver une technique pour qu'on utilise l'heure serveur. Le serveur doit-il créer cette instance ?
+						wordPlayed.player = playerPlace;
+						wordPlayed.wordId = word;
+						wordsPlayed.add(wordPlayed);
 						
 						listener.onWordValidated(word);
 					}
@@ -100,10 +102,21 @@ public class WordValidator {
 		}
 	}
 
-	public void init(GameData game) {
-		alreadyPlayed.clear();
-		for (WordPlayed word : game.wordsPlayed) {
-			alreadyPlayed.add(word.wordId);
+	/**
+	 * Indique si le mot a déjà été joué
+	 * @param word
+	 * @return
+	 */
+	private boolean isAlreadyPlayed(String word) {
+		for (WordPlayed wordPlayed : wordsPlayed) {
+			if (wordPlayed.wordId.equals(word)) {
+				return true;
+			}
 		}
+		return false;
+	}
+
+	public void init(GameData game) {
+		wordsPlayed = game.wordsPlayed;
 	}
 }

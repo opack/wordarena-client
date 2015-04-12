@@ -6,13 +6,16 @@ import com.slamdunk.wordarena.enums.PlayerKind;
 /**
  * Contient les informations sur le joueur participant à la partie
  */
-public class Player {
-	public static final Player NEUTRAL;
+public class PlayerData {
+	public static final PlayerData NEUTRAL;
 	static {
-		NEUTRAL = new Player(Assets.i18nBundle.get("ui.editor.player.0"), Assets.MARKER_PACK_NEUTRAL);
+		NEUTRAL = new PlayerData(Assets.i18nBundle.get("ui.editor.player.0"), Assets.MARKER_PACK_NEUTRAL, -1);
 	}
 	
-	public String id;
+	/**
+	 * Identifiant unique du joueur
+	 */
+	public String name;
 	
 	/**
 	 * Indique l'ordre de jeu, donc l'indice du joueur
@@ -33,15 +36,15 @@ public class Player {
 	public int nbZonesOwned;
 	public int nbWordsPlayed;
 	
-	public Player() {
+	public PlayerData() {
 	}
 	
-	public Player(String id, String cellPack) {
+	public PlayerData(String id, String cellPack) {
 		this(id, cellPack, -1);
 	}
 	
-	public Player(String id, String cellPack, int place) {
-		this.id = id;
+	public PlayerData(String id, String cellPack, int place) {
+		this.name = id;
 		this.place = place;
 		this.markerPack = cellPack;
 		this.kind = PlayerKind.HUMAN_LOCAL;
@@ -49,20 +52,28 @@ public class Player {
 	
 	@Override
 	public int hashCode() {
-		return id.hashCode();
+		return name.hashCode();
 	}
 	
 	@Override
 	public boolean equals(Object obj) {
 		if (obj != null
-		&& (obj instanceof Player)) {
-			return id.equals(((Player)obj).id);
+		&& (obj instanceof PlayerData)) {
+			return name.equals(((PlayerData)obj).name);
 		}
 		return false;
 	}
 	
 	@Override
 	public String toString() {
-		return id;
+		return name;
+	}
+	
+	public boolean isNeutral() {
+		return this.place == NEUTRAL.place;
+	}
+	
+	public static boolean isNeutral(int place) {
+		return place == NEUTRAL.place;
 	}
 }

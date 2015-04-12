@@ -12,7 +12,10 @@ import com.slamdunk.toolkit.graphics.drawers.AnimationDrawer;
 import com.slamdunk.toolkit.graphics.drawers.TextureDrawer;
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.arena.cell.CellData;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.arena.cell.MarkerPack;
+import com.slamdunk.wordarena.data.game.PlayerData;
+import com.slamdunk.wordarena.enums.CellStates;
+import com.slamdunk.wordarena.screens.arena.MatchManager;
 
 /**
  * Une cellule de l'arène. Une cellule contient bien sûr une lettre
@@ -35,6 +38,11 @@ public class CellActor extends Actor {
 	 */
 	private ZoneActor zone;
 	
+	/**
+	 * Le pack utilisé pour dessiner cette cellule
+	 */
+	private MarkerPack markerPack;
+	
 	private AnimationDrawer ownerDrawer;
 	
 	private LabelStyle letterStyle;
@@ -46,10 +54,10 @@ public class CellActor extends Actor {
 	private float momentaryTimer;
 	
 	public CellActor(final Skin skin) {
-		this(skin, null);
+		this(skin, null, null);
 	}
 	
-	public CellActor(final Skin skin, CellData data) {
+	public CellActor(final Skin skin, CellData data, MatchManager matchManager) {
 		// Définit la taille de la cellule
 		setSize(WIDTH, HEIGHT);
 		
@@ -72,6 +80,13 @@ public class CellActor extends Actor {
 			letterStyle = Assets.uiSkin.get("power-0", LabelStyle.class);
 		}
 		bounds = new Rectangle(getX(), getY(), WIDTH, HEIGHT);
+		
+		// Pack utilisé pour dessiner cette cellule
+		if (matchManager == null) {
+			markerPack = Assets.markerPacks.get(Assets.MARKER_PACK_NEUTRAL);
+		} else {
+			markerPack = Assets.markerPacks.get(matchManager.getPlayer(data.ownerPlace).markerPack);
+		}
 	}
 	
 	public AnimationDrawer getAnimationDrawer() {
@@ -153,7 +168,7 @@ public class CellActor extends Actor {
 		momentaryTimerActive = false;
 		if (data.type.canBeOwned()) {
 			// Met à jour l'animation à jour en fonction de l'état de la cellule
-			ownerDrawer.setAnimation(Assets.markerPacks.get(data.owner.markerPack).getCellAnim(data), true, false);
+			ownerDrawer.setAnimation(markerPack.getCellAnim(data), true, false);
 			ownerDrawer.setStateTime(0);
 			
 			// Si la cellule n'est pas sélectionnée, on démarre le timer qui va déclencher
@@ -204,9 +219,10 @@ public class CellActor extends Actor {
 	 * Change le propriétaire de la cellule et met à jour l'image
 	 * @param owner
 	 */
-	public void setOwner(Player owner) {
-		data.owner = owner;
-		updateDisplay();		
+	public void setOwner(PlayerData owner, CellStates state) {
+		data.ownerPlace = owner.place;
+		data.state = state;
+		markerPack = Assets.markerPacks.get(owner.markerPack);
 	}
 	
 	public ZoneActor getZone() {
@@ -222,4 +238,5 @@ public class CellActor extends Actor {
 	public String toString() {
 		return data.position.toString();
 	}
+
 }

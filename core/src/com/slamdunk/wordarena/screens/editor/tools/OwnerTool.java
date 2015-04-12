@@ -4,13 +4,13 @@ import java.util.Collection;
 
 import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.data.arena.cell.CellData;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellStates;
 
-public class OwnerTool extends EditorTool<Player> {
+public class OwnerTool extends EditorTool<PlayerData> {
 	
 	public OwnerTool() {
-		setValue(Player.NEUTRAL);
+		setValue(PlayerData.NEUTRAL);
 	}
 
 	@Override
@@ -19,7 +19,7 @@ public class OwnerTool extends EditorTool<Player> {
 		if (!data.type.canBeOwned()) {
 			return;
 		}
-		data.owner = getValue();
+		data.ownerPlace = getValue().place;
 		data.state = CellStates.OWNED;
 		
 		// Met à jour l'owner de la zone

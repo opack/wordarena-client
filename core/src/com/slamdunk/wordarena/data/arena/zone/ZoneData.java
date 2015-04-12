@@ -1,6 +1,6 @@
 package com.slamdunk.wordarena.data.arena.zone;
 
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 
 /**
  * Contient les données logiques d'une zone
@@ -16,7 +16,7 @@ public class ZoneData {
 	 * Joueur qui possède la zone
 	 * @param edge
 	 */
-	public Player owner;
+	public int ownerPlace;
 	
 	/**
 	 * Indique si la zone est en surbrillance
@@ -25,6 +25,6 @@ public class ZoneData {
 	
 	public ZoneData(String id) {
 		this.id = id;
-		owner = Player.NEUTRAL;
+		ownerPlace = PlayerData.NEUTRAL.place;
 	}
 }

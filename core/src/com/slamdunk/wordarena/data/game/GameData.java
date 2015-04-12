@@ -1,11 +1,9 @@
 package com.slamdunk.wordarena.data.game;
 
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.slamdunk.wordarena.data.arena.ArenaData;
-import com.slamdunk.wordarena.enums.GameTypes;
-import com.slamdunk.wordarena.enums.Objectives;
 
 /**
  * Regroupe les données d'une partie en cours
@@ -13,65 +11,19 @@ import com.slamdunk.wordarena.enums.Objectives;
 public class GameData {
 	
 	/**
-	 * Identifiant unique de la partie
+	 * Entête de la partie, contenant des infos générales
 	 */
-	public int id;
+	public GameHeader header;
 	
 	/**
-	 * Date/heure de création de la partie
+	 * Cinématique de la partie (round courant, joueur dont c'est le tour...)
 	 */
-	public Date createTime;
-	
-	/**
-	 * Date/heure de début du partie.
-	 * Si null, alors la partie n'a pas encore débuté et des joueurs peuvent la rejoindre.
-	 */
-	public Date startTime;
-	
-	/**
-	 * Date où la partie prend fin (dépend du temps de jeu choisi et de la date du dernier coup)
-	 */
-	public Date endTime;
-	
-	/**
-	 * Le type de la partie
-	 */
-	public GameTypes gameType;
-
-	/**
-	 * L'objectif de la partie, càd les règles appliquées à la partie
-	 */
-	public Objectives objective;
-	
-	/**
-	 * Round courant
-	 */
-	public int curRound;
-	
-	/**
-	 * Tour courant
-	 */
-	public int curTurn;
-	
-	/**
-	 * Joueur dont c'est le tour. Correspond à un indice du tableau players
-	 */
-	public int curPlayer;
-	
-	/**
-	 * Joueur ayant débuté ce round. Correspond à un indice du tableau players
-	 */
-	public int firstPlayer;
+	public GameCinematic cinematic;
 	
 	/**
 	 * Liste des joueurs participant à la partie, dans l'ordre de jeu
 	 */
-	public List<Player> players;
-	
-	/**
-	 * Indique si la partie est terminée
-	 */
-	public boolean gameOver;
+	public List<PlayerData> players;
 	
 	/**
 	 * JSON de l'arène au moment où la partie a été sauvegardée
@@ -92,4 +44,22 @@ public class GameData {
 	 * Messages échangés entre les joueurs
 	 */
 	public List<GameChat> chats;
+
+	/**
+	 * Instancie un GameData avec tous les objets permettant de le manipuler sans
+	 * risque de NullPointerException (cinematic, wordsPlayed, lastMove et chats).
+	 * Ces créations ne sont pas faites dans le constructeur afin d'éviter de les
+	 * faire une fois de trop lors du chargement de données depuis un fichier JSON.
+	 */
+	public static GameData create() {
+		GameData gameData = new GameData();
+		gameData.header = new GameHeader();
+		gameData.cinematic = new GameCinematic();
+		gameData.players = new ArrayList<PlayerData>();
+		// Le champ arena est toujours construit dynamiquement grâce à un builder ou au chargement JSON
+		gameData.wordsPlayed = new ArrayList<WordPlayed>();
+		gameData.lastMove = new GameMove();
+		gameData.chats = new ArrayList<GameChat>();
+		return gameData;
+	}
 }

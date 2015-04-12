@@ -1,0 +1,159 @@
+{
+header: {
+	id: 29975
+	gameType: TRAINING
+	objective: CONQUEST
+}
+cinematic: {
+	gameOver: true
+	curRound: 2
+	curTurn: 5
+}
+players: [
+	{
+		name: Alan
+		kind: HUMAN_LOCAL
+		markerPack: blue
+		score: 60
+		nbRoundsWon: 2
+		nbZonesOwned: 2
+		nbWordsPlayed: 5
+	}
+	{
+		name: Bob
+		place: 1
+		kind: HUMAN_LOCAL
+		markerPack: orange
+		score: 51
+		nbRoundsWon: 1
+		nbZonesOwned: 2
+		nbWordsPlayed: 5
+	}
+]
+arena: {
+	name: 2_trench_warfare
+	skin: default
+	width: 7
+	height: 12
+	types: [
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+	]
+	letters: [
+		"N A O P A V E "
+		"R I E S S S D "
+		"E W A C A E E "
+		"M L N T B M P "
+		"L E N F Z T E "
+		"Y Q A E I E U "
+		"R R I J R N S "
+		"U I I G E O S "
+		"D C H S R L E "
+		"O V D T O X I "
+		"R N U T U N A "
+		"I K B E O T A "
+	]
+	powers: [
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+	]
+	owners: [
+		"0 0 1 1 0 0 0 "
+		"0 0 0 1 0 0 0 "
+		"0 0 1 0 0 0 0 "
+		"0 0 1 1 0 0 0 "
+		"0 1 1 2 0 1 0 "
+		"0 0 2 2 2 1 1 "
+		"0 2 2 0 2 1 1 "
+		"0 0 0 2 1 2 2 "
+		"0 0 0 2 1 2 2 "
+		"0 0 0 2 1 0 0 "
+		"0 0 0 0 2 1 0 "
+		"0 0 0 2 2 1 0 "
+	]
+	zones: [
+		"1 1 1 1 1 1 1 "
+		"2 2 2 2 2 2 2 "
+		"2 2 2 2 2 2 2 "
+		"3 3 3 3 3 3 3 "
+		"3 3 7 7 7 3 3 "
+		"3 3 7 7 7 3 3 "
+		"4 4 7 7 7 4 4 "
+		"4 4 7 7 7 4 4 "
+		"4 4 4 4 4 4 4 "
+		"5 5 5 5 5 5 5 "
+		"5 5 5 5 5 5 5 "
+		"6 6 6 6 6 6 6 "
+	]
+	walls: []
+}
+wordsPlayed: [
+	{
+		time: {}
+		wordId: POSANT
+	}
+	{
+		time: {}
+		player: 1
+		wordId: TOUT
+	}
+	{
+		time: {}
+		wordId: NEANT
+	}
+	{
+		time: {}
+		player: 1
+		wordId: ORES
+	}
+	{
+		time: {}
+		wordId: GEOLES
+	}
+	{
+		time: {}
+		player: 1
+		wordId: ROLES
+	}
+	{
+		time: {}
+		wordId: TUNES
+	}
+	{
+		time: {}
+		player: 1
+		wordId: REGIRA
+	}
+	{
+		time: {}
+		wordId: TIRERONT
+	}
+	{
+		time: {}
+		player: 1
+		wordId: GRIEF
+	}
+]
+lastMove: {}
+chats: []
+}

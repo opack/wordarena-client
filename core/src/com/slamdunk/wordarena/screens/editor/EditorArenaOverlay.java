@@ -6,14 +6,19 @@ import com.slamdunk.wordarena.actors.ZoneActor;
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.arena.ArenaData;
 import com.slamdunk.wordarena.data.arena.cell.CellData;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.enums.Letters;
 import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
+import com.slamdunk.wordarena.screens.arena.MatchManager;
 
 public class EditorArenaOverlay extends ArenaOverlay {
 	
+	public EditorArenaOverlay(MatchManager matchManager) {
+		super(matchManager);
+	}
+
 	public void createEmptyArena(int width, int height, String skin) {
 		Assets.loadArenaSkin(skin);
 		
@@ -47,7 +52,7 @@ public class EditorArenaOverlay extends ArenaOverlay {
 				data.planLetter = Letters.FROM_TYPE.label;
 				data.letter = Letters.FROM_TYPE;
 				data.power = 1;
-				data.owner = Player.NEUTRAL;
+				data.ownerPlace = PlayerData.NEUTRAL.place;
 				data.zone = ZoneActor.NONE.getData().id;
 			}
 		}

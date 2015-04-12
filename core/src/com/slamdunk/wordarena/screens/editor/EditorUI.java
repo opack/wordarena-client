@@ -13,17 +13,17 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.slamdunk.toolkit.screen.overlays.UIOverlay;
 import com.slamdunk.toolkit.ui.Overlap2DUtils;
 import com.slamdunk.wordarena.WordArenaGame;
 import com.slamdunk.wordarena.actors.ZoneActor;
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.arena.zone.ZoneData;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.enums.Letters;
 import com.slamdunk.wordarena.screens.SimpleButtonI18NScript;
 import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
+import com.slamdunk.wordarena.screens.arena.ArenaUI;
 import com.slamdunk.wordarena.screens.editor.tools.CellTypeTool;
 import com.slamdunk.wordarena.screens.editor.tools.EditorTool;
 import com.slamdunk.wordarena.screens.editor.tools.LetterTool;
@@ -37,7 +37,7 @@ import com.uwsoft.editor.renderer.actor.LabelItem;
 import com.uwsoft.editor.renderer.actor.SelectBoxItem;
 import com.uwsoft.editor.renderer.actor.TextBoxItem;
 
-public class EditorUI extends UIOverlay {
+public class EditorUI extends ArenaUI {
 	private EditorScreen screen;
 	private LabelItem lblName;
 	
@@ -48,13 +48,15 @@ public class EditorUI extends UIOverlay {
 	private Map<Class<? extends EditorTool>, SimpleButtonI18NScript> toolsScripts;
 	
 	public EditorUI(EditorScreen screen) {
+		super(screen.getMatchManager());
+		
 		this.screen = screen;
 		
 		// Par défaut, on travaillera dans un Stage qui prend tout l'écran
 		createStage(new FitViewport(WordArenaGame.SCREEN_WIDTH, WordArenaGame.SCREEN_HEIGHT));
 		
 		// Charge les éléments de la scène Overlap2D
-		loadScene();
+//DBG		loadScene();
 	}
 	
 	public void loadData(ArenaOverlay arena) {
@@ -83,7 +85,7 @@ public class EditorUI extends UIOverlay {
 	}
 	
 	@SuppressWarnings("rawtypes")
-	private void loadScene() {
+	public void loadScene() {
 		toolsScripts = new HashMap<Class<? extends EditorTool>, SimpleButtonI18NScript>();
 		
 		SceneLoader sceneLoader = new SceneLoader(Assets.overlap2dResourceManager);
@@ -208,10 +210,10 @@ public class EditorUI extends UIOverlay {
 	private void loadToolOwner(SceneLoader sceneLoader) {
 		// Initialise la liste des joueurs
 		@SuppressWarnings("unchecked")
-		final SelectBoxItem<Player> selOwner = (SelectBoxItem<Player>)sceneLoader.sceneActor.getItemById("selOwner");
+		final SelectBoxItem<PlayerData> selOwner = (SelectBoxItem<PlayerData>)sceneLoader.sceneActor.getItemById("selOwner");
 		selOwner.setWidth(150);
-		Array<Player> items = new Array<Player>();
-		for (Player player : screen.getPlayers()) {
+		Array<PlayerData> items = new Array<PlayerData>();
+		for (PlayerData player : screen.getPlayers()) {
 			items.add(player);
 		}
 		selOwner.setItems(items);

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.slamdunk.wordarena.actors.CellActor;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
 
 /**
@@ -14,7 +14,7 @@ import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
  */
 public abstract class DefaultCellEffect implements CellEffect {
 	private List<CellActor> targetCells;
-	private Player player;
+	private PlayerData player;
 	private ArenaOverlay arena;
 	
 	public DefaultCellEffect() {
@@ -22,7 +22,7 @@ public abstract class DefaultCellEffect implements CellEffect {
 	}
 
 	@Override
-	public boolean init(List<CellActor> cells, Player player, ArenaOverlay arena) {
+	public boolean init(List<CellActor> cells, PlayerData player, ArenaOverlay arena) {
 		this.player = player;
 		this.arena = arena;
 		
@@ -53,7 +53,7 @@ public abstract class DefaultCellEffect implements CellEffect {
 		return targetCells;
 	}
 
-	public Player getPlayer() {
+	public PlayerData getPlayer() {
 		return player;
 	}
 

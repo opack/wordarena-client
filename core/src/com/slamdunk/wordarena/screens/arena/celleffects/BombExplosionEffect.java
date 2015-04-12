@@ -11,7 +11,7 @@ import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.actors.ZoneActor;
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.arena.cell.CellData;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
@@ -42,7 +42,7 @@ public class BombExplosionEffect extends DefaultCellEffect {
 	}
 	
 	@Override
-	public boolean init(List<CellActor> cells, Player player, ArenaOverlay arena) {
+	public boolean init(List<CellActor> cells, PlayerData player, ArenaOverlay arena) {
 		super.init(cells, player, arena);
 		
 		// S'il n'y a pas de bombe, il n'y a rien à faire
@@ -73,7 +73,7 @@ public class BombExplosionEffect extends DefaultCellEffect {
 	 * @param trackChainReaction Si true, les bombes voisines sont stockées dans une
 	 * liste pour pouvoir les faire exploser par la suite.
 	 */
-	private void explode(CellActor bomb, Player player) {
+	private void explode(CellActor bomb, PlayerData player) {
 		// Récupère les voisins
 		List<CellActor> tmpNeighbors = new ArrayList<CellActor>(4);
 		getArena().getNeighbors4(bomb, tmpNeighbors);
@@ -94,8 +94,8 @@ public class BombExplosionEffect extends DefaultCellEffect {
 			// Le voisin explose s'il appartient à un joueur adverse
 			// ou qu'il a explosé parce que c'était une bombe
 			neighborData = neighborCell.getData();
-			isEnnemy = !neighborData.owner.equals(player)
-					&& !neighborData.owner.equals(Player.NEUTRAL)
+			isEnnemy = neighborData.ownerPlace != player.place
+					&& !PlayerData.isNeutral(neighborData.ownerPlace)
 					&& neighborData.state == CellStates.OWNED;
 			
 			// Ce voisin explose s'il est une bombe ou une cellule ennemie
@@ -151,7 +151,7 @@ public class BombExplosionEffect extends DefaultCellEffect {
 			neighborData = neighbor.getData();
 			
 			// La cellule perd son owner
-			neighborData.owner = Player.NEUTRAL;
+			neighborData.ownerPlace = PlayerData.NEUTRAL.place;
 			
 			// Si la cellule n'est pas dans une zone, elle devient possédée par le neutre
 			if (ZoneActor.NONE.equals(neighborData.zone)) {

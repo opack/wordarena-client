@@ -2,14 +2,23 @@ package com.slamdunk.wordarena.screens.arena;
 
 import java.util.List;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.input.GestureDetector;
+import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.utils.JsonReader;
+import com.badlogic.gdx.utils.JsonValue;
 import com.slamdunk.toolkit.screen.SlamGame;
 import com.slamdunk.toolkit.screen.SlamScreen;
 import com.slamdunk.wordarena.actors.ZoomGestureHandler;
 import com.slamdunk.wordarena.actors.ZoomInputProcessor;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.arena.ArenaBuilder;
+import com.slamdunk.wordarena.data.game.GameCache;
+import com.slamdunk.wordarena.data.game.GameData;
+import com.slamdunk.wordarena.data.game.PlayerData;
+import com.slamdunk.wordarena.enums.GameTypes;
+import com.slamdunk.wordarena.enums.Objectives;
 
 public class ArenaScreen extends SlamScreen {
 	public static final String NAME = "ARENA";
@@ -23,7 +32,7 @@ public class ArenaScreen extends SlamScreen {
 
 		matchManager = new MatchManager();
 		
-		arena = new ArenaOverlay();
+		arena = new ArenaOverlay(matchManager);
 		addOverlay(arena);
 		
 		ui = new ArenaUI(matchManager);
@@ -53,9 +62,44 @@ public class ArenaScreen extends SlamScreen {
 	public ArenaUI getUI() {
 		return ui;
 	}
-
-	public void prepareGame(String arenaPlanFile, List<Player> players) {
-		matchManager.init(this, arenaPlanFile, players);
+	
+	public void startNewGame(String arenaPlanFile, List<PlayerData> players) {
+		// TODO Demande une nouvelle partie au serveur
+		GameData game = GameData.create(); // TODO Récupérer la partie vierge retournée par le serveur
+		// DBG En attendant la récupération des données de la nouvelle partie du serveur, on initialise ici les champs
+		game.header.id = MathUtils.random(65535);
+		game.header.gameType = GameTypes.TRAINING;
+		game.header.objective = Objectives.CONQUEST;
+		game.players = players;
+		System.out.println("DBG ArenaScreen.startNewGame() Création de la partie #" + game.header.id);
+		
+		// Charge l'arène depuis le plan
+		JsonValue json = new JsonReader().parse(Gdx.files.internal(arenaPlanFile));
+		ArenaBuilder builder = new ArenaBuilder();
+		builder.load(json);
+		game.arena = builder.build();
+		
+		// Crée un nouveau cache pour cette partie
+		GameCache cache = new GameCache();
+		cache.create(game);
+		cache.save();
+		
+		// TODO Met à jour la partie sur le serveur
+		
+		// Démarre la partie
+		matchManager.init(arena, ui, cache);
+	}
+	
+	public void continueGame(int gameId) {
+		// Charge la partie depuis le cache
+		GameCache cache = new GameCache();
+		cache.load(gameId);
+		
+		// TODO S'assure auprès du serveur qu'il n'y a pas eut de màj plus récente
+		//if (cache.getData().lastUpdateTime != ...) -> màj le cache
+		
+		// Démarre la partie
+		matchManager.init(arena, ui, cache);
 	}
 	
 	@Override

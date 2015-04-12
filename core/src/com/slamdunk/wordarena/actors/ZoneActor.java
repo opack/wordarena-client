@@ -14,7 +14,7 @@ import com.slamdunk.wordarena.data.arena.cell.CellData;
 import com.slamdunk.wordarena.data.arena.cell.MarkerPack;
 import com.slamdunk.wordarena.data.arena.zone.ZoneBorderBuilder;
 import com.slamdunk.wordarena.data.arena.zone.ZoneData;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.screens.arena.MatchManager;
 
@@ -38,12 +38,24 @@ public class ZoneActor extends Group {
 	
 	private List<EdgeActor> edges;
 	
+	/**
+	 * Utilisé pour le rendu de la zone
+	 */
+	private MarkerPack markerPack;
+	
 	public ZoneActor(MatchManager matchManager, ZoneData data) {
 		this.matchManager = matchManager;
 		this.data = data;
 		
 		cells = new HashMap<Point, CellActor>();
 		edges = new ArrayList<EdgeActor>();
+		
+		// Pack utilisé pour dessiner cette zone
+		if (matchManager == null) {
+			markerPack = Assets.markerPacks.get(Assets.MARKER_PACK_NEUTRAL);
+		} else {
+			markerPack = Assets.markerPacks.get(matchManager.getPlayer(data.ownerPlace).markerPack);
+		}
 	}
 	
 	public ZoneActor(MatchManager matchManager, String id) {
@@ -64,7 +76,7 @@ public class ZoneActor extends Group {
 		CellData data = cell.getData();
 		if (data.state == CellStates.CONTROLED) {
 			data.state = CellStates.OWNED;
-			data.owner = Player.NEUTRAL;
+			data.ownerPlace = PlayerData.NEUTRAL.place;
 		}
 	}
 	
@@ -84,7 +96,7 @@ public class ZoneActor extends Group {
 		if (this != NONE) {
 			// Crée les bordures qui entourent la zone
 			ZoneBorderBuilder zoneBorderBuilder = new ZoneBorderBuilder(cells, edges);
-			zoneBorderBuilder.build(data.owner, data.highlighted);
+			zoneBorderBuilder.build(markerPack, data.highlighted);
 			
 			// Ajoute les bordures à la zone
 			for (EdgeActor edge : edges) {
@@ -106,7 +118,7 @@ public class ZoneActor extends Group {
 		if (highlighted) {
 			pack = Assets.markerPacks.get(Assets.MARKER_PACK_EDITOR); 
 		} else {
-			pack = Assets.markerPacks.get(data.owner.markerPack);
+			pack = markerPack;
 		}
 		
 		for (EdgeActor edge : edges) {
@@ -122,10 +134,14 @@ public class ZoneActor extends Group {
 		this.data = data;
 	}
 
-	private void setOwner(Player newOwner) {
+	/**
+	 * Définit la place du nouveau possesseur de la zone
+	 * @param newOwnerPlace
+	 */
+	private void setOwner(int newOwnerPlace) {
 		// Changement de l'owner
-		Player oldOwner = data.owner;
-		data.owner = newOwner;
+		int oldOwnerPlace = data.ownerPlace;
+		data.ownerPlace = newOwnerPlace;
 		
 		// Change l'image des cellules de la zone
 		CellData cellData;
@@ -135,10 +151,9 @@ public class ZoneActor extends Group {
 			// Une cellule passe sous le contrôle du joueur si elle est dans la zone et :
 			//    - soit neutre
 			//    - soit sous le simple contrôle d'un adversaire
-			if (Player.NEUTRAL.equals(cellData.owner)
+			if (PlayerData.isNeutral(cellData.ownerPlace)
 			|| cellData.state != CellStates.OWNED) {
-				cellData.owner = newOwner;
-				cellData.state = CellStates.CONTROLED;
+				cell.setOwner(matchManager.getPlayer(newOwnerPlace), CellStates.CONTROLED);
 			}
 			
 			// Met à jour l'image
@@ -146,14 +161,15 @@ public class ZoneActor extends Group {
 		}
 		
 		// Change les bordures de zone
+		markerPack = Assets.markerPacks.get(matchManager.getPlayer(data.ownerPlace).markerPack);
 		if (!edges.isEmpty()) {
 			highlight(data.highlighted);
 		}
 		
 		// Changement d'owner ? Avertit le game manager pour la mise à jour du score
-		if (!oldOwner.equals(newOwner)
+		if (oldOwnerPlace != newOwnerPlace
 		&& matchManager != null) {
-			matchManager.zoneChangedOwner(oldOwner, newOwner);
+			matchManager.zoneChangedOwner(oldOwnerPlace, newOwnerPlace);
 		}
 	}
 	
@@ -167,9 +183,9 @@ public class ZoneActor extends Group {
 			return;
 		}
 				
-		MaxValueFinder<Player> occupations = new MaxValueFinder<Player>();
-		occupations.setIgnoredValue(Player.NEUTRAL);
-		occupations.setValueIfDraw(Player.NEUTRAL);
+		MaxValueFinder<Integer> occupations = new MaxValueFinder<Integer>();
+		occupations.setIgnoredValue(PlayerData.NEUTRAL.place);
+		occupations.setValueIfDraw(PlayerData.NEUTRAL.place);
 		
 		// Compte le nombre de cellules occupées par chaque joueur
 		CellData cellData;
@@ -179,17 +195,17 @@ public class ZoneActor extends Group {
 			// Si la cellule est sélectionnée, alors on fait comme si elle
 			// appartenait au joueur courant
 			if (cellData.selected == true) {
-				occupations.addValue(matchManager.getCinematic().getCurrentPlayer(), cellData.power);
+				occupations.addValue(matchManager.getCinematic().getCurrentPlayer().place, cellData.power);
 			}
 			// Sinon on ajout de la puissance de la cellule à celle de ce joueur
 			// à qui elle appartient réellement
 			else if (cellData.state == CellStates.OWNED) {
-				occupations.addValue(cellData.owner, cellData.power);
+				occupations.addValue(cellData.ownerPlace, cellData.power);
 			}
 		}
 		
 		// Détermine qui occupe le plus de cellules
-		Player newOwner = occupations.getMaxValue();
+		Integer newOwner = occupations.getMaxValue();
 		
 		// Change le propriétaire de la zone
 		setOwner(newOwner);

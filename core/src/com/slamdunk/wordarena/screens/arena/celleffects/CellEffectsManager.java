@@ -6,7 +6,7 @@ import java.util.List;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.slamdunk.wordarena.actors.CellActor;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
 
 /**
@@ -47,7 +47,7 @@ public class CellEffectsManager extends Actor {
 	 */
 	private List<CellActor> cells;
 	
-	private Player player;
+	private PlayerData player;
 	
 	private CellEffectsApplicationFinishedListener listener;
 	
@@ -72,7 +72,7 @@ public class CellEffectsManager extends Actor {
 	 * Applique les effets sur les cellules indiquées
 	 * @return true si les effets ont pu être lancés
 	 */
-	public boolean applyEffects(List<CellActor> targetCells, Player player, ArenaOverlay arena) {
+	public boolean applyEffects(List<CellActor> targetCells, PlayerData player, ArenaOverlay arena) {
 		// Si on est déjà en train d'appliquer des effets, on refuse
 		if (processing) {
 			return false;

@@ -1,0 +1,76 @@
+{
+header: {
+	id: 22668
+	gameType: TRAINING
+	objective: CONQUEST
+}
+cinematic: {}
+players: [
+	{
+		name: Alan
+		kind: HUMAN_LOCAL
+		markerPack: blue
+	}
+	{
+		name: Bob
+		place: 1
+		kind: HUMAN_LOCAL
+		markerPack: orange
+	}
+]
+arena: {
+	name: 0_first_assault
+	skin: default
+	width: 7
+	height: 7
+	types: [
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+		"L L L L L L L "
+	]
+	letters: [
+		"I L V U C W N "
+		"P I H U O O F "
+		"O G E D X E S "
+		"A Y E D E B L "
+		"N K U T O I A "
+		"U R I I Z E S "
+		"R A S S E R V "
+	]
+	powers: [
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 "
+	]
+	owners: [
+		"0 0 0 0 0 0 1 "
+		"0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 "
+		"2 0 0 0 0 0 0 "
+	]
+	zones: [
+		"3 3 - - - 1 1 "
+		"3 3 5 5 5 1 1 "
+		"- 5 5 5 5 5 - "
+		"- 5 5 5 5 5 - "
+		"- 5 5 5 5 5 - "
+		"2 2 5 5 5 4 4 "
+		"2 2 - - - 4 4 "
+	]
+	walls: []
+}
+wordsPlayed: []
+lastMove: {}
+chats: []
+}

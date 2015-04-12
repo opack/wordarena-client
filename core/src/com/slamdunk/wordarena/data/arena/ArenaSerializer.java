@@ -5,7 +5,7 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.slamdunk.toolkit.lang.DoubleEntryArray;
 import com.slamdunk.toolkit.world.point.Point;
 import com.slamdunk.wordarena.data.arena.cell.CellData;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.screens.editor.EditorScreen;
 
@@ -27,7 +27,7 @@ public class ArenaSerializer implements Json.Serializer<ArenaData>{
 		json.writeValue("height", arena.height);
 		
 		// Types de cellules
-		json.writeArrayStart("plan.types");
+		json.writeArrayStart("types");
 		for (int y = arena.height - 1; y >= 0; y--) {
 			sb.setLength(0);
 			for (int x = 0; x < arena.width; x++) {
@@ -38,18 +38,28 @@ public class ArenaSerializer implements Json.Serializer<ArenaData>{
 		json.writeArrayEnd();
 		
 		// Lettres initiales
-		json.writeArrayStart("plan.letters");
+		json.writeArrayStart("letters");
 		for (int y = arena.height - 1; y >= 0; y--) {
 			sb.setLength(0);
 			for (int x = 0; x < arena.width; x++) {
-				sb.append(arena.cells[x][y].planLetter).append(" ");
+				if (editorScreen != null) {
+					// Si on est dans l'éditeur, alors on note la lettre
+					// du plan.
+					sb.append(arena.cells[x][y].planLetter);
+				} else {
+					// Si on joue une vraie partie et qu'on souhaite
+					// enregistrer l'état actuel, alors on va noter la
+					// lettre effectivement affichée dans la cellule.
+					sb.append(arena.cells[x][y].letter.label);
+				}
+				sb.append(" ");
 			}
 			json.writeValue(sb.toString());
 		}
 		json.writeArrayEnd();
 		
 		// Puissances
-		json.writeArrayStart("plan.powers");
+		json.writeArrayStart("powers");
 		for (int y = arena.height - 1; y >= 0; y--) {
 			sb.setLength(0);
 			for (int x = 0; x < arena.width; x++) {
@@ -60,7 +70,7 @@ public class ArenaSerializer implements Json.Serializer<ArenaData>{
 		json.writeArrayEnd();
 		
 		// Possesseurs
-		json.writeArrayStart("plan.owners");
+		json.writeArrayStart("owners");
 		for (int y = arena.height - 1; y >= 0; y--) {
 			sb.setLength(0);
 			for (int x = 0; x < arena.width; x++) {
@@ -69,9 +79,9 @@ public class ArenaSerializer implements Json.Serializer<ArenaData>{
 				// ce contrôle (qui est déterminé dynamiquement) ne soit pas vu comme
 				// une possession.
 				if (arena.cells[x][y].state == CellStates.OWNED) {
-					sb.append(arena.cells[x][y].owner.place + 1).append(" ");
+					sb.append(arena.cells[x][y].ownerPlace + 1).append(" ");
 				} else {
-					sb.append(Player.NEUTRAL.place + 1).append(" ");
+					sb.append(PlayerData.NEUTRAL.place + 1).append(" ");
 				}
 			}
 			json.writeValue(sb.toString());
@@ -79,7 +89,7 @@ public class ArenaSerializer implements Json.Serializer<ArenaData>{
 		json.writeArrayEnd();
 		
 		// Zones
-		json.writeArrayStart("plan.zones");
+		json.writeArrayStart("zones");
 		for (int y = arena.height - 1; y >= 0; y--) {
 			sb.setLength(0);
 			for (int x = 0; x < arena.width; x++) {
@@ -90,7 +100,7 @@ public class ArenaSerializer implements Json.Serializer<ArenaData>{
 		json.writeArrayEnd();
 		
 		// Murs
-		json.writeArrayStart("plan.walls");
+		json.writeArrayStart("walls");
 		Point pos1;
 		Point pos2;
 		DoubleEntryArray<CellData, CellData, Boolean> addedWalls = new DoubleEntryArray<CellData, CellData, Boolean>();
@@ -128,8 +138,8 @@ public class ArenaSerializer implements Json.Serializer<ArenaData>{
 	}
 
 	@Override
-	public ArenaData read(Json json, JsonValue plan, Class type) {
-		ArenaBuilder builder = new ArenaBuilder(null);
+	public ArenaData read(Json json, JsonValue plan, @SuppressWarnings("rawtypes") Class type) {
+		ArenaBuilder builder = new ArenaBuilder();
 		builder.setEditorScreen(editorScreen);
 		builder.load(plan);
 		return builder.build();

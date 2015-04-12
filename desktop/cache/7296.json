@@ -1,0 +1,103 @@
+{
+header: {
+	id: 7296
+	gameType: TRAINING
+	objective: CONQUEST
+}
+cinematic: {}
+players: [
+	{
+		name: Alan
+		kind: HUMAN_LOCAL
+		markerPack: blue
+	}
+	{
+		name: Bob
+		place: 1
+		kind: HUMAN_LOCAL
+		markerPack: orange
+	}
+]
+arena: {
+	name: 1_ivory_tower
+	skin: default
+	width: 9
+	height: 9
+	types: [
+		"L L L L L L L L L "
+		"L L L L L L L L L "
+		"L L L L L L L L L "
+		"L L L L L L L L L "
+		"L L L L J L L L L "
+		"L L L L L L L L L "
+		"L L L L L L L L L "
+		"L L L L L L L L L "
+		"L L L L L L L L L "
+	]
+	letters: [
+		"O N E N M A P I Q "
+		"R A R S K A O S E "
+		"L O E A E R L M L "
+		"Y E N T I O O S A "
+		"E T B F ? V E A I "
+		"T E E C A R N R E "
+		"U C I U N I E W I "
+		"D E M I R A D L T "
+		"H B S U X T S N D "
+	]
+	powers: [
+		"1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 0 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 "
+	]
+	owners: [
+		"0 0 0 0 0 0 0 0 1 "
+		"0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 "
+		"2 0 0 0 0 0 0 0 0 "
+	]
+	zones: [
+		"1 1 1 1 - 2 2 2 2 "
+		"1 1 1 1 - 2 2 2 2 "
+		"1 1 - - - - - 2 2 "
+		"1 1 - 5 5 5 - 2 2 "
+		"- - - 5 5 5 - - - "
+		"4 4 - 5 5 5 - 3 3 "
+		"4 4 - - - - - 3 3 "
+		"4 4 4 4 - 3 3 3 3 "
+		"4 4 4 4 - 3 3 3 3 "
+	]
+	walls: [
+		1;2 2;2
+		6;2 6;1
+		6;2 7;2
+		3;1 3;2
+		2;7 2;6
+		2;2 2;1
+		7;3 6;3
+		7;5 6;5
+		1;6 2;6
+		6;6 7;6
+		6;6 6;7
+		5;2 5;1
+		2;3 1;3
+		3;6 3;7
+		5;7 5;6
+		1;5 2;5
+	]
+}
+wordsPlayed: []
+lastMove: {}
+chats: []
+}

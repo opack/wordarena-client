@@ -7,6 +7,6 @@ import java.util.Date;
  */
 public class WordPlayed {
 	public Date time;
-	public String playerId;
+	public int player;
 	public String wordId;
 }

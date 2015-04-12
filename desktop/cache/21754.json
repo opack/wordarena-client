@@ -1,0 +1,101 @@
+{
+header: {
+	id: 21754
+	gameType: TRAINING
+	objective: CONQUEST
+}
+cinematic: {}
+players: [
+	{
+		name: Alan
+		kind: HUMAN_LOCAL
+		markerPack: blue
+	}
+	{
+		name: Bob
+		place: 1
+		kind: HUMAN_LOCAL
+		markerPack: orange
+	}
+]
+arena: {
+	name: 4_battlefield
+	skin: default
+	width: 10
+	height: 12
+	types: [
+		"L L L L L L L L L L "
+		"L L L L L L L L L L "
+		"L L L L L L L L L L "
+		"L L L L L L L L L L "
+		"L L L L L L L L L L "
+		"L L L L L L L L L L "
+		"L L L L L L L L L L "
+		"L L L L L L L L L L "
+		"L L L L L L L L L L "
+		"L L L L L L L L L L "
+		"L L L L L L L L L L "
+		"L L L L L L L L L L "
+	]
+	letters: [
+		"H I F A L S R T N J "
+		"U E M N H T U Z E E "
+		"M B R V I U I A E A "
+		"E S L U O X A T T O "
+		"N L E S E Q E O A C "
+		"E E O N T I S R Y E "
+		"L I B N M O I C E U "
+		"N R I R S P A P A F "
+		"O R E I D E E G D U "
+		"A T K L W D G A V S "
+		"A A T L E R S N S B "
+		"G O O E C O T I R S "
+	]
+	powers: [
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 2 2 1 1 1 1 "
+		"1 1 1 1 2 2 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+		"1 1 1 1 1 1 1 1 1 1 "
+	]
+	owners: [
+		"0 0 0 0 1 1 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 0 0 0 0 0 0 "
+		"0 0 0 0 2 2 0 0 0 0 "
+	]
+	zones: [
+		"- - 1 1 1 1 1 1 - - "
+		"3 3 - - 1 1 - - 5 5 "
+		"3 3 - - - - - - 5 5 "
+		"3 3 - - - - - - 5 5 "
+		"3 - - 7 - - 7 - - 5 "
+		"3 - - 7 7 7 7 - - 5 "
+		"4 - - 7 7 7 7 - - 6 "
+		"4 - - 7 - - 7 - - 6 "
+		"4 4 - - - - - - 6 6 "
+		"4 4 - - - - - - 6 6 "
+		"4 4 - - 2 2 - - 6 6 "
+		"- - 2 2 2 2 2 2 - - "
+	]
+	walls: []
+}
+wordsPlayed: []
+lastMove: {}
+chats: []
+}

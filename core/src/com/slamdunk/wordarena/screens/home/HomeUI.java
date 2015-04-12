@@ -17,11 +17,12 @@ import com.slamdunk.wordarena.Utils;
 import com.slamdunk.wordarena.WordArenaGame;
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.game.GameData;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.GameStatus;
 import com.slamdunk.wordarena.enums.GameTypes;
 import com.uwsoft.editor.renderer.SceneLoader;
 import com.uwsoft.editor.renderer.actor.SelectBoxItem;
+import com.uwsoft.editor.renderer.actor.TextBoxItem;
 
 public class HomeUI extends UIOverlay {
 	private static final String GAME_LABEL_STYLE_STATUS_HEADER = "games-status-header";
@@ -31,6 +32,7 @@ public class HomeUI extends UIOverlay {
 	
 	private HomeScreen screen;
 	private Table gamesTable;
+	
 	/**
 	 * Table associant une liste de parties à un statut et un type de partie
 	 */
@@ -65,7 +67,19 @@ public class HomeUI extends UIOverlay {
 		selArena.setItems(Utils.loadArenaNames());
 		Overlap2DUtils.createSimpleButtonScript(sceneLoader, "btnPlay", new ClickListener() {
 			public void clicked(InputEvent event, float x, float y) {
-				screen.launchGame(selArena.getSelected());
+				screen.startNewGame(selArena.getSelected());
+			}
+		});
+		
+		final TextBoxItem txtGameId = (TextBoxItem) sceneLoader.sceneActor.getItemById("txtGameId");
+		txtGameId.setWidth(50);
+		Overlap2DUtils.createSimpleButtonScript(sceneLoader, "btnContinue", new ClickListener() {
+			public void clicked(InputEvent event, float x, float y) {
+				String text = txtGameId.getText();
+				if (text.isEmpty()) {
+					return;
+				}
+				screen.continueGame(Integer.parseInt(text));
 			}
 		});
 		
@@ -147,62 +161,62 @@ public class HomeUI extends UIOverlay {
 	private void fetchGames() {
 		// DBG Triche en attendant le chargement de vraies parties
 		List<GameData> fetched = new ArrayList<GameData>();
-		Player p1 = new Player();
-		p1.id = "Alan";
+		PlayerData p1 = new PlayerData();
+		p1.name = "Alan";
 		p1.markerPack = "blue";
 		
-		Player p2 = new Player();
-		p2.id = "Bob";
+		PlayerData p2 = new PlayerData();
+		p2.name = "Bob";
 		p2.markerPack = "orange";
 		
-		Player p3 = new Player();
-		p3.id = "Charles";
+		PlayerData p3 = new PlayerData();
+		p3.name = "Charles";
 		p3.markerPack = "green";
 		
-		Player p4 = new Player();
-		p4.id = "Dave";
+		PlayerData p4 = new PlayerData();
+		p4.name = "Dave";
 		p4.markerPack = "purple";
 		
-		GameData game1 = new GameData();
-		game1.gameType = GameTypes.DUEL;
-		game1.players = new ArrayList<Player>();
+		GameData game1 = GameData.create();
+		game1.header.gameType = GameTypes.DUEL;
+		game1.players = new ArrayList<PlayerData>();
 		game1.players.add(p1);
 		game1.players.add(p2);
-		game1.curPlayer = 1;
+		game1.cinematic.curPlayer = 1;
 		fetched.add(game1);
 		
-		GameData game2 = new GameData();
-		game2.gameType = GameTypes.DUEL;
-		game2.players = new ArrayList<Player>();
+		GameData game2 = GameData.create();
+		game2.header.gameType = GameTypes.DUEL;
+		game2.players = new ArrayList<PlayerData>();
 		game2.players.add(p1);
 		game2.players.add(p3);
-		game2.curPlayer = 0;
+		game2.cinematic.curPlayer = 0;
 		fetched.add(game2);
 		
-		GameData game3 = new GameData();
-		game3.gameType = GameTypes.DUEL;
-		game3.players = new ArrayList<Player>();
+		GameData game3 = GameData.create();
+		game3.header.gameType = GameTypes.DUEL;
+		game3.players = new ArrayList<PlayerData>();
 		game3.players.add(p1);
 		game3.players.add(p4);
-		game3.curPlayer = 0;
+		game3.cinematic.curPlayer = 0;
 		fetched.add(game3);
 		
-		GameData game4 = new GameData();
-		game4.gameType = GameTypes.TOURNAMENT;
-		game4.players = new ArrayList<Player>();
+		GameData game4 = GameData.create();
+		game4.header.gameType = GameTypes.TOURNAMENT;
+		game4.players = new ArrayList<PlayerData>();
 		game4.players.add(p1);
 		game4.players.add(p2);
 		game4.players.add(p3);
-		game4.curPlayer = 0;
+		game4.cinematic.curPlayer = 0;
 		fetched.add(game4);
 		
-		GameData game5 = new GameData();
-		game5.gameType = GameTypes.DUEL;
-		game5.players = new ArrayList<Player>();
+		GameData game5 = GameData.create();
+		game5.header.gameType = GameTypes.DUEL;
+		game5.players = new ArrayList<PlayerData>();
 		game5.players.add(p1);
 		game5.players.add(p2);
-		game5.curPlayer = 0;
-		game5.gameOver = true;
+		game5.cinematic.curPlayer = 0;
+		game5.cinematic.gameOver = true;
 		fetched.add(game5);
 		
 		fetched.add(game5);
@@ -233,15 +247,15 @@ public class HomeUI extends UIOverlay {
 		// et ceux où c'est à un adversaire de jouer
 		games = new DoubleEntryArrayList<GameStatus, GameTypes, GameData>();
 		
-		Player currentPlayer;
+		PlayerData currentPlayer;
 		GameStatus status;
 		for (GameData gameData : fetched) {
 			// Détermine le statut de la partie
-			if (gameData.gameOver) {
+			if (gameData.cinematic.gameOver) {
 				status = GameStatus.GAME_OVER;
 			} else {
-				currentPlayer = gameData.players.get(gameData.curPlayer);
-				if (username.equals(currentPlayer.id)) {
+				currentPlayer = gameData.players.get(gameData.cinematic.curPlayer);
+				if (username.equals(currentPlayer.name)) {
 					status = GameStatus.USER_TURN;
 				} else {
 					status = GameStatus.OPPONENT_TURN;
@@ -249,7 +263,7 @@ public class HomeUI extends UIOverlay {
 			}
 			
 			// Ajoute la partie à la liste
-			games.add(status, gameData.gameType, gameData);
+			games.add(status, gameData.header.gameType, gameData);
 		}
 	}
 	
@@ -290,12 +304,12 @@ public class HomeUI extends UIOverlay {
 		
 		// Ajout d'un label avec la liste des adversaires
 		StringBuilder opponents = new StringBuilder();
-		for (Player opponent : gameData.players) {
+		for (PlayerData opponent : gameData.players) {
 			if (opponents.length() != 0) {
 				opponents.append(", ");
 			}
-			if (!username.equals(opponent.id)) {
-				opponents.append(opponent.id);
+			if (!username.equals(opponent.name)) {
+				opponents.append(opponent.name);
 			}
 		}
 		gamesTable.add(new Label(opponents.toString(), Assets.uiSkin, labelStyle));

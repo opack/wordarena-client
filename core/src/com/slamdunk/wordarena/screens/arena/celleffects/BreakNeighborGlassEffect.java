@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.slamdunk.toolkit.graphics.drawers.AnimationDrawer;
 import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.assets.Assets;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
 
@@ -41,7 +41,7 @@ public class BreakNeighborGlassEffect extends DefaultCellEffect {
 	}
 	
 	@Override
-	public boolean init(List<CellActor> cells, Player player, ArenaOverlay arena) {
+	public boolean init(List<CellActor> cells, PlayerData player, ArenaOverlay arena) {
 		super.init(cells, player, arena);
 
 		brokenCells.clear();

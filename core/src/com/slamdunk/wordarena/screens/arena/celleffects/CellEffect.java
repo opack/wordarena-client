@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.slamdunk.wordarena.actors.CellActor;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
 
 public interface CellEffect {
@@ -22,7 +22,7 @@ public interface CellEffect {
 	 * @return true si l'effet est initialisé et peut être appliqué, false
 	 * sinon
 	 */
-	boolean init(List<CellActor> cells, Player player, ArenaOverlay arena);
+	boolean init(List<CellActor> cells, PlayerData player, ArenaOverlay arena);
 
 	/**
 	 * Effectue un traitement. Correspond à la méthode Actor.act().

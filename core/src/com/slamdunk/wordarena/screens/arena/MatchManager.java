@@ -1,20 +1,14 @@
 package com.slamdunk.wordarena.screens.arena;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.arena.ArenaData;
 import com.slamdunk.wordarena.data.game.GameCache;
-import com.slamdunk.wordarena.data.game.GameChat;
 import com.slamdunk.wordarena.data.game.GameData;
-import com.slamdunk.wordarena.data.game.GameMove;
-import com.slamdunk.wordarena.data.game.Player;
-import com.slamdunk.wordarena.data.game.WordPlayed;
+import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.GameStates;
-import com.slamdunk.wordarena.enums.GameTypes;
-import com.slamdunk.wordarena.enums.Objectives;
 import com.slamdunk.wordarena.screens.arena.MatchCinematic.GameCinematicListener;
 import com.slamdunk.wordarena.screens.arena.WordValidator.WordValidationListener;
 import com.slamdunk.wordarena.screens.arena.celleffects.CellEffectsApplicationFinishedListener;
@@ -29,7 +23,6 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	
 	private ArenaOverlay arena;
 	private ArenaUI ui;
-	private String arenaPlanFile;
 	
 	private GameStates state;
 	
@@ -53,6 +46,10 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		cinematic.setListener(this);
 	}
 	
+	public GameCache getCache() {
+		return cache;
+	}
+
 	public WordSelectionHandler getWordSelectionHandler() {
 		return wordSelectionHandler;
 	}
@@ -65,11 +62,11 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		return arena.getData();
 	}
 	
-	public void init(ArenaScreen screen, GameCache cache) {
+	public void init(ArenaOverlay arena, ArenaUI ui, GameCache cache) {
 		// Attache ce manager au Screen
-		arena = screen.getArena();
+		this.arena = arena;
 		arena.setMatchManager(this);
-		ui = screen.getUI();
+		this.ui = ui;
 		cellEffectsManager = arena.getCellEffectsManager();
 		cellEffectsManager.setListener(this);
 		
@@ -77,67 +74,31 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		this.cache = cache;
 		GameData game = cache.getData();
 		
+		// Charge l'arène
+		arena.loadArena(game.arena);
+		arena.showLetters(false);
+		
+		// Prépare la cinématique du jeu
+		cinematic.init(game);
+		
 		// Initialise le sélecteur et le validateur de mots
 		wordSelectionHandler.cancel();
 		wordValidator.init(game);
 		
-		// Charge l'arène
-		this.arenaPlanFile = "arenas/" + game.arena.name + ".json";
-		arena.loadArena(game.arena);
-		arena.showLetters(false);
-		cinematic.init(game);
-		
 		// Met à jour l'UI
-		ui.init(arena.getData(), cinematic.getPlayers(), cinematic.getNbWinningRoundsPerGame());
+		ui.init(game, cinematic.getNbWinningRoundsPerGame());
 		
 		// TODO Rejouer le dernier coup
 		// TODO Charger les chats
 		
-		selectingLetters = true;
+		selectingLetters = !game.cinematic.gameOver;
 
 		// Démarre le jeu
-		changeState(GameStates.READY);
-	}
-
-	/**
-	 * Initialise le match. Cette méthode doit être appelée 1 fois lorsque le match est affiché.
-	 * @param screen
-	 * @param arenaPlanFile
-	 * @param playersList
-	 */
-	public void init(ArenaScreen screen, String arenaPlanFile, List<Player> playersList) {
-		arena = screen.getArena();
-		ui = screen.getUI();
-		
-		cellEffectsManager = arena.getCellEffectsManager();
-		cellEffectsManager.setListener(this);
-		
-		this.arenaPlanFile = arenaPlanFile;
-		cinematic.init(playersList);
-		
-		// Charge l'arène
-		loadArena();
-
-		// DBG Test cache
-		cache = new GameCache();
-		cache.loadOrCreate(3);
-		GameData game = cache.getData();
-		game.gameType = GameTypes.TRAINING;
-		game.objective = Objectives.CONQUEST;
-		game.curRound = cinematic.getCurrentRound();
-		game.curTurn = cinematic.getCurrentTurn();
-		game.curPlayer = cinematic.getCurrentPlayer().place;
-		game.firstPlayer = cinematic.getFirstPlayer();
-		game.players = playersList;
-		game.gameOver = cinematic.isGameOver();
-		game.arena = arena.getData();
-		game.wordsPlayed = new ArrayList<WordPlayed>();
-		game.lastMove = new GameMove();
-		game.chats = new ArrayList<GameChat>();
-		cache.save();
-		
-		// Démarre le jeu
-		changeState(GameStates.READY);
+		if (game.cinematic.gameOver) {
+			changeState(GameStates.GAME_OVER);
+		} else {
+			changeState(GameStates.READY);
+		}
 	}
 	
 	/**
@@ -147,7 +108,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		// TODO Affiche une animation d'attente
 		
 		// Demande la validation
-		wordValidator.validate(wordSelectionHandler.getCurrentWord());
+		wordValidator.validate(wordSelectionHandler.getCurrentWord(), cinematic.getCurrentPlayer().place);
 	}
 
 	/**
@@ -155,12 +116,12 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	 * @param oldOwner
 	 * @param newOwner
 	 */
-	public void zoneChangedOwner(Player oldOwner, Player newOwner) {
+	public void zoneChangedOwner(int oldOwnerPlace, int newOwnerPlace) {
 		// Met à jour l'UI si le jeu tourne. Sinon, on a sûrement
 		// été appelé pendant la création de l'arène. On ne met
 		// donc pas à jour l'UI.
 		if (state == GameStates.RUNNING) {
-			ui.updateZoneMarkers(cinematic.getPlayers(), arena.getData().zones);
+			ui.updateZoneMarkers(arena.getData().zones);
 		}
 		
 		// Si le joueur est en train de sélectionner des lettres, alors
@@ -169,7 +130,9 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 			return;
 		}
 		
-		if (!Player.NEUTRAL.equals(newOwner)) {
+		PlayerData oldOwner = getPlayer(oldOwnerPlace);
+		PlayerData newOwner = getPlayer(newOwnerPlace);
+		if (!newOwner.isNeutral()) {
 			// Le joueur a une zone de plus
 			newOwner.nbZonesOwned++;
 			
@@ -183,7 +146,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		
 		// Regarde si le joueur qui a perdu la zone a perdu sa
 		// dernière zone, et donc le round.
-		if (!Player.NEUTRAL.equals(oldOwner)) {
+		if (!oldOwner.isNeutral()) {
 			// Ce joueur a perdu une zone
 			oldOwner.nbZonesOwned--;
 			
@@ -222,6 +185,8 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		// Mise à jour de l'UI
 		state = newState;
 		ui.present(newState);
+		
+		arena.enableCellSelection(newState == GameStates.RUNNING);
 		arena.showLetters(newState == GameStates.RUNNING);
 		
 		if (newState == GameStates.RUNNING) {
@@ -239,9 +204,15 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		}
 	}
 	
-	public void loadArena() {
+	/**
+	 * Réinitialise l'arène pour un nouveau round notamment,
+	 * en rechargeant l'état initial tel que définit dans le
+	 * plan et en réinitialisant les scores et possessions
+	 * des joueurs.
+	 */
+	public void resetArena() {
 		// Réinitialise les scores
-		for (Player player : cinematic.getPlayers()) {
+		for (PlayerData player : cinematic.getPlayers()) {
 			player.score = 0;
 			player.nbZonesOwned = 0;
 			player.nbWordsPlayed = 0;
@@ -252,18 +223,18 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		wordValidator.clearAlreadyPlayedList();
 		
 		// Charge l'arène
-		arena.buildArena(arenaPlanFile, this);
+		arena.buildArena("arenas/" + cache.getData().arena.name + ".json");
 		arena.showLetters(false);
-		cinematic.setArenaData(arena.getData());
+		cache.getData().arena = arena.getData();
 		
 		// Met à jour l'UI
-		ui.init(arena.getData(), cinematic.getPlayers(), cinematic.getNbWinningRoundsPerGame());
+		ui.init(cache.getData(), cinematic.getNbWinningRoundsPerGame());
 		
 		selectingLetters = true;
 	}
 	
 	public void refreshStartingZone() {
-		Player curPlayer = cinematic.getCurrentPlayer();
+		PlayerData curPlayer = cinematic.getCurrentPlayer();
 		
 		// Change les lettres de la zone de départ
 		arena.refreshStartingZone(curPlayer);
@@ -272,13 +243,16 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		wordSelectionHandler.cancel();
 		
 		// Affiche un message de confirmation
-		ui.setInfo(Assets.i18nBundle.format("ui.arena.redrewLetters", curPlayer.id));
+		ui.setInfo(Assets.i18nBundle.format("ui.arena.redrewLetters", curPlayer.name));
 		
 		// Le score du joueur est modifié
 		ScoreHelper.onRefreshStartingZone(curPlayer);
 		
 		// Termine le tour de ce joueur
 		cinematic.endMove();
+		
+		// TODO Met à jour l'état de la partie dans le cache et auprès du serveur
+		cache.save();
 	}
 	
 	/**
@@ -327,14 +301,17 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		cinematic.nextRound();
 		
 		// Réinitialise l'arène
-		loadArena();
+		resetArena();
+		
+		// TODO Met à jour l'état de la partie dans le cache et auprès du serveur
+		cache.save();
 		
 		// Démarre le jeu
 		changeState(GameStates.RUNNING);
 	}
 
 	@Override
-	public void onRoundEnd(Player roundWinner) {
+	public void onRoundEnd(PlayerData roundWinner) {
 		ui.setRoundWinner(roundWinner);
 
 		changeState(GameStates.ROUND_OVER);
@@ -344,7 +321,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	}
 	
 	@Override
-	public void onGameEnd(Player gameWinner) {
+	public void onGameEnd(PlayerData gameWinner) {
 		// Affichage du gagnant
 		ui.setGameWinner(gameWinner);
 		
@@ -352,10 +329,13 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		
 		// Cache les lettres de l'arène
 		arena.showLetters(false);
+		
+		// TODO Met à jour l'état de la partie dans le cache et auprès du serveur
+		cache.save();
 	}
 	
 	@Override
-	public void onPlayerChange(Player currentPlayer) {
+	public void onPlayerChange(PlayerData currentPlayer) {
 		ui.setCurrentPlayer(currentPlayer, cinematic.getCurrentTurn(), cinematic.getNbTurnsPerRound(), cinematic.getCurrentRound());
 		
 		// Affiche le bouton de rafraîchissement des lettres de la zone de départ.
@@ -383,7 +363,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	 * effets visuels et de gameplay ont été appliqués.
 	 */
 	@Override
-	public void onEffectApplicationFinished(Player player, List<CellActor> processedCells) {
+	public void onEffectApplicationFinished(PlayerData player, List<CellActor> processedCells) {
 		selectingLetters = false;
 		
 		// Toutes les cellules passent sous la domination du joueur
@@ -409,11 +389,11 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	public void onWordValidated(String word) {
 		// TODO Arrête l'animation d'attente
 		
-		Player player = cinematic.getCurrentPlayer();
+		PlayerData player = cinematic.getCurrentPlayer();
 		List<CellActor> selectedCells = wordSelectionHandler.getSelectedCells();
 		
 		// Affiche le mot joué
-		ui.setInfo(Assets.i18nBundle.format("ui.arena.wordValidation.valid", player.id, word));
+		ui.setInfo(Assets.i18nBundle.format("ui.arena.wordValidation.valid", player.name, word));
 		ui.addPlayedWord(player, word);
 		
 		// Déclenche les effets sur les cellules
@@ -457,5 +437,18 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		
 		// Les boutons de validation doivent rester affichés
 		ui.showWordValidationButtons(true);
+	}
+
+	/**
+	 * Retourne le joueur à la place indiquée, ou le joueur neutre
+	 * si place == -1
+	 * @param oldOwnerPlace
+	 * @return
+	 */
+	public PlayerData getPlayer(int place) {
+		if (PlayerData.isNeutral(place)) {
+			return PlayerData.NEUTRAL;
+		}
+		return cache.getData().players.get(place);
 	}
 }

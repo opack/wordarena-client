@@ -1,6 +1,5 @@
 package com.slamdunk.wordarena.screens.editor;
 
-import com.slamdunk.wordarena.data.game.Player;
 import com.slamdunk.wordarena.enums.GameStates;
 import com.slamdunk.wordarena.screens.arena.MatchManager;
 import com.slamdunk.wordarena.screens.arena.WordSelectionHandler;
@@ -40,6 +39,6 @@ public class EditorMatchManager extends MatchManager {
 	}
 	
 	@Override
-	public void zoneChangedOwner(Player oldOwner, Player newOwner) {
+	public void zoneChangedOwner(int oldOwnerPlace, int newOwnerPlace) {
 	}
 }

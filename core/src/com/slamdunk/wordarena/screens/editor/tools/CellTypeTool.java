@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.data.arena.cell.CellData;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.enums.Letters;
 
@@ -33,7 +33,7 @@ public class CellTypeTool extends EditorTool<CellTypes> {
 		cellData.power = value.hasPower() ? 1 : 0;
 		
 		if (!value.canBeOwned()) {
-			cellData.owner = Player.NEUTRAL;
+			cellData.ownerPlace = PlayerData.NEUTRAL.place;
 		}
 	}
 

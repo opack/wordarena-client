@@ -10,9 +10,7 @@ import com.badlogic.gdx.utils.Scaling;
 import com.slamdunk.toolkit.world.point.Point;
 import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.actors.EdgeActor;
-import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.arena.cell.MarkerPack;
-import com.slamdunk.wordarena.data.game.Player;
 import com.slamdunk.wordarena.enums.Borders;
 import com.slamdunk.wordarena.enums.BordersAndCorners;
 import com.slamdunk.wordarena.enums.CornerTypes;
@@ -56,18 +54,16 @@ public class ZoneBorderBuilder {
 		borders = new HashMap<Point, ZoneBorderBuilder.CellBorders>();
 	}
 	
-	public void build(Player owner, boolean highlighted) {
+	public void build(MarkerPack markerPack, boolean highlighted) {
 		performBordersPass();
 		performCornersPass();
-		performEdgesCreationPass(owner, highlighted);
+		performEdgesCreationPass(markerPack, highlighted);
 	}
 
 	/**
 	 * Parcours les CellBorders et crée des ZoneEdge pour chaque bord de zone
 	 */
-	private void performEdgesCreationPass(Player owner, boolean highlighted) {
-		MarkerPack pack = Assets.markerPacks.get(owner.markerPack);
-				
+	private void performEdgesCreationPass(MarkerPack markerPack, boolean highlighted) {
 		edgesToFill.clear();
 		for (CellBorders cellBorders : borders.values()) {
 			// On ne traite que les cellBorders qui ont une ArenaCell attachée : cela
@@ -78,30 +74,30 @@ public class ZoneBorderBuilder {
 			
 			// Crée les bords
 			if (cellBorders.borderOnTop) {
-				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.TOP, CornerTypes.NONE, pack, highlighted));
+				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.TOP, CornerTypes.NONE, markerPack, highlighted));
 			}
 			if (cellBorders.borderOnRight) {
-				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.RIGHT, CornerTypes.NONE, pack, highlighted));
+				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.RIGHT, CornerTypes.NONE, markerPack, highlighted));
 			}
 			if (cellBorders.borderOnBottom) {
-				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.BOTTOM, CornerTypes.NONE, pack, highlighted));
+				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.BOTTOM, CornerTypes.NONE, markerPack, highlighted));
 			}
 			if (cellBorders.borderOnLeft) {
-				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.LEFT, CornerTypes.NONE, pack, highlighted));
+				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.LEFT, CornerTypes.NONE, markerPack, highlighted));
 			}
 			
 			// Crée les coins
 			if (cellBorders.cornerOnTopLeft != CornerTypes.NONE) {
-				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.TOP_LEFT, cellBorders.cornerOnTopLeft, pack, highlighted));
+				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.TOP_LEFT, cellBorders.cornerOnTopLeft, markerPack, highlighted));
 			}
 			if (cellBorders.cornerOnTopRight != CornerTypes.NONE) {
-				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.TOP_RIGHT, cellBorders.cornerOnTopRight, pack, highlighted));
+				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.TOP_RIGHT, cellBorders.cornerOnTopRight, markerPack, highlighted));
 			}
 			if (cellBorders.cornerOnBottomLeft != CornerTypes.NONE) {
-				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.BOTTOM_LEFT, cellBorders.cornerOnBottomLeft, pack, highlighted));
+				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.BOTTOM_LEFT, cellBorders.cornerOnBottomLeft, markerPack, highlighted));
 			}
 			if (cellBorders.cornerOnBottomRight != CornerTypes.NONE) {
-				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.BOTTOM_RIGHT, cellBorders.cornerOnBottomRight, pack, highlighted));
+				edgesToFill.add(createEdge(cellBorders.cell, BordersAndCorners.BOTTOM_RIGHT, cellBorders.cornerOnBottomRight, markerPack, highlighted));
 			}
 		}
 	}

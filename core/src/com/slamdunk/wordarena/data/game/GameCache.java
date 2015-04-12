@@ -24,8 +24,13 @@ public class GameCache {
 	}
 
 	public void create(int gameId) {
-		data = new GameData();
-		data.id = gameId;
+		data = GameData.create();
+		data.header.id = gameId;
+		save();
+	}
+	
+	public void create(GameData game) {
+		data = game;
 		save();
 	}
 	
@@ -34,27 +39,26 @@ public class GameCache {
 		json.setSerializer(ArenaData.class, new ArenaSerializer());
 		final String serialized = json.prettyPrint(data);
 		
-		file = Gdx.files.local("cache/" + data.id + ".json");
+		file = Gdx.files.local("cache/" + data.header.id + ".json");
 		file.writeString(serialized, false, "UTF-8");
 	}
 	
 	/**
 	 * Charge le fichier JSON du cache correspondant à cette partie
-	 * ou en crée un nouveau s'il n'y en a pas
 	 * @param gameId
 	 * @return true si le fichier existe et a été chargé,
-	 * false s'il n'existait pas et a été créé
+	 * false s'il n'existait pas
 	 */
-	public boolean loadOrCreate(int gameId) {
+	public boolean load(int gameId) {
 		file = Gdx.files.local("cache/" + gameId + ".json");
-		if (file.exists()) {
-			Json json = new Json();
-			data = json.fromJson(GameData.class, file);
-			return true;
-		} else {
-			create(gameId);
+		if (!file.exists()) {
 			return false;
 		}
+		Json json = new Json();
+		json.setSerializer(ArenaData.class, new ArenaSerializer());
+		// TODO Charger d'abord tout ce qui n'est pas l'arène, puis l'arène (car elle a besoin de la liste de joueurs)
+		data = json.fromJson(GameData.class, file);
+		return true;
 	}
 	
 	/**

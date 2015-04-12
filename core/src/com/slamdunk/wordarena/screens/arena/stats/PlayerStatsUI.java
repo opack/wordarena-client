@@ -8,7 +8,7 @@ import com.badlogic.gdx.utils.SnapshotArray;
 import com.slamdunk.toolkit.ui.GroupEx;
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.arena.cell.MarkerPack;
-import com.slamdunk.wordarena.data.game.Player;
+import com.slamdunk.wordarena.data.game.PlayerData;
 
 public class PlayerStatsUI {
 	public Label lblName;
@@ -21,11 +21,11 @@ public class PlayerStatsUI {
 		gpRoundsMarkers = new GroupEx();
 	}
 
-	public void init(Player player, int nbRoundsToWin) {
+	public void init(PlayerData player, int nbRoundsToWin) {
 		MarkerPack pack = Assets.markerPacks.get(player.markerPack);
 		
 		lblName.setStyle(pack.labelStyle);
-		lblName.setText(player.id);
+		lblName.setText(player.name);
 		
 		lblScore.setStyle(pack.labelStyle);
 		lblScore.setText(String.valueOf(player.score));
@@ -52,7 +52,7 @@ public class PlayerStatsUI {
 		}
 	}
 
-	public void update(Player player) {
+	public void update(PlayerData player) {
 		// Met à jour le score
 		lblScore.setText(String.valueOf(player.score));
 		
@@ -60,7 +60,7 @@ public class PlayerStatsUI {
 		updateRoundMarkers(player);
 	}
 
-	private void updateRoundMarkers(Player player) {
+	private void updateRoundMarkers(PlayerData player) {
 		// Prépare le marker par défaut
 		MarkerPack neutralPack = Assets.markerPacks.get(Assets.MARKER_PACK_NEUTRAL);
 		TextureRegionDrawable neutralPossessionMarker = neutralPack.possessionMarker;
