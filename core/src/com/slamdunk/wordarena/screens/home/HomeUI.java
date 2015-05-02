@@ -48,10 +48,11 @@ public class HomeUI extends UIOverlay {
 		// Charge les éléments de la scène Overlap2D
 		loadScene();
 		
-		// Charge la liste des parties en cours
+		// Crée la table des parties en cours
 		createCurrentGamesTable();
 		
 		// Charge les parties en cours
+		games = new DoubleEntryArrayList<GameStatus, GameTypes, GameData>();
 		loadCurrentGames(GameTypes.CAREER);
 	}
 
@@ -245,7 +246,7 @@ public class HomeUI extends UIOverlay {
 		
 		// Répartit les jeux entre ceux où c'est au tour de l'utilisateur de jouer
 		// et ceux où c'est à un adversaire de jouer
-		games = new DoubleEntryArrayList<GameStatus, GameTypes, GameData>();
+		games.clear();
 		
 		PlayerData currentPlayer;
 		GameStatus status;
@@ -301,6 +302,9 @@ public class HomeUI extends UIOverlay {
 			labelStyle = GAME_LABEL_STYLE_GAME_OVER;
 			break;
 		}
+		
+		// Ajout d'une image représentant le type de partie
+		gamesTable.add(new Label(gameData.header.gameType.toString(), Assets.uiSkin, labelStyle));
 		
 		// Ajout d'un label avec la liste des adversaires
 		StringBuilder opponents = new StringBuilder();

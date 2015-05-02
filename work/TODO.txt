@@ -1,5 +1,13 @@
+[ ] FIX : Partie - RUNNING : Tirer des nouvelles lettres ne fonctionne pas sur une partie chargée
+[ ] MOD : Accueil - Présenter la liste des parties en cours en mélangeant les types de partie plutôt qu'en faisant plusieurs sections
+	- Prévoir un symbole pour le type de la partie :
+		- Carrière : 
+		- Entraînement : un sac de frappe ou un mannequin
+		- Duel : 2 épées croisées
+		- Ligue : une médaille
+		- Tournoi : une coupe
 [ ] FIX : Editeur : vérifier le fonctionnement et corriger les petits bugs
-[ ] MOD : Partie - RUNNING : Ne pas animer la prise de contrôle sur une cellule déjà contrôlée
+[X] MOD : Partie - RUNNING : Ne pas animer la prise de contrôle sur une cellule déjà contrôlée
 [ ] ADD : AnimationDrawer : rendre Poolable
 [ ] ADD : Editeur : ajouter une liste déroulante pour sélectionner la skin parmi les skins existantes
 [ ] ADD : Partie - RUNNING : Valider un mot avec un ou plusieurs jokers
