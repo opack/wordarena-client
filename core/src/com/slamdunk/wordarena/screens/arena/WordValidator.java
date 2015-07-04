@@ -78,12 +78,12 @@ public class WordValidator {
 			lexisService.validateWord(word, new ServerCallback() {
 				public void onResponse(JsonValue response) {
 					// Extrait la réponse
-					if (!response.getBoolean("result")) {
-						listener.onWordUnknown(word);
-					}
-					
-					// Le mot est valide. Ajout à la liste des mots joués.
-					else {
+//DBG					if (!response.getBoolean("result")) {
+//						listener.onWordUnknown(word);
+//					}
+//					
+//					// Le mot est valide. Ajout à la liste des mots joués.
+//					else {
 						WordPlayed wordPlayed = new WordPlayed();
 						wordPlayed.time = new Date(); // TODO Trouver une technique pour qu'on utilise l'heure serveur. Le serveur doit-il créer cette instance ?
 						wordPlayed.player = playerPlace;
@@ -91,7 +91,7 @@ public class WordValidator {
 						wordsPlayed.add(wordPlayed);
 						
 						listener.onWordValidated(word);
-					}
+//					}
 				}
 	
 				@Override

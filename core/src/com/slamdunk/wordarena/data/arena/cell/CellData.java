@@ -60,7 +60,7 @@ public class CellData {
 	
 	public CellData() {
 		letter = Letters.A;
-		state = CellStates.OWNED;
+		state = CellStates.CONTROLED;
 		selected = false;
 		position = new Point(0, 0);
 		ownerPlace = PlayerData.NEUTRAL.place;

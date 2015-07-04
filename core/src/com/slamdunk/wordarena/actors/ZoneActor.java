@@ -105,6 +105,16 @@ public class ZoneActor extends Group {
 			
 			// Choisit l'owner de la zone
 			updateOwner();
+			
+			// DBG Problème quelque part car cette boucle ne devrait pas avoir besoin d'exister.
+			for (CellActor cell : cells.values()) {
+				// Neutral player ne peut pas posséder de cellules. Si la zone est neutre,
+				// alors les cellules sont forcément contrôlées.
+				if (PlayerData.isNeutral(cell.getData().ownerPlace)) {
+					cell.getData().state = CellStates.CONTROLED;
+					cell.updateDisplay();
+				}
+			}
 		}
 	}
 	
@@ -139,20 +149,26 @@ public class ZoneActor extends Group {
 	 * @param newOwnerPlace
 	 */
 	private void setOwner(int newOwnerPlace) {
+		if (newOwnerPlace == data.ownerPlace) {
+			return;
+		}
+		
 		// Changement de l'owner
 		int oldOwnerPlace = data.ownerPlace;
 		data.ownerPlace = newOwnerPlace;
 		
-		// Change l'image des cellules de la zone
+		// Le joueur prend les cellules de la zone
+		final boolean isNewOwnerNeutral = PlayerData.isNeutral(newOwnerPlace);
 		CellData cellData;
 		for (CellActor cell : cells.values()) {
 			cellData = cell.getData();
 			
-			// Une cellule passe sous le contrôle du joueur si elle est dans la zone et :
-			//    - soit neutre
-			//    - soit sous le simple contrôle d'un adversaire
-			if (PlayerData.isNeutral(cellData.ownerPlace)
-			|| cellData.state != CellStates.OWNED) {
+			// Si la cellule était contrôlée, alors elle passe sous le contrôle du nouvel owner
+			if (cellData.state == CellStates.CONTROLED
+			// Si la zone ne devient pas neutre et que la cellule était possédée par un autre joueur,
+			// alors il est expulsé de la zone et la cellule passe sous le contrôle du nouveau joueur
+			|| (!isNewOwnerNeutral
+				&& cellData.ownerPlace != newOwnerPlace) ) {
 				cell.setOwner(matchManager.getPlayer(newOwnerPlace), CellStates.CONTROLED);
 			}
 			

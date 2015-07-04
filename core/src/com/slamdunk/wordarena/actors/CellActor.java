@@ -210,7 +210,10 @@ public class CellActor extends Actor {
 	public void select(boolean selected) {
 		data.selected = selected;
 		
-		zone.updateOwner();
+		// DBG TODO Ne fonctionne plus depuis qu'on expulse les autres joueurs d'une zone conquise. De toutes façons il faudrait prendre en compte les effets des bombes et autres cases spéciales pour faire les choses correctement.
+		// Met à jour la zone pour qu'on voit en temps réel à qui elle appartient
+		// en fonction des lettres sélectionnées
+		//zone.updateOwner();
 		
 		updateDisplay();
 	}

@@ -75,7 +75,9 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		GameData game = cache.getData();
 		
 		// Charge l'arène
+		selectingLetters = false;
 		arena.loadArena(game.arena);
+		arena.enableCellSelection(false);
 		arena.showLetters(false);
 		
 		// Prépare la cinématique du jeu
@@ -224,6 +226,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		
 		// Charge l'arène
 		arena.buildArena("arenas/" + cache.getData().arena.name + ".json");
+		arena.enableCellSelection(false);
 		arena.showLetters(false);
 		cache.getData().arena = arena.getData();
 		
@@ -316,7 +319,8 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 
 		changeState(GameStates.ROUND_OVER);
 		
-		// Cache les lettres de l'arène
+		// Cache les lettres de l'arène et interdit la sélection de cases
+		arena.enableCellSelection(false);
 		arena.showLetters(false);
 	}
 	
@@ -327,7 +331,8 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		
 		changeState(GameStates.GAME_OVER);
 		
-		// Cache les lettres de l'arène
+		// Cache les lettres de l'arène et interdit la sélection de cases
+		arena.enableCellSelection(false);
 		arena.showLetters(false);
 		
 		// TODO Met à jour l'état de la partie dans le cache et auprès du serveur

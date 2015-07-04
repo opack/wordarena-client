@@ -7,11 +7,13 @@ import com.slamdunk.wordarena.enums.PlayerKind;
  * Contient les informations sur le joueur participant à la partie
  */
 public class PlayerData {
+	
 	public static final PlayerData NEUTRAL;
+	
 	static {
 		NEUTRAL = new PlayerData(Assets.i18nBundle.get("ui.editor.player.0"), Assets.MARKER_PACK_NEUTRAL, -1);
 	}
-	
+
 	/**
 	 * Identifiant unique du joueur
 	 */
@@ -70,10 +72,10 @@ public class PlayerData {
 	}
 	
 	public boolean isNeutral() {
-		return this.place == NEUTRAL.place;
+		return this.place == PlayerData.NEUTRAL.place;
 	}
 	
 	public static boolean isNeutral(int place) {
-		return place == NEUTRAL.place;
+		return place == PlayerData.NEUTRAL.place;
 	}
 }
