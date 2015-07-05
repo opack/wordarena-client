@@ -5,6 +5,14 @@
 		- Duel : 2 épées croisées
 		- Ligue : une médaille
 		- Tournoi : une coupe
+	- A faire :
+		1. Supprimer les boutons permettant de choisir le type de partie
+		2. Ajouter une image à chaque ligne de partie
+		3. Au démarrage de l'application, récupérer l'entête des parties en cours du joueur et mettre à jour le cache :
+			- Si le fichier de cache existe, demander au serveur le dernier coup joué pour le mettre à jour.
+			- Si le fichier de cache n'existe pas, demander au serveur la totalité des infos de la partie pour créer le cache.
+		4. Remplir la liste des parties par rapport aux fichiers en cache (qui viennent donc d'être mis à jour)
+		5. Ajouter un bouton "Refresh" qui met à jour le cache et rafraîchit la liste des parties en cours. 
 [ ] FIX : Editeur : vérifier le fonctionnement et corriger les petits bugs
 [ ] ADD : AnimationDrawer : rendre Poolable
 [ ] ADD : Editeur : ajouter une liste déroulante pour sélectionner la skin parmi les skins existantes

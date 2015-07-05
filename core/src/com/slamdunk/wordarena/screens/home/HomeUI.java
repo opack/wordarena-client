@@ -106,11 +106,7 @@ public class HomeUI extends UIOverlay {
 		});
 		
 		// Boutons d'affichage des parties en cours
-		sceneLoader.sceneActor.getCompositeById("btnGamesCareer").addScript(new ChangeCurrentGamesScript(this));
-		sceneLoader.sceneActor.getCompositeById("btnGamesTrainings").addScript(new ChangeCurrentGamesScript(this));
-		sceneLoader.sceneActor.getCompositeById("btnGamesDuels").addScript(new ChangeCurrentGamesScript(this));
-		sceneLoader.sceneActor.getCompositeById("btnGamesLeague").addScript(new ChangeCurrentGamesScript(this));
-		sceneLoader.sceneActor.getCompositeById("btnGamesTournaments").addScript(new ChangeCurrentGamesScript(this));
+		loadCurrentGames();
 	}
 	
 	private void createCurrentGamesTable() {
@@ -128,10 +124,10 @@ public class HomeUI extends UIOverlay {
 	}
 	
 	/**
-	 * Charge et affiche les parties en cours du type spécifié
-	 * @param gameType
+	 * Affiche les parties en cours en interrogeant le serveur
+	 * et en lisant le cache
 	 */
-	public void loadCurrentGames(GameTypes gameType) {
+	public void loadCurrentGames() {
 		// Vider la table et afficher la bonne ligne d'entête
 		gamesTable.clear();
 
