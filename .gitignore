@@ -57,9 +57,10 @@ nb-configuration.xml
 ## Gradle
 
 .gradle
+gradle-app.setting
 build/
 
 ## OS Specific
 .DS_Store
-/WordArena-android/gen
-/WordArena-android/libs
+/android/gen
+/android/libs

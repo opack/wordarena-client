@@ -1,0 +1,307 @@
+{
+"sceneName": "Home",
+"composite": {
+	"sImages": [
+		{
+			"itemIdentifier": "imgBackground",
+			"layerName": "Default",
+			"tint": [ 1, 1, 1, 1 ],
+			"imageName": "bkgndhome"
+		}
+	],
+	"sTextBox": [
+		{
+			"itemIdentifier": "txtGameId",
+			"x": 273.50006,
+			"y": 667,
+			"zIndex": 11,
+			"layerName": "Default",
+			"tint": [ 1, 1, 1, 1 ],
+			"width": 50
+		}
+	],
+	"sComposites": [
+		{
+			"itemIdentifier": "btnEditor",
+			"customVars": "text:Editor;i18n-key:ui.home.editor",
+			"x": 344.00015,
+			"y": 764.0001,
+			"scaleX": 0.31499955,
+			"scaleY": 0.4107132,
+			"zIndex": 1,
+			"layerName": "Default",
+			"tint": [ 1, 1, 1, 1 ],
+			"composite": {
+				"sImage9patchs": [
+					{
+						"zIndex": 1,
+						"layerName": "normal",
+						"tint": [ 1, 1, 1, 1 ],
+						"imageName": "buttonlambdanormal",
+						"width": 200,
+						"height": 56
+					},
+					{
+						"layerName": "pressed",
+						"tint": [ 1, 1, 1, 1 ],
+						"imageName": "buttonlambdapressed",
+						"width": 200,
+						"height": 56
+					}
+				],
+				"sLabels": [
+					{
+						"itemIdentifier": "text",
+						"zIndex": 2,
+						"layerName": "Default",
+						"tint": [ 1, 1, 1, 1 ],
+						"style": "arial",
+						"size": 32,
+						"width": 200,
+						"height": 56
+					}
+				],
+				"layers": [
+					{
+						"layerName": "pressed"
+					},
+					{
+						"layerName": "normal",
+						"isVisible": false
+					},
+					{
+						"layerName": "Default"
+					}
+				]
+			}
+		},
+		{
+			"itemIdentifier": "btnQuit",
+			"customVars": "text:Quit;i18n-key:ui.home.quit",
+			"x": 9.0000305,
+			"y": 735,
+			"scaleX": 0.2800001,
+			"zIndex": 2,
+			"layerName": "Default",
+			"tint": [ 1, 1, 1, 1 ],
+			"composite": {
+				"sImage9patchs": [
+					{
+						"zIndex": 1,
+						"layerName": "normal",
+						"tint": [ 1, 1, 1, 1 ],
+						"imageName": "buttonlambdanormal",
+						"width": 200,
+						"height": 56
+					},
+					{
+						"layerName": "pressed",
+						"tint": [ 1, 1, 1, 1 ],
+						"imageName": "buttonlambdapressed",
+						"width": 200,
+						"height": 56
+					}
+				],
+				"sLabels": [
+					{
+						"itemIdentifier": "text",
+						"zIndex": 2,
+						"layerName": "Default",
+						"tint": [ 1, 1, 1, 1 ],
+						"style": "arial",
+						"size": 32,
+						"width": 200,
+						"height": 56
+					}
+				],
+				"layers": [
+					{
+						"layerName": "pressed"
+					},
+					{
+						"layerName": "normal",
+						"isVisible": false
+					},
+					{
+						"layerName": "Default"
+					}
+				]
+			}
+		},
+		{
+			"itemIdentifier": "btnOptions",
+			"customVars": "text:Options;i18n-key:ui.home.options",
+			"x": 416,
+			"y": 735,
+			"scaleX": 0.27999955,
+			"zIndex": 3,
+			"layerName": "Default",
+			"tint": [ 1, 1, 1, 1 ],
+			"composite": {
+				"sImage9patchs": [
+					{
+						"zIndex": 1,
+						"layerName": "normal",
+						"tint": [ 1, 1, 1, 1 ],
+						"imageName": "buttonlambdanormal",
+						"width": 200,
+						"height": 56
+					},
+					{
+						"layerName": "pressed",
+						"tint": [ 1, 1, 1, 1 ],
+						"imageName": "buttonlambdapressed",
+						"width": 200,
+						"height": 56
+					}
+				],
+				"sLabels": [
+					{
+						"itemIdentifier": "text",
+						"zIndex": 2,
+						"layerName": "Default",
+						"tint": [ 1, 1, 1, 1 ],
+						"style": "arial",
+						"size": 32,
+						"width": 200,
+						"height": 56
+					}
+				],
+				"layers": [
+					{
+						"layerName": "pressed"
+					},
+					{
+						"layerName": "normal",
+						"isVisible": false
+					},
+					{
+						"layerName": "Default"
+					}
+				]
+			}
+		},
+		{
+			"itemIdentifier": "btnPlay",
+			"itemName": "WABtnTool",
+			"customVars": "i18n-key:ui.home.play",
+			"x": 163.00002,
+			"y": 665,
+			"zIndex": 10,
+			"layerName": "Default",
+			"tint": [ 1, 1, 1, 1 ],
+			"composite": {
+				"sImage9patchs": [
+					{
+						"zIndex": 1,
+						"layerName": "normal",
+						"tint": [ 1, 1, 1, 1 ],
+						"imageName": "buttonlambdanormal",
+						"width": 50,
+						"height": 25
+					},
+					{
+						"layerName": "pressed",
+						"tint": [ 1, 1, 1, 1 ],
+						"imageName": "buttonlambdapressed",
+						"width": 50,
+						"height": 25
+					}
+				],
+				"sLabels": [
+					{
+						"itemIdentifier": "text",
+						"zIndex": 2,
+						"layerName": "Default",
+						"tint": [ 1, 1, 1, 1 ],
+						"style": "arial",
+						"size": 12,
+						"width": 50,
+						"height": 25
+					}
+				],
+				"layers": [
+					{
+						"layerName": "pressed"
+					},
+					{
+						"layerName": "normal"
+					},
+					{
+						"layerName": "Default"
+					}
+				]
+			}
+		},
+		{
+			"itemIdentifier": "btnContinue",
+			"itemName": "WABtnTool",
+			"customVars": "i18n-key:ui.home.continue",
+			"x": 330.00006,
+			"y": 666,
+			"zIndex": 12,
+			"layerName": "Default",
+			"tint": [ 1, 1, 1, 1 ],
+			"composite": {
+				"sImage9patchs": [
+					{
+						"zIndex": 1,
+						"layerName": "normal",
+						"tint": [ 1, 1, 1, 1 ],
+						"imageName": "buttonlambdanormal",
+						"width": 50,
+						"height": 25
+					},
+					{
+						"layerName": "pressed",
+						"tint": [ 1, 1, 1, 1 ],
+						"imageName": "buttonlambdapressed",
+						"width": 50,
+						"height": 25
+					}
+				],
+				"sLabels": [
+					{
+						"itemIdentifier": "text",
+						"zIndex": 2,
+						"layerName": "Default",
+						"tint": [ 1, 1, 1, 1 ],
+						"style": "arial",
+						"size": 12,
+						"width": 50,
+						"height": 25
+					}
+				],
+				"layers": [
+					{
+						"layerName": "pressed"
+					},
+					{
+						"layerName": "normal"
+					},
+					{
+						"layerName": "Default"
+					}
+				]
+			}
+		}
+	],
+	"sSelectBoxes": [
+		{
+			"itemIdentifier": "selArena",
+			"x": 9.999985,
+			"y": 664.99994,
+			"zIndex": 6,
+			"layerName": "Default",
+			"tint": [ 1, 1, 1, 1 ],
+			"width": 150
+		}
+	],
+	"layers": [
+		{
+			"layerName": "Default"
+		}
+	]
+},
+"physicsPropertiesVO": {}
+}

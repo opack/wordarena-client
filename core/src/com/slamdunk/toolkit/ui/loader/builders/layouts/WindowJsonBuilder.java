@@ -3,7 +3,7 @@ package com.slamdunk.toolkit.ui.loader.builders.layouts;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
-import com.badlogic.gdx.scenes.scene2d.utils.Align;
+import com.badlogic.gdx.utils.Align;
 import com.slamdunk.toolkit.ui.loader.JsonUIBuilder;
 
 public class WindowJsonBuilder extends TableJsonBuilder {
@@ -78,7 +78,7 @@ public class WindowJsonBuilder extends TableJsonBuilder {
 
 	private void parseTitle(Window window) {
 		if (hasProperty("title")) {
-			window.setTitle(getStringProperty("title"));
+			window.getTitleLabel().setText(getStringProperty("title"));
 		}
 	}
 	
@@ -93,7 +93,7 @@ public class WindowJsonBuilder extends TableJsonBuilder {
 			} else if ("center".equals(align)) {
 				alignInt = Align.center;
 			}
-			window.setTitleAlignment(alignInt);
+			window.getTitleLabel().setAlignment(alignInt);
 		}
 	}
 }

@@ -5,6 +5,7 @@ import java.util.Date;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonWriter.OutputType;
 import com.slamdunk.wordarena.data.arena.ArenaData;
 import com.slamdunk.wordarena.data.arena.ArenaSerializer;
 
@@ -23,9 +24,9 @@ public class GameCache {
 		this.data = data;
 	}
 
-	public void create(int gameId) {
+	public void create(String gameId) {
 		data = GameData.create();
-		data.header.id = gameId;
+		data._id = gameId;
 		save();
 	}
 	
@@ -36,10 +37,11 @@ public class GameCache {
 	
 	public void save() {
 		Json json = new Json();
+		json.setOutputType(OutputType.json);
 		json.setSerializer(ArenaData.class, new ArenaSerializer());
 		final String serialized = json.prettyPrint(data);
 		
-		file = Gdx.files.local("cache/" + data.header.id + ".json");
+		file = Gdx.files.local("cache/" + data._id + ".json");
 		file.writeString(serialized, false, "UTF-8");
 	}
 	

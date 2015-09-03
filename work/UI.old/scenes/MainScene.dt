@@ -1,0 +1,11 @@
+{
+"sceneName": "MainScene",
+"composite": {
+	"layers": [
+		{
+			"layerName": "Default"
+		}
+	]
+},
+"physicsPropertiesVO": {}
+}

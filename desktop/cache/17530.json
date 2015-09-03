@@ -1,0 +1,101 @@
+{
+"_id": "17530",
+"header": {
+	"gameType": "TRAINING",
+	"objective": "CONQUEST"
+},
+"cinematic": {},
+"players": [
+	{
+		"name": "Alan",
+		"kind": "HUMAN_LOCAL",
+		"markerPack": "blue"
+	},
+	{
+		"name": "Bob",
+		"place": 1,
+		"kind": "HUMAN_LOCAL",
+		"markerPack": "orange"
+	}
+],
+"arena": {
+	"name": "2_trench_warfare",
+	"skin": "default",
+	"width": 7,
+	"height": 12,
+	"types": [
+		"L L L L L L L ",
+		"L L L L L L L ",
+		"L L L L L L L ",
+		"L L L L L L L ",
+		"L L L L L L L ",
+		"L L L L L L L ",
+		"L L L L L L L ",
+		"L L L L L L L ",
+		"L L L L L L L ",
+		"L L L L L L L ",
+		"L L L L L L L ",
+		"L L L L L L L "
+	],
+	"letters": [
+		"M Q E L A A S ",
+		"S N E A N R E ",
+		"M U A N B L K ",
+		"O P G I E T T ",
+		"S I T O S A S ",
+		"N U T S O A R ",
+		"R P E E C G I ",
+		"I H F M A I E ",
+		"E O N U O R I ",
+		"R Y D W A E R ",
+		"L X Z B E U D ",
+		"J H C U E E V "
+	],
+	"powers": [
+		"1 1 1 1 1 1 1 ",
+		"1 1 1 1 1 1 1 ",
+		"1 1 1 1 1 1 1 ",
+		"1 1 1 1 1 1 1 ",
+		"1 1 1 1 1 1 1 ",
+		"1 1 1 1 1 1 1 ",
+		"1 1 1 1 1 1 1 ",
+		"1 1 1 1 1 1 1 ",
+		"1 1 1 1 1 1 1 ",
+		"1 1 1 1 1 1 1 ",
+		"1 1 1 1 1 1 1 ",
+		"1 1 1 1 1 1 1 "
+	],
+	"owners": [
+		"0 0 0 1 0 0 0 ",
+		"0 0 0 0 0 0 0 ",
+		"0 0 0 0 0 0 0 ",
+		"0 0 0 0 0 0 0 ",
+		"0 0 0 0 0 0 0 ",
+		"0 0 0 0 0 0 0 ",
+		"0 0 0 0 0 0 0 ",
+		"0 0 0 0 0 0 0 ",
+		"0 0 0 0 0 0 0 ",
+		"0 0 0 0 0 0 0 ",
+		"0 0 0 0 0 0 0 ",
+		"0 0 0 2 0 0 0 "
+	],
+	"zones": [
+		"1 1 1 1 1 1 1 ",
+		"2 2 2 2 2 2 2 ",
+		"2 2 2 2 2 2 2 ",
+		"3 3 3 3 3 3 3 ",
+		"3 3 7 7 7 3 3 ",
+		"3 3 7 7 7 3 3 ",
+		"4 4 7 7 7 4 4 ",
+		"4 4 7 7 7 4 4 ",
+		"4 4 4 4 4 4 4 ",
+		"5 5 5 5 5 5 5 ",
+		"5 5 5 5 5 5 5 ",
+		"6 6 6 6 6 6 6 "
+	],
+	"walls": []
+},
+"wordsPlayed": [],
+"lastMove": {},
+"chats": []
+}

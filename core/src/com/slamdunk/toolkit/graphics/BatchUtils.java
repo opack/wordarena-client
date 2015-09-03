@@ -3,7 +3,7 @@ package com.slamdunk.toolkit.graphics;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.BitmapFont.TextBounds;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -15,7 +15,7 @@ public class BatchUtils {
 
     /**
      * Dessine le texte indiqué en l'alignant dans la zone bounds.
-     * @param drawBatch
+     * @param spriteBatch
      * @param font
      * @param text
      * @param align
@@ -23,46 +23,46 @@ public class BatchUtils {
      */
     public static void drawString(Batch spriteBatch, BitmapFont font, String text, TextAlignment align, Rectangle bounds) {
         // Détermine la taille du texte
-        TextBounds textBounds = font.getBounds(text);
-
+        GlyphLayout glyphLayout = new GlyphLayout(font, text);
+        
         // Détermine les coordonnées
         float x = bounds.x;
         float y = bounds.y;
         switch (align) {
         case TOP_LEFT:
             x = bounds.x;
-            y = bounds.y + bounds.height - textBounds.height;
+            y = bounds.y + bounds.height - glyphLayout.height;
             break;
         case TOP_CENTER:
-            x = bounds.x + bounds.width / 2 - textBounds.width / 2;
-            y = bounds.y + bounds.height - textBounds.height;
+            x = bounds.x + bounds.width / 2 - glyphLayout.width / 2;
+            y = bounds.y + bounds.height - glyphLayout.height;
             break;
         case TOP_RIGHT:
-            x = bounds.x + bounds.width - textBounds.width;
-            y = bounds.y + bounds.height - textBounds.height;
+            x = bounds.x + bounds.width - glyphLayout.width;
+            y = bounds.y + bounds.height - glyphLayout.height;
             break;
         case MIDDLE_LEFT:
             x = bounds.x;
-            y = bounds.y + bounds.height / 2 - textBounds.height / 2;
+            y = bounds.y + bounds.height / 2 - glyphLayout.height / 2;
             break;
         case MIDDLE_CENTER:
-            x = bounds.x + bounds.width / 2 - textBounds.width / 2;
-            y = bounds.y + bounds.height / 2 - textBounds.height / 2;
+            x = bounds.x + bounds.width / 2 - glyphLayout.width / 2;
+            y = bounds.y + bounds.height / 2 - glyphLayout.height / 2;
             break;
         case MIDDLE_RIGHT:
-            x = bounds.x + bounds.width - textBounds.width;
-            y = bounds.y + bounds.height / 2 - textBounds.height / 2;
+            x = bounds.x + bounds.width - glyphLayout.width;
+            y = bounds.y + bounds.height / 2 - glyphLayout.height / 2;
             break;
         case BOTTOM_LEFT:
             x = bounds.x;
             y = bounds.y;
             break;
         case BOTTOM_CENTER:
-            x = bounds.x + bounds.width / 2 - textBounds.width / 2;
+            x = bounds.x + bounds.width / 2 - glyphLayout.width / 2;
             y = bounds.y;
             break;
         case BOTTOM_RIGHT:
-            x = bounds.x + bounds.width - textBounds.width;
+            x = bounds.x + bounds.width - glyphLayout.width;
             y = bounds.y;
             break;
         }
@@ -70,7 +70,7 @@ public class BatchUtils {
         // Dessine le texte
         // Pour une raison étrange, le texte semble être dessiné "vers le bas",
         // donc il faut ajouter la hauteur du texte pour être sûr de bien aligner
-        font.draw(spriteBatch, text, x, y + textBounds.height);
+        font.draw(spriteBatch, text, x, y + glyphLayout.height);
     }
     
     /**

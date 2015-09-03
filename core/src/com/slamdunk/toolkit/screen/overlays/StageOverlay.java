@@ -37,12 +37,16 @@ public abstract class StageOverlay implements SlamOverlay {
 	
 	@Override
 	public void act(float delta) {
-		stage.act(delta);
+		if (stage != null) {
+			stage.act(delta);
+		}
 	}
 	
 	@Override
 	public void draw() {
-		stage.draw();
+		if (stage != null) {
+			stage.draw();
+		}
 	}
 
 	@Override

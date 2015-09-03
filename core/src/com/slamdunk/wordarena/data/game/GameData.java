@@ -11,6 +11,11 @@ import com.slamdunk.wordarena.data.arena.ArenaData;
 public class GameData {
 	
 	/**
+	 * Identifiant unique de la partie
+	 */
+	public String _id;
+	
+	/**
 	 * Entête de la partie, contenant des infos générales
 	 */
 	public GameHeader header;

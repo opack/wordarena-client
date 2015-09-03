@@ -22,7 +22,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	private GameCache cache;
 	
 	private ArenaOverlay arena;
-	private ArenaUI ui;
+	private ArenaUI2 ui;
 	
 	private GameStates state;
 	
@@ -62,7 +62,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		return arena.getData();
 	}
 	
-	public void init(ArenaOverlay arena, ArenaUI ui, GameCache cache) {
+	public void init(ArenaOverlay arena, ArenaUI2 ui, GameCache cache) {
 		// Attache ce manager au Screen
 		this.arena = arena;
 		arena.setMatchManager(this);
@@ -115,8 +115,8 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 
 	/**
 	 * Appelée par ArenaZone lorsqu'une zone change de propriétaire.
-	 * @param oldOwner
-	 * @param newOwner
+	 * @param oldOwnerPlace
+	 * @param newOwnerPlace
 	 */
 	public void zoneChangedOwner(int oldOwnerPlace, int newOwnerPlace) {
 		// Met à jour l'UI si le jeu tourne. Sinon, on a sûrement
@@ -289,8 +289,8 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	/**
 	 * Vérifie s'il y a un mur entre les 2 cellules, ou dans un coin qui empêcherait
 	 * de passer d'une cellule à l'autre
-	 * @param last
-	 * @param cell
+	 * @param cell1
+	 * @param cell2
 	 * @return
 	 */
 	public boolean hasWall(CellActor cell1, CellActor cell2) {
@@ -447,7 +447,7 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	/**
 	 * Retourne le joueur à la place indiquée, ou le joueur neutre
 	 * si place == -1
-	 * @param oldOwnerPlace
+	 * @param place
 	 * @return
 	 */
 	public PlayerData getPlayer(int place) {

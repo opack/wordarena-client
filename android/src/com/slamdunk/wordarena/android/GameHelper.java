@@ -29,7 +29,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
-import com.google.android.gms.appstate.AppStateManager;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.Api.ApiOptions.NoOptions;
@@ -42,8 +41,6 @@ import com.google.android.gms.games.multiplayer.Invitation;
 import com.google.android.gms.games.multiplayer.Multiplayer;
 import com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatch;
 import com.google.android.gms.games.request.GameRequest;
-import com.google.android.gms.plus.Plus;
-import com.google.android.gms.plus.Plus.PlusOptions;
 
 public class GameHelper implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
@@ -113,7 +110,8 @@ public class GameHelper implements GoogleApiClient.ConnectionCallbacks,
 
     // Api options to use when adding each API, null for none
     GamesOptions mGamesApiOptions = GamesOptions.builder().build();
-    PlusOptions mPlusApiOptions = null;
+    //DDE TODO La librairie Plus ne semble plus trouvable. A creuser plus tard
+//    PlusOptions mPlusApiOptions = null;
     NoOptions mAppStateApiOptions = null;
 
     // Google API client object we manage.
@@ -253,14 +251,15 @@ public class GameHelper implements GoogleApiClient.ConnectionCallbacks,
         mAppStateApiOptions = options;
     }
 
-    /**
-     * Sets the options to pass when setting up the Plus API. Call before
-     * setup().
-     */
-    public void setPlusApiOptions(PlusOptions options) {
-        doApiOptionsPreCheck();
-        mPlusApiOptions = options;
-    }
+    //DDE TODO La librairie Plus ne semble plus trouvable. A creuser plus tard
+//    /**
+//     * Sets the options to pass when setting up the Plus API. Call before
+//     * setup().
+//     */
+//    public void setPlusApiOptions(PlusOptions options) {
+//        doApiOptionsPreCheck();
+//        mPlusApiOptions = options;
+//    }
 
     /**
      * Creates a GoogleApiClient.Builder for use with @link{#setup}. Normally,
@@ -284,15 +283,17 @@ public class GameHelper implements GoogleApiClient.ConnectionCallbacks,
             builder.addScope(Games.SCOPE_GAMES);
         }
 
-        if (0 != (mRequestedClients & CLIENT_PLUS)) {
-            builder.addApi(Plus.API);
-            builder.addScope(Plus.SCOPE_PLUS_LOGIN);
-        }
+        //DDE TODO La librairie Plus ne semble plus trouvable. A creuser plus tard
+//        if (0 != (mRequestedClients & CLIENT_PLUS)) {
+//            builder.addApi(Plus.API);
+//            builder.addScope(Plus.SCOPE_PLUS_LOGIN);
+//        }
 
-        if (0 != (mRequestedClients & CLIENT_APPSTATE)) {
-            builder.addApi(AppStateManager.API);
-            builder.addScope(AppStateManager.SCOPE_APP_STATE);
-        }
+        //DDE TODO AppStateManager ne semble plus trouable. A creuser plus tard
+//        if (0 != (mRequestedClients & CLIENT_APPSTATE)) {
+//            builder.addApi(AppStateManager.API);
+//            builder.addScope(AppStateManager.SCOPE_APP_STATE);
+//        }
 
         if (0 != (mRequestedClients & CLIENT_SNAPSHOT)) {
           builder.addScope(Drive.SCOPE_APPFOLDER);
@@ -538,12 +539,12 @@ public class GameHelper implements GoogleApiClient.ConnectionCallbacks,
             return;
         }
 
-        // for Plus, "signing out" means clearing the default account and
-        // then disconnecting
-        if (0 != (mRequestedClients & CLIENT_PLUS)) {
-            debugLog("Clearing default account on PlusClient.");
-            Plus.AccountApi.clearDefaultAccount(mGoogleApiClient);
-        }
+//DDE TODO La librairie Plus ne semble plus trouvable. A creuser plus tard
+//        // for Plus, "signing out" means clearing the default account and then disconnecting
+//        if (0 != (mRequestedClients & CLIENT_PLUS)) {
+//            debugLog("Clearing default account on PlusClient.");
+//            Plus.AccountApi.clearDefaultAccount(mGoogleApiClient);
+//        }
 
         // For the games client, signing out means calling signOut and
         // disconnecting

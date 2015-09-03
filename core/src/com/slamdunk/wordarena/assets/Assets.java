@@ -48,7 +48,7 @@ public class Assets {
 	public static void load () {
 		loadAppProperties();
 		loadI18N();
-		loadOverlapResources();
+		//DBGloadOverlapResources();
 		loadSkin();
 		loadAtlas();
 	}

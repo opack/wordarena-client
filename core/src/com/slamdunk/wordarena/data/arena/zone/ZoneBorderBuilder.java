@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.scenes.scene2d.utils.Align;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Scaling;
 import com.slamdunk.toolkit.world.point.Point;
 import com.slamdunk.wordarena.actors.CellActor;

@@ -15,7 +15,7 @@ import com.slamdunk.wordarena.screens.preeditor.PreEditorScreen;
 public class HomeScreen extends SlamScreen {
 	public static final String NAME = "HOME";
 	
-	private HomeUI ui;
+	private HomeUI2 ui;
 	
 	@Override
 	public String getName() {
@@ -25,7 +25,7 @@ public class HomeScreen extends SlamScreen {
 	public HomeScreen(WordArenaGame game) {
 		super(game);
 		
-		ui = new HomeUI(this);
+		ui = new HomeUI2(this);
 		addOverlay(ui);
 	}
 	

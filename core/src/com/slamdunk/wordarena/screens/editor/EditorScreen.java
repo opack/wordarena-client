@@ -35,7 +35,7 @@ import com.slamdunk.wordarena.screens.preeditor.PreEditorScreen;
 public class EditorScreen extends SlamScreen {
 public static final String NAME = "EDITOR";
 	private EditorArenaOverlay arena;
-	private EditorUI ui;
+	private EditorUI2 ui;
 	private EditorMatchManager matchManager;
 	
 	@SuppressWarnings("rawtypes")
@@ -52,7 +52,7 @@ public static final String NAME = "EDITOR";
 		arena = new EditorArenaOverlay(matchManager);
 		addOverlay(arena);
 		
-		ui = new EditorUI(this);
+		ui = new EditorUI2(this);
 		addOverlay(ui);
 		
 		createGameData();
@@ -67,7 +67,7 @@ public static final String NAME = "EDITOR";
 
 	private void createGameData() {
 		GameData game = GameData.create();
-		game.header.id = 0;
+		game._id = "0";
 		game.header.gameType = GameTypes.TRAINING;
 		game.header.objective = Objectives.CONQUEST;
 		game.players.add(PlayerData.NEUTRAL);

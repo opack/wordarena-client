@@ -1,93 +1,94 @@
 {
-header: {
-	gameType: TRAINING
-	objective: CONQUEST
-}
-cinematic: {}
-players: [
+"_id": "0",
+"header": {
+	"gameType": "TRAINING",
+	"objective": "CONQUEST"
+},
+"cinematic": {},
+"players": [
 	{
-		name: Neutre
-		place: -1
-		kind: HUMAN_LOCAL
-		markerPack: neutral
-	}
+		"name": "Neutre",
+		"place": -1,
+		"kind": "HUMAN_LOCAL",
+		"markerPack": "neutral"
+	},
 	{
-		name: Joueur 1
-		kind: HUMAN_LOCAL
-		markerPack: blue
-	}
+		"name": "Joueur 1",
+		"kind": "HUMAN_LOCAL",
+		"markerPack": "blue"
+	},
 	{
-		name: Joueur 2
-		place: 1
-		kind: HUMAN_LOCAL
-		markerPack: orange
-	}
+		"name": "Joueur 2",
+		"place": 1,
+		"kind": "HUMAN_LOCAL",
+		"markerPack": "orange"
+	},
 	{
-		name: Joueur 3
-		place: 2
-		kind: HUMAN_LOCAL
-		markerPack: green
-	}
+		"name": "Joueur 3",
+		"place": 2,
+		"kind": "HUMAN_LOCAL",
+		"markerPack": "green"
+	},
 	{
-		name: Joueur 4
-		place: 3
-		kind: HUMAN_LOCAL
-		markerPack: purple
+		"name": "Joueur 4",
+		"place": 3,
+		"kind": "HUMAN_LOCAL",
+		"markerPack": "purple"
 	}
-]
-arena: {
-	name: editor
-	skin: default
-	width: 7
-	height: 7
-	types: [
+],
+"arena": {
+	"name": "editor",
+	"skin": "default",
+	"width": 7,
+	"height": 7,
+	"types": [
+		"L L L L L L L ",
+		"L L L L L L L ",
+		"L L L L L L L ",
+		"L L L L L L L ",
+		"L L L L L L L ",
+		"L L L L L L L ",
 		"L L L L L L L "
-		"L L L L L L L "
-		"L L L L L L L "
-		"L L L L L L L "
-		"L L L L L L L "
-		"L L L L L L L "
-		"L L L L L L L "
-	]
-	letters: [
-		"E A O U E N S "
-		"R J Z U S E O "
-		"C C T E M A E "
-		"A I I E O U A "
-		"L T S A E E X "
-		"I F E S B U L "
-		"R Y N D O R E "
-	]
-	powers: [
+	],
+	"letters": [
+		"N H I T O E E ",
+		"E A A S O G U ",
+		"S E E I A A A ",
+		"X R K T R R U ",
+		"O U M N O E I ",
+		"S Y E T I D I ",
+		"F E T E S L N "
+	],
+	"powers": [
+		"1 1 1 1 1 1 1 ",
+		"1 1 1 1 1 1 1 ",
+		"1 1 1 1 1 1 1 ",
+		"1 1 1 1 1 1 1 ",
+		"1 1 1 1 1 1 1 ",
+		"1 1 1 1 1 1 1 ",
 		"1 1 1 1 1 1 1 "
-		"1 1 1 1 1 1 1 "
-		"1 1 1 1 1 1 1 "
-		"1 1 1 1 1 1 1 "
-		"1 1 1 1 1 1 1 "
-		"1 1 1 1 1 1 1 "
-		"1 1 1 1 1 1 1 "
-	]
-	owners: [
+	],
+	"owners": [
+		"0 0 0 0 0 0 0 ",
+		"0 0 0 0 0 0 0 ",
+		"0 0 0 0 0 0 0 ",
+		"0 0 0 0 0 0 0 ",
+		"0 0 0 0 0 0 0 ",
+		"0 0 0 0 0 0 0 ",
 		"0 0 0 0 0 0 0 "
-		"0 0 0 0 0 0 0 "
-		"0 0 0 0 0 0 0 "
-		"0 0 0 0 0 0 0 "
-		"0 0 0 0 0 0 0 "
-		"0 0 0 0 0 0 0 "
-		"0 0 0 0 0 0 0 "
-	]
-	zones: [
+	],
+	"zones": [
+		"- - - - - - - ",
+		"- - - - - - - ",
+		"- - - - - - - ",
+		"- - - - - - - ",
+		"- - - - - - - ",
+		"- - - - - - - ",
 		"- - - - - - - "
-		"- - - - - - - "
-		"- - - - - - - "
-		"- - - - - - - "
-		"- - - - - - - "
-		"- - - - - - - "
-		"- - - - - - - "
-	]
-	walls: []
-}
-wordsPlayed: []
-lastMove: {}
-chats: []
+	],
+	"walls": []
+},
+"wordsPlayed": [],
+"lastMove": {},
+"chats": []
 }

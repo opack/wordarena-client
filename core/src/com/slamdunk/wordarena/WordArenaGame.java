@@ -43,8 +43,8 @@ public class WordArenaGame extends SlamGame {
 		// Crée les écrans
 		addScreen(new HomeScreen(this));
 		addScreen(new ArenaScreen(this));
-		addScreen(new PreEditorScreen(this));
-		addScreen(new EditorScreen(this));
+//DBG		addScreen(new PreEditorScreen(this));
+//		addScreen(new EditorScreen(this));
 		
 		// Affiche le premier écran
 		setScreen(HomeScreen.NAME);

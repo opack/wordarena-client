@@ -9,9 +9,9 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.SnapshotArray;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.slamdunk.toolkit.screen.overlays.UIOverlay;
@@ -67,7 +67,7 @@ public class ArenaUI extends UIOverlay {
 	/**
 	 * Appelée à lorsque la partie affichée change. Cela permet
 	 * d'éviter de recréer toute l'UI à chaque switch de partie.
-	 * @param arenaData 
+	 * @param gameData
 	 */
 	public void init(GameData gameData, int nbRoundsToWin) {
 		// Crée et remplit les marqueurs de possession de zone
@@ -133,17 +133,17 @@ public class ArenaUI extends UIOverlay {
 	 * Charge les composants définis dans Overlap2D
 	 */
 	private void loadScene() {
-		sceneLoader = new SceneLoader(Assets.overlap2dResourceManager);
-		sceneLoader.loadScene("Arena");
-		getStage().addActor(sceneLoader.sceneActor);
-		
-		sceneLoader.sceneActor.setTouchable(Touchable.childrenOnly);
-
-		initReadyLayer();
-		initRunningLayer();
-		initPausedLayer();
-		initRoundOverLayer();
-		initGameOverLayer();
+//DBG		sceneLoader = new SceneLoader(Assets.overlap2dResourceManager);
+//		sceneLoader.loadScene("Arena");
+//		getStage().addActor(sceneLoader.sceneActor);
+//
+//		sceneLoader.sceneActor.setTouchable(Touchable.childrenOnly);
+//
+//		initReadyLayer();
+//		initRunningLayer();
+//		initPausedLayer();
+//		initRoundOverLayer();
+//		initGameOverLayer();
 	}
 
 	/**
@@ -319,7 +319,7 @@ public class ArenaUI extends UIOverlay {
 	/**
 	 * Met à jour les carrés de possession de zone en fonction des
 	 * zones possédées par chaque joueur.
-	 * @param array 
+	 * @param zones
 	 */
 	public void updateZoneMarkers(List<ZoneData> zones) {
 		// Compte le nombre de zones possédées par chaque joueur

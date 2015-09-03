@@ -86,45 +86,45 @@ public class EditorUI extends ArenaUI {
 	
 	@SuppressWarnings("rawtypes")
 	public void loadScene() {
-		toolsScripts = new HashMap<Class<? extends EditorTool>, SimpleButtonI18NScript>();
-		
-		SceneLoader sceneLoader = new SceneLoader(Assets.overlap2dResourceManager);
-		sceneLoader.loadScene("Editor");
-		getStage().addActor(sceneLoader.sceneActor);
-		
-		lblName = sceneLoader.sceneActor.getLabelById("lblName");
-		
-		// Bouton Save
-		Overlap2DUtils.createSimpleButtonScript(sceneLoader, "btnHome", new ClickListener() {
-			public void clicked(InputEvent event, float x, float y) {
-				getScreen().getGame().setScreen(HomeScreen.NAME);
-			}
-		});
-		
-		// Bouton Save
-		Overlap2DUtils.createSimpleButtonScript(sceneLoader, "btnSave", new ClickListener() {
-			public void clicked(InputEvent event, float x, float y) {
-				screen.save();
-			}
-		});
-				
-		// Choix du type de cellule
-		loadToolType(sceneLoader);
-		
-		// Choix de la lettre
-		loadToolLetter(sceneLoader);
-		
-		// Bouton Power
-		loadToolPower(sceneLoader);
-		
-		// Bouton Owner
-		loadToolOwner(sceneLoader);
-		
-		// Bouton Zone
-		loadToolZone(sceneLoader);
-		
-		// Bouton Create wall
-		loadToolWall(sceneLoader);
+//DBG		toolsScripts = new HashMap<Class<? extends EditorTool>, SimpleButtonI18NScript>();
+//
+//		SceneLoader sceneLoader = new SceneLoader(Assets.overlap2dResourceManager);
+//		sceneLoader.loadScene("Editor");
+//		getStage().addActor(sceneLoader.sceneActor);
+//
+//		lblName = sceneLoader.sceneActor.getLabelById("lblName");
+//
+//		// Bouton Save
+//		Overlap2DUtils.createSimpleButtonScript(sceneLoader, "btnHome", new ClickListener() {
+//			public void clicked(InputEvent event, float x, float y) {
+//				getScreen().getGame().setScreen(HomeScreen.NAME);
+//			}
+//		});
+//
+//		// Bouton Save
+//		Overlap2DUtils.createSimpleButtonScript(sceneLoader, "btnSave", new ClickListener() {
+//			public void clicked(InputEvent event, float x, float y) {
+//				screen.save();
+//			}
+//		});
+//
+//		// Choix du type de cellule
+//		loadToolType(sceneLoader);
+//
+//		// Choix de la lettre
+//		loadToolLetter(sceneLoader);
+//
+//		// Bouton Power
+//		loadToolPower(sceneLoader);
+//
+//		// Bouton Owner
+//		loadToolOwner(sceneLoader);
+//
+//		// Bouton Zone
+//		loadToolZone(sceneLoader);
+//
+//		// Bouton Create wall
+//		loadToolWall(sceneLoader);
 	}
 	
 	@SuppressWarnings("rawtypes")

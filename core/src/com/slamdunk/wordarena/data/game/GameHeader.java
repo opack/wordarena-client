@@ -7,11 +7,6 @@ import com.slamdunk.wordarena.enums.Objectives;
 
 public class GameHeader {
 	/**
-	 * Identifiant unique de la partie
-	 */
-	public int id;
-	
-	/**
 	 * Le type de la partie
 	 */
 	public GameTypes gameType;

@@ -5,13 +5,14 @@ import java.util.List;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.utils.Align;
+import com.badlogic.gdx.utils.Align;
 import com.slamdunk.toolkit.ui.GroupEx;
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.arena.cell.MarkerPack;
 import com.slamdunk.wordarena.data.game.PlayerData;
 
 public class StatsTable extends Table {
+	public static final String NAME = StatsTable.class.getName();
 	
 	private PlayerStatsUI p1Stats;
 	private PlayerStatsUI p2Stats;
@@ -21,6 +22,8 @@ public class StatsTable extends Table {
 	private Table playedWords;
 	
 	public StatsTable() {
+		setName(NAME);
+
 		createTable();
 	}
 	

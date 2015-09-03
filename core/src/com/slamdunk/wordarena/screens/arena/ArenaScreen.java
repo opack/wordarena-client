@@ -25,7 +25,7 @@ public class ArenaScreen extends SlamScreen {
 	
 	private MatchManager matchManager;
 	private ArenaOverlay arena;
-	private ArenaUI ui;
+	private ArenaUI2 ui;
 	
 	public ArenaScreen(SlamGame game) {
 		super(game);
@@ -35,7 +35,7 @@ public class ArenaScreen extends SlamScreen {
 		arena = new ArenaOverlay(matchManager);
 		addOverlay(arena);
 		
-		ui = new ArenaUI(matchManager);
+		ui = new ArenaUI2(matchManager);
 		addOverlay(ui);
 
 		// Gestionnaires permettant de zoomer avec la souris ou un pinch.
@@ -59,7 +59,7 @@ public class ArenaScreen extends SlamScreen {
 		return arena;
 	}
 
-	public ArenaUI getUI() {
+	public ArenaUI2 getUI() {
 		return ui;
 	}
 	
@@ -67,11 +67,11 @@ public class ArenaScreen extends SlamScreen {
 		// TODO Demande une nouvelle partie au serveur
 		GameData game = GameData.create(); // TODO Récupérer la partie vierge retournée par le serveur
 		// DBG En attendant la récupération des données de la nouvelle partie du serveur, on initialise ici les champs
-		game.header.id = MathUtils.random(65535);
+		game._id = String.valueOf(MathUtils.random(65535));
 		game.header.gameType = GameTypes.TRAINING;
 		game.header.objective = Objectives.CONQUEST;
 		game.players = players;
-		System.out.println("DBG ArenaScreen.startNewGame() Création de la partie #" + game.header.id);
+		System.out.println("DBG ArenaScreen.startNewGame() Création de la partie #" + game._id);
 		
 		// Charge l'arène depuis le plan
 		JsonValue json = new JsonReader().parse(Gdx.files.internal(arenaPlanFile));
