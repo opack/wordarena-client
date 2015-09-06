@@ -1,14 +1,14 @@
 package com.slamdunk.wordarena.screens.arena;
 
-import java.util.Date;
-import java.util.List;
-
 import com.badlogic.gdx.utils.JsonValue;
 import com.slamdunk.wordarena.data.game.GameData;
 import com.slamdunk.wordarena.data.game.WordPlayed;
 import com.slamdunk.wordarena.server.CallServerException;
 import com.slamdunk.wordarena.server.ServerCallback;
 import com.slamdunk.wordarena.server.lexis.LexisService;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * Valide un mot à partir d'un lexique et en maintenant une liste de mots précédemment

@@ -1,4 +1,4 @@
-package com.slamdunk.wordarena.screens.arena.stats;
+package com.slamdunk.wordarena.screens.arena.components;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;

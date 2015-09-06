@@ -1,5 +1,8 @@
 package com.slamdunk.toolkit.world.pathfinder;
 
+import com.slamdunk.toolkit.world.point.Point;
+import com.slamdunk.toolkit.world.point.PointManager;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -7,9 +10,6 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
-
-import com.slamdunk.toolkit.world.point.Point;
-import com.slamdunk.toolkit.world.point.PointManager;
 
 /**
  * This class is a pathfinder which uses AStar algorithm.

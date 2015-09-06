@@ -1,11 +1,5 @@
 package com.slamdunk.wordarena.screens.arena;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -31,6 +25,12 @@ import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.screens.arena.celleffects.CellEffectsManager;
 import com.slamdunk.wordarena.screens.editor.EditorScreen;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class ArenaOverlay extends WorldOverlay {
 	private ArenaData data;

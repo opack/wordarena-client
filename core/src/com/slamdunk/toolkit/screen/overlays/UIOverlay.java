@@ -1,8 +1,5 @@
 package com.slamdunk.toolkit.screen.overlays;
 
-import java.util.LinkedList;
-import java.util.Map;
-
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -14,6 +11,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.slamdunk.toolkit.ui.loader.JsonUIBuilder;
+
+import java.util.LinkedList;
+import java.util.Map;
 
 /**
  * Une couche d'affichage qui a son propre Stage et peut être utilisée

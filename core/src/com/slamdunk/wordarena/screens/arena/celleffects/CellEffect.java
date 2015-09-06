@@ -1,11 +1,11 @@
 package com.slamdunk.wordarena.screens.arena.celleffects;
 
-import java.util.List;
-
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
+
+import java.util.List;
 
 public interface CellEffect {
 

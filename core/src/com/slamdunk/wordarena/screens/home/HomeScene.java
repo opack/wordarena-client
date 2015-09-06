@@ -4,18 +4,18 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.slamdunk.toolkit.screen.SlamScreen;
-import com.slamdunk.wordarena.screens.Scene;
+import com.slamdunk.wordarena.screens.SlamScene;
 import com.slamdunk.wordarena.screens.home.components.ArenaSelector;
 import com.slamdunk.wordarena.screens.home.components.EditorButton;
 import com.slamdunk.wordarena.screens.home.components.HomeBackground;
 import com.slamdunk.wordarena.screens.home.components.OptionsButton;
+import com.slamdunk.wordarena.screens.home.components.PlayButton;
 import com.slamdunk.wordarena.screens.home.components.QuitButton;
 
 /**
  * Crée les composants et les positionne sur la scène
  */
-public class HomeScene extends Scene {
+public class HomeScene extends SlamScene {
     public static final String NAME = HomeScene.class.getName();
 
     public HomeScene() {
@@ -23,39 +23,45 @@ public class HomeScene extends Scene {
     }
 
     @Override
-    public void create(SlamScreen screen, Skin skin) {
-        HomeScreen homeScreen = (HomeScreen)screen;
-
+    public void create(Skin skin) {
         createBackground();
-        createArenaSelector(skin, homeScreen);
-        createQuitButton(skin, homeScreen);
-        createOptionsButton(skin, homeScreen);
-        createEditorButton(skin, homeScreen);
+        createArenaSelector(skin);
+        createPlayButton(skin);
+        createQuitButton(skin);
+        createOptionsButton(skin);
+        createEditorButton(skin);
     }
 
-    private void createArenaSelector(Skin skin, HomeScreen screen) {
-        SelectBox<String> selArena = new ArenaSelector(skin, screen);
+    private void createArenaSelector(Skin skin) {
+        SelectBox<String> selArena = new ArenaSelector(skin);
         selArena.setSize(150, 50);
-        selArena.setPosition(240 - selArena.getWidth() / 2, 450 - selArena.getHeight() / 2);
+        selArena.setPosition(155 - selArena.getWidth() / 2, 450 - selArena.getHeight() / 2);
         addActor(selArena);
     }
 
-    private void createEditorButton(Skin skin, HomeScreen screen) {
-        Button btnEditor = new EditorButton(skin, screen);
+    private void createPlayButton(Skin skin) {
+        Button btnOptions = new PlayButton(skin, this);
+        btnOptions.setSize(150, 50);
+        btnOptions.setPosition(325 - btnOptions.getWidth() / 2, 450 - btnOptions.getHeight() / 2);
+        addActor(btnOptions);
+    }
+
+    private void createEditorButton(Skin skin) {
+        Button btnEditor = new EditorButton(skin, this);
         btnEditor.setSize(150, 50);
         btnEditor.setPosition(240 - btnEditor.getWidth() / 2, 350 - btnEditor.getHeight() / 2);
         addActor(btnEditor);
     }
 
-    private void createOptionsButton(Skin skin, HomeScreen screen) {
-        Button btnOptions = new OptionsButton(skin, screen);
+    private void createOptionsButton(Skin skin) {
+        Button btnOptions = new OptionsButton(skin, this);
         btnOptions.setSize(150, 50);
         btnOptions.setPosition(240 - btnOptions.getWidth() / 2, 250 - btnOptions.getHeight() / 2);
         addActor(btnOptions);
     }
 
-    private void createQuitButton(Skin skin, HomeScreen screen) {
-        Button btnQuit = new QuitButton(skin, screen);
+    private void createQuitButton(Skin skin) {
+        Button btnQuit = new QuitButton(skin, this);
         btnQuit.setSize(150, 50);
         btnQuit.setPosition(240 - btnQuit.getWidth() / 2, 150 - btnQuit.getHeight() / 2);
         addActor(btnQuit);

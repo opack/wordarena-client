@@ -1,14 +1,14 @@
 package com.slamdunk.toolkit.gameparts.scene;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.slamdunk.toolkit.gameparts.components.position.BoundsPart;
 import com.slamdunk.toolkit.gameparts.gameobjects.GameObject;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class Layer extends GameObject {
 	public String name;

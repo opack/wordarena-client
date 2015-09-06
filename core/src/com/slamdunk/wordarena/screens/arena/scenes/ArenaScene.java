@@ -1,9 +1,9 @@
-package com.slamdunk.wordarena.screens.arena;
+package com.slamdunk.wordarena.screens.arena.scenes;
 
 import com.slamdunk.wordarena.enums.GameStates;
-import com.slamdunk.wordarena.screens.Scene;
+import com.slamdunk.wordarena.screens.SlamScene;
 
-public abstract class ArenaScene extends Scene {
+public abstract class ArenaScene extends SlamScene {
     /**
      * Retourne le GameState correspondant à cette scène
      * @return

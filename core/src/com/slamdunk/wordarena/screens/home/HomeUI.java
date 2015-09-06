@@ -1,7 +1,5 @@
 package com.slamdunk.wordarena.screens.home;
 
-import java.util.List;
-
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
@@ -29,6 +27,8 @@ import com.slamdunk.wordarena.server.match.MatchService;
 import com.uwsoft.editor.renderer.SceneLoader;
 import com.uwsoft.editor.renderer.actor.SelectBoxItem;
 import com.uwsoft.editor.renderer.actor.TextBoxItem;
+
+import java.util.List;
 //import com.uwsoft.editor.renderer.scene2d.CompositeActor;
 
 public class HomeUI extends UIOverlay {

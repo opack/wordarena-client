@@ -1,9 +1,9 @@
 package com.slamdunk.wordarena.screens.editor.tools;
 
-import java.util.Collection;
-
 import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
+
+import java.util.Collection;
 
 public class WallTool extends EditorTool<CellActor> {
 	private ArenaOverlay arena;

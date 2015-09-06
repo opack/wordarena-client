@@ -1,8 +1,5 @@
 package com.slamdunk.toolkit.ui.loader;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -22,6 +19,9 @@ import com.slamdunk.toolkit.ui.loader.builders.widgets.JsonComponentBuilder;
 import com.slamdunk.toolkit.ui.loader.builders.widgets.LabelJsonBuilder;
 import com.slamdunk.toolkit.ui.loader.builders.widgets.TextButtonJsonBuilder;
 import com.slamdunk.toolkit.ui.loader.builders.widgets.TextFieldJsonBuilder;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Crée l'IHM à partir d'un descripteur JSON.

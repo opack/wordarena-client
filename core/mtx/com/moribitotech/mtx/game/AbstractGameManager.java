@@ -16,12 +16,12 @@
 
 package com.moribitotech.mtx.game;
 
-import java.util.Random;
-
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Timer;
 import com.moribitotech.mtx.screen.AbstractScreen;
 import com.moribitotech.mtx.settings.MtxLogger;
+
+import java.util.Random;
 
 public abstract class AbstractGameManager {
 	//

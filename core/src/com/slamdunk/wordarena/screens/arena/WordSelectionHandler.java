@@ -1,11 +1,11 @@
 package com.slamdunk.wordarena.screens.arena;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.data.arena.zone.ZoneData;
 import com.slamdunk.wordarena.data.game.PlayerData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Gère le mot actuellement sélectionné et détermine si une cellule

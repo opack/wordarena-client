@@ -1,12 +1,12 @@
 package com.slamdunk.toolkit.gameparts.creators;
 
-import java.util.ArrayList;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
 import com.slamdunk.toolkit.svg.SVGParse;
 import com.slamdunk.toolkit.svg.elements.SVGElement;
 import com.slamdunk.toolkit.svg.elements.SVGRootElement;
+
+import java.util.ArrayList;
 
 public class SVGLoader {
 	public interface SVGLoadListener {

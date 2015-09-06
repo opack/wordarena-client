@@ -1,9 +1,5 @@
 package com.slamdunk.wordarena.data.arena.zone;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Scaling;
@@ -14,6 +10,10 @@ import com.slamdunk.wordarena.data.arena.cell.MarkerPack;
 import com.slamdunk.wordarena.enums.Borders;
 import com.slamdunk.wordarena.enums.BordersAndCorners;
 import com.slamdunk.wordarena.enums.CornerTypes;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Fait 3 passes pour trouver les bords de la zone :

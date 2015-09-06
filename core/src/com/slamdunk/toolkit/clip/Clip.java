@@ -1,15 +1,15 @@
 package com.slamdunk.toolkit.clip;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.slamdunk.toolkit.world.point.Point;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Classe fournissant des fonctionnalités supplémentaires à une animation,

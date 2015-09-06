@@ -1,9 +1,9 @@
 package com.slamdunk.wordarena.data.game;
 
+import com.slamdunk.toolkit.world.point.Point;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.slamdunk.toolkit.world.point.Point;
 
 /**
  * Un coup joué

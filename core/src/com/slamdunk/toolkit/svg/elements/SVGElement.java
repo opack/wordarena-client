@@ -1,11 +1,11 @@
 package com.slamdunk.toolkit.svg.elements;
 
+import com.slamdunk.toolkit.svg.SVGStyle;
+import com.slamdunk.toolkit.svg.SVGTransform;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import com.slamdunk.toolkit.svg.SVGStyle;
-import com.slamdunk.toolkit.svg.SVGTransform;
 
 public class SVGElement{
 	

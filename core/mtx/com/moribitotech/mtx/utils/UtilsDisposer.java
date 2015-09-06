@@ -16,8 +16,6 @@
 
 package com.moribitotech.mtx.utils;
 
-import java.util.ArrayList;
-
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.moribitotech.mtx.game.AbstractGame;
@@ -28,6 +26,8 @@ import com.moribitotech.mtx.scene2d.models.EmptyActorLight;
 import com.moribitotech.mtx.scene2d.models.SmartActor;
 import com.moribitotech.mtx.screen.AbstractScreen;
 import com.moribitotech.mtx.settings.MtxLogger;
+
+import java.util.ArrayList;
 
 public class UtilsDisposer {
 	protected final static String logTag = "MtxUtilsDisposerLog";

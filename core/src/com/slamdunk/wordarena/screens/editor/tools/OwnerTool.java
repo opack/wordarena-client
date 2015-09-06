@@ -1,11 +1,11 @@
 package com.slamdunk.wordarena.screens.editor.tools;
 
-import java.util.Collection;
-
 import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.data.arena.cell.CellData;
 import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellStates;
+
+import java.util.Collection;
 
 public class OwnerTool extends EditorTool<PlayerData> {
 	

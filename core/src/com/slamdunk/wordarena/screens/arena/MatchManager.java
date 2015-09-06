@@ -1,7 +1,5 @@
 package com.slamdunk.wordarena.screens.arena;
 
-import java.util.List;
-
 import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.arena.ArenaData;
@@ -13,6 +11,8 @@ import com.slamdunk.wordarena.screens.arena.MatchCinematic.GameCinematicListener
 import com.slamdunk.wordarena.screens.arena.WordValidator.WordValidationListener;
 import com.slamdunk.wordarena.screens.arena.celleffects.CellEffectsApplicationFinishedListener;
 import com.slamdunk.wordarena.screens.arena.celleffects.CellEffectsManager;
+
+import java.util.List;
 
 /**
  * Gère la partie

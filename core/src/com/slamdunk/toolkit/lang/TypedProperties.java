@@ -1,11 +1,11 @@
 package com.slamdunk.toolkit.lang;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
 
 /**
  * Classe de propriétés étendues permettant de récupérer directement le bon

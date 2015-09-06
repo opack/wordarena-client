@@ -7,14 +7,12 @@ import com.slamdunk.wordarena.screens.editor.EditorScreen;
 import com.slamdunk.wordarena.screens.home.HomeScreen;
 
 public class PreEditorScreen extends SlamScreen {
-public static final String NAME = "PRE_EDITOR";
-	private PreEditorUI ui;
-	
+	public static final String NAME = "PRE_EDITOR";
+
 	public PreEditorScreen(WordArenaGame game) {
 		super(game);
 		
-		ui = new PreEditorUI(this);
-		addOverlay(ui);
+		addOverlay(new PreEditorUI2());
 	}
 
 	@Override

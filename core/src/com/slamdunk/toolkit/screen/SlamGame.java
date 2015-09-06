@@ -1,12 +1,12 @@
 package com.slamdunk.toolkit.screen;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Un Game maintenant les liens vers un ensemble de SlamScreens

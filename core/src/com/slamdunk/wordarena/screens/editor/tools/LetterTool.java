@@ -1,10 +1,10 @@
 package com.slamdunk.wordarena.screens.editor.tools;
 
-import java.util.Collection;
-
 import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.enums.Letters;
+
+import java.util.Collection;
 
 public class LetterTool extends EditorTool<Letters> {
 	public LetterTool() {

@@ -1,9 +1,9 @@
 package com.slamdunk.toolkit.gameparts.gameobjects;
 
+import com.slamdunk.toolkit.gameparts.components.Component;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.slamdunk.toolkit.gameparts.components.Component;
 
 /**
  * Gère un ensemble de GameObject, permettant des opérations de masse (recherche...).

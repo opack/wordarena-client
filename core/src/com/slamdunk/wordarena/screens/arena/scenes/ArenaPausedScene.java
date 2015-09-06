@@ -1,20 +1,20 @@
-package com.slamdunk.wordarena.screens.arena;
+package com.slamdunk.wordarena.screens.arena.scenes;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.slamdunk.toolkit.screen.SlamScreen;
 import com.slamdunk.wordarena.enums.GameStates;
+import com.slamdunk.wordarena.screens.arena.MatchManager;
 import com.slamdunk.wordarena.screens.arena.components.ArenaNameLabel;
 import com.slamdunk.wordarena.screens.arena.components.HomeButton;
 import com.slamdunk.wordarena.screens.arena.components.ResumeButton;
-import com.slamdunk.wordarena.screens.arena.stats.StatsTable;
+import com.slamdunk.wordarena.screens.arena.components.StatsTable;
 
 public class ArenaPausedScene extends ArenaScene {
     public static final String NAME = ArenaPausedScene.class.getName();
 
     private MatchManager matchManager;
+    private StatsTable tblStats;
 
     public ArenaPausedScene(MatchManager matchManager) {
         setName(NAME);
@@ -28,12 +28,10 @@ public class ArenaPausedScene extends ArenaScene {
     }
 
     @Override
-    public void create(SlamScreen screen, Skin skin) {
-        ArenaScreen arenaScreen = (ArenaScreen)screen;
-
+    public void create(Skin skin) {
         createArenaLabel(skin);
         createResumeButton(skin);
-        createHomeButton(skin, arenaScreen);
+        createHomeButton(skin);
         createStatsTable();
     }
 
@@ -51,17 +49,22 @@ public class ArenaPausedScene extends ArenaScene {
         addActor(btnResume);
     }
 
-    private void createHomeButton(Skin skin, ArenaScreen screen) {
-        Button btnHome = new HomeButton(skin, screen);
+    private void createHomeButton(Skin skin) {
+        Button btnHome = new HomeButton(skin, this);
         btnHome.setSize(150, 50);
         btnHome.setPosition(240 - btnHome.getWidth() / 2, 150 - btnHome.getHeight() / 2);
         addActor(btnHome);
     }
 
     private void createStatsTable() {
-        Table tblStats = new StatsTable();
-        tblStats.setVisible(false);
-        tblStats.setPosition(0, 100);
+        tblStats = new StatsTable();
         addActor(tblStats);
+    }
+
+    @Override
+    public void doLayout() {
+        if (tblStats != null) {
+            tblStats.setPosition(240 - tblStats.getWidth() / 2, 300);
+        }
     }
 }

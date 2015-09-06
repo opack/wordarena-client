@@ -1,9 +1,9 @@
 package com.slamdunk.wordarena.data.game;
 
-import java.util.Date;
-
 import com.slamdunk.wordarena.enums.GameTypes;
 import com.slamdunk.wordarena.enums.Objectives;
+
+import java.util.Date;
 
 public class GameHeader {
 	/**

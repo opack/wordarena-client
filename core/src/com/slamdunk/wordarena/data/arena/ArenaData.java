@@ -1,8 +1,5 @@
 package com.slamdunk.wordarena.data.arena;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.slamdunk.toolkit.lang.Deck;
 import com.slamdunk.toolkit.lang.DoubleEntryArray;
 import com.slamdunk.toolkit.world.point.Point;
@@ -10,6 +7,9 @@ import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.data.arena.cell.CellData;
 import com.slamdunk.wordarena.data.arena.zone.ZoneData;
 import com.slamdunk.wordarena.enums.Letters;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ArenaData {
 	public int width;

@@ -16,7 +16,6 @@ import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.enums.Letters;
 import com.slamdunk.wordarena.screens.SimpleButtonI18NScript;
 import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
-import com.slamdunk.wordarena.screens.arena.ArenaUI;
 import com.slamdunk.wordarena.screens.arena.ArenaUI2;
 import com.slamdunk.wordarena.screens.editor.tools.CellTypeTool;
 import com.slamdunk.wordarena.screens.editor.tools.EditorTool;

@@ -1,12 +1,7 @@
 package com.slamdunk.wordarena.screens.arena;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -26,10 +21,14 @@ import com.slamdunk.wordarena.data.game.GameData;
 import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.data.game.WordPlayed;
 import com.slamdunk.wordarena.enums.GameStates;
-import com.slamdunk.wordarena.screens.arena.stats.StatsTable;
+import com.slamdunk.wordarena.screens.arena.components.StatsTable;
 import com.slamdunk.wordarena.screens.home.HomeScreen;
 import com.uwsoft.editor.renderer.SceneLoader;
 import com.uwsoft.editor.renderer.actor.CompositeItem;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ArenaUI extends UIOverlay {
 	private SceneLoader sceneLoader;

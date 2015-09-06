@@ -1,8 +1,8 @@
 package com.slamdunk.toolkit.world.pathfinder;
 
-import java.util.List;
-
 import com.slamdunk.toolkit.world.point.Point;
+
+import java.util.List;
 
 /**
  * Stocke les différentes positions d'un chemin. Ce chemin peut être utilisé par plusieurs

@@ -1,12 +1,12 @@
 package com.slamdunk.wordarena.screens.arena;
 
-import java.util.List;
-
 import com.slamdunk.toolkit.lang.MaxValueFinder;
 import com.slamdunk.wordarena.data.arena.cell.CellData;
 import com.slamdunk.wordarena.data.arena.zone.ZoneData;
 import com.slamdunk.wordarena.data.game.GameData;
 import com.slamdunk.wordarena.data.game.PlayerData;
+
+import java.util.List;
 
 /**
  * Gère la cinématique du jeu et détermine qui est le prochain joueur à jouer

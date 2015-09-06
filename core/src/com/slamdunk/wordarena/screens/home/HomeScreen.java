@@ -1,8 +1,5 @@
 package com.slamdunk.wordarena.screens.home;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.slamdunk.toolkit.screen.SlamScreen;
@@ -11,6 +8,9 @@ import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.PlayerKind;
 import com.slamdunk.wordarena.screens.arena.ArenaScreen;
 import com.slamdunk.wordarena.screens.preeditor.PreEditorScreen;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeScreen extends SlamScreen {
 	public static final String NAME = "HOME";
@@ -25,7 +25,7 @@ public class HomeScreen extends SlamScreen {
 	public HomeScreen(WordArenaGame game) {
 		super(game);
 		
-		ui = new HomeUI2(this);
+		ui = new HomeUI2();
 		addOverlay(ui);
 	}
 	

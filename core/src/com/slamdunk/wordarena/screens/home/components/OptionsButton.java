@@ -4,14 +4,17 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.slamdunk.toolkit.ui.ButtonClickListener;
-import com.slamdunk.wordarena.screens.home.HomeScreen;
+import com.slamdunk.wordarena.screens.SlamScene;
 
 /**
  * Created by Didier on 31/08/2015.
  */
 public class OptionsButton extends TextButton {
-    public OptionsButton(Skin skin, final HomeScreen screen) {
+    public static final String NAME = OptionsButton.class.getName();
+
+    public OptionsButton(Skin skin, final SlamScene scene) {
         super("Options", skin);
+        setName(NAME);
 
         addListener(new ButtonClickListener() {
             @Override

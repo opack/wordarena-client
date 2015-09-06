@@ -16,6 +16,10 @@
 
 package com.moribitotech.mtx.managers;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
+import com.moribitotech.mtx.settings.MtxLogger;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -23,10 +27,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
-import com.moribitotech.mtx.settings.MtxLogger;
 
 public class FileManager {
 	//

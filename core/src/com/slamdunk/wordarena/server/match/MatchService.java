@@ -1,11 +1,11 @@
 package com.slamdunk.wordarena.server.match;
 
-import java.io.StringWriter;
-
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonWriter.OutputType;
 import com.slamdunk.wordarena.server.ServerCallback;
 import com.slamdunk.wordarena.server.ServerConnection;
+
+import java.io.StringWriter;
 
 public class MatchService {
 	public void search(String player, ServerCallback callback) {

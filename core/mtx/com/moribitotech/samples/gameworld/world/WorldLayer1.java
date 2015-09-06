@@ -1,7 +1,5 @@
 package com.moribitotech.samples.gameworld.world;
 
-import java.util.Random;
-
 import com.badlogic.gdx.utils.Scaling;
 import com.moribitotech.mtx.scene2d.AbstractWorldScene2d;
 import com.moribitotech.mtx.scene2d.models.EmptyActorLight;
@@ -9,6 +7,8 @@ import com.moribitotech.mtx.scene2d.models.SmartActor;
 import com.moribitotech.mtx.settings.AppSettings;
 import com.moribitotech.samples.gameworld.assets.Assets;
 import com.moribitotech.samples.gameworld.managers.GameManager;
+
+import java.util.Random;
 
 public class WorldLayer1 extends AbstractWorldScene2d {
 	GameManager gameManager;

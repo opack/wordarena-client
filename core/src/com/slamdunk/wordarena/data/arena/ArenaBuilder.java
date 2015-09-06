@@ -1,10 +1,5 @@
 package com.slamdunk.wordarena.data.arena;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import com.badlogic.gdx.utils.JsonValue;
 import com.slamdunk.toolkit.lang.Deck;
 import com.slamdunk.toolkit.world.point.Point;
@@ -17,6 +12,11 @@ import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.enums.Letters;
 import com.slamdunk.wordarena.screens.editor.EditorScreen;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Construit une arène à partir d'un plan

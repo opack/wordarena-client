@@ -1,11 +1,5 @@
 package com.slamdunk.toolkit.gameparts.gameobjects;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.slamdunk.toolkit.gameparts.components.Component;
@@ -14,6 +8,12 @@ import com.slamdunk.toolkit.gameparts.components.position.BoundsPart;
 import com.slamdunk.toolkit.gameparts.components.position.TransformPart;
 import com.slamdunk.toolkit.gameparts.creators.GameObjectFactory;
 import com.slamdunk.toolkit.gameparts.scene.Scene;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Objet du jeu. C'est un simple agrégat de composants.

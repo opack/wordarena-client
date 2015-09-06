@@ -1,7 +1,5 @@
 package com.slamdunk.wordarena.screens.arena;
 
-import java.util.List;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -19,6 +17,8 @@ import com.slamdunk.wordarena.data.game.GameData;
 import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.GameTypes;
 import com.slamdunk.wordarena.enums.Objectives;
+
+import java.util.List;
 
 public class ArenaScreen extends SlamScreen {
 	public static final String NAME = "ARENA";

@@ -1,9 +1,9 @@
 package com.slamdunk.wordarena.screens.editor.tools;
 
-import java.util.Collection;
-
 import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.actors.ZoneActor;
+
+import java.util.Collection;
 
 public class ZoneTool extends EditorTool<ZoneActor> {
 	@Override

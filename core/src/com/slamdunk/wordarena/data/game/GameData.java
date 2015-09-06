@@ -1,9 +1,9 @@
 package com.slamdunk.wordarena.data.game;
 
+import com.slamdunk.wordarena.data.arena.ArenaData;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.slamdunk.wordarena.data.arena.ArenaData;
 
 /**
  * Regroupe les données d'une partie en cours

@@ -1,19 +1,24 @@
 package com.slamdunk.wordarena.screens;
 
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.slamdunk.toolkit.screen.SlamScreen;
+import com.slamdunk.toolkit.screen.overlays.SlamOverlay;
 
 /**
  * Gère la création et l'arrangement des composants dans une scène.
  * Cette classe ne contient pas d'intelligence : elle crée des composants (qui peuvent être
  * intelligents) et les place sur l'écran.
  */
-public abstract class Scene extends Group {
+public abstract class SlamScene extends Group {
 
-    public Scene() {
+    /**
+     * Overlay auquel appartient cette scène
+     */
+    private SlamOverlay overlay;
+
+    public SlamScene() {
         setTouchable(Touchable.childrenOnly);
     }
 
@@ -23,7 +28,7 @@ public abstract class Scene extends Group {
      * XXX correspond à 1 Actor. Cette createXXX() appellera à son
      * tour d'autres méthodes createXXX().
      */
-    public abstract void create(SlamScreen screen, Skin skin);
+    public abstract void create(Skin skin);
 
     /**
      * Réarrange les composants si nécessaire
@@ -31,4 +36,16 @@ public abstract class Scene extends Group {
     public void doLayout() {
         // Par défaut, rien à faire
     };
+
+    public SlamOverlay getOverlay() {
+        return overlay;
+    }
+
+    public void setOverlay(SlamOverlay overlay) {
+        this.overlay = overlay;
+    }
+
+    public SlamScreen getScreen() {
+        return overlay.getScreen();
+    }
 }

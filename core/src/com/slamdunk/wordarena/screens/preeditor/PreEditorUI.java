@@ -1,16 +1,8 @@
 package com.slamdunk.wordarena.screens.preeditor;
 
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.slamdunk.toolkit.screen.overlays.UIOverlay;
-import com.slamdunk.toolkit.ui.Overlap2DUtils;
-import com.slamdunk.wordarena.Utils;
 import com.slamdunk.wordarena.WordArenaGame;
-import com.slamdunk.wordarena.assets.Assets;
-import com.uwsoft.editor.renderer.SceneLoader;
-import com.uwsoft.editor.renderer.actor.SelectBoxItem;
-import com.uwsoft.editor.renderer.actor.TextBoxItem;
 
 public class PreEditorUI extends UIOverlay {
 	private PreEditorScreen screen;

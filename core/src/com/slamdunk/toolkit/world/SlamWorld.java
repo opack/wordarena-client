@@ -1,11 +1,11 @@
 package com.slamdunk.toolkit.world;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.slamdunk.toolkit.ui.GroupEx;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * Le monde du jeu. Ce monde est composé de plusieurs couches.

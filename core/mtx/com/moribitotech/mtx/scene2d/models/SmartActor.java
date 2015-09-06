@@ -16,11 +16,11 @@
 
 package com.moribitotech.mtx.scene2d.models;
 
-import java.util.Random;
-
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.moribitotech.mtx.scene2d.AbstractActor;
 import com.moribitotech.mtx.scene2d.effects.EffectCreator;
+
+import java.util.Random;
 
 public class SmartActor extends AbstractActor {
 	private Random rnd;

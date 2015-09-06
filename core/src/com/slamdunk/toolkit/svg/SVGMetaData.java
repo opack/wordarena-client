@@ -1,9 +1,9 @@
 package com.slamdunk.toolkit.svg;
 
-import java.util.ArrayList;
-
 import com.slamdunk.toolkit.svg.elements.SVGElement;
 import com.slamdunk.toolkit.svg.elements.SVGRootElement;
+
+import java.util.ArrayList;
 
 public class SVGMetaData implements SVGConstants{
 	

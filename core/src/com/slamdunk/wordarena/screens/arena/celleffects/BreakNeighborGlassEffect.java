@@ -1,8 +1,5 @@
 package com.slamdunk.wordarena.screens.arena.celleffects;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.slamdunk.toolkit.graphics.drawers.AnimationDrawer;
 import com.slamdunk.wordarena.actors.CellActor;
@@ -10,6 +7,9 @@ import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BreakNeighborGlassEffect extends DefaultCellEffect {
 	/**

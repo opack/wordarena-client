@@ -1,9 +1,9 @@
 package com.slamdunk.toolkit.settings;
 
-import java.util.Map;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
+
+import java.util.Map;
 
 /**
  * Gestionnaire de préférence qui simplifie l'accès aux préférences

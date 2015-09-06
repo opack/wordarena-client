@@ -16,10 +16,10 @@
 
 package com.moribitotech.mtx.managers;
 
-import java.util.ArrayList;
-
 import com.badlogic.gdx.Gdx;
 import com.moribitotech.mtx.utils.UtilsNumbers;
+
+import java.util.ArrayList;
 
 public class TiltManager {
 	private boolean isSensorActive;

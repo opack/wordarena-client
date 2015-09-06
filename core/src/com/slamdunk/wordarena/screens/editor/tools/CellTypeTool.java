@@ -1,12 +1,12 @@
 package com.slamdunk.wordarena.screens.editor.tools;
 
-import java.util.Collection;
-
 import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.data.arena.cell.CellData;
 import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.enums.Letters;
+
+import java.util.Collection;
 
 public class CellTypeTool extends EditorTool<CellTypes> {
 	

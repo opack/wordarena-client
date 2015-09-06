@@ -1,9 +1,9 @@
 package com.slamdunk.toolkit.gameparts.components.position;
 
-import java.util.List;
-
 import com.slamdunk.toolkit.gameparts.components.Component;
 import com.slamdunk.toolkit.gameparts.gameobjects.GameObject;
+
+import java.util.List;
 
 /**
  * Place les enfants du GameObject conteneur dans une grille.

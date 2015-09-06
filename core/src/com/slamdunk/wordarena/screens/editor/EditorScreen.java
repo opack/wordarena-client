@@ -1,9 +1,5 @@
 package com.slamdunk.wordarena.screens.editor;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.files.FileHandle;
@@ -31,6 +27,10 @@ import com.slamdunk.wordarena.screens.editor.tools.PowerTool;
 import com.slamdunk.wordarena.screens.editor.tools.WallTool;
 import com.slamdunk.wordarena.screens.editor.tools.ZoneTool;
 import com.slamdunk.wordarena.screens.preeditor.PreEditorScreen;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class EditorScreen extends SlamScreen {
 public static final String NAME = "EDITOR";

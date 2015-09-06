@@ -1,11 +1,5 @@
 package com.slamdunk.wordarena.screens.editor;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
@@ -16,7 +10,6 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.slamdunk.toolkit.ui.Overlap2DUtils;
 import com.slamdunk.wordarena.WordArenaGame;
 import com.slamdunk.wordarena.actors.ZoneActor;
-import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.arena.zone.ZoneData;
 import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellTypes;
@@ -31,11 +24,15 @@ import com.slamdunk.wordarena.screens.editor.tools.OwnerTool;
 import com.slamdunk.wordarena.screens.editor.tools.PowerTool;
 import com.slamdunk.wordarena.screens.editor.tools.WallTool;
 import com.slamdunk.wordarena.screens.editor.tools.ZoneTool;
-import com.slamdunk.wordarena.screens.home.HomeScreen;
 import com.uwsoft.editor.renderer.SceneLoader;
 import com.uwsoft.editor.renderer.actor.LabelItem;
 import com.uwsoft.editor.renderer.actor.SelectBoxItem;
 import com.uwsoft.editor.renderer.actor.TextBoxItem;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 public class EditorUI extends ArenaUI {
 	private EditorScreen screen;

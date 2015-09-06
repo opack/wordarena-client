@@ -1,11 +1,5 @@
 package com.slamdunk.wordarena.actors;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.slamdunk.toolkit.lang.MaxValueFinder;
 import com.slamdunk.toolkit.world.point.Point;
@@ -17,6 +11,12 @@ import com.slamdunk.wordarena.data.arena.zone.ZoneData;
 import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.screens.arena.MatchManager;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Représente une zone.

@@ -1,7 +1,5 @@
 package com.slamdunk.toolkit.world;
 
-import java.util.List;
-
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.maps.MapLayer;
@@ -15,6 +13,8 @@ import com.slamdunk.toolkit.screen.overlays.MapObjectHelper;
 import com.slamdunk.toolkit.world.pathfinder.Path;
 import com.slamdunk.toolkit.world.pathfinder.PathFinder;
 import com.slamdunk.toolkit.world.point.Point;
+
+import java.util.List;
 
 public class TiledMapActor extends SlamActor {
 	private TiledMap map;

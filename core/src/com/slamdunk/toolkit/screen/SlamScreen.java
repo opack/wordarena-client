@@ -1,14 +1,14 @@
 package com.slamdunk.toolkit.screen;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.slamdunk.toolkit.screen.overlays.SlamOverlay;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Représente un écran du jeu. Cet écran peut contenir plusieurs couches (monde, IHM, minimap...).

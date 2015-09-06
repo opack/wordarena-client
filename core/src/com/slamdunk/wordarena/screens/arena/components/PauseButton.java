@@ -11,7 +11,7 @@ public class PauseButton extends TextButton {
     public static final String NAME = PauseButton.class.getName();
 
     public PauseButton(Skin skin, final MatchManager matchManager) {
-        super("Pause", skin);
+        super("||", skin);
         setName(NAME);
 
         addListener(new ButtonClickListener() {

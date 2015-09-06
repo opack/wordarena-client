@@ -1,13 +1,13 @@
 package com.slamdunk.wordarena.data.game;
 
-import java.util.Date;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonWriter.OutputType;
 import com.slamdunk.wordarena.data.arena.ArenaData;
 import com.slamdunk.wordarena.data.arena.ArenaSerializer;
+
+import java.util.Date;
 
 /**
  * Gère le cache d'une partie

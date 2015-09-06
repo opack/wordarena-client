@@ -1,9 +1,5 @@
 package com.slamdunk.wordarena.assets;
 
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
@@ -17,6 +13,10 @@ import com.slamdunk.wordarena.data.arena.ArenaSkin;
 import com.slamdunk.wordarena.data.arena.cell.MarkerPack;
 import com.uwsoft.editor.renderer.resources.ResourceManager;
 import com.uwsoft.editor.renderer.utils.MySkin;
+
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 
 public class Assets {
 	public static final String MARKER_PACK_NEUTRAL = "neutral";

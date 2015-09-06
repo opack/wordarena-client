@@ -1,8 +1,5 @@
 package com.slamdunk.toolkit.gameparts.scene;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
@@ -14,6 +11,9 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.slamdunk.toolkit.gameparts.gameobjects.GameObject;
 import com.slamdunk.toolkit.gameparts.gameobjects.ObservationPoint;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Contient tous les GameObjects d'une scène du jeu

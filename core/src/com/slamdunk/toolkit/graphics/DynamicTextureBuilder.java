@@ -1,12 +1,12 @@
 package com.slamdunk.toolkit.graphics;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.badlogic.gdx.graphics.Pixmap.Format;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Assemble plusieurs textures pour en créer une nouvelle. Le travail avec des

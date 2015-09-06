@@ -1,6 +1,4 @@
-package com.slamdunk.wordarena.screens.arena.stats;
-
-import java.util.List;
+package com.slamdunk.wordarena.screens.arena.components;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
@@ -10,6 +8,8 @@ import com.slamdunk.toolkit.ui.GroupEx;
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.arena.cell.MarkerPack;
 import com.slamdunk.wordarena.data.game.PlayerData;
+
+import java.util.List;
 
 public class StatsTable extends Table {
 	public static final String NAME = StatsTable.class.getName();

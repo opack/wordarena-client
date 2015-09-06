@@ -1,7 +1,5 @@
 package com.slamdunk.toolkit.screen.overlays;
 
-import java.util.List;
-
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -17,6 +15,8 @@ import com.slamdunk.toolkit.screen.SlamScreen;
 import com.slamdunk.toolkit.world.pathfinder.Path;
 import com.slamdunk.toolkit.world.pathfinder.PathFinder;
 import com.slamdunk.toolkit.world.point.Point;
+
+import java.util.List;
 
 public class TiledMapOverlay implements SlamOverlay {
 	

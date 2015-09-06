@@ -1,11 +1,11 @@
 package com.slamdunk.wordarena.screens.arena.components;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.SnapshotArray;
 import com.slamdunk.toolkit.ui.GroupEx;
-import com.slamdunk.wordarena.WordArenaGame;
 import com.slamdunk.wordarena.actors.ZoneActor;
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.arena.cell.MarkerPack;
@@ -31,6 +31,7 @@ public class ZoneMarkers extends GroupEx {
     private MatchManager matchManager;
 
     public ZoneMarkers(MatchManager matchManager) {
+        setTouchable(Touchable.disabled);
         setName(NAME);
 
         this.matchManager = matchManager;

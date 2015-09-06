@@ -1,8 +1,5 @@
 package com.slamdunk.toolkit.svg;
 
-import java.io.IOException;
-import java.util.Stack;
-
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.XmlReader;
 import com.slamdunk.toolkit.svg.elements.SVGElement;
@@ -14,6 +11,9 @@ import com.slamdunk.toolkit.svg.elements.SVGElementPolyLine;
 import com.slamdunk.toolkit.svg.elements.SVGElementPolygon;
 import com.slamdunk.toolkit.svg.elements.SVGElementRect;
 import com.slamdunk.toolkit.svg.elements.SVGRootElement;
+
+import java.io.IOException;
+import java.util.Stack;
 
 public class SVGParse implements SVGConstants {
 

@@ -1,11 +1,11 @@
 package com.slamdunk.wordarena.screens.arena.celleffects;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.slamdunk.wordarena.actors.CellActor;
 import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Un effet par défaut qui ne fait rien à part filtrer les cellules reçues

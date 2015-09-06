@@ -1,9 +1,9 @@
 package com.moribitotech.mtx.managers;
 
+import com.badlogic.gdx.audio.Music;
+
 import java.util.ArrayList;
 import java.util.Random;
-
-import com.badlogic.gdx.audio.Music;
 
 public class MusicManager {
 	//

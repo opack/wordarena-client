@@ -1,8 +1,8 @@
 package com.slamdunk.wordarena.screens.editor.tools;
 
-import java.util.Collection;
-
 import com.slamdunk.wordarena.actors.CellActor;
+
+import java.util.Collection;
 
 public class PowerTool extends EditorTool<Integer> {
 	public PowerTool() {
