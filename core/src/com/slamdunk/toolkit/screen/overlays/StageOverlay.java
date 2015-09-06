@@ -5,7 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.slamdunk.toolkit.screen.SlamScreen;
 import com.slamdunk.wordarena.assets.Assets;
-import com.slamdunk.wordarena.screens.SlamScene;
+import com.slamdunk.toolkit.screen.SlamScene;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -53,7 +53,7 @@ public abstract class StageOverlay implements SlamOverlay {
 	 * @param scene
 	 */
 	protected SlamScene loadScene(SlamScene scene) {
-		scene.create(Assets.uiSkin);
+		scene.create(Assets.uiSkinDefault);
 
 		getStage().addActor(scene);
 		scenes.put(scene.getName(), scene);

@@ -135,7 +135,7 @@ public class HomeUI extends UIOverlay {
 		gamesTable = new Table();
 		
 		// Placer la table dans un ScrollPane pour permettre le scroll
-		ScrollPane scrollPane = new ScrollPane(gamesTable, Assets.uiSkin);
+		ScrollPane scrollPane = new ScrollPane(gamesTable, Assets.uiSkinDefault);
 		scrollPane.setupOverscroll(15, 30, 200);
 		scrollPane.setPosition(5, 5);
 		scrollPane.setSize(470, 595);
@@ -347,7 +347,7 @@ public class HomeUI extends UIOverlay {
 	 */
 	private void createHeaderRow(GameStatus status) {
 		final String header = Assets.i18nBundle.get("ui.home.games.header." + status.name());
-		gamesTable.add(new Label(header, Assets.uiSkin, GAME_LABEL_STYLE_STATUS_HEADER)).colspan(2);
+		gamesTable.add(new Label(header, Assets.uiSkinDefault, GAME_LABEL_STYLE_STATUS_HEADER)).colspan(2);
 		
 		// Fin de la ligne
 		gamesTable.row();
@@ -383,7 +383,7 @@ public class HomeUI extends UIOverlay {
 		};
 		
 		// Ajout d'une image représentant le type de partie
-		Label gameTypeLabel = new Label(gameData.header.gameType.toString(), Assets.uiSkin, labelStyle);
+		Label gameTypeLabel = new Label(gameData.header.gameType.toString(), Assets.uiSkinDefault, labelStyle);
 		gameTypeLabel.addListener(launchGame);
 		gamesTable.add(gameTypeLabel);
 		
@@ -397,7 +397,7 @@ public class HomeUI extends UIOverlay {
 				opponents.append(opponent.name);
 			}
 		}
-		Label opponentsLabel = new Label(opponents.toString(), Assets.uiSkin, labelStyle);
+		Label opponentsLabel = new Label(opponents.toString(), Assets.uiSkinDefault, labelStyle);
 		opponentsLabel.addListener(launchGame);
 		gamesTable.add(opponentsLabel).expandX();
 		

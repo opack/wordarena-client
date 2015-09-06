@@ -20,7 +20,7 @@ public class MarkerPackLoader {
 		this.frameDuration = frameDuration;
 	}
 
-	public MarkerPack load(String name, TextureAtlasEx atlas) {
+	public MarkerPack load(String name, com.slamdunk.toolkit.graphics.TextureAtlasEx atlas) {
 		// Crée le pack
 		MarkerPack pack = new MarkerPack();
 		pack.name = name;
@@ -49,7 +49,7 @@ public class MarkerPackLoader {
 		return pack;
 	}
 	
-	private void loadZoneJoints(MarkerPack pack, TextureAtlasEx atlas, String atlasPackName) {
+	private void loadZoneJoints(MarkerPack pack, com.slamdunk.toolkit.graphics.TextureAtlasEx atlas, String atlasPackName) {
 	// Charge l'image de référence (TOP_LEFT_VERTICAL_JOINT)
 		TextureRegion topLeftVerticalJoint = loadBorderRegion(pack, atlas, atlasPackName, BordersAndCorners.TOP_LEFT, CornerTypes.VERTICAL_JOINT);
 		TextureRegionDrawable topLeftVerticalJointDrawable = new TextureRegionDrawable(topLeftVerticalJoint);
@@ -81,7 +81,7 @@ public class MarkerPackLoader {
 		pack.zoneEdges.put(BordersAndCorners.BOTTOM_LEFT, CornerTypes.HORIZONTAL_JOINT, bottomRightHorizontalJointDrawable);
 	}
 	
-	private void loadZoneInnerCorners(MarkerPack pack, TextureAtlasEx atlas, String atlasPackName) {
+	private void loadZoneInnerCorners(MarkerPack pack, com.slamdunk.toolkit.graphics.TextureAtlasEx atlas, String atlasPackName) {
 		// Charge l'image de référence (TOP_LEFT_INNER_CORNER)
 		TextureRegion topLeftInner = loadBorderRegion(pack, atlas, atlasPackName, BordersAndCorners.TOP_LEFT, CornerTypes.INNER_CORNER);
 		TextureRegionDrawable topLeftInnerDrawable = new TextureRegionDrawable(topLeftInner);
@@ -104,7 +104,7 @@ public class MarkerPackLoader {
 		pack.zoneEdges.put(BordersAndCorners.BOTTOM_LEFT, CornerTypes.INNER_CORNER, bottomLeftInnerDrawable);
 	}
 	
-	private void loadZoneOuterCorners(MarkerPack pack, TextureAtlasEx atlas, String atlasPackName) {
+	private void loadZoneOuterCorners(MarkerPack pack, com.slamdunk.toolkit.graphics.TextureAtlasEx atlas, String atlasPackName) {
 		// Charge l'image de référence (TOP_LEFT_OUTER_CORNER)
 		TextureRegion topLeftOuter = loadBorderRegion(pack, atlas, atlasPackName, BordersAndCorners.TOP_LEFT, CornerTypes.OUTER_CORNER);
 		TextureRegionDrawable topLeftOuterDrawable = new TextureRegionDrawable(topLeftOuter);
@@ -127,7 +127,7 @@ public class MarkerPackLoader {
 		pack.zoneEdges.put(BordersAndCorners.BOTTOM_LEFT, CornerTypes.OUTER_CORNER, bottomLeftOuterDrawable);
 	}
 
-	private void loadZoneBorders(MarkerPack pack, TextureAtlasEx atlas, String atlasPackName) {
+	private void loadZoneBorders(MarkerPack pack, com.slamdunk.toolkit.graphics.TextureAtlasEx atlas, String atlasPackName) {
 		// Charge l'image de référence (LEFT)
 		TextureRegion leftBorder = loadBorderRegion(pack, atlas, atlasPackName, BordersAndCorners.LEFT, CornerTypes.NONE);
 		pack.zoneEdges.put(BordersAndCorners.LEFT, CornerTypes.NONE, new TextureRegionDrawable(leftBorder));
@@ -147,7 +147,7 @@ public class MarkerPackLoader {
 		pack.zoneEdges.put(BordersAndCorners.BOTTOM, CornerTypes.NONE, new TextureRegionDrawable(bottomBorder));
 	}
 	
-	private AtlasRegion loadBorderRegion(MarkerPack pack, TextureAtlasEx atlas, String atlasPackPrefix, BordersAndCorners border, CornerTypes cornerType) {
+	private AtlasRegion loadBorderRegion(MarkerPack pack, com.slamdunk.toolkit.graphics.TextureAtlasEx atlas, String atlasPackPrefix, BordersAndCorners border, CornerTypes cornerType) {
 		// Construit le nom de la région à récupérer à partir du bord et du coin courants
 		String borderRegionName;
 		if (cornerType != CornerTypes.NONE) {

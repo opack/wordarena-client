@@ -36,16 +36,16 @@ public class StatsTable extends Table {
 		p1Stats = new PlayerStatsUI();
 		p2Stats = new PlayerStatsUI();
 		
-		Label scoreTitle = new Label(Assets.i18nBundle.format("ui.arena.scoreTitle"), Assets.uiSkin);		
-		Label roundsTitle = new Label(Assets.i18nBundle.format("ui.arena.roundsTitle"), Assets.uiSkin);
-		Label zonesTitle = new Label(Assets.i18nBundle.format("ui.arena.zonesTitle"), Assets.uiSkin);
+		Label scoreTitle = new Label(Assets.i18nBundle.format("ui.arena.scoreTitle"), Assets.uiSkinDefault);
+		Label roundsTitle = new Label(Assets.i18nBundle.format("ui.arena.roundsTitle"), Assets.uiSkinDefault);
+		Label zonesTitle = new Label(Assets.i18nBundle.format("ui.arena.zonesTitle"), Assets.uiSkinDefault);
 		
 		// Crée le zoneMarkers avec 1 image afin de réserver l'espace suffisant
 		zoneMarkers = new GroupEx();
 		
-		Label wordsTitle = new Label(Assets.i18nBundle.format("ui.arena.wordsTitle"), Assets.uiSkin);
+		Label wordsTitle = new Label(Assets.i18nBundle.format("ui.arena.wordsTitle"), Assets.uiSkinDefault);
 		playedWords = new Table();
-		ScrollPane wordsScroll = new ScrollPane(playedWords, Assets.uiSkin);
+		ScrollPane wordsScroll = new ScrollPane(playedWords, Assets.uiSkinDefault);
 		wordsScroll.setupOverscroll(15, 30, 200);
 		
 		// Place composants dans le tableau

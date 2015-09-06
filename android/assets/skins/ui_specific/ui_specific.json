@@ -1,0 +1,17 @@
+{
+  "com.badlogic.gdx.graphics.g2d.BitmapFont": {
+    "normal": {
+      "file": "arial_18.fnt"
+    },
+    "bold": {
+      "file": "arial_bold_18.fnt"
+    }
+  },
+  "com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle": {
+    "simple-button": {
+      "font" : "normal",
+      "up": "ui/button_lambda_normal",
+      "down": "ui/button_lambda_pressed"
+    }
+  }
+}

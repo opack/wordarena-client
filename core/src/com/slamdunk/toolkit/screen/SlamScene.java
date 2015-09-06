@@ -1,4 +1,4 @@
-package com.slamdunk.wordarena.screens;
+package com.slamdunk.toolkit.screen;
 
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Touchable;

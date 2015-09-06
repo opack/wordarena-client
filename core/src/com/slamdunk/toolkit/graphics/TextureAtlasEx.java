@@ -1,4 +1,4 @@
-package com.slamdunk.wordarena.assets;
+package com.slamdunk.toolkit.graphics;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -6,6 +6,9 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Array;
 
+/**
+ * Un atlas capable de corriger le texture bleeding et de renvoyer des animations
+ */
 public class TextureAtlasEx extends TextureAtlas {
 	public TextureAtlasEx(String internalPackFile) {
 		super(internalPackFile);

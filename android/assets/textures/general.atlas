@@ -1,0 +1,1136 @@
+
+general.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+markers/marker_blue_conquest
+  rotate: false
+  xy: 260, 74
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_blue_conquest
+  rotate: false
+  xy: 484, 666
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 1
+markers/marker_blue_conquest
+  rotate: false
+  xy: 484, 666
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 2
+markers/marker_blue_conquest
+  rotate: false
+  xy: 792, 974
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 3
+markers/marker_blue_conquest
+  rotate: false
+  xy: 310, 74
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 4
+markers/marker_blue_conquest
+  rotate: false
+  xy: 484, 616
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 5
+markers/marker_blue_conquest
+  rotate: false
+  xy: 842, 974
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 6
+markers/marker_blue_conquest
+  rotate: false
+  xy: 360, 74
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 7
+markers/marker_blue_conquest
+  rotate: false
+  xy: 484, 566
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 8
+markers/marker_blue_controled
+  rotate: false
+  xy: 892, 974
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_blue_neutral_bottom_left_inner_corner
+  rotate: false
+  xy: 460, 118
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_blue_neutral_bottom_left_outer_corner
+  rotate: false
+  xy: 60, 68
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_blue_neutral_bottom_right_inner_corner
+  rotate: false
+  xy: 452, 68
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_blue_neutral_bottom_right_outer_corner
+  rotate: false
+  xy: 998, 1007
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1
+markers/marker_blue_owned
+  rotate: false
+  xy: 410, 74
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_blue_owned
+  rotate: false
+  xy: 410, 74
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 8
+markers/marker_blue_owned
+  rotate: false
+  xy: 410, 74
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 1
+markers/marker_blue_owned
+  rotate: false
+  xy: 410, 74
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 7
+markers/marker_blue_owned
+  rotate: false
+  xy: 484, 516
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 2
+markers/marker_blue_owned
+  rotate: false
+  xy: 942, 974
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 3
+markers/marker_blue_owned
+  rotate: false
+  xy: 484, 466
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 4
+markers/marker_blue_owned
+  rotate: false
+  xy: 484, 416
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 5
+markers/marker_blue_owned
+  rotate: false
+  xy: 484, 366
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 6
+markers/marker_blue_owned_selected
+  rotate: false
+  xy: 484, 316
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_blue_selected
+  rotate: false
+  xy: 484, 316
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_green_owned_selected
+  rotate: false
+  xy: 484, 316
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_green_selected
+  rotate: false
+  xy: 484, 316
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_neutral_owned_selected
+  rotate: false
+  xy: 484, 316
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_neutral_selected
+  rotate: false
+  xy: 484, 316
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_orange_owned_selected
+  rotate: false
+  xy: 484, 316
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_orange_selected
+  rotate: false
+  xy: 484, 316
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_purple_owned_selected
+  rotate: false
+  xy: 484, 316
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_purple_selected
+  rotate: false
+  xy: 484, 316
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_blue_possession
+  rotate: false
+  xy: 52, 2
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+markers/marker_blue_zone_left
+  rotate: false
+  xy: 992, 974
+  size: 4, 48
+  orig: 4, 48
+  offset: 0, 0
+  index: -1
+markers/marker_blue_zone_top
+  rotate: false
+  xy: 2, 10
+  size: 48, 4
+  orig: 48, 4
+  offset: 0, 0
+  index: -1
+markers/marker_blue_zone_top_left_horizontal_joint
+  rotate: false
+  xy: 542, 968
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_blue_zone_top_left_inner_corner
+  rotate: false
+  xy: 558, 60
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_blue_zone_top_left_outer_corner
+  rotate: false
+  xy: 152, 18
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_blue_zone_top_left_vertical_joint
+  rotate: false
+  xy: 634, 712
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_editor_zone_left
+  rotate: false
+  xy: 552, 16
+  size: 4, 48
+  orig: 4, 48
+  offset: 0, 0
+  index: -1
+markers/marker_editor_zone_top
+  rotate: false
+  xy: 102, 18
+  size: 48, 4
+  orig: 48, 4
+  offset: 0, 0
+  index: -1
+markers/marker_editor_zone_top_left_horizontal_joint
+  rotate: false
+  xy: 684, 718
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_editor_zone_top_left_inner_corner
+  rotate: false
+  xy: 690, 768
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_editor_zone_top_left_outer_corner
+  rotate: false
+  xy: 734, 812
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_editor_zone_top_left_vertical_joint
+  rotate: false
+  xy: 784, 818
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_green_conquest
+  rotate: false
+  xy: 484, 266
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_green_conquest
+  rotate: false
+  xy: 484, 216
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 1
+markers/marker_green_conquest
+  rotate: false
+  xy: 484, 216
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 2
+markers/marker_green_conquest
+  rotate: false
+  xy: 484, 166
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 3
+markers/marker_green_conquest
+  rotate: false
+  xy: 484, 116
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 4
+markers/marker_green_conquest
+  rotate: false
+  xy: 460, 66
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 5
+markers/marker_green_conquest
+  rotate: false
+  xy: 510, 66
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 6
+markers/marker_green_conquest
+  rotate: false
+  xy: 52, 16
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 7
+markers/marker_green_conquest
+  rotate: false
+  xy: 102, 24
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 8
+markers/marker_green_controled
+  rotate: false
+  xy: 152, 24
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_green_owned
+  rotate: false
+  xy: 202, 24
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_green_owned
+  rotate: false
+  xy: 202, 24
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 1
+markers/marker_green_owned
+  rotate: false
+  xy: 202, 24
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 8
+markers/marker_green_owned
+  rotate: false
+  xy: 202, 24
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 7
+markers/marker_green_owned
+  rotate: false
+  xy: 252, 24
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 2
+markers/marker_green_owned
+  rotate: false
+  xy: 302, 24
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 3
+markers/marker_green_owned
+  rotate: false
+  xy: 352, 24
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 4
+markers/marker_green_owned
+  rotate: false
+  xy: 402, 24
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 5
+markers/marker_green_owned
+  rotate: false
+  xy: 452, 16
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 6
+markers/marker_green_possession
+  rotate: false
+  xy: 66, 2
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+markers/marker_green_zone_left
+  rotate: false
+  xy: 560, 66
+  size: 4, 48
+  orig: 4, 48
+  offset: 0, 0
+  index: -1
+markers/marker_green_zone_top
+  rotate: false
+  xy: 634, 718
+  size: 48, 4
+  orig: 48, 4
+  offset: 0, 0
+  index: -1
+markers/marker_green_zone_top_left_horizontal_joint
+  rotate: false
+  xy: 790, 868
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_green_zone_top_left_vertical_joint
+  rotate: false
+  xy: 790, 868
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_green_zone_top_left_inner_corner
+  rotate: false
+  xy: 834, 912
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_green_zone_top_left_outer_corner
+  rotate: false
+  xy: 884, 918
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_neutral_conquest
+  rotate: false
+  xy: 502, 16
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_neutral_conquest
+  rotate: false
+  xy: 534, 916
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 1
+markers/marker_neutral_conquest
+  rotate: false
+  xy: 534, 916
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 2
+markers/marker_neutral_conquest
+  rotate: false
+  xy: 534, 866
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 3
+markers/marker_neutral_conquest
+  rotate: false
+  xy: 534, 816
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 4
+markers/marker_neutral_conquest
+  rotate: false
+  xy: 534, 766
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 5
+markers/marker_neutral_conquest
+  rotate: false
+  xy: 534, 716
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 6
+markers/marker_neutral_conquest
+  rotate: false
+  xy: 534, 666
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 7
+markers/marker_neutral_conquest
+  rotate: false
+  xy: 534, 616
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 8
+markers/marker_neutral_controled
+  rotate: false
+  xy: 534, 566
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_neutral_owned
+  rotate: false
+  xy: 534, 516
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_neutral_possession
+  rotate: false
+  xy: 80, 2
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+markers/marker_neutral_zone_left
+  rotate: false
+  xy: 684, 724
+  size: 4, 48
+  orig: 4, 48
+  offset: 0, 0
+  index: -1
+markers/marker_neutral_zone_top
+  rotate: false
+  xy: 734, 818
+  size: 48, 4
+  orig: 48, 4
+  offset: 0, 0
+  index: -1
+markers/marker_neutral_zone_top_left_horizontal_joint
+  rotate: false
+  xy: 890, 968
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_neutral_zone_top_left_inner_corner
+  rotate: false
+  xy: 584, 612
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_neutral_zone_top_left_outer_corner
+  rotate: false
+  xy: 998, 1001
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_neutral_zone_top_left_vertical_joint
+  rotate: false
+  xy: 1015, 1018
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_orange_conquest
+  rotate: false
+  xy: 534, 466
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_orange_conquest
+  rotate: false
+  xy: 534, 416
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 1
+markers/marker_orange_conquest
+  rotate: false
+  xy: 534, 416
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 2
+markers/marker_orange_conquest
+  rotate: false
+  xy: 534, 366
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 3
+markers/marker_orange_conquest
+  rotate: false
+  xy: 534, 316
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 4
+markers/marker_orange_conquest
+  rotate: false
+  xy: 534, 266
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 5
+markers/marker_orange_conquest
+  rotate: false
+  xy: 534, 216
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 6
+markers/marker_orange_conquest
+  rotate: false
+  xy: 534, 166
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 7
+markers/marker_orange_conquest
+  rotate: false
+  xy: 534, 116
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 8
+markers/marker_orange_controled
+  rotate: false
+  xy: 584, 924
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_orange_owned
+  rotate: false
+  xy: 584, 874
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_orange_owned
+  rotate: false
+  xy: 584, 874
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 8
+markers/marker_orange_owned
+  rotate: false
+  xy: 584, 874
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 1
+markers/marker_orange_owned
+  rotate: false
+  xy: 584, 874
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 7
+markers/marker_orange_owned
+  rotate: false
+  xy: 634, 924
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 2
+markers/marker_orange_owned
+  rotate: false
+  xy: 584, 824
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 3
+markers/marker_orange_owned
+  rotate: false
+  xy: 634, 874
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 4
+markers/marker_orange_owned
+  rotate: false
+  xy: 684, 924
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 5
+markers/marker_orange_owned
+  rotate: false
+  xy: 584, 774
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 6
+markers/marker_orange_possession
+  rotate: false
+  xy: 94, 2
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+markers/marker_orange_zone_left
+  rotate: false
+  xy: 784, 824
+  size: 4, 48
+  orig: 4, 48
+  offset: 0, 0
+  index: -1
+markers/marker_orange_zone_top
+  rotate: false
+  xy: 834, 918
+  size: 48, 4
+  orig: 48, 4
+  offset: 0, 0
+  index: -1
+markers/marker_orange_zone_top_left_horizontal_joint
+  rotate: false
+  xy: 2, 4
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_orange_zone_top_left_inner_corner
+  rotate: false
+  xy: 566, 96
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_orange_zone_top_left_outer_corner
+  rotate: false
+  xy: 466, 118
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_orange_zone_top_left_vertical_joint
+  rotate: false
+  xy: 66, 68
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_purple_conquest
+  rotate: false
+  xy: 634, 824
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_purple_conquest
+  rotate: false
+  xy: 684, 874
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 1
+markers/marker_purple_conquest
+  rotate: false
+  xy: 684, 874
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 2
+markers/marker_purple_conquest
+  rotate: false
+  xy: 734, 924
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 3
+markers/marker_purple_conquest
+  rotate: false
+  xy: 584, 724
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 4
+markers/marker_purple_conquest
+  rotate: false
+  xy: 634, 774
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 5
+markers/marker_purple_conquest
+  rotate: false
+  xy: 684, 824
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 6
+markers/marker_purple_conquest
+  rotate: false
+  xy: 734, 874
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 7
+markers/marker_purple_conquest
+  rotate: false
+  xy: 784, 924
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 8
+markers/marker_purple_controled
+  rotate: false
+  xy: 584, 674
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_purple_owned
+  rotate: false
+  xy: 634, 724
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+markers/marker_purple_owned
+  rotate: false
+  xy: 634, 724
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 7
+markers/marker_purple_owned
+  rotate: false
+  xy: 634, 724
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 1
+markers/marker_purple_owned
+  rotate: false
+  xy: 634, 724
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 8
+markers/marker_purple_owned
+  rotate: false
+  xy: 684, 774
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 2
+markers/marker_purple_owned
+  rotate: false
+  xy: 734, 824
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 3
+markers/marker_purple_owned
+  rotate: false
+  xy: 784, 874
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 4
+markers/marker_purple_owned
+  rotate: false
+  xy: 834, 924
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 5
+markers/marker_purple_owned
+  rotate: false
+  xy: 584, 624
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 6
+markers/marker_purple_possession
+  rotate: false
+  xy: 566, 102
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+markers/marker_purple_zone_left
+  rotate: false
+  xy: 884, 924
+  size: 4, 48
+  orig: 4, 48
+  offset: 0, 0
+  index: -1
+markers/marker_purple_zone_top
+  rotate: false
+  xy: 584, 618
+  size: 48, 4
+  orig: 48, 4
+  offset: 0, 0
+  index: -1
+markers/marker_purple_zone_top_left_horizontal_joint
+  rotate: false
+  xy: 548, 968
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_purple_zone_top_left_vertical_joint
+  rotate: false
+  xy: 548, 968
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_purple_zone_top_left_inner_corner
+  rotate: false
+  xy: 558, 54
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+markers/marker_purple_zone_top_left_outer_corner
+  rotate: false
+  xy: 158, 18
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+misc/explosion
+  rotate: false
+  xy: 642, 974
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+misc/explosion
+  rotate: false
+  xy: 160, 74
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 1
+misc/explosion
+  rotate: false
+  xy: 484, 766
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 2
+misc/explosion
+  rotate: false
+  xy: 692, 974
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 3
+misc/explosion
+  rotate: false
+  xy: 210, 74
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 4
+misc/explosion
+  rotate: false
+  xy: 484, 716
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 5
+misc/explosion
+  rotate: false
+  xy: 742, 974
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 6
+ui/bkgnd_home
+  rotate: false
+  xy: 2, 222
+  size: 480, 800
+  orig: 480, 800
+  offset: 0, 0
+  index: -1
+ui/button_cancelword_normal
+  rotate: false
+  xy: 484, 916
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+ui/button_cancelword_pressed
+  rotate: false
+  xy: 542, 974
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+ui/button_lambda_normal
+  rotate: false
+  xy: 484, 966
+  size: 56, 56
+  split: 10, 11, 10, 11
+  pad: 10, 12, 10, 11
+  orig: 56, 56
+  offset: 0, 0
+  index: -1
+ui/button_lambda_pressed
+  rotate: false
+  xy: 2, 66
+  size: 56, 56
+  split: 10, 10, 10, 10
+  orig: 56, 56
+  offset: 0, 0
+  index: -1
+ui/button_pause_normal
+  rotate: false
+  xy: 2, 16
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+ui/button_pause_pressed
+  rotate: false
+  xy: 60, 74
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+ui/button_refreshzone_normal
+  rotate: false
+  xy: 484, 866
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+ui/button_refreshzone_pressed
+  rotate: false
+  xy: 592, 974
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+ui/button_validateword_normal
+  rotate: false
+  xy: 110, 74
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+ui/button_validateword_pressed
+  rotate: false
+  xy: 484, 816
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+ui/image_topmask
+  rotate: false
+  xy: 2, 124
+  size: 480, 96
+  orig: 480, 96
+  offset: 0, 0
+  index: -1

@@ -11,7 +11,7 @@ import com.slamdunk.wordarena.data.game.GameData;
 import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.data.game.WordPlayed;
 import com.slamdunk.wordarena.enums.GameStates;
-import com.slamdunk.wordarena.screens.SlamScene;
+import com.slamdunk.toolkit.screen.SlamScene;
 import com.slamdunk.wordarena.screens.arena.components.ArenaNameLabel;
 import com.slamdunk.wordarena.screens.arena.components.CancelWordButton;
 import com.slamdunk.wordarena.screens.arena.components.CurrentPlayerLabel;

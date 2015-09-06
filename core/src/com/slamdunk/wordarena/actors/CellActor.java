@@ -75,9 +75,9 @@ public class CellActor extends Actor {
 		
 		// Style et rectangle utilisé pour le dessin de la lettre
 		if (data != null) {
-			letterStyle = Assets.uiSkin.get("power-" + data.power, LabelStyle.class);
+			letterStyle = Assets.uiSkinDefault.get("power-" + data.power, LabelStyle.class);
 		} else {
-			letterStyle = Assets.uiSkin.get("power-0", LabelStyle.class);
+			letterStyle = Assets.uiSkinDefault.get("power-0", LabelStyle.class);
 		}
 		bounds = new Rectangle(getX(), getY(), WIDTH, HEIGHT);
 		
@@ -181,7 +181,7 @@ public class CellActor extends Actor {
 		}
 		
 		// Met à jour la lettre
-		letterStyle = Assets.uiSkin.get("power-" + data.power, LabelStyle.class);
+		letterStyle = Assets.uiSkinDefault.get("power-" + data.power, LabelStyle.class);
 		bounds.set(getX(), getY(), getWidth(), getHeight());
 		
 		// Met à jour l'image représentant le type de cellule
@@ -194,7 +194,7 @@ public class CellActor extends Actor {
 	 */
 	public void showLetter(boolean show) {
 		if (show) {
-			letterStyle = Assets.uiSkin.get("power-" + data.power, LabelStyle.class);
+			letterStyle = Assets.uiSkinDefault.get("power-" + data.power, LabelStyle.class);
 		} else {
 			letterStyle = null;
 		}

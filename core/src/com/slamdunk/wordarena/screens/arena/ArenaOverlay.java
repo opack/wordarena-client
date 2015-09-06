@@ -161,7 +161,7 @@ public class ArenaOverlay extends WorldOverlay {
 		for (int y = 0; y < data.height; y++) {
 			for (int x = 0; x < data.width; x++) {
 				// Construction de la cellule
-				CellActor cell = new CellActor(Assets.uiSkin, data.cells[x][y], matchManager);
+				CellActor cell = new CellActor(Assets.uiSkinDefault, data.cells[x][y], matchManager);
 				cell.addListener(new CellSelectionListener(cell, wordSelectionHandler));
 			
 				// Placement de la cellule dans le monde

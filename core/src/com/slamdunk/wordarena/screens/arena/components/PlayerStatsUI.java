@@ -16,8 +16,8 @@ public class PlayerStatsUI {
 	public GroupEx gpRoundsMarkers;
 	
 	public PlayerStatsUI() {
-		lblName = new Label("", Assets.uiSkin);
-		lblScore = new Label("", Assets.uiSkin);
+		lblName = new Label("", Assets.uiSkinDefault);
+		lblScore = new Label("", Assets.uiSkinDefault);
 		gpRoundsMarkers = new GroupEx();
 	}
 

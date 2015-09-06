@@ -4,7 +4,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.slamdunk.wordarena.screens.SlamScene;
+import com.slamdunk.toolkit.screen.SlamScene;
+import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.screens.home.components.ArenaSelector;
 import com.slamdunk.wordarena.screens.home.components.EditorButton;
 import com.slamdunk.wordarena.screens.home.components.HomeBackground;
@@ -26,7 +27,7 @@ public class HomeScene extends SlamScene {
     public void create(Skin skin) {
         createBackground();
         createArenaSelector(skin);
-        createPlayButton(skin);
+        createPlayButton(Assets.uiSkinSpecific);
         createQuitButton(skin);
         createOptionsButton(skin);
         createEditorButton(skin);

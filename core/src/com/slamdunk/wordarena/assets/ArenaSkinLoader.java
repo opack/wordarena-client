@@ -13,7 +13,7 @@ import com.slamdunk.wordarena.enums.CellTypes;
  */
 public class ArenaSkinLoader {
 	private ArenaSkin skin;
-	private TextureAtlasEx atlas;
+	private com.slamdunk.toolkit.graphics.TextureAtlasEx atlas;
 	
 	public ArenaSkinLoader() {
 		skin = new ArenaSkin();
@@ -29,7 +29,7 @@ public class ArenaSkinLoader {
 		if (atlas != null) {
 			atlas.dispose();
 		}
-		atlas = new TextureAtlasEx("skins/arena_" + name + "/arena_" + name +  ".txt");		
+		atlas = new com.slamdunk.toolkit.graphics.TextureAtlasEx("skins/arena_" + name + "/arena_" + name +  ".txt");
 		
 		// Charge les éléments de la skin
 		skin.name = name;
