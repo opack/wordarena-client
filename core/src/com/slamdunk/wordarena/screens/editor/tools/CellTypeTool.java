@@ -9,6 +9,7 @@ import com.slamdunk.wordarena.enums.Letters;
 import java.util.Collection;
 
 public class CellTypeTool extends EditorTool<CellTypes> {
+	public static final String NAME = CellTypeTool.class.getName();
 	
 	public CellTypeTool() {
 		setValue(CellTypes.L);

@@ -85,8 +85,8 @@ public class StatsTable extends Table {
 	
 	public void init(List<PlayerData> players, int nbRoundsToWin) {
 		// Prépare les libellés
-		p1Stats.init(players.get(0), nbRoundsToWin);
-		p2Stats.init(players.get(1), nbRoundsToWin);
+		p1Stats.init(players.get(1/*DBG 0*/), nbRoundsToWin);
+		p2Stats.init(players.get(2/*DBG 1*/), nbRoundsToWin);
 		
 		// Vide la liste des mots
 		playedWords.clear();

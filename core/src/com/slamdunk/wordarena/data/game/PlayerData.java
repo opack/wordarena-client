@@ -11,7 +11,7 @@ public class PlayerData {
 	public static final PlayerData NEUTRAL;
 	
 	static {
-		NEUTRAL = new PlayerData(Assets.i18nBundle.get("ui.editor.player.0"), Assets.MARKER_PACK_NEUTRAL, -1);
+		NEUTRAL = new PlayerData(Assets.i18nBundle.get("ui.editor.player.0"), Assets.MARKER_PACK_NEUTRAL, 0/*DBG -1*/);
 	}
 
 	/**

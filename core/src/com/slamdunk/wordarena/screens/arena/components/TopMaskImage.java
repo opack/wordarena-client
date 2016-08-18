@@ -10,7 +10,7 @@ import com.slamdunk.wordarena.assets.Assets;
 public class TopMaskImage extends Image {
 
     public TopMaskImage() {
-        super(Assets.atlas.findRegion("image_topmask"));
+        super(Assets.atlas.findRegion("ui/image_topmask"));
         setTouchable(Touchable.disabled);
     }
 }

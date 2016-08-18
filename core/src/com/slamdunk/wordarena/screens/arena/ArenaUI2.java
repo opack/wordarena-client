@@ -3,6 +3,7 @@ package com.slamdunk.wordarena.screens.arena;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.slamdunk.toolkit.screen.SlamScene;
 import com.slamdunk.toolkit.screen.overlays.UIOverlay;
 import com.slamdunk.wordarena.WordArenaGame;
 import com.slamdunk.wordarena.assets.Assets;
@@ -11,7 +12,6 @@ import com.slamdunk.wordarena.data.game.GameData;
 import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.data.game.WordPlayed;
 import com.slamdunk.wordarena.enums.GameStates;
-import com.slamdunk.toolkit.screen.SlamScene;
 import com.slamdunk.wordarena.screens.arena.components.ArenaNameLabel;
 import com.slamdunk.wordarena.screens.arena.components.CancelWordButton;
 import com.slamdunk.wordarena.screens.arena.components.CurrentPlayerLabel;
@@ -20,6 +20,7 @@ import com.slamdunk.wordarena.screens.arena.components.GameWinnerLabel;
 import com.slamdunk.wordarena.screens.arena.components.InfoLabel;
 import com.slamdunk.wordarena.screens.arena.components.RefreshZoneButton;
 import com.slamdunk.wordarena.screens.arena.components.RoundWinnerLabel;
+import com.slamdunk.wordarena.screens.arena.components.StatsTable;
 import com.slamdunk.wordarena.screens.arena.components.ValidateWordButton;
 import com.slamdunk.wordarena.screens.arena.components.ZoneMarkers;
 import com.slamdunk.wordarena.screens.arena.scenes.ArenaPausedScene;
@@ -27,7 +28,6 @@ import com.slamdunk.wordarena.screens.arena.scenes.ArenaReadyScene;
 import com.slamdunk.wordarena.screens.arena.scenes.ArenaRoundOverScene;
 import com.slamdunk.wordarena.screens.arena.scenes.ArenaRunningScene;
 import com.slamdunk.wordarena.screens.arena.scenes.ArenaScene;
-import com.slamdunk.wordarena.screens.arena.components.StatsTable;
 
 import java.util.List;
 
@@ -57,9 +57,9 @@ public class ArenaUI2 extends UIOverlay {
 	 */
 	@Override
 	protected void loadScenes() {
-		loadScene(new ArenaReadyScene(matchManager));
+		loadScene(new ArenaReadyScene(matchManager), Assets.uiSkinDefault);
 
-        SlamScene running = loadScene(new com.slamdunk.wordarena.screens.arena.scenes.ArenaRunningScene(matchManager));
+        SlamScene running = loadScene(new com.slamdunk.wordarena.screens.arena.scenes.ArenaRunningScene(matchManager), Assets.uiSkinDefault);
         zoneMarkers = running.findActor(ZoneMarkers.NAME);
 		validateWord = running.findActor(ValidateWordButton.NAME);
 		cancelWord = running.findActor(CancelWordButton.NAME);
@@ -68,12 +68,12 @@ public class ArenaUI2 extends UIOverlay {
 		currentWord = running.findActor(CurrentWordLabel.NAME);
 		info = running.findActor(InfoLabel.NAME);
 
-		SlamScene paused = loadScene(new ArenaPausedScene(matchManager));
+		SlamScene paused = loadScene(new ArenaPausedScene(matchManager), Assets.uiSkinDefault);
 		statsTable = paused.findActor(StatsTable.NAME);
 
-        loadScene(new com.slamdunk.wordarena.screens.arena.scenes.ArenaRoundOverScene(matchManager));
+        loadScene(new com.slamdunk.wordarena.screens.arena.scenes.ArenaRoundOverScene(matchManager), Assets.uiSkinDefault);
 
-        loadScene(new com.slamdunk.wordarena.screens.arena.scenes.ArenaGameOverScene(matchManager));
+        loadScene(new com.slamdunk.wordarena.screens.arena.scenes.ArenaGameOverScene(matchManager), Assets.uiSkinDefault);
 	}
 
     /**
@@ -82,19 +82,23 @@ public class ArenaUI2 extends UIOverlay {
      * @param gameData
      */
     public void init(GameData gameData, int nbRoundsToWin) {
-        // Crée et remplit les marqueurs de possession de zone
-        zoneMarkers.init(gameData.arena.zones, statsTable.getZoneMarkers()); // TODO : On devrait mettre à jour la table de stats autrement, car on crée un lien trop fort entre ZoneMarkers et la table de stats
-        zoneMarkers.update(gameData.arena.zones, statsTable.getZoneMarkers());
-        getScene(ArenaRunningScene.NAME).doLayout();
-
         // Initialise la table de statistiques
-        statsTable.init(gameData.players, nbRoundsToWin);
-        statsTable.layout();
-        statsTable.pack();
-		getScene(ArenaPausedScene.NAME).doLayout();
+		if (statsTable != null) {
+			statsTable.init(gameData.players, nbRoundsToWin);
+			statsTable.layout();
+			statsTable.pack();
+			getScene(ArenaPausedScene.NAME).doLayout();
+
+			// Crée et remplit les marqueurs de possession de zone
+			if (zoneMarkers != null) {
+				zoneMarkers.init(gameData.arena.zones, statsTable.getZoneMarkers()); // TODO : On devrait mettre à jour la table de stats autrement, car on crée un lien trop fort entre ZoneMarkers et la table de stats
+				zoneMarkers.update(gameData.arena.zones, statsTable.getZoneMarkers());
+				getScene(ArenaRunningScene.NAME).doLayout();
+			}
+		}
 
         // Initialise les informations affichées
-        setArenaName(gameData.arena.name);
+        setArenaNameByCode(gameData.arena.name);
         setInfo("");
 
         // Initialise les mots joués
@@ -108,7 +112,7 @@ public class ArenaUI2 extends UIOverlay {
 	 * Charge les composants à afficher lorsque le jeu est à l'état indiqué
 	 */
 	public void present(GameStates state) {
-		com.slamdunk.wordarena.screens.arena.scenes.ArenaScene arenaScene;
+		ArenaScene arenaScene;
 		for (SlamScene scene : getScenes()) {
 			arenaScene = (ArenaScene)scene;
 			scene.setVisible(arenaScene.getGameState() == state);
@@ -116,20 +120,30 @@ public class ArenaUI2 extends UIOverlay {
 	}
 
 	public void setCurrentPlayer(PlayerData player, int turn, int maxTurns, int round) {
-		currentPlayer.setText(Assets.i18nBundle.format("ui.arena.currentTurn", player.name, round, turn, maxTurns));
-		currentPlayer.setStyle(Assets.markerPacks.get(player.markerPack).labelStyle);
+		if (currentPlayer != null) {
+			currentPlayer.setText(Assets.i18nBundle.format("ui.arena.currentTurn", player.name, round, turn, maxTurns));
+			currentPlayer.setStyle(Assets.markerPacks.get(player.markerPack).labelStyle);
+		}
 	}
 
 	public void setCurrentWord(String word) {
-        currentWord.setText(word);
+		if (currentWord != null) {
+			currentWord.setText(word);
+		}
 	}
 
 	public void setInfo(String message) {
-		info.setText(message);
+		if (info != null) {
+			info.setText(message);
+		}
 	}
 
-	public void setArenaName(String code) {
+	public void setArenaNameByCode(String code) {
 		String name = Assets.i18nBundle.get("arena.title." + code);
+		setArenaName(name);
+	}
+
+	public void setArenaName(String name) {
 		for (SlamScene scene : getScenes()) {
             ArenaNameLabel lblArenaName = scene.findActor(ArenaNameLabel.NAME);
             if (lblArenaName != null) {
@@ -171,23 +185,33 @@ public class ArenaUI2 extends UIOverlay {
 	}
 	
 	public void showRefreshStartingZoneButton(boolean show) {
-        refreshStarting.setVisible(show);
+		if (refreshStarting != null) {
+			refreshStarting.setVisible(show);
+		}
 	}
 	
 	public void showWordValidationButtons(boolean show) {
-		validateWord.setVisible(show);
-		cancelWord.setVisible(show);
+		if (validateWord != null && cancelWord != null) {
+			validateWord.setVisible(show);
+			cancelWord.setVisible(show);
+		}
 	}
 
 	public void updateStats() {
-		statsTable.update(matchManager.getCinematic().getPlayers());
+		if (statsTable != null) {
+			statsTable.update(matchManager.getCinematic().getPlayers());
+		}
 	}
 	
 	public void addPlayedWord(PlayerData player, String word) {
-		statsTable.addPlayedWord(player, word);
+		if (statsTable != null) {
+			statsTable.addPlayedWord(player, word);
+		}
 	}
 
     public void updateZoneMarkers(List<ZoneData> zones) {
-        zoneMarkers.update(zones, statsTable.getZoneMarkers());
+		if (zoneMarkers != null) {
+			zoneMarkers.update(zones, statsTable.getZoneMarkers());
+		}
     }
 }

@@ -5,6 +5,8 @@ import com.slamdunk.wordarena.actors.CellActor;
 import java.util.Collection;
 
 public class PowerTool extends EditorTool<Integer> {
+	public static final String NAME = PowerTool.class.getName();
+
 	public PowerTool() {
 		setValue(1);
 	}

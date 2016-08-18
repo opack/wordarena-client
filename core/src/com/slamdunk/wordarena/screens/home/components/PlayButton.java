@@ -3,15 +3,15 @@ package com.slamdunk.wordarena.screens.home.components;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.slamdunk.toolkit.ui.ButtonClickListener;
 import com.slamdunk.toolkit.screen.SlamScene;
+import com.slamdunk.toolkit.ui.ButtonClickListener;
 import com.slamdunk.wordarena.screens.home.HomeScreen;
 
 public class PlayButton extends TextButton {
     public static final String NAME = ArenaSelector.class.getName();
 
     public PlayButton(Skin skin, final SlamScene scene) {
-        super("Jouer", skin, "simple-button");
+        super("Jouer", skin);
         setName(NAME);
 
         addListener(new ButtonClickListener() {

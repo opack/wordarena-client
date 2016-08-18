@@ -10,11 +10,11 @@ com.badlogic.gdx.graphics.Color: {
 	black: { a: 1, r: 0, g: 0, b: 0 },
 	dark-grey: { a: 1, r: 0.75, g: 0.75, b: 0.75 },
 	gold: { hex: efbf00ff },
-	marker_neutral: { hex: ab9e94ff },
-	marker_blue: { hex: 7db1ffff },
-	marker_orange: { hex: ffb17dff },
-	marker_green: { hex: b6e399ff },
-	marker_purple: { hex: d499e3ff }
+	markers/marker_neutral: { hex: ab9e94ff },
+	markers/marker_blue: { hex: 7db1ffff },
+	markers/marker_orange: { hex: ffb17dff },
+	markers/marker_green: { hex: b6e399ff },
+	markers/marker_purple: { hex: d499e3ff }
 },
 com.badlogic.gdx.scenes.scene2d.ui.Skin$TintedDrawable: {
 	dialogDim: { name: white, color: { r: 0, g: 0, b: 0, a: 0.45 } }
@@ -58,14 +58,14 @@ com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
 	power-0: { font: default-font, fontColor: black },
 	power-1: { font: default-font, fontColor: black },
 	power-2: { font: default-font, fontColor: gold },
-	marker_neutral: { font: default-font, fontColor: marker_neutral },
-	marker_blue: { font: default-font, fontColor: marker_blue },
-	marker_orange: { font: default-font, fontColor: marker_orange },
-	marker_green: { font: default-font, fontColor: marker_green },
-	marker_purple: { font: default-font, fontColor: marker_purple },
+	markers/marker_neutral: { font: default-font, fontColor: markers/marker_neutral },
+	markers/marker_blue: { font: default-font, fontColor: markers/marker_blue },
+	markers/marker_orange: { font: default-font, fontColor: markers/marker_orange },
+	markers/marker_green: { font: default-font, fontColor: markers/marker_green },
+	markers/marker_purple: { font: default-font, fontColor: markers/marker_purple },
 	games-status-header: { font: bold, fontColor: black },
 	games-user-turn: { font: default-font, fontColor: white },
-	games-opponent-turn: { font: default-font, fontColor: marker_neutral },
+	games-opponent-turn: { font: default-font, fontColor: markers/marker_neutral },
 	games-game-over: { font: default-font, fontColor: black },
 },
 com.badlogic.gdx.scenes.scene2d.ui.TextField$TextFieldStyle: {

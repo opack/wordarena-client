@@ -1,4 +1,7 @@
 {
+  "com.badlogic.gdx.graphics.Color": {
+    "black": { "a": 1, "r": 0, "g": 0, "b": 0 }
+  },
   "com.badlogic.gdx.graphics.g2d.BitmapFont": {
     "normal": {
       "file": "arial_18.fnt"
@@ -8,10 +11,22 @@
     }
   },
   "com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle": {
-    "simple-button": {
+    "default": {
       "font" : "normal",
       "up": "ui/button_lambda_normal",
       "down": "ui/button_lambda_pressed"
+    },
+    "toggle": {
+      "font" : "normal",
+      "up": "ui/button_lambda_normal",
+      "checked": "ui/button_lambda_pressed",
+      "down": "ui/button_lambda_pressed"
+    }
+  },
+  "com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle": {
+    "default": {
+      "font": "normal",
+      "fontColor": "black"
     }
   }
 }

@@ -1,15 +1,16 @@
 package com.slamdunk.toolkit.screen.overlays;
 
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.slamdunk.toolkit.screen.SlamScreen;
-import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.toolkit.screen.SlamScene;
+import com.slamdunk.toolkit.screen.SlamScreen;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+
 
 /**
  * Une couche d'affichage qui contient un Stage dans lequel on peut mettre tout et n'importe quoi.
@@ -37,7 +38,6 @@ public abstract class StageOverlay implements SlamOverlay {
 		stage = new Stage(viewport);
 
 		scenes = new HashMap<String, SlamScene>();
-		loadScenes();
 	}
 
 	/**
@@ -52,12 +52,13 @@ public abstract class StageOverlay implements SlamOverlay {
 	 * et à la liste de scènes
 	 * @param scene
 	 */
-	protected SlamScene loadScene(SlamScene scene) {
-		scene.create(Assets.uiSkinDefault);
+	protected SlamScene loadScene(SlamScene scene, Skin skin) {
+		scene.setOverlay(this);
+
+		scene.create(skin);
 
 		getStage().addActor(scene);
 		scenes.put(scene.getName(), scene);
-		scene.setOverlay(this);
 
 		return scene;
 	}

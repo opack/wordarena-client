@@ -7,6 +7,8 @@ import com.slamdunk.wordarena.enums.Letters;
 import java.util.Collection;
 
 public class LetterTool extends EditorTool<Letters> {
+	public static final String NAME = LetterTool.class.getName();
+
 	public LetterTool() {
 		setValue(Letters.FROM_TYPE);
 	}

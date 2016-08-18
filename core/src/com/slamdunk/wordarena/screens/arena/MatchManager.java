@@ -73,15 +73,15 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		// Récupère le cache puis initialise l'environnement à partir de ses données
 		this.cache = cache;
 		GameData game = cache.getData();
-		
+
+		// Prépare la cinématique du jeu
+		cinematic.init(game);
+
 		// Charge l'arène
 		selectingLetters = false;
 		arena.loadArena(game.arena);
 		arena.enableCellSelection(false);
 		arena.showLetters(false);
-		
-		// Prépare la cinématique du jeu
-		cinematic.init(game);
 		
 		// Initialise le sélecteur et le validateur de mots
 		wordSelectionHandler.cancel();
@@ -451,9 +451,21 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 	 * @return
 	 */
 	public PlayerData getPlayer(int place) {
-		if (PlayerData.isNeutral(place)) {
+		// DBG
+		return cinematic.getPlayers().get(place);
+		/*if (PlayerData.isNeutral(place)) {
 			return PlayerData.NEUTRAL;
 		}
-		return cache.getData().players.get(place);
+		return cache.getData().players.get(place);*/
+	}
+
+	/**
+	 * Retourne la liste des joueurs
+	 * @return
+	 */
+	public List<PlayerData> getPlayers() {
+		// DBG
+		return cinematic.getPlayers();
+		//DBGreturn cache.getData().players;
 	}
 }

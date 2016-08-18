@@ -408,20 +408,20 @@ public class ArenaBuilder {
 		if (!cellType.canBeOwned()) {
 			return PlayerData.NEUTRAL.place;
 		}
-		
-		// Dans le plan JSON, le premier joueur à l'indice 0 et le joueur
+		/*DBG
+		// Dans le plan JSON, le premier joueur réel à l'indice 0 et le joueur
 		// NEUTRAL n'apparaîtra pas dans la liste des joueurs du GameData.
 		// On doit donc considérer que le joueur 0 du plan correspond au
 		// joueur -1 (NEUTRAL), que le joueur 1 du plan correspond au
-		// joueur 1 etc.
+		// premier joueur (indice 0) etc.
 		if (editorScreen == null) {
 			return ownerIndex - 1;
 		}
 		// En mode édition, le joueur NEUTRAL apparaît dans la liste. L'indice
 		// mentionné peut donc être utilisé tel quel.
-		else {
+		else {*/
 			return ownerIndex;
-		}
+		//DBG}
 	}
 
 	private int choosePower(CellTypes cellType, int power) {

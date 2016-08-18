@@ -6,6 +6,8 @@ import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
 import java.util.Collection;
 
 public class WallTool extends EditorTool<CellActor> {
+	public static final String NAME = WallTool.class.getName();
+
 	private ArenaOverlay arena;
 	
 	public void setArena(ArenaOverlay arena) {

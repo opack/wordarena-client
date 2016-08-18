@@ -29,7 +29,7 @@ public class ArenaSkinLoader {
 		if (atlas != null) {
 			atlas.dispose();
 		}
-		atlas = new com.slamdunk.toolkit.graphics.TextureAtlasEx("skins/arena_" + name + "/arena_" + name +  ".txt");
+		atlas = new com.slamdunk.toolkit.graphics.TextureAtlasEx("textures/arena_skin_" + name + ".atlas");
 		
 		// Charge les éléments de la skin
 		skin.name = name;

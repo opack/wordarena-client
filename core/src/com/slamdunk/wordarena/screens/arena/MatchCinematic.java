@@ -136,8 +136,8 @@ public class MatchCinematic {
 	 */
 	public void endMove() {
 		// Le joueur suivant est celui juste après
-		gameData.cinematic.curPlayer = (gameData.cinematic.curPlayer + 1) % gameData.players.size();
-		
+		gameData.cinematic.curPlayer = pickNextPlayer(gameData.cinematic.curPlayer);
+
 		// Si tout le monde a joué, on a fini un tour
 		if (gameData.cinematic.curPlayer == gameData.cinematic.firstPlayer) {
 			endTurn();
@@ -145,6 +145,21 @@ public class MatchCinematic {
 		
 		// Affiche le prochain joueur à jouer
 		setCurrentPlayer(gameData.cinematic.curPlayer);
+	}
+
+	/**
+	 * Renvoie l'indice du joueur suivant celui dont la place est indiquée.
+	 * Cette méthode fait en sorte d'ignorer le joueur NEUTRAL.
+	 * @param curPlayer
+	 * @return
+	 */
+	public int pickNextPlayer(int curPlayer) {
+		int nextPlayer = (curPlayer + 1) % gameData.players.size();
+		// DBG (ajouté pour la prise en compte de NEUTRAL dans la liste de joueurs) Si le prochain joueur est le neutre, on passe au suivant
+		if (nextPlayer == PlayerData.NEUTRAL.place) {
+			nextPlayer = pickNextPlayer(nextPlayer);
+		}
+		return nextPlayer;
 	}
 	
 	/**
@@ -160,7 +175,6 @@ public class MatchCinematic {
 	
 	/**
 	 * Termine le round actuel. Cette action peut avoir pour conséquence de terminer le jeu.
-	 * @param roundWinner
 	 */
 	public void endRound() {
 		// Détermine le gagnant du round
@@ -249,6 +263,7 @@ public class MatchCinematic {
 			// donc déterminer le gagnant en comptant le nombre de rounds
 			// que chacun a gagné.
 			MaxValueFinder<PlayerData> maxValueFinder = new MaxValueFinder<PlayerData>();
+			maxValueFinder.setIgnoredValue(PlayerData.NEUTRAL);
 			for (PlayerData player : gameData.players) {
 				maxValueFinder.addValue(player, player.nbRoundsWon);
 			}
@@ -284,7 +299,7 @@ public class MatchCinematic {
 		
 		// Le joueur qui débute le nouveau round n'est pas le même que celui
 		// du round précédent.
-		gameData.cinematic.firstPlayer = (gameData.cinematic.firstPlayer + 1) % gameData.players.size();
+		gameData.cinematic.firstPlayer = pickNextPlayer(gameData.cinematic.firstPlayer);
 		setCurrentPlayer(gameData.cinematic.firstPlayer);
 	}
 }

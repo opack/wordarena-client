@@ -6,6 +6,8 @@ import com.slamdunk.wordarena.actors.ZoneActor;
 import java.util.Collection;
 
 public class ZoneTool extends EditorTool<ZoneActor> {
+	public static final String NAME = ZoneTool.class.getName();
+
 	@Override
 	public void apply(CellActor cell) {
 		// Retire la cellule de l'ancienne zone

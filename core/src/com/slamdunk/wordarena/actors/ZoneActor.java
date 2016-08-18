@@ -213,7 +213,7 @@ public class ZoneActor extends Group {
 			if (cellData.selected == true) {
 				occupations.addValue(matchManager.getCinematic().getCurrentPlayer().place, cellData.power);
 			}
-			// Sinon on ajout de la puissance de la cellule à celle de ce joueur
+			// Sinon on ajoute la puissance de la cellule à celle de ce joueur
 			// à qui elle appartient réellement
 			else if (cellData.state == CellStates.OWNED) {
 				occupations.addValue(cellData.ownerPlace, cellData.power);

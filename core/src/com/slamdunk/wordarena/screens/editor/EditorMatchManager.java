@@ -5,6 +5,7 @@ import com.slamdunk.wordarena.screens.arena.MatchManager;
 import com.slamdunk.wordarena.screens.arena.WordSelectionHandler;
 
 public class EditorMatchManager extends MatchManager {
+
 	@Override
 	public void changeState(GameStates newState) {
 	}

@@ -10,7 +10,7 @@ import com.slamdunk.wordarena.enums.BordersAndCorners;
 import com.slamdunk.wordarena.enums.CornerTypes;
 
 public class MarkerPackLoader {
-	private static final String MARKER_PACK_PREFIX = "marker_";
+	private static final String MARKER_PACK_PREFIX = "markers/marker_";
 	
 	private Skin skin;
 	private float frameDuration;

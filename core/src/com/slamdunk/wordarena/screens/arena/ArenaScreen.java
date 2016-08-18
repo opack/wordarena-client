@@ -37,6 +37,7 @@ public class ArenaScreen extends SlamScreen {
 		
 		ui = new ArenaUI2(matchManager);
 		addOverlay(ui);
+		ui.loadScenes();
 
 		// Gestionnaires permettant de zoomer avec la souris ou un pinch.
 		// Ces gestionnaires sont insérés après ArenaUI.
@@ -72,7 +73,16 @@ public class ArenaScreen extends SlamScreen {
 		game.header.objective = Objectives.CONQUEST;
 		game.players = players;
 		System.out.println("DBG ArenaScreen.startNewGame() Création de la partie #" + game._id);
-		
+
+		// DBG Choisit le premier joueur à jouer : c'est le premier qui n'est pas NEUTRAL
+		for (PlayerData player : game.players) {
+			if (!player.isNeutral()) {
+				game.cinematic.firstPlayer = player.place;
+				game.cinematic.curPlayer = player.place;
+				break;
+			}
+		}
+
 		// Charge l'arène depuis le plan
 		JsonValue json = new JsonReader().parse(Gdx.files.internal(arenaPlanFile));
 		ArenaBuilder builder = new ArenaBuilder();
@@ -83,7 +93,7 @@ public class ArenaScreen extends SlamScreen {
 		GameCache cache = new GameCache();
 		cache.create(game);
 		cache.save();
-		
+
 		// TODO Met à jour la partie sur le serveur
 		
 		// Démarre la partie

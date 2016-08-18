@@ -77,7 +77,7 @@ public class EditorArenaOverlay extends ArenaOverlay {
 	}
 
 	public ZoneActor createZone(String id) {
-		ZoneActor zone = new ZoneActor(null, id);
+		ZoneActor zone = new ZoneActor(getMatchManager(), id);
 		getData().zones.add(zone.getData());
 		getArenaGroup().addActor(zone);
 		return zone;

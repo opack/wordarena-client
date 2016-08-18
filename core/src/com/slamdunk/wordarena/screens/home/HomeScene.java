@@ -28,9 +28,9 @@ public class HomeScene extends SlamScene {
         createBackground();
         createArenaSelector(skin);
         createPlayButton(Assets.uiSkinSpecific);
-        createQuitButton(skin);
-        createOptionsButton(skin);
-        createEditorButton(skin);
+        createQuitButton(Assets.uiSkinSpecific);
+        createOptionsButton(Assets.uiSkinSpecific);
+        createEditorButton(Assets.uiSkinSpecific);
     }
 
     private void createArenaSelector(Skin skin) {

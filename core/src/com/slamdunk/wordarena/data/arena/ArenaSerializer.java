@@ -79,9 +79,9 @@ public class ArenaSerializer implements Json.Serializer<ArenaData>{
 				// ce contrôle (qui est déterminé dynamiquement) ne soit pas vu comme
 				// une possession.
 				if (arena.cells[x][y].state == CellStates.OWNED) {
-					sb.append(arena.cells[x][y].ownerPlace + 1).append(" ");
+					sb.append(arena.cells[x][y].ownerPlace/*DBG + 1*/).append(" ");
 				} else {
-					sb.append(PlayerData.NEUTRAL.place + 1).append(" ");
+					sb.append(PlayerData.NEUTRAL.place/*DBG + 1*/).append(" ");
 				}
 			}
 			json.writeValue(sb.toString());

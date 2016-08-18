@@ -11,8 +11,10 @@ public class PreEditorScreen extends SlamScreen {
 
 	public PreEditorScreen(WordArenaGame game) {
 		super(game);
-		
-		addOverlay(new PreEditorUI2());
+
+		PreEditorUI2 ui = new PreEditorUI2();
+		addOverlay(ui);
+		ui.loadScenes();
 	}
 
 	@Override

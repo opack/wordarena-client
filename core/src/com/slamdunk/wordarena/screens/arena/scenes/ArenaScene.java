@@ -1,7 +1,7 @@
 package com.slamdunk.wordarena.screens.arena.scenes;
 
-import com.slamdunk.wordarena.enums.GameStates;
 import com.slamdunk.toolkit.screen.SlamScene;
+import com.slamdunk.wordarena.enums.GameStates;
 
 public abstract class ArenaScene extends SlamScene {
     /**

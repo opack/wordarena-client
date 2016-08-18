@@ -8,6 +8,7 @@ import com.slamdunk.wordarena.enums.CellStates;
 import java.util.Collection;
 
 public class OwnerTool extends EditorTool<PlayerData> {
+	public static final String NAME = OwnerTool.class.getName();
 	
 	public OwnerTool() {
 		setValue(PlayerData.NEUTRAL);
@@ -19,8 +20,8 @@ public class OwnerTool extends EditorTool<PlayerData> {
 		if (!data.type.canBeOwned()) {
 			return;
 		}
-		data.ownerPlace = getValue().place;
-		data.state = CellStates.OWNED;
+		cell.setOwner(getValue(), CellStates.OWNED);
+		cell.updateDisplay();
 		
 		// Met à jour l'owner de la zone
 		cell.getZone().updateOwner();

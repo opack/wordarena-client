@@ -2,8 +2,6 @@ package com.slamdunk.wordarena.screens.editor;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 import com.slamdunk.toolkit.screen.SlamScreen;
@@ -11,14 +9,11 @@ import com.slamdunk.wordarena.WordArenaGame;
 import com.slamdunk.wordarena.actors.ZoneActor;
 import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.arena.ArenaBuilder;
-import com.slamdunk.wordarena.data.arena.ArenaData;
-import com.slamdunk.wordarena.data.arena.ArenaSerializer;
 import com.slamdunk.wordarena.data.game.GameCache;
 import com.slamdunk.wordarena.data.game.GameData;
 import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.GameTypes;
 import com.slamdunk.wordarena.enums.Objectives;
-import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
 import com.slamdunk.wordarena.screens.editor.tools.CellTypeTool;
 import com.slamdunk.wordarena.screens.editor.tools.EditorTool;
 import com.slamdunk.wordarena.screens.editor.tools.LetterTool;
@@ -46,19 +41,20 @@ public static final String NAME = "EDITOR";
 	
 	public EditorScreen(WordArenaGame game) {
 		super(game);
-		
+
+		createTools();
+
 		matchManager = new EditorMatchManager();
-		
+
 		arena = new EditorArenaOverlay(matchManager);
 		addOverlay(arena);
 		
 		ui = new EditorUI2(this);
 		addOverlay(ui);
-		
+
 		createGameData();
-		createTools();
-		
-		ui.loadScene();// DBG
+
+		ui.loadScenes();
 	}
 	
 	public EditorMatchManager getMatchManager() {
@@ -71,10 +67,10 @@ public static final String NAME = "EDITOR";
 		game.header.gameType = GameTypes.TRAINING;
 		game.header.objective = Objectives.CONQUEST;
 		game.players.add(PlayerData.NEUTRAL);
-		game.players.add(new PlayerData(Assets.i18nBundle.get("ui.editor.player.1"), "blue", 0));
-		game.players.add(new PlayerData(Assets.i18nBundle.get("ui.editor.player.2"), "orange", 1));
-		game.players.add(new PlayerData(Assets.i18nBundle.get("ui.editor.player.3"), "green", 2));
-		game.players.add(new PlayerData(Assets.i18nBundle.get("ui.editor.player.4"), "purple", 3));
+		game.players.add(new PlayerData(Assets.i18nBundle.get("ui.editor.player.1"), "blue", 1));
+		game.players.add(new PlayerData(Assets.i18nBundle.get("ui.editor.player.2"), "orange", 2));
+		game.players.add(new PlayerData(Assets.i18nBundle.get("ui.editor.player.3"), "green", 3));
+		game.players.add(new PlayerData(Assets.i18nBundle.get("ui.editor.player.4"), "purple", 4));
 		
 		// Charge l'arène depuis le plan
 		JsonValue json = new JsonReader().parse(Gdx.files.internal("arenas/editor.json"));
@@ -86,9 +82,9 @@ public static final String NAME = "EDITOR";
 		GameCache cache = new GameCache();
 		cache.create(game);
 		cache.save();
-		
+
 		// Initialise le manager
-		matchManager.init((ArenaOverlay)arena, ui, cache);
+		matchManager.init(arena, ui, cache);
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -140,12 +136,13 @@ public static final String NAME = "EDITOR";
 	}
 
 	public void save() {
-		Json json = new Json();
+		matchManager.getCache().save();
+		/*Json json = new Json();
 		json.setSerializer(ArenaData.class, new ArenaSerializer());
 		final String serialized = json.prettyPrint(arena.getData());
 		
 		FileHandle file = Gdx.files.absolute("E:\\Projets\\Programmes\\WordArena\\wordarena-client\\android\\assets\\arenas\\" + arena.getData().name + ".json");
-		file.writeString(serialized, false, "UTF-8");
+		file.writeString(serialized, false, "UTF-8");*/
 	}
 	
 	public void createNewArena(String name, int width, int height) {
@@ -166,6 +163,6 @@ public static final String NAME = "EDITOR";
 	}
 
 	public List<PlayerData> getPlayers() {
-		return matchManager.getCache().getData().players;
+		return matchManager.getCinematic().getPlayers();
 	}
 }

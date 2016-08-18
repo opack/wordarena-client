@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.utils.Align;
 import com.slamdunk.toolkit.screen.SlamScene;
+import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.screens.home.components.ArenaSelector;
 import com.slamdunk.wordarena.screens.preeditor.components.CreateButton;
 import com.slamdunk.wordarena.screens.preeditor.components.GroupLabel;
@@ -30,12 +31,12 @@ public class PreEditorScene extends SlamScene {
         createNewArenaWidthTextField(skin);
         createNewArenaXInputLabel(skin);
         createNewArenaHeightTextField(skin);
-        createNewArenaButton(skin);
+        createNewArenaButton(Assets.uiSkinSpecific);
 
         createModifyArenaGroupLabel(skin);
         createModifyArenaNameInputLabel(skin);
         createArenaSelector(skin);
-        createModifyArenaButton(skin);
+        createModifyArenaButton(Assets.uiSkinSpecific);
     }
 
     private void createNewArenaGroupLabel(Skin skin) {

@@ -11,7 +11,7 @@ public class HomeBackground extends Image {
     public static final String NAME = HomeBackground.class.getName();
 
     public HomeBackground() {
-        super(Assets.atlas.findRegion("bkgnd_home"));
+        super(Assets.atlas.findRegion("ui/bkgnd_home"));
         setTouchable(Touchable.disabled);
         setName(NAME);
     }

@@ -27,6 +27,7 @@ public class HomeScreen extends SlamScreen {
 		
 		ui = new HomeUI2();
 		addOverlay(ui);
+		ui.loadScenes();
 	}
 	
 	@Override
@@ -48,19 +49,20 @@ public class HomeScreen extends SlamScreen {
 	public void startNewGame(String arenaFile) {
 		PlayerData p1 = new PlayerData();
 		p1.name = "Alan";
-		p1.place = 0;
+		p1.place = 1;
 		p1.score = 0;
 		p1.markerPack = "blue";
 		p1.kind = PlayerKind.HUMAN_LOCAL;
 		
 		PlayerData p2 = new PlayerData();
 		p2.name = "Bob";
-		p2.place = 1;
+		p2.place = 2;
 		p2.score = 0;
 		p2.markerPack = "orange";
 		p2.kind = PlayerKind.HUMAN_LOCAL;
 		
 		List<PlayerData> players = new ArrayList<PlayerData>();
+		players.add(PlayerData.NEUTRAL);// DBG
 		players.add(p1);
 		players.add(p2);
 		

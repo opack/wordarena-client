@@ -92,6 +92,10 @@ public class ArenaOverlay extends WorldOverlay {
 		this.matchManager = matchManager;
 	}
 
+	public MatchManager getMatchManager() {
+		return matchManager;
+	}
+
 	/**
 	 * Crée l'arène de jeu
 	 */

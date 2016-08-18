@@ -101,7 +101,9 @@ public class Assets {
 	}
 	
 	private static void disposeOverlapResources() {
-		overlap2dResourceManager.dispose();
+		if (overlap2dResourceManager != null) {
+			overlap2dResourceManager.dispose();
+		}
 	}
 
 	private static void loadSkin() {

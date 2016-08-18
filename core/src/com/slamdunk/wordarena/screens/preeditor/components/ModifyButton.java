@@ -3,8 +3,8 @@ package com.slamdunk.wordarena.screens.preeditor.components;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.slamdunk.toolkit.ui.ButtonClickListener;
 import com.slamdunk.toolkit.screen.SlamScene;
+import com.slamdunk.toolkit.ui.ButtonClickListener;
 import com.slamdunk.wordarena.screens.home.components.ArenaSelector;
 import com.slamdunk.wordarena.screens.preeditor.PreEditorScreen;
 

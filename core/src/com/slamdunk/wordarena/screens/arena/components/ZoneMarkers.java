@@ -101,11 +101,12 @@ public class ZoneMarkers extends GroupEx {
         // Pour chaque joueur, remplit autant de carrés que de zones possédées
         // On prend d'abord le premier joueur, puis le neutre, puis le second joueur,
         // de façon à avoir une jolie barre
-        int lastMarkedSquare = fillZoneMarkers(0, matchManager.getPlayer(0).markerPack, pauseZoneMarkers);
+        // TODO Pas très dynamique : ne fonctionne pas avec plus de 2 joueurs ou si le joueur 1 n'est pas en indice 1 par ex
+        int lastMarkedSquare = fillZoneMarkers(0, matchManager.getPlayer(1).markerPack, pauseZoneMarkers);
 
         lastMarkedSquare = fillZoneMarkers(lastMarkedSquare, Assets.MARKER_PACK_NEUTRAL, pauseZoneMarkers);
 
-        lastMarkedSquare = fillZoneMarkers(lastMarkedSquare, matchManager.getPlayer(1).markerPack, pauseZoneMarkers);
+        fillZoneMarkers(lastMarkedSquare, matchManager.getPlayer(2).markerPack, pauseZoneMarkers);
     }
 
     /**

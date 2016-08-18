@@ -4,6 +4,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.slamdunk.toolkit.screen.overlays.UIOverlay;
 import com.slamdunk.wordarena.WordArenaGame;
+import com.slamdunk.wordarena.assets.Assets;
 
 /**
  * Created by Didier on 30/08/2015.
@@ -17,6 +18,6 @@ public class PreEditorUI2 extends UIOverlay {
 
     @Override
     protected void loadScenes() {
-        loadScene(new PreEditorScene());
+        loadScene(new PreEditorScene(), Assets.uiSkinDefault);
     }
 }

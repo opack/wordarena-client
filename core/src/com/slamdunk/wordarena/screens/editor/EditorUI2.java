@@ -6,17 +6,16 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.slamdunk.toolkit.ui.Overlap2DUtils;
-import com.slamdunk.wordarena.WordArenaGame;
 import com.slamdunk.wordarena.actors.ZoneActor;
-import com.slamdunk.wordarena.data.arena.zone.ZoneData;
+import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.enums.Letters;
 import com.slamdunk.wordarena.screens.SimpleButtonI18NScript;
 import com.slamdunk.wordarena.screens.arena.ArenaOverlay;
 import com.slamdunk.wordarena.screens.arena.ArenaUI2;
+import com.slamdunk.wordarena.screens.editor.components.ZoneSelectBox;
 import com.slamdunk.wordarena.screens.editor.tools.CellTypeTool;
 import com.slamdunk.wordarena.screens.editor.tools.EditorTool;
 import com.slamdunk.wordarena.screens.editor.tools.LetterTool;
@@ -25,18 +24,13 @@ import com.slamdunk.wordarena.screens.editor.tools.PowerTool;
 import com.slamdunk.wordarena.screens.editor.tools.WallTool;
 import com.slamdunk.wordarena.screens.editor.tools.ZoneTool;
 import com.uwsoft.editor.renderer.SceneLoader;
-import com.uwsoft.editor.renderer.actor.LabelItem;
 import com.uwsoft.editor.renderer.actor.SelectBoxItem;
 import com.uwsoft.editor.renderer.actor.TextBoxItem;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 
 public class EditorUI2 extends ArenaUI2 {
 	private EditorScreen screen;
-	private LabelItem lblName;
 
 	private Array<ZoneActor> zones;
 	private SelectBoxItem<ZoneActor> selZone;
@@ -50,39 +44,44 @@ public class EditorUI2 extends ArenaUI2 {
 		this.screen = screen;
 		
 		// Par défaut, on travaillera dans un Stage qui prend tout l'écran
-		createStage(new FitViewport(WordArenaGame.SCREEN_WIDTH, WordArenaGame.SCREEN_HEIGHT));
+		//DBG Inutile car déjà créé dans le super createStage(new FitViewport(WordArenaGame.SCREEN_WIDTH, WordArenaGame.SCREEN_HEIGHT));
 		
 		// Charge les éléments de la scène Overlap2D
 //DBG		loadScene();
 	}
+
+	@Override
+	protected void loadScenes() {
+		loadScene(new EditorScene(), Assets.uiSkinDefault);
+	}
 	
 	public void loadData(ArenaOverlay arena) {
 		// Change le nom de l'arène
-		lblName.setText(arena.getData().name);
+		setArenaName(arena.getData().name);
 		
 		// Charge les zones existantes
-		loadZonesFromArena(arena);
+		ZoneSelectBox selZone = getScene(EditorScene.NAME).findActor(ZoneSelectBox.NAME);
+		selZone.loadZonesFromArena(arena);
 	}
-	
-	private void loadZonesFromArena(ArenaOverlay arena) {
-		// Trie les zones existantes
-		List<String> sortedZones = new ArrayList<String>();
-		for (ZoneData zoneData : arena.getData().zones) {
-			sortedZones.add(zoneData.id);
-		}
-		Collections.sort(sortedZones);
-		
-		// Ajoute les zones à la liste
-		zones.clear();
-		zones.add(ZoneActor.NONE);
-		for (String zoneId : sortedZones) {
-			zones.add(arena.getZone(zoneId));
-		}
-		selZone.setItems(zones);
-	}
-	
-	@SuppressWarnings("rawtypes")
-	public void loadScene() {
+
+//	private void loadZonesFromArena(ArenaOverlay arena) {
+//		// Trie les zones existantes
+//		List<String> sortedZones = new ArrayList<String>();
+//		for (ZoneData zoneData : arena.getData().zones) {
+//			sortedZones.add(zoneData.id);
+//		}
+//		Collections.sort(sortedZones);
+//
+//		// Ajoute les zones à la liste
+//		zones.clear();
+//		zones.add(ZoneActor.NONE);
+//		for (String zoneId : sortedZones) {
+//			zones.add(arena.getZone(zoneId));
+//		}
+//		// DBG Utiliser le select Scene2D selZone.setItems(zones);
+//	}
+
+	//public void loadScene() {
 //DBG		toolsScripts = new HashMap<Class<? extends EditorTool>, SimpleButtonI18NScript>();
 //
 //		SceneLoader sceneLoader = new SceneLoader(Assets.overlap2dResourceManager);
@@ -122,7 +121,7 @@ public class EditorUI2 extends ArenaUI2 {
 //
 //		// Bouton Create wall
 //		loadToolWall(sceneLoader);
-	}
+	//}
 	
 	@SuppressWarnings("rawtypes")
 	private void setSelectToolScript(SceneLoader sceneLoader, String buttonId, final Class<? extends EditorTool> toolClass) {
@@ -311,7 +310,7 @@ public class EditorUI2 extends ArenaUI2 {
 				toolScript.getValue().setToggle(false);
 			}
 		}
-		
+
 		// Sélectionne l'outil
 		screen.setCurrentTool(toolClass);
 	}

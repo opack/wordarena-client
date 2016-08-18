@@ -3,7 +3,6 @@ package com.slamdunk.toolkit.screen;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.slamdunk.toolkit.screen.SlamScreen;
 import com.slamdunk.toolkit.screen.overlays.SlamOverlay;
 
 /**
@@ -35,7 +34,7 @@ public abstract class SlamScene extends Group {
      */
     public void doLayout() {
         // Par défaut, rien à faire
-    };
+    }
 
     public SlamOverlay getOverlay() {
         return overlay;
