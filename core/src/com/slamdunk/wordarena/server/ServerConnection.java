@@ -2,6 +2,7 @@ package com.slamdunk.wordarena.server;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Net.Protocol;
+import com.badlogic.gdx.net.HttpRequestBuilder;
 import com.badlogic.gdx.net.Socket;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
