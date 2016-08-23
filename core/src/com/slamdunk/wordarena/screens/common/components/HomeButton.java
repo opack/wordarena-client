@@ -1,4 +1,4 @@
-package com.slamdunk.wordarena.screens.arena.components;
+package com.slamdunk.wordarena.screens.common.components;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;

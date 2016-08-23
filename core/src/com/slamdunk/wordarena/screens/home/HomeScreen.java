@@ -7,6 +7,7 @@ import com.slamdunk.wordarena.WordArenaGame;
 import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.PlayerKind;
 import com.slamdunk.wordarena.screens.arena.ArenaScreen;
+import com.slamdunk.wordarena.screens.options.OptionsScreen;
 import com.slamdunk.wordarena.screens.preeditor.PreEditorScreen;
 
 import java.util.ArrayList;
@@ -79,5 +80,9 @@ public class HomeScreen extends SlamScreen {
 	
 	public void launchEditor() {
 		getGame().setScreen(PreEditorScreen.NAME);
+	}
+
+	public void launchOptions() {
+		getGame().setScreen(OptionsScreen.NAME);
 	}
 }

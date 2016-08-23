@@ -6,7 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.slamdunk.wordarena.enums.GameStates;
 import com.slamdunk.wordarena.screens.arena.MatchManager;
 import com.slamdunk.wordarena.screens.arena.components.GameWinnerLabel;
-import com.slamdunk.wordarena.screens.arena.components.HomeButton;
+import com.slamdunk.wordarena.screens.common.components.HomeButton;
 import com.slamdunk.wordarena.screens.arena.components.RetryButton;
 
 public class ArenaGameOverScene extends ArenaScene {

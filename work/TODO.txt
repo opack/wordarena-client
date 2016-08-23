@@ -1,3 +1,5 @@
+[ ] MOD : Partie - RUNNING : quand une zone est perdue et que les cellules de la zone sont retirées, retirer aussi les cellules orphelines (càd
+celles qui ne sont connectées à aucune autre cellule possédée)
 [ ] MOD : Accueil - Présenter la liste des parties en cours en mélangeant les types de partie plutôt qu'en faisant plusieurs sections
 	- Prévoir un symbole pour le type de la partie :
 		- Carrière : 
@@ -22,6 +24,7 @@
 [ ] ADD : Options - Ajouter un paramétrage pour qu'un joueur choisisse son marqueur de possession.
 	- Dans les options, c'est le choix par défaut. Au démarrage d'une partie, il choisit un marqueur parmi ceux qu'il possède.
 	- Le joueur qui arrive dans une partie doit choisir un marqueur différent de ceux des autres joueurs.
+[ ] ADD : Options : Persister les modifications dans le téléphone (ex : server ip) ou sur le serveur
 [ ] DEV : Tester le passage d'une partie en cours à une autre et vérifier que tous les éléments en cours sont sauvegardés :
 	- Carrés de possession de zones
 	- Joueur, round, coup courants

@@ -16,7 +16,7 @@ import com.slamdunk.wordarena.data.game.PlayerData;
 import com.slamdunk.wordarena.enums.CellTypes;
 import com.slamdunk.wordarena.enums.Letters;
 import com.slamdunk.wordarena.screens.arena.components.ArenaNameLabel;
-import com.slamdunk.wordarena.screens.arena.components.HomeButton;
+import com.slamdunk.wordarena.screens.common.components.HomeButton;
 import com.slamdunk.wordarena.screens.editor.components.CellTypeToolButton;
 import com.slamdunk.wordarena.screens.editor.components.CreateZoneButton;
 import com.slamdunk.wordarena.screens.editor.components.LetterSelectBox;
@@ -41,9 +41,6 @@ import com.slamdunk.wordarena.screens.editor.tools.ZoneTool;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Didier on 05/09/2015.
- */
 public class EditorScene extends SlamScene {
     public static final String NAME = EditorScene.class.getName();
 

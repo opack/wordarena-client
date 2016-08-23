@@ -6,7 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.slamdunk.wordarena.enums.GameStates;
 import com.slamdunk.wordarena.screens.arena.MatchManager;
 import com.slamdunk.wordarena.screens.arena.components.ArenaNameLabel;
-import com.slamdunk.wordarena.screens.arena.components.HomeButton;
+import com.slamdunk.wordarena.screens.common.components.HomeButton;
 import com.slamdunk.wordarena.screens.arena.components.ResumeButton;
 import com.slamdunk.wordarena.screens.arena.components.StatsTable;
 

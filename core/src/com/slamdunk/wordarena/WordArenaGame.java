@@ -8,6 +8,7 @@ import com.slamdunk.wordarena.assets.Assets;
 import com.slamdunk.wordarena.screens.arena.ArenaScreen;
 import com.slamdunk.wordarena.screens.editor.EditorScreen;
 import com.slamdunk.wordarena.screens.home.HomeScreen;
+import com.slamdunk.wordarena.screens.options.OptionsScreen;
 import com.slamdunk.wordarena.screens.preeditor.PreEditorScreen;
 
 public class WordArenaGame extends SlamGame {
@@ -43,6 +44,7 @@ public class WordArenaGame extends SlamGame {
 		// Crée les écrans
 		addScreen(new HomeScreen(this));
 		addScreen(new ArenaScreen(this));
+		addScreen(new OptionsScreen(this));
 		addScreen(new PreEditorScreen(this));
 		addScreen(new EditorScreen(this));
 		
