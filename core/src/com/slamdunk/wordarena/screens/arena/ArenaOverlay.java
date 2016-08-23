@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.SnapshotArray;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.slamdunk.toolkit.lang.KeyListMap;
 import com.slamdunk.toolkit.screen.overlays.WorldOverlay;
@@ -26,6 +27,7 @@ import com.slamdunk.wordarena.enums.CellStates;
 import com.slamdunk.wordarena.screens.arena.celleffects.CellEffectsManager;
 import com.slamdunk.wordarena.screens.editor.EditorScreen;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -297,8 +299,8 @@ public class ArenaOverlay extends WorldOverlay {
 
 	protected void centerArena() {
 		arenaGroup.updateBounds();
-		arenaGroup.setX(Math.max(0, (int)((WordArenaGame.SCREEN_WIDTH - arenaGroup.getWidth()) / 2)));
-		arenaGroup.setY(Math.max(0, (int)((672 - arenaGroup.getHeight()) / 2)));
+		arenaGroup.setX(Math.max(0, (int) ((WordArenaGame.SCREEN_WIDTH - arenaGroup.getWidth()) / 2)));
+		arenaGroup.setY(Math.max(0, (int) ((672 - arenaGroup.getHeight()) / 2)));
 	}
 
 	/**
@@ -334,6 +336,82 @@ public class ArenaOverlay extends WorldOverlay {
 	}
 
 	/**
+	 * Recherche les cellules isolées et les "libère" de la possession du joueur.
+	 * Une cellule est isolée si elle n'a aucun moyen d'aller vers une zone contrôlée par ce joueur
+	 * en passant par des cellules voisines possédées par ce joueur.
+	 * Une cellule libérée n'appartient à aucun joueur. Une fois cette libération effectuée, les
+	 * possessions de zone sont mises à jour.
+	 * Après cela, une nouvelle recherche de cellules isolées a lieu, puis une nouvelle mise à jour
+	 * des possessions de zone etc. On recommence jusqu'à ce qu'aucune cellule ne soit isolée.
+	 * @param player
+	 */
+	public void freeIsolatedCells(PlayerData player) {
+		// Pour chaque cellules étant dans une zone contrôlée par player, marquer toutes les
+		// cellules voisines possédées par palyer comme étant valides, et à chaque cellule marquée
+		// propager la marque à ses voisines.
+		Set<CellActor> ownedCellsInControledZones = new HashSet<CellActor>();
+		for (ZoneActor zone : zones.values()) {
+			if (zone.getData().ownerPlace == player.place) {
+				for (CellActor cell : zone.getCells()) {
+					if (addCellIfOwned(cell, player.place, ownedCellsInControledZones)) {
+						addNeighborCellsIfOwned(cell, player.place, ownedCellsInControledZones);
+					}
+				}
+			}
+		}
+
+		// Parcourir toutes les cellules possédées par player et supprimer toutes celles qui n'ont
+		// pas été marquées.
+		List<CellActor> lostCells = new ArrayList<CellActor>();
+		CellActor curCell;
+		for (int y = 0; y < data.height; y ++) {
+			for (int x = 0; x < data.width; x ++) {
+				curCell = cells[x][y];
+				if (curCell.getData().ownerPlace == player.place
+				&& curCell.getData().state == CellStates.OWNED
+				&& !ownedCellsInControledZones.contains(curCell)) {
+					lostCells.add(curCell);
+				}
+			}
+		}
+
+		if (!lostCells.isEmpty()) {
+			// Mettre à jour les possessions de zone
+			setCellsOwner(lostCells, PlayerData.NEUTRAL);
+
+			// Libérer les éventuelles nouvelles cellules isolées
+			freeIsolatedCells(player);
+		}
+	}
+
+	/**
+	 *
+	 * @param cell
+	 * @param playerPlace
+	 * @param bag
+	 * @return true si la cellule a été ajoutée (ce qui implique qu'elle est owned et qu'elle n'était
+	 * pas déjà dans le bag)
+	 */
+	private boolean addCellIfOwned(CellActor cell, int playerPlace, Set<CellActor> bag) {
+		if (cell.getData().state == CellStates.OWNED
+		&& cell.getData().ownerPlace == playerPlace) {
+			return bag.add(cell);
+		}
+		return false;
+	}
+
+	private void addNeighborCellsIfOwned(CellActor cell, int playerPlace, Set<CellActor> bag) {
+		List<CellActor> neighbors = new ArrayList<CellActor>();
+		getNeighbors8(cell, neighbors);
+
+		for (CellActor neighbor : neighbors) {
+			if (addCellIfOwned(cell, playerPlace, bag)) {
+				addNeighborCellsIfOwned(neighbor, playerPlace, bag);
+			}
+		}
+	}
+
+	/**
 	 * Affiche ou masque l'arène
 	 * @param visible
 	 */
@@ -343,7 +421,7 @@ public class ArenaOverlay extends WorldOverlay {
 	
 	/**
 	 * Affiche ou masque le lettres
-	 * @param visible
+	 * @param show
 	 */
 	public void showLetters(boolean show) {
 		for (int y = 0; y < data.height; y++) {

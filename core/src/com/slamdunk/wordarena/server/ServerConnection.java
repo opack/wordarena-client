@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Net.Protocol;
 import com.badlogic.gdx.net.HttpRequestBuilder;
 import com.badlogic.gdx.net.Socket;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 import com.slamdunk.wordarena.WordArenaGame;
@@ -58,8 +59,15 @@ public class ServerConnection {
 				// Ouvre une connexion vers le serveur
 				String serverAddress = Assets.appProperties.getProperty("server.address", "");
 				int serverPort = Assets.appProperties.getIntegerProperty("server.port", 1601);
-				Socket socket = Gdx.net.newClientSocket(Protocol.TCP, serverAddress, serverPort, null);
-				
+				Socket socket = null;
+
+				try {
+					socket = Gdx.net.newClientSocket(Protocol.TCP, serverAddress, serverPort, null);
+				} catch (GdxRuntimeException e) {
+					Gdx.app.log(WordArenaGame.LOG_TAG, "ERROR : Server could not be reached on " + serverAddress + ":" + serverPort + " : " + e.getMessage());
+					throw new CallServerException(e);
+				}
+
 				try {
 					// Envoie la requête au serveur
 					PrintWriter writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "UTF-8"));

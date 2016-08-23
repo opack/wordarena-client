@@ -373,6 +373,11 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		
 		// Toutes les cellules passent sous la domination du joueur
 		arena.setCellsOwner(processedCells, player);
+
+		// Détection et libération des cellules isolées
+		for (PlayerData curPlayer : cinematic.getPlayers()) {
+			arena.freeIsolatedCells(curPlayer);
+		}
 		
 		// Le score du joueur est modifié
 		ScoreHelper.onValidWord(player, processedCells);
