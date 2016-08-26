@@ -35,6 +35,9 @@ public class AnimationDrawer {
 	 * Indique si l'animation est terminée
 	 */
 	public boolean isAnimationFinished() {
+		if (animation == null) {
+			return true;
+		}
 		return animation.isAnimationFinished(stateTime);
 	}
 	
@@ -66,7 +69,7 @@ public class AnimationDrawer {
 	/**
 	 * Définit si l'animation boucle. Effectif uniquement
 	 * si l'animation est définie et active.
-	 * @param isAnimationLooping
+	 * @param isLooping
 	 */
 	public void setLooping(boolean isLooping) {
 		this.isLooping = isLooping;
@@ -114,8 +117,7 @@ public class AnimationDrawer {
 	 * Dessine l'animation dans le drawBatch indiqué, à la position
 	 * de l'acteur
 	 * @param actor
-	 * @param drawBatch
-	 * @param centerOnActor true s'il faut centrer l'animation sur l'acteur
+	 * @param batch
 	 */
 	public void draw(Actor actor, Batch batch) {
 		// Dessine l'animation, uniquement si elle est active et non nulle

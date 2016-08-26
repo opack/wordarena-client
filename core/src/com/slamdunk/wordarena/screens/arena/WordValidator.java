@@ -66,10 +66,6 @@ public class WordValidator {
 	 * @return true si le mot est valide
 	 */
 	public void validate(final String word, final int playerPlace) {
-		// DBG
-		listener.onWordValidated(word);
-		// DBG
-/*
 		// Vérifie si le mot a déjà été joué
 		if (isAlreadyPlayed(word)) {
 			listener.onWordAlreadyPlayed(word);
@@ -102,7 +98,7 @@ public class WordValidator {
 					listener.onWordValidationFailed(word);
 				}
 			});
-		}*/
+		}
 	}
 
 	/**

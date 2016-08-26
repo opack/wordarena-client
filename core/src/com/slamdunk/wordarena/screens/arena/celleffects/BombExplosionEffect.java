@@ -70,8 +70,6 @@ public class BombExplosionEffect extends DefaultCellEffect {
 	 * possédés par un autre joueur
 	 * @param bomb
 	 * @param player
-	 * @param trackChainReaction Si true, les bombes voisines sont stockées dans une
-	 * liste pour pouvoir les faire exploser par la suite.
 	 */
 	private void explode(CellActor bomb, PlayerData player) {
 		// Récupère les voisins

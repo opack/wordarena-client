@@ -73,7 +73,7 @@ public class Assets {
 
 		// Charge les animations diverses
 		final float frameDuration = appProperties.getFloatProperty("anim.frameDuration", 0.125f);
-		explosionAnim = atlas.findAnimation("explosion", frameDuration, true);
+		explosionAnim = atlas.findAnimation("misc/explosion", frameDuration, true);
 		breakGlassAnim = explosionAnim; // TODO Faire une explosion de verre
 	}
 
