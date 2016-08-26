@@ -44,7 +44,7 @@ public class ZoneActor extends Group {
 	private MarkerPack markerPack;
 	
 	public ZoneActor(MatchManager matchManager, ZoneData data) {
-		this.matchManager = matchManager;
+		this.setMatchManager(matchManager);
 		this.data = data;
 		
 		cells = new HashMap<Point, CellActor>();
@@ -61,7 +61,11 @@ public class ZoneActor extends Group {
 	public ZoneActor(MatchManager matchManager, String id) {
 		this(matchManager, new ZoneData(id));
 	}
-	
+
+	public void setMatchManager(MatchManager matchManager) {
+		this.matchManager = matchManager;
+	}
+
 	public Collection<CellActor> getCells() {
 		return cells.values();
 	}
@@ -149,27 +153,29 @@ public class ZoneActor extends Group {
 	 * @param newOwnerPlace
 	 */
 	private void setOwner(int newOwnerPlace) {
-		if (newOwnerPlace == data.ownerPlace) {
+		final boolean isNewOwnerNeutral = PlayerData.isNeutral(newOwnerPlace);
+		if (newOwnerPlace == data.ownerPlace
+		&& !isNewOwnerNeutral) {
 			return;
 		}
-		
+
 		// Changement de l'owner
 		int oldOwnerPlace = data.ownerPlace;
 		data.ownerPlace = newOwnerPlace;
 		
 		// Le joueur prend les cellules de la zone
-		final boolean isNewOwnerNeutral = PlayerData.isNeutral(newOwnerPlace);
 		CellData cellData;
+		PlayerData newOwner = matchManager.getPlayer(newOwnerPlace);
 		for (CellActor cell : cells.values()) {
 			cellData = cell.getData();
-			
+
 			// Si la cellule était contrôlée, alors elle passe sous le contrôle du nouvel owner
 			if (cellData.state == CellStates.CONTROLED
 			// Si la zone ne devient pas neutre et que la cellule était possédée par un autre joueur,
 			// alors il est expulsé de la zone et la cellule passe sous le contrôle du nouveau joueur
 			|| (!isNewOwnerNeutral
-				&& cellData.ownerPlace != newOwnerPlace) ) {
-				cell.setOwner(matchManager.getPlayer(newOwnerPlace), CellStates.CONTROLED);
+				&& cellData.ownerPlace != newOwnerPlace)) {
+				cell.setOwner(newOwner, CellStates.CONTROLED);
 			}
 			
 			// Met à jour l'image
@@ -194,34 +200,39 @@ public class ZoneActor extends Group {
 	 * des cellules
 	 */
 	public void updateOwner() {
-		// Zone none ? Personne ne peut la posséder
+		Integer newOwner;
+
+		// Zone none ? Personne ne peut la posséder : elle appartiendra à NEUTRAL
 		if (this == NONE) {
-			return;
+			newOwner = PlayerData.NEUTRAL.place;
 		}
-				
-		MaxValueFinder<Integer> occupations = new MaxValueFinder<Integer>();
-		occupations.setIgnoredValue(PlayerData.NEUTRAL.place);
-		occupations.setValueIfDraw(PlayerData.NEUTRAL.place);
-		
-		// Compte le nombre de cellules occupées par chaque joueur
-		CellData cellData;
-		for (CellActor cell : cells.values()) {
-			cellData = cell.getData();
-			
-			// Si la cellule est sélectionnée, alors on fait comme si elle
-			// appartenait au joueur courant
-			if (cellData.selected == true) {
-				occupations.addValue(matchManager.getCinematic().getCurrentPlayer().place, cellData.power);
+
+		// Compte le nombre de cellules de chaque joueur pour voir qui la possède
+		else {
+			MaxValueFinder<Integer> occupations = new MaxValueFinder<Integer>();
+			occupations.setIgnoredValue(PlayerData.NEUTRAL.place);
+			occupations.setValueIfDraw(PlayerData.NEUTRAL.place);
+
+			// Compte le nombre de cellules occupées par chaque joueur
+			CellData cellData;
+			for (CellActor cell : cells.values()) {
+				cellData = cell.getData();
+
+				// Si la cellule est sélectionnée, alors on fait comme si elle
+				// appartenait au joueur courant
+				if (cellData.selected) {
+					occupations.addValue(matchManager.getCinematic().getCurrentPlayer().place, cellData.power);
+				}
+				// Sinon on ajoute la puissance de la cellule à celle de ce joueur
+				// à qui elle appartient réellement
+				else if (cellData.state == CellStates.OWNED) {
+					occupations.addValue(cellData.ownerPlace, cellData.power);
+				}
 			}
-			// Sinon on ajoute la puissance de la cellule à celle de ce joueur
-			// à qui elle appartient réellement
-			else if (cellData.state == CellStates.OWNED) {
-				occupations.addValue(cellData.ownerPlace, cellData.power);
-			}
+
+			// Détermine qui occupe le plus de cellules
+			newOwner = occupations.getMaxValue();
 		}
-		
-		// Détermine qui occupe le plus de cellules
-		Integer newOwner = occupations.getMaxValue();
 		
 		// Change le propriétaire de la zone
 		setOwner(newOwner);

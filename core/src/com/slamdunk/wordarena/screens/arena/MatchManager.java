@@ -12,7 +12,9 @@ import com.slamdunk.wordarena.screens.arena.WordValidator.WordValidationListener
 import com.slamdunk.wordarena.screens.arena.celleffects.CellEffectsApplicationFinishedListener;
 import com.slamdunk.wordarena.screens.arena.celleffects.CellEffectsManager;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Gère la partie
@@ -375,9 +377,13 @@ public class MatchManager implements GameCinematicListener, CellEffectsApplicati
 		arena.setCellsOwner(processedCells, player);
 
 		// Détection et libération des cellules isolées
+		Set<CellActor> isolatedCells = new HashSet<CellActor>();
 		for (PlayerData curPlayer : cinematic.getPlayers()) {
-			arena.freeIsolatedCells(curPlayer);
+			if (curPlayer.place != PlayerData.NEUTRAL.place) {
+				arena.findIsolatedCellsOfPlayer(curPlayer.place, isolatedCells);
+			}
 		}
+		arena.setCellsOwner(isolatedCells, PlayerData.NEUTRAL);
 		
 		// Le score du joueur est modifié
 		ScoreHelper.onValidWord(player, processedCells);
